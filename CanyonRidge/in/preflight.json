@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "parcels",
+    "label": "Ada County Assessor Parcels (AdaCountyGIS)",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Parcels/FeatureServer/5/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "City of Boise",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "City of Meridian",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "Ada County",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "City of Kuna",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "City of Eagle",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "City of Garden City",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  },
+  {
+    "kind": "zoning",
+    "label": "City of Star",
+    "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+    "verdict": "reachable",
+    "detail": "HTTP 200"
+  }
+]

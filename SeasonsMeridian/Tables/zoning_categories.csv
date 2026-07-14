@@ -1,0 +1,127 @@
+Category,Jurisdiction,Base Zone,MF Threat (if vacant),Color
+Agricultural / Rural,City of Boise,A-1,Low,#9C8A57
+Agricultural / Rural,City of Boise,A-2,Low,#9C8A57
+Industrial / Business Park,City of Boise,I-1,Low,#525252
+Industrial / Business Park,City of Boise,I-2,Low,#525252
+Industrial / Business Park,City of Boise,I-3,Low,#525252
+Mixed Use,City of Boise,MX-1,High,#FF8C42
+Mixed Use,City of Boise,MX-2,High,#FF8C42
+Mixed Use,City of Boise,MX-3,High,#FF8C42
+Mixed Use,City of Boise,MX-4,High,#FF8C42
+Mixed Use,City of Boise,MX-5,High,#FF8C42
+Mixed Use,City of Boise,MX-H,High,#FF8C42
+Mixed Use,City of Boise,MX-U,High,#FF8C42
+Multifamily Residential,City of Boise,R-3,High,#D62728
+Planned / Overlay,City of Boise,SP-01,Unknown,#B399D4
+Planned / Overlay,City of Boise,SP-02,Unknown,#B399D4
+Planned / Overlay,City of Boise,SP-03,Unknown,#B399D4
+Planned / Overlay,City of Boise,SP-04,Unknown,#B399D4
+Single-Family Residential,City of Boise,R-1A,Low,#FFF6B3
+Single-Family Residential,City of Boise,R-1B,Low,#FFF6B3
+Single-Family Residential,City of Boise,R-1C,Low,#FFF6B3
+Two-Family / Low-Density Residential,City of Boise,R-2,Medium,#FCDE9C
+Commercial,City of Meridian,C-C,Medium,#1F77B4
+Commercial,City of Meridian,C-G,Medium,#1F77B4
+Commercial,City of Meridian,C-N,Low,#1F77B4
+Industrial / Business Park,City of Meridian,H-E,Low,#525252
+Industrial / Business Park,City of Meridian,I-L,Low,#525252
+Industrial / Business Park,City of Meridian,M-E,Low,#525252
+Mixed Use,City of Meridian,O-T,High,#FF8C42
+Mixed Use,City of Meridian,TN-C,High,#FF8C42
+Multifamily Residential,City of Meridian,R-15,High,#D62728
+Multifamily Residential,City of Meridian,R-40,High,#D62728
+Office,City of Meridian,L-O,Low,#9467BD
+Single-Family Residential,City of Meridian,R-2,Low,#FFF6B3
+Single-Family Residential,City of Meridian,R-4,Low,#FFF6B3
+Townhouse / Med-Density Residential,City of Meridian,R-8,Medium,#FDBF6F
+Townhouse / Med-Density Residential,City of Meridian,TN-R,Medium,#FDBF6F
+Agricultural / Rural,Ada County,RP,Low,#9C8A57
+Agricultural / Rural,Ada County,RR,Low,#9C8A57
+Agricultural / Rural,Ada County,RUT,Low,#9C8A57
+Commercial,Ada County,C1,Low,#1F77B4
+Commercial,Ada County,C2,Low,#1F77B4
+Industrial / Business Park,Ada County,M1,Low,#525252
+Industrial / Business Park,Ada County,M2,Low,#525252
+Industrial / Business Park,Ada County,M3,Low,#525252
+Manufactured Home,Ada County,R1M,Low,#E5C8A0
+Multifamily Residential,Ada County,R12,High,#D62728
+Multifamily Residential,Ada County,R20,High,#D62728
+Office,Ada County,LO,Low,#9467BD
+Planned / Overlay,Ada County,PC,Unknown,#B399D4
+Single-Family Residential,Ada County,R1,Low,#FFF6B3
+Single-Family Residential,Ada County,R2,Low,#FFF6B3
+Single-Family Residential,Ada County,R4,Low,#FFF6B3
+Single-Family Residential,Ada County,RSW,Low,#FFF6B3
+Townhouse / Med-Density Residential,Ada County,R8,Medium,#FDBF6F
+Two-Family / Low-Density Residential,Ada County,R6,Low,#FCDE9C
+Agricultural / Rural,City of Kuna,A,Low,#9C8A57
+Commercial,City of Kuna,C-1,Low,#1F77B4
+Commercial,City of Kuna,C-2,Low,#1F77B4
+Commercial,City of Kuna,C-3,Low,#1F77B4
+Industrial / Business Park,City of Kuna,M-1,Low,#525252
+Industrial / Business Park,City of Kuna,M-2,Low,#525252
+Mixed Use,City of Kuna,CBD,Medium,#FF8C42
+Multifamily Residential,City of Kuna,R-16,High,#D62728
+Multifamily Residential,City of Kuna,R-20,High,#D62728
+Office,City of Kuna,L-O,Low,#9467BD
+Park / Recreation,City of Kuna,P,Low,#2CA02C
+Planned / Overlay,City of Kuna,PUD,Unknown,#B399D4
+Single-Family Residential,City of Kuna,R-1,Low,#FFF6B3
+Single-Family Residential,City of Kuna,R-2,Low,#FFF6B3
+Single-Family Residential,City of Kuna,R-3,Low,#FFF6B3
+Single-Family Residential,City of Kuna,R-4,Low,#FFF6B3
+Single-Family Residential,City of Kuna,R-5,Low,#FFF6B3
+Townhouse / Med-Density Residential,City of Kuna,R-12,Medium,#FDBF6F
+Townhouse / Med-Density Residential,City of Kuna,R-8,Medium,#FDBF6F
+Two-Family / Low-Density Residential,City of Kuna,R-6,Low,#FCDE9C
+Agricultural / Rural,City of Eagle,A,Low,#9C8A57
+Agricultural / Rural,City of Eagle,A-R,Low,#9C8A57
+Agricultural / Rural,City of Eagle,R-E,Low,#9C8A57
+Commercial,City of Eagle,C-1,Low,#1F77B4
+Commercial,City of Eagle,C-2,Low,#1F77B4
+Commercial,City of Eagle,C-3,Low,#1F77B4
+Industrial / Business Park,City of Eagle,BP,Low,#525252
+Industrial / Business Park,City of Eagle,M-1,Low,#525252
+Institutional / Governmental,City of Eagle,PS,Low,#6BAED6
+Mixed Use,City of Eagle,CBD,Medium,#FF8C42
+Mixed Use,City of Eagle,MU,Medium,#FF8C42
+Multifamily Residential,City of Eagle,R-12,High,#D62728
+Multifamily Residential,City of Eagle,R-15,High,#D62728
+Office,City of Eagle,L-O,Low,#9467BD
+Planned / Overlay,City of Eagle,APD,Unknown,#B399D4
+Single-Family Residential,City of Eagle,R-1,Low,#FFF6B3
+Single-Family Residential,City of Eagle,R-2,Low,#FFF6B3
+Single-Family Residential,City of Eagle,R-3,Low,#FFF6B3
+Single-Family Residential,City of Eagle,R-4,Low,#FFF6B3
+Single-Family Residential,City of Eagle,R-5,Low,#FFF6B3
+Townhouse / Med-Density Residential,City of Eagle,R-10,Medium,#FDBF6F
+Townhouse / Med-Density Residential,City of Eagle,R-9,Medium,#FDBF6F
+Two-Family / Low-Density Residential,City of Eagle,R-6,Low,#FCDE9C
+Commercial,City of Garden City,C-1,Low,#1F77B4
+Commercial,City of Garden City,C-2,Low,#1F77B4
+Industrial / Business Park,City of Garden City,LI,Low,#525252
+Industrial / Business Park,City of Garden City,M,Low,#525252
+Multifamily Residential,City of Garden City,R-20,High,#D62728
+Multifamily Residential,City of Garden City,R-3,High,#D62728
+Planned / Overlay,City of Garden City,SAP -01,Unknown,#B399D4
+Single-Family Residential,City of Garden City,R-1A,Low,#FFF6B3
+Two-Family / Low-Density Residential,City of Garden City,R-2,Low,#FCDE9C
+Agricultural / Rural,City of Star,R-R,Low,#9C8A57
+Agricultural / Rural,City of Star,RT,Low,#9C8A57
+Commercial,City of Star,C-1,Low,#1F77B4
+Commercial,City of Star,C-2,Low,#1F77B4
+Industrial / Business Park,City of Star,LI,Low,#525252
+Mixed Use,City of Star,CBD,Medium,#FF8C42
+Mixed Use,City of Star,MU,Medium,#FF8C42
+Multifamily Residential,City of Star,R-13,High,#D62728
+Multifamily Residential,City of Star,R-14,High,#D62728
+Office,City of Star,L-O,Low,#9467BD
+Single-Family Residential,City of Star,R-1,Low,#FFF6B3
+Single-Family Residential,City of Star,R-2,Low,#FFF6B3
+Single-Family Residential,City of Star,R-3,Low,#FFF6B3
+Single-Family Residential,City of Star,R-4,Low,#FFF6B3
+Single-Family Residential,City of Star,R-5,Low,#FFF6B3
+Townhouse / Med-Density Residential,City of Star,R-10,Medium,#FDBF6F
+Townhouse / Med-Density Residential,City of Star,R-8,Medium,#FDBF6F
+Two-Family / Low-Density Residential,City of Star,R-7,Low,#FCDE9C
+No public zoning (data gap),(unzoned / no public GIS),(none),n/a - not assessable,#E3E3E3

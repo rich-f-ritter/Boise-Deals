@@ -1,0 +1,818 @@
+<title>Canyon Ridge vs Seasons — Developable Land</title>
+<style>
+:root{
+  --paper:#f3f5f7; --surface:#ffffff; --ink:#161b22; --muted:#5b6672; --hair:#dce1e7;
+  --cr:#40639e; --cr-soft:#40639e1a; --sm:#c0692a; --sm-soft:#c0692a1a; --brass:#957327;
+  --g:#2f7d57; --b:#2f6fb0; --a:#b7860f; --gray:#6e7a88; --red:#ab4630;
+  --shadow:0 1px 2px #0b153008,0 6px 20px #0b153010;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0e141a; --surface:#161d26; --ink:#e7edf3; --muted:#93a0ae; --hair:#26313f;
+  --cr:#8aa9e6; --cr-soft:#8aa9e622; --sm:#e6a05a; --sm-soft:#e6a05a22; --brass:#c8a555;
+  --g:#4bb487; --b:#5b9ad8; --a:#d8ab48; --gray:#8c99a8; --red:#d9745c;
+  --shadow:0 1px 2px #0000004d,0 8px 30px #00000040;
+}}
+:root[data-theme="light"]{
+  --paper:#f3f5f7; --surface:#ffffff; --ink:#161b22; --muted:#5b6672; --hair:#dce1e7;
+  --cr:#40639e; --cr-soft:#40639e1a; --sm:#c0692a; --sm-soft:#c0692a1a; --brass:#957327;
+  --g:#2f7d57; --b:#2f6fb0; --a:#b7860f; --gray:#6e7a88; --red:#ab4630;
+}
+:root[data-theme="dark"]{
+  --paper:#0e141a; --surface:#161d26; --ink:#e7edf3; --muted:#93a0ae; --hair:#26313f;
+  --cr:#8aa9e6; --cr-soft:#8aa9e622; --sm:#e6a05a; --sm-soft:#e6a05a22; --brass:#c8a555;
+  --g:#4bb487; --b:#5b9ad8; --a:#d8ab48; --gray:#8c99a8; --red:#d9745c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Söhne",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(20px,4vw,56px) clamp(16px,4vw,40px)}
+.serif{font-family:Charter,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:600}
+h1{font-family:Charter,"Iowan Old Style",Palatino,Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5vw,50px);line-height:1.06;margin:.3em 0 .2em;text-wrap:balance;letter-spacing:-.01em}
+.standfirst{font-size:clamp(17px,2.2vw,21px);color:var(--ink);max-width:64ch;margin:.4em 0 0;line-height:1.45}
+.standfirst b{color:var(--sm)}
+.dateline{color:var(--muted);font-size:13px;margin-top:18px;border-top:1px solid var(--hair);padding-top:14px}
+h2{font-family:Charter,"Iowan Old Style",Palatino,Georgia,serif;font-size:clamp(22px,3vw,30px);
+  margin:2.4em 0 .1em;letter-spacing:-.01em}
+.sec-intro{color:var(--muted);max-width:70ch;margin:.2em 0 1.4em}
+section{border-top:1px solid var(--hair);margin-top:2.2em;padding-top:.6em}
+/* scorecard */
+.score{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.2em 0}
+@media(max-width:640px){.score{grid-template-columns:1fr}}
+.col{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.col::before{content:"";position:absolute;inset:0 auto 0 0;width:5px}
+.col.cr::before{background:var(--cr)}.col.sm::before{background:var(--sm)}
+.col h3{margin:.1em 0 .1em;font-size:19px;font-family:Charter,Palatino,Georgia,serif}
+.col.cr h3{color:var(--cr)}.col.sm h3{color:var(--sm)}
+.col .sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.stat{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-top:1px dotted var(--hair)}
+.stat .k{color:var(--muted);font-size:13.5px}
+.stat .v{font-weight:650;font-size:16px;font-variant-numeric:tabular-nums;text-align:right}
+.stat .v small{color:var(--muted);font-weight:500;font-size:12px}
+.hero-stat .v{font-size:22px}.col.cr .hero-stat .v{color:var(--cr)}.col.sm .hero-stat .v{color:var(--sm)}
+/* verdict callout */
+.callout{background:var(--sm-soft);border:1px solid var(--sm);border-radius:12px;padding:18px 22px;margin:1.4em 0;font-size:16px}
+.callout .big{font-family:Charter,Palatino,Georgia,serif;font-size:clamp(20px,3vw,26px);color:var(--sm);font-weight:700;display:block;margin-bottom:.2em}
+/* bar chart */
+.legend{display:flex;gap:18px;align-items:center;margin:.4em 0 1.1em;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.sw.cr{background:var(--cr)}.sw.sm{background:var(--sm)}
+.chart{display:flex;flex-direction:column;gap:12px;overflow-x:auto}
+.bar-row{display:grid;grid-template-columns:210px 1fr 1fr;gap:10px;align-items:center;min-width:560px}
+@media(max-width:640px){.bar-row{grid-template-columns:130px 1fr 1fr}}
+.bar-label{font-size:13px;color:var(--ink);text-align:right;line-height:1.2}
+.bar-track{position:relative;background:var(--hair);border-radius:5px;height:26px;overflow:hidden;display:flex;align-items:center}
+.bar{height:100%;border-radius:5px 0 0 5px;min-width:2px}
+.bar.cr{background:var(--cr)}.bar.sm{background:var(--sm)}
+.bar-val{position:absolute;right:8px;font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600;mix-blend-mode:normal}
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:1em 0 1.4em}
+.filt{border:1px solid var(--hair);background:var(--surface);color:var(--muted);border-radius:20px;
+  padding:6px 14px;font-size:13px;cursor:pointer;font-family:inherit;transition:.15s}
+.filt[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filt:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+/* dossier grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:18px 20px;
+  box-shadow:var(--shadow);border-left:4px solid var(--gray)}
+.card.cr{border-left-color:var(--cr)}.card.sm{border-left-color:var(--sm)}
+.card header{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.card h3{margin:.1em 0 .2em;font-size:16.5px;font-family:Charter,Palatino,Georgia,serif;line-height:1.25}
+.card .meta{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.4}
+.chip{font-size:11px;letter-spacing:.03em;padding:3px 9px;border-radius:20px;font-weight:600;text-transform:uppercase}
+.chip.subj.cr{background:var(--cr-soft);color:var(--cr)}.chip.subj.sm{background:var(--sm-soft);color:var(--sm)}
+.chip.status{color:#fff}
+.chip.status.approved{background:var(--g)}.chip.status.uc{background:var(--b)}
+.chip.status.proposed{background:var(--a)}.chip.status.built{background:var(--gray)}
+.chip.status.dormant{background:var(--gray);opacity:.75}.chip.status.denied{background:var(--red)}
+.dist{margin-left:auto;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+dl{margin:0;display:grid;grid-template-columns:88px 1fr;gap:5px 12px;font-size:13.5px}
+dt{color:var(--muted);font-weight:600}dd{margin:0}
+.src{margin-top:12px;padding-top:10px;border-top:1px dotted var(--hair);font-size:11.5px;color:var(--muted);word-break:break-word}
+.src a{color:var(--brass);text-decoration:none}.src a:hover{text-decoration:underline}
+.note{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:16px 20px;font-size:13.5px;color:var(--muted);margin-top:1.2em}
+.note b{color:var(--ink)}
+footer{margin-top:3em;padding-top:1.2em;border-top:1px solid var(--hair);color:var(--muted);font-size:12.5px}
+a.inline{color:var(--brass)}
+.hide{display:none!important}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Competitive Land-Use Intelligence · Treasure Valley, Idaho</div>
+  <h1 class="serif">Where the developable land is — and who controls it</h1>
+  <p class="standfirst">A parcel-level comparison of buildable land around two apartment communities:
+  <b style="color:var(--cr)">Canyon Ridge</b> (SE Boise, by the airport) and
+  <b>Seasons at Meridian</b>. Both sit inside a 5-mile radius; only one sits inside the region's
+  apartment-building machine.</p>
+  <div class="dateline">Prepared 14 July 2026 · 5.0-mi radius each · 28,026 + 92,773 parcels classified ·
+  Ada County Assessor + 7-jurisdiction zoning + adopted Future Land Use + per-site ownership research</div>
+</header>
+
+<div class="callout">
+  <span class="big">Seasons has ~7.9× the apartment-ready land — and it's already being built.</span>
+  Within 5 miles, <b>1,130 acres</b> of developable land near Seasons is zoned or planned for
+  multifamily, versus <b>143 acres</b> near Canyon Ridge. Within 2 miles the gap is starker
+  (309 vs 40 ac, ~7.8×). Canyon Ridge's larger <i>raw</i> vacant
+  acreage is Micron's fabs, the Boise Airport, city-owned industrial parks and rural rangeland — almost none of it
+  can legally or practically become competing apartments.
+</div>
+
+<section>
+<h2 class="serif">Scorecard</h2>
+<p class="sec-intro">"Developable" here means genuinely buildable vacant land — after removing HOA/common lots,
+detention & irrigation parcels, floodplain, road slivers, sub-1-acre lots and non-buildable open space.
+"Apartment-ready" = base zoning permits multifamily <i>or</i> the adopted comprehensive plan designates the
+parcel for multifamily.</p>
+<div class="score">
+  <div class="col cr">
+    <h3>Canyon Ridge</h3>
+    <div class="sub">2552 E Gowen Rd, SE Boise · inside the Airport Influence Area</div>
+    <div class="stat hero-stat"><span class="k">Apartment-ready developable land</span><span class="v">143 ac <small>/ 44 parcels</small></span></div>
+    <div class="stat"><span class="k">…within 2 miles</span><span class="v">40 ac <small>/ 9 parcels</small></span></div>
+    <div class="stat"><span class="k">Total developable vacant</span><span class="v">12,323 ac <small>/ 502 parcels</small></span></div>
+    <div class="stat"><span class="k">MF by-right (High) land</span><span class="v">102 ac</span></div>
+    <div class="stat"><span class="k">Owner-occupied homes</span><span class="v">16,705</span></div>
+    <div class="stat"><span class="k">Active residential/apartment pipeline</span><span class="v">Minimal</span></div>
+  </div>
+  <div class="col sm">
+    <h3>Seasons at Meridian</h3>
+    <div class="sub">2700 E Overland Rd, SE Meridian · no airport overlay</div>
+    <div class="stat hero-stat"><span class="k">Apartment-ready developable land</span><span class="v">1,130 ac <small>/ 228 parcels</small></span></div>
+    <div class="stat"><span class="k">…within 2 miles</span><span class="v">309 ac <small>/ 89 parcels</small></span></div>
+    <div class="stat"><span class="k">Total developable vacant</span><span class="v">3,901 ac <small>/ 891 parcels</small></span></div>
+    <div class="stat"><span class="k">MF by-right (High) land</span><span class="v">507 ac</span></div>
+    <div class="stat"><span class="k">Owner-occupied homes</span><span class="v">60,005</span></div>
+    <div class="stat"><span class="k">Active residential/apartment pipeline</span><span class="v">Heavy &amp; ongoing</span></div>
+  </div>
+</div>
+</section>
+
+<section>
+<h2 class="serif">Developable land, by what it can actually become</h2>
+<p class="sec-intro">Total acreage misleads. Sorting each area's developable vacant land by its comprehensive-plan
+intent shows the real difference: Seasons' supply is weighted toward multifamily and attached housing;
+Canyon Ridge's is weighted toward airport-restricted, industrial and rural land that cannot host apartments.</p>
+<div class="legend"><span><span class="sw cr"></span>Canyon Ridge</span><span><span class="sw sm"></span>Seasons at Meridian</span><span>· acres of developable vacant land</span></div>
+<div class="chart">
+<div class="bar-row">
+      <div class="bar-label">Planned for multifamily</div>
+      <div class="bar-track"><div class="bar cr" style="width:1.59%"></div><span class="bar-val">62 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:20.01%"></div><span class="bar-val">787 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Planned attached / medium-density</div>
+      <div class="bar-track"><div class="bar cr" style="width:1.86%"></div><span class="bar-val">73 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:17.61%"></div><span class="bar-val">693 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Single-family oriented</div>
+      <div class="bar-track"><div class="bar cr" style="width:10.6%"></div><span class="bar-val">417 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:15.67%"></div><span class="bar-val">617 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Master-plan (use TBD)</div>
+      <div class="bar-track"><div class="bar cr" style="width:18.32%"></div><span class="bar-val">721 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:7.68%"></div><span class="bar-val">302 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Development-ready (use TBD)</div>
+      <div class="bar-track"><div class="bar cr" style="width:4.91%"></div><span class="bar-val">193 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:0.0%"></div><span class="bar-val">0 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Commercial (MF only if mixed-use)</div>
+      <div class="bar-track"><div class="bar cr" style="width:1.67%"></div><span class="bar-val">66 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:6.99%"></div><span class="bar-val">275 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Industrial / employment</div>
+      <div class="bar-track"><div class="bar cr" style="width:87.16%"></div><span class="bar-val">3,430 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:11.82%"></div><span class="bar-val">465 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Airport — residential restricted</div>
+      <div class="bar-track"><div class="bar cr" style="width:60.5%"></div><span class="bar-val">2,381 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:0.0%"></div><span class="bar-val">0 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Rural / low-density</div>
+      <div class="bar-track"><div class="bar cr" style="width:100.0%"></div><span class="bar-val">3,935 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:1.56%"></div><span class="bar-val">62 ac</span></div>
+    </div>
+<div class="bar-row">
+      <div class="bar-label">Institutional / civic</div>
+      <div class="bar-track"><div class="bar cr" style="width:3.72%"></div><span class="bar-val">146 ac</span></div>
+      <div class="bar-track"><div class="bar sm" style="width:11.95%"></div><span class="bar-val">470 ac</span></div>
+    </div>
+</div>
+</section>
+
+<section>
+<h2 class="serif">Ownership &amp; development intent — every material site</h2>
+<p class="sec-intro">Who owns each developable site, since when, who they are, and what they plan. Idaho does not
+publish parcel owner names in the public GIS, so ownership and intent are researched per site from development
+applications, city staff reports, COMPASS filings, local reporting and the Idaho business registry — each card
+cites its sources. Filter by status:</p>
+<div class="filters" id="filters">
+  <button class="filt" data-f="all" aria-pressed="true">All 30 sites</button>
+  <button class="filt" data-f="CR" aria-pressed="false">Canyon Ridge (14)</button>
+  <button class="filt" data-f="SM" aria-pressed="false">Seasons (16)</button>
+  <button class="filt" data-f="approved" aria-pressed="false">Approved</button>
+  <button class="filt" data-f="uc" aria-pressed="false">Under construction</button>
+  <button class="filt" data-f="proposed" aria-pressed="false">Proposed</button>
+  <button class="filt" data-f="dormant" aria-pressed="false">Dormant</button>
+</div>
+
+<h3 class="serif" style="color:var(--cr);margin:.6em 0 .2em">Canyon Ridge — SE Boise</h3>
+<div class="grid" id="cr-grid">
+<article class="card cr" data-status="uc" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">0.17 mi from subject</span>
+    </header>
+    <h3>E Columbia Rd (Columbia Bench / East Columbia planning area), SE Boise</h3>
+    <div class="meta">1,305 ac · Boise:I-3, Boise:R-1C, Boise:R-2, County:C2, County:M3, County:RUT · FLU: Commercial; Industrial; Planned Community; Rural (county)</div>
+    <dl>
+      <dt>Owner</dt><dd>Primarily Micron Technology, Inc. (I-3 industrial parcels) and J.R. Simplot Company (large rangeland tracts), plus existing Columbia Bench homeowners and county ranch families. Individual parcel owners not published by Ada County GIS.</dd>
+      <dt>Type</dt><dd>National semiconductor manufacturer (Micron) + privately held agribusiness corporation/family (Simplot) + residential homeowners/ranch families</dd>
+      <dt>Owned since</dt><dd>Micron long-established on the Columbia bench (Boise since 1978); has annexed 1,140+ acres since 2022, including a new ~240-acre tract recommended for annexation in 2026. Simplot is a decades-long holder. Individual parcel dates/prices unknown.</dd>
+      <dt>Who they are</dt><dd>Micron = Fortune 500, Boise-HQ memory-chip maker building its $15B+ ID1/ID2 fabs on this bench. J.R. Simplot Co. = Boise-based, privately held agribusiness giant (Simplot family), among the region&#x27;s largest landholders. BoiseDev names Simplot and Micron as the two biggest developable-land owners in the ~6-sq-mi East Columbia area.</dd>
+      <dt>Intent</dt><dd>Micron actively expanding its industrial (I-3) campus east/south along Columbia Rd: second fab (ID2) with 600k-sf cleanroom plus substation and 40-ft berm on ~240 acres south of Columbia Rd (Boise P&amp;Z recommended approval July 2026). The city eyes remaining Simplot/ranch land (R-1C, R-2, &#x27;Planned Community&#x27; FLU) for up to ~20,000 future homes to house Micron workers, but residential buildout is STALLED: Boise fire code bars &gt;60 homes per road without a second access and no secondary road exists.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2026/01/28/southeast-boise-planning/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://www.spokesman.com/stories/2026/jul/07/microns-boise-footprint-grows-as-chipmaker-asks-ci/" target="_blank" rel="noopener">www.spokesman.com</a> · <a href="https://boisedev.com/news/2019/08/14/deep-dive-where-will-boise-grow-ownership-geography-affordability-drive-future-plans/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2026/04/10/no-more-housing-can-be-built-on-the-columbia-bench-without-a-second-road-due-to-fire-danger/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card cr" data-status="uc" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">0.74 mi from subject</span>
+    </header>
+    <h3>7563 S Eisenman Rd, Boise (Gowen Business Park / Eisenman industrial corridor, Gateway East URD)</h3>
+    <div class="meta">450 ac · Boise:I-1 · FLU: Industrial</div>
+    <dl>
+      <dt>Owner</dt><dd>Largely City of Boise (land acquired 2000 with former Union Pacific rail line), ground-leased to developers; private parcels include Boise&#x27;s Strider Group via Red River Investments. Names not published by Ada County.</dd>
+      <dt>Type</dt><dd>Government landowner (City of Boise) as ground lessor + national/regional industrial developers (Boyer Company, Flint Development) and local (Strider Group)</dd>
+      <dt>Owned since</dt><dd>City acquired the corridor + ~18 mi of UPRR track in 2000; Boyer master development agreement/ground lease March 2018; Red River sites assembled ~2021.</dd>
+      <dt>Who they are</dt><dd>Boyer Company = Salt Lake City industrial developer building Boise Gateway Industrial Park on 159 city-owned acres by WinCo DC. Flint Development = Kansas City industrial firm developing Red River Commerce Center at 7031 S Eisenman (~1.3M sf); underlying land owned by Boise&#x27;s Strider Group (Red River Investments LLC).</dd>
+      <dt>Intent</dt><dd>Core of the Eisenman industrial corridor within Gateway East. Multi-million-sf warehouse/distribution/manufacturing buildout: Boise Gateway (~633k sf), Red River Commerce/Logistics (~1.3M sf Class A). City also bought ~76 ac off Eisenman early 2024 (~$20M) for a water-recycling facility (paused). All industrial FLU (I-1); Airport Influence Area restricts residential.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2019/07/11/developer-to-start-work-on-industrial-park-on-land-owned-by-city-of-boise/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2021/10/06/red-river-logistics-boise/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://www.ccdcgateway.com/project/" target="_blank" rel="noopener">www.ccdcgateway.com</a></div>
+  </article>
+<article class="card cr" data-status="dormant" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">0.91 mi from subject</span>
+    </header>
+    <h3>4800 S Federal Way, Boise (Gateway East urban-renewal district)</h3>
+    <div class="meta">109 ac · Boise:A-1, Boise:I-1, Boise:I-2, Boise:MX-3 · FLU: Industrial</div>
+    <dl>
+      <dt>Owner</dt><dd>Not publicly identified (multiple parcels; Ada County does not publish owner names). Within CCDC&#x27;s Gateway East URD on Federal Way; some district land is City of Boise-owned.</dd>
+      <dt>Type</dt><dd>Undeveloped land-bank / industrial holdings, partly public (City of Boise)</dd>
+      <dt>Owned since</dt><dd>unknown</dd>
+      <dt>Who they are</dt><dd>Mostly vacant/agricultural parcels inside the Gateway East District (est. Jan 2019, ~3,254 acres, managed by CCDC), a city-led industrial-revitalization area SE of the airport; the City owns ~300 acres across the district.</dd>
+      <dt>Intent</dt><dd>FLU Industrial, zoned I-1/I-2 with MX-3 mixed-use on the Federal Way frontage (a designated mixed-use &#x27;Pathway Corridor&#x27;). No specific approved private project for this exact parcel; intended use industrial/warehouse/distribution with potential mixed-use along Federal Way.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.ccdcgateway.com/project/" target="_blank" rel="noopener">www.ccdcgateway.com</a> · <a href="https://ccdcboise.com/urban-renewal-districts/urban-renewal-district/" target="_blank" rel="noopener">ccdcboise.com</a></div>
+  </article>
+<article class="card cr" data-status="uc" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">0.97 mi from subject</span>
+    </header>
+    <h3>1062 E Exchange St, Boise (Gowen Business Park, SE edge of Boise Airport; Gateway East URD)</h3>
+    <div class="meta">596 ac · Boise:I-1, Boise:I-2 · FLU: Airport; Industrial</div>
+    <dl>
+      <dt>Owner</dt><dd>Mix of City of Boise / Boise Airport (parcels with &#x27;Airport&#x27; FLU) and private industrial owners; specific names not published by Ada County.</dd>
+      <dt>Type</dt><dd>Municipal airport/government landowner + private industrial users/developers</dd>
+      <dt>Owned since</dt><dd>unknown (airport land long-held; private lots platted decades ago as Gowen Business Park)</dd>
+      <dt>Who they are</dt><dd>Established Gowen Business Park industrial area on the airport&#x27;s SE flank — partly airport/city-owned, partly private. Nearby anchors: AZEK/CPG International&#x27;s ~50-ac, 347k-sf composite-decking plant at 1001 E Gowen; multi-tenant Gowen Business Center. Inside CCDC&#x27;s Gateway East URD.</dd>
+      <dt>Intent</dt><dd>Industrial + Airport FLU, zoned I-1/I-2. Ongoing infill/build-to-suit for light-industrial, manufacturing, warehouse/distribution and aviation-support; scattered vacant infill lots remain. Residential barred/limited by the Airport Influence Area overlay.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://ccdcboise.com/ccdc-projects/1001-e-gowen-azek-boise-manufacturing/" target="_blank" rel="noopener">ccdcboise.com</a> · <a href="https://www.ccdcgateway.com/project/" target="_blank" rel="noopener">www.ccdcgateway.com</a></div>
+  </article>
+<article class="card cr" data-status="uc" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">1.39 mi from subject</span>
+    </header>
+    <h3>S Supply Way, Boise (Boise Air Terminal / Gowen Field airport property and periphery)</h3>
+    <div class="meta">4,570 ac · Boise:A-1, Boise:A-2, Boise:I-1, County:RP · FLU: (no FLU); Airport; Industrial; Rural (county)</div>
+    <dl>
+      <dt>Owner</dt><dd>City of Boise — Boise Airport (Department of Aviation); airfield proper plus Idaho Army National Guard (Gowen Field) and adjacent state endowment land. Peripheral parcel owners not published by Ada County.</dd>
+      <dt>Type</dt><dd>Institution/government — municipal airport authority (joint civil/military use)</dd>
+      <dt>Owned since</dt><dd>City-owned airport, long-established (Gowen Field dates to the 1940s)</dd>
+      <dt>Who they are</dt><dd>Boise Airport (Boise Air Terminal/Gowen Field), ~5,000-ac joint-use field operated by City of Boise Dept of Aviation, co-located with the Idaho Army National Guard. Idaho Dept of Lands markets commercial ground leases on nearby state endowment land.</dd>
+      <dt>Intent</dt><dd>Primarily airport-operations hold with peripheral industrial ground leases. FLU Airport/Industrial/Rural (A-1, A-2, I-1, County RP). Airport rezoning/leasing fringe ag land for industrial — e.g., 75 ac near Gowen Rd approved 2022 for a 1.4M-sf park with Adler Industrial (Boise Airport Industrial Holdings LLC). New residential prohibited/restricted under the Airport Influence Area overlay.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2022/08/17/boise-airport-industrial/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2022/01/03/adler-boise-airport/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card cr" data-status="approved" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status approved">Approved</span>
+      <span class="dist">2.09 mi from subject</span>
+    </header>
+    <h3>5901 E Lake Forest Dr, Boise (far SE &#x27;East Columbia&#x27; bench, east of Micron / south of Gowen Rd)</h3>
+    <div class="meta">1,679 ac · Boise:A-1, County:RP, County:RUT · FLU: Planned Community; Rural (county)</div>
+    <dl>
+      <dt>Owner</dt><dd>Not a single owner (Ada County withholds owner names). The &#x27;East Columbia&#x27; developable bench is dominated by four names: J.R. Simplot Company, Micron Technology, Ball Ventures, and the Murgoitio family; the Rush Valley subdivision portion (6405 E Columbia Rd) is controlled by Conger Group and DevCo.</dd>
+      <dt>Type</dt><dd>Mixed — corporate agribusiness/land-bank (Simplot), semiconductor institution (Micron), Idaho investment/land-bank firm (Ball Ventures), longtime farmer-family (Murgoitio), and local developers (Conger Group, DevCo).</dd>
+      <dt>Owned since</dt><dd>Simplot and farm families long-held (decades); Micron acquiring/annexing adjacent bench land since 2022 (ongoing through 2026). Individual parcel dates/prices not disclosed.</dd>
+      <dt>Who they are</dt><dd>J.R. Simplot Co. = Boise agribusiness giant; Micron = Boise HQ memory-chip maker in multi-billion expansion; Ball Ventures = Idaho Falls investment/real-estate firm; Murgoitios = multigenerational Boise farming family; Conger Group (Jim Conger) and DevCo = Boise residential developers.</dd>
+      <dt>Intent</dt><dd>Boise FLU &#x27;Planned Community&#x27; (+ Rural); one of three far-SE strategic planning areas the city began studying Jan 2026 (&#x27;East Columbia&#x27;, east of Micron). Currently rural/farm (County RP/RUT + Boise A-1). A future planned residential community is envisioned but STALLED: owners must cooperate to fund a required secondary wildfire-evacuation road, and Simplot said it has &#x27;no immediate plans.&#x27; Approved Rush Valley subdivision (Conger/DevCo, 420 homes on ~110 ac) is capped near 158 lots until a second access road is built.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2026/01/28/southeast-boise-planning/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2026/04/10/no-more-housing-can-be-built-on-the-columbia-bench-without-a-second-road-due-to-fire-danger/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/project/rush-valley/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card cr" data-status="dormant" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">2.18 mi from subject</span>
+    </header>
+    <h3>S Federal Way, Boise (~338 ac, Boise I-1 + County M-3/RP industrial corridor south of Gowen Rd)</h3>
+    <div class="meta">338 ac · Boise:I-1, County:M3, County:RP · FLU: (no FLU); Industrial; Rural (county)</div>
+    <dl>
+      <dt>Owner</dt><dd>Not publicly identified. Industrial-reserve land in the airport/Gowen/Micron corridor; ownership institutional/large-holder — City of Boise (airport), Idaho Dept of Lands (state endowment), Micron, or industrial developers like Adler Industrial. Specific owner not confirmed.</dd>
+      <dt>Type</dt><dd>Institution/government or large industrial land-holder.</dd>
+      <dt>Owned since</dt><dd>Unknown.</dd>
+      <dt>Who they are</dt><dd>Candidate holders: City of Boise, Idaho Dept of Lands (endowment parcels leased for industrial), Micron (annexed 358 ac at 8000 S Federal Way in 2022), Adler Industrial (city-selected to build airport-area industrial parks).</dd>
+      <dt>Intent</dt><dd>FLU Industrial; zoning Boise I-1 + County M-3/RP — land reserved for industrial buildout in SE Boise&#x27;s principal industrial growth zone south of the airport and east of Micron. No confirmed named active project on this exact tract; reads as undeveloped industrial reserve.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2022/12/08/micron-annexation-approval/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://adler-industrial.com/2021/12/empty-desert-south-of-airport-is-boises-next-big-growth-hot-spot-heres-whats-coming/" target="_blank" rel="noopener">adler-industrial.com</a></div>
+  </article>
+<article class="card cr" data-status="built" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status built">Built / existing</span>
+      <span class="dist">2.35 mi from subject</span>
+    </header>
+    <h3>4747 E Warm Springs Ave, Boise (~68 ac riverside land, Barber Valley reach of the Boise River)</h3>
+    <div class="meta">68 ac · Boise:A-1, Boise:R-1C · FLU: Public / Quasi-Public; Suburban Residential</div>
+    <dl>
+      <dt>Owner</dt><dd>City of Boise (government). Best-fit is Marianne Williams Park — a ~72-ac city riverfront park in Barber Valley donated to the City in Nov 2005 by Larry Williams honoring his late wife Marianne. Size + Public/Quasi-Public FLU align; one Suburban-Residential/R-1C parcel in the cluster may be adjacent private ground.</dd>
+      <dt>Type</dt><dd>Government — City of Boise Parks &amp; Recreation (conservation/parkland), part of the &#x27;Ribbon of Jewels&#x27; riverside parks.</dd>
+      <dt>Owned since</dt><dd>City has owned the core parcel since the Nov 2005 Williams donation.</dd>
+      <dt>Who they are</dt><dd>City of Boise Parks &amp; Rec manages the site; philanthropist Larry Williams donated it to honor his wife; now a protected wetland/riparian natural area along the Boise River.</dd>
+      <dt>Intent</dt><dd>Public/Quasi-Public FLU; riverfront park and natural/wildlife area — conservation/open-space, NOT a development site. A smaller adjacent R-1C parcel could theoretically develop, but the controlling use is protected city parkland.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.cityofboise.org/departments/parks-and-recreation/parks/marianne-williams-park/" target="_blank" rel="noopener">www.cityofboise.org</a></div>
+  </article>
+<article class="card cr" data-status="proposed" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status proposed">Proposed / planned</span>
+      <span class="dist">2.41 mi from subject</span>
+    </header>
+    <h3>3453 E Parkcenter Blvd, Boise 83716</h3>
+    <div class="meta">12 ac · Boise:SP-02 · FLU: High-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Not definitively identified. Parcel lies within the Barber Valley Specific Plan (SP-02), master-developed by Barber Valley Development LLC (Doug Fowler) for the Harris Family Limited Partnership; high-density blocks are typically sold to merchant apartment developers, so the current holder may be Barber Valley Development/Harris Family LP or a successor.</dd>
+      <dt>Type</dt><dd>Master-plan developer (Barber Valley Development / Harris Family LP) or a successor multifamily developer.</dd>
+      <dt>Owned since</dt><dd>Unknown; part of the long-running Barber Valley/Harris Ranch master plan (SP-02 entitlements from the 2000s).</dd>
+      <dt>Who they are</dt><dd>Barber Valley Development is the Harris Ranch/Barber Valley master developer (Doug Fowler, for the Harris Family LP). Town-center program advanced with High Rhodes Investment Group. The Parkcenter corridor already hosts Barber Station apartments (Arboretum at Barber Station, Park Place at Barber Station).</dd>
+      <dt>Intent</dt><dd>Genuinely buildable, apartment-competitive: 11.5 ac zoned SP-02 with High-Density Residential FLU inside the adopted Barber Valley Specific Plan, OUTSIDE the Airport Influence Area. An entitled/planned multifamily block within Barber Valley/Barber Station (town-center concept cites 250-400 apartments + ~100 for-sale homes + a hotel). No active building permit/standalone rezone found — entitled/planned, not under construction.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2021/11/12/harris-ranch-town-center/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2026/06/03/new-version-of-long-planned-boise-project-could-bring-specialty-market-many-restaurants-hotel/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card cr" data-status="built" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status built">Built / existing</span>
+      <span class="dist">2.55 mi from subject</span>
+    </header>
+    <h3>281 E Fairbrook Dr, Boise 83706</h3>
+    <div class="meta">3 ac · Boise:R-3 · FLU: High-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Most likely Lakewood Unit 11A/11B HOA Inc (inferred). Adjacent 287 E Fairbrook parcel is recorded to &#x27;LAKEWOOD UNIT 11A/11B HOA INC&#x27; as land-only common area; the subject parcel sits in the same Lakewood Unit 11B and reads as association open space.</dd>
+      <dt>Type</dt><dd>HOA (homeowners/condominium association common area).</dd>
+      <dt>Owned since</dt><dd>Unknown; Lakewood Unit 11A/11B platted/built c. 1984-1998.</dd>
+      <dt>Who they are</dt><dd>Lakewood Unit 11A/11B HOA governs a built-out condo/townhome pocket of the Lakewood master community in SE Boise (near Gekeler Farms at Lakewood, Woodbine at Lakewood). Surrounding Fairbrook lots are individually owned, already-built homes.</dd>
+      <dt>Intent</dt><dd>Most likely NOT a new development site — a FALSE POSITIVE. The 3.3-ac R-3 parcel appears to be HOA common open space serving the already-built Lakewood 11A/11B community (mirroring the HOA-owned land-only parcel next door). &#x27;High-Density Residential (planned)&#x27; FLU reflects EXISTING built condo/townhome density, not a pending project. No application on record; neighborhood fully built out.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.city-data.com/ada-county-id-properties/E/E-Fairbrook-Court-2.html" target="_blank" rel="noopener">www.city-data.com</a> · <a href="https://www.mystatemls.com/communities/id/boise/lakewood-10a-10b-11a-11b-14-15a-15b-16-hoa/83630/" target="_blank" rel="noopener">www.mystatemls.com</a></div>
+  </article>
+<article class="card cr" data-status="dormant" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">3.09 mi from subject</span>
+    </header>
+    <h3>2472 E Warm Springs Ave, Boise (~79 ac foothills adjacent to Warm Springs Golf Course, below Table Rock)</h3>
+    <div class="meta">79 ac · Boise:A-1, Boise:A-2, Boise:R-1A · FLU: Buildable (future growth); Suburban Residential</div>
+    <dl>
+      <dt>Owner</dt><dd>Mixed / mostly not publicly identified. A 44-ac portion of the hillside above Warm Springs Golf Course was donated to the City of Boise by Greg Satz and family (Council approved Oct 28 2025) for open space/trails; remaining foothills-residential parcels are privately held (owners not published).</dd>
+      <dt>Type</dt><dd>Private foothills landowners / potential homebuilder land-bank + City of Boise (Parks) on the donated open-space portion.</dd>
+      <dt>Owned since</dt><dd>City acquired the 44-ac open-space piece via Satz donation Oct 2025; other parcels unknown.</dd>
+      <dt>Who they are</dt><dd>Greg Satz and family = private foothills landowners who donated hillside acreage for preservation/trails (to Table Rock, Mesa reserve). Other owners not identified.</dd>
+      <dt>Intent</dt><dd>FLU &#x27;Buildable (future growth)&#x27; / Suburban Residential, zoned A-1/A-2/R-1A — historically eyed for low-density foothills homes. Trajectory flipped to PRESERVATION: Oct 2025 Satz donation (44 ac to city open space/Ridge-to-Rivers), and Boise&#x27;s Feb 2026 foothills resolution curtails new foothills development. Net: foothills-preservation frontier, not an active subdivision pipeline.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/2025/10/29/hummel-warm-springs/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2026/02/05/boise-foothills-development/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card cr" data-status="dormant" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">3.23 mi from subject</span>
+    </header>
+    <h3>E Columbia Rd, Boise (single ~558-ac parcel, far SE Columbia bench near the Boise River dead-end)</h3>
+    <div class="meta">558 ac · County:RP · FLU: Rural (county)</div>
+    <dl>
+      <dt>Owner</dt><dd>Not publicly identified (Ada County does not publish owners). A single 558-ac County Rural Preservation parcel held with no active application, inside the East Columbia tract (big holdings: Simplot, Micron, Ball Ventures, Murgoitio). Consistent with an agricultural land-bank (e.g. Simplot) but NOT confirmed.</dd>
+      <dt>Type</dt><dd>Most likely corporate/agribusiness land-bank or a longtime farmer-family holding.</dd>
+      <dt>Owned since</dt><dd>Long-held (agricultural, likely decades); exact date/price unknown.</dd>
+      <dt>Who they are</dt><dd>If Simplot (unconfirmed), the J.R. Simplot Co. is Boise&#x27;s dominant agribusiness and one of the two largest East Columbia landholders that told the city it has no immediate development plans.</dd>
+      <dt>Intent</dt><dd>Zoned County RP (Rural Preservation), Rural FLU; currently agricultural/open bench land. No active application. In the far-SE frontier where residential is blocked by the missing secondary fire road and landowner coordination. Long-term the comp plan contemplates growth; presently dormant farm/land-bank ground.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2026/01/28/southeast-boise-planning/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card cr" data-status="built" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status built">Built / existing</span>
+      <span class="dist">3.76 mi from subject</span>
+    </header>
+    <h3>1550 S Loggers Pond Pl, Boise 83706</h3>
+    <div class="meta">8 ac · Boise:R-3 · FLU: High-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>River Quarry Apartments LLC (inferred). County records show adjacent Loggers Pond Place parcels (1490, 1634) recorded to RIVER QUARRY APARTMENTS LLC; the 1550 parcel sits between them in the same complex footprint.</dd>
+      <dt>Type</dt><dd>Institutional/investor multifamily owner (owner of an existing, built apartment community) — NOT a land seller/developer.</dd>
+      <dt>Owned since</dt><dd>Exact date unknown; River Quarry built 2000 and held/traded as an income apartment asset.</dd>
+      <dt>Who they are</dt><dd>River Quarry Apartments LLC owns the River Quarry Apartments campus (308 units, built 2000) wrapping Loggers Pond. County records show the LLC owning the large neighboring parcels (~$6.2M and ~$12.9M land+bldg).</dd>
+      <dt>Intent</dt><dd>NOT an independent developable/vacant site — a FALSE POSITIVE. The 7.6-ac parcel is the pond/open-space/parking core of the EXISTING River Quarry Apartments complex (former gravel pit, now the complex&#x27;s water feature). It reads &#x27;vacant&#x27; only because it&#x27;s the association core of an already-built community. No new-construction/expansion/subdivision application found.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.city-data.com/ada-county-id-properties/S/S-Loggers-Pond-Place-1.html" target="_blank" rel="noopener">www.city-data.com</a> · <a href="https://www.apartments.com/river-quarry-apartments-boise-id/t3c6bdb/" target="_blank" rel="noopener">www.apartments.com</a></div>
+  </article>
+<article class="card cr" data-status="dormant" data-subj="CR">
+    <header>
+      <span class="chip subj cr">Canyon Ridge</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">4.47 mi from subject</span>
+    </header>
+    <h3>1507 S Oakland Ave, Boise 83706</h3>
+    <div class="meta">10 ac · Boise:R-3 · FLU: Mixed Use</div>
+    <dl>
+      <dt>Owner</dt><dd>Not publicly identified. Ada County does not publish owners; no owner disclosed in any application, listing, or news. Interior &#x27;McDonald Tract&#x27; holding (parcels R5577760530 + R5577760451).</dd>
+      <dt>Type</dt><dd>Unknown; most consistent with a long-held private family/estate land holding (&#x27;McDonald Tract&#x27; label).</dd>
+      <dt>Owned since</dt><dd>Unknown; long-vacant. Last assessed 2023 at near-nominal taxable value, consistent with an undeveloped long-held interior tract.</dd>
+      <dt>Who they are</dt><dd>Not identified. Main ~7.61-ac parcel + a second parcel ~10.3 ac form an interior tract behind small single-family homes fronting S Oakland Ave.</dd>
+      <dt>Intent</dt><dd>NO apartment, townhome, subdivision, rezone, or annexation application and no news found. Zoned R-3 (multifamily), Mixed Use FLU, OUTSIDE the Airport Influence Area — residential allowed by-right — but the tract is dormant/vacant with no filed plan. Buildable but unverified (interior tract needs access/utility extension).</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.redfin.com/ID/Boise/1507-S-Oakland-Ave-83706/home/109555986" target="_blank" rel="noopener">www.redfin.com</a> · <a href="https://www.realtyhop.com/building/1507-south-oakland-avenue-boise-id-83706" target="_blank" rel="noopener">www.realtyhop.com</a></div>
+  </article>
+</div>
+
+<h3 class="serif" style="color:var(--sm);margin:1.6em 0 .2em">Seasons at Meridian</h3>
+<div class="grid" id="sm-grid">
+<article class="card sm" data-status="built" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status built">Built / existing</span>
+      <span class="dist">0.62 mi from subject</span>
+    </header>
+    <h3>1074 S Silverstone Way, Meridian (Rackham Subdivision; Eagle Rd &amp; I-84 node)</h3>
+    <div class="meta">21 ac · Meridian:C-G, Meridian:R-40 · FLU: Mixed Use – Regional</div>
+    <dl>
+      <dt>Owner</dt><dd>Not publicly published (Ada County restriction). In the Rackham master-planned subdivision; the R-40 apartment parcel was developed as &#x27;Aren.&#x27; Rackham master-developer entity not definitively identified.</dd>
+      <dt>Type</dt><dd>Master-planned mixed-use subdivision at a regional commercial/employment node (Silverstone / Eagle View Landing).</dd>
+      <dt>Owned since</dt><dd>unknown; Rackham platted/built over the early-2020s.</dd>
+      <dt>Who they are</dt><dd>Rackham = mixed-use subdivision at Eagle Rd &amp; I-84 (one of Idaho&#x27;s busiest interchanges), part of the greater Silverstone / Eagle View Landing node (office, medical, retail, hotel, ICCU HQ). FLU Mixed Use-Regional; zoning C-G + R-40.</dd>
+      <dt>Intent</dt><dd>The R-40 (high-density) component has ALREADY been built as &#x27;Aren&#x27; apartments (4 stories, 396 units, 2024). Remaining C-G / Mixed-Use-Regional parcels are commercial/office pads. Multifamily-competitive capacity here is largely realized (Aren) with residual commercial land developable.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.apartments.com/aren-meridian-id/y6pdtxs/" target="_blank" rel="noopener">www.apartments.com</a> · <a href="https://arenmeridian.com/" target="_blank" rel="noopener">arenmeridian.com</a></div>
+  </article>
+<article class="card sm" data-status="proposed" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status proposed">Proposed / planned</span>
+      <span class="dist">0.92 mi from subject</span>
+    </header>
+    <h3>325 S Touchmark Way, Meridian (Touchmark / Meadow Lake Village)</h3>
+    <div class="meta">64 ac · Boise:R-2, Meridian:L-O · FLU: Industrial; Mixed Use – Community</div>
+    <dl>
+      <dt>Owner</dt><dd>Touchmark (Touchmark at Meadow Lake Village ownership entity, affiliate of Touchmark Living Centers, Inc.)</dd>
+      <dt>Type</dt><dd>Senior-living developer/operator (institution)</dd>
+      <dt>Owned since</dt><dd>Land held 20+ years; Meadow Lake Village master plan established ~2001-2003, first homes opened 2003. Original plan up to 874 retirement homes + ~20 ac medical office + commercial. Price not disclosed.</dd>
+      <dt>Who they are</dt><dd>Touchmark is a Pacific-NW (Beaverton/Vancouver WA) developer-operator of upscale full-service senior communities, founded by Werner G. Nistler Jr. Its Idaho community, Touchmark at Meadow Lake Village (near Eagle/Franklin/Overland), sits on ~100+ acres; SM-9 is undeveloped remainder within/adjacent to that ~121-ac master plan.</dd>
+      <dt>Intent</dt><dd>Undeveloped portion of Touchmark&#x27;s ~121-ac senior community. July 2025 Touchmark moved to overhaul the 20-yr master plan — development-modification agreement + rezone + PUD to a broader &#x27;Touchmark Mixed Use&#x27; (mixed housing, commercial/office, clubhouse, pool). SM-9 straddles jurisdictions (Boise R-2 / Meridian L-O); part carries Industrial + MU-Community FLU rather than pure residential.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2025/07/14/touchmark-meridian-meadowlake-mixed-use/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://www.touchmark.com/senior-living/id/meridian/meadow-lake-village/" target="_blank" rel="noopener">www.touchmark.com</a></div>
+  </article>
+<article class="card sm" data-status="approved" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status approved">Approved</span>
+      <span class="dist">0.98 mi from subject</span>
+    </header>
+    <h3>2820 S Eagle Rd, Meridian (with 2910/2960/2990/3020 S Eagle Rd)</h3>
+    <div class="meta">12 ac · Meridian:R-15 · FLU: Mixed Use – Community</div>
+    <dl>
+      <dt>Owner</dt><dd>BPS Eagle Road, LLC (per City of Meridian staff report H-2022-0066 &#x27;Artisan Victory Market&#x27;). Address of record: 1401 17th Street Ste 700, Denver, CO 80202.</dd>
+      <dt>Type</dt><dd>Out-of-state (Denver) real-estate investment / land-holding LLC; land was rural residential/agricultural before assembly.</dd>
+      <dt>Owned since</dt><dd>unknown (held by BPS Eagle Road LLC as of the 2022-2023 application; no price disclosed).</dd>
+      <dt>Who they are</dt><dd>BPS Eagle Road LLC = Denver, CO holding entity that assembled the five Eagle Rd parcels. 2022-23 entitlement engineer was Kindi Moosman of Horrocks Engineers. In 2026 a new merchant developer, Quarterra (multifamily arm of national homebuilder Lennar), is pursuing the site.</dd>
+      <dt>Intent</dt><dd>Two overlapping plans on the same ~13-ac Eagle Rd assemblage. (1) 2022-23 &#x27;Artisan Victory Market&#x27; (H-2022-0066): annex 14.47 ac to R-15 + C-C; plat 5 lots; CUP for 131 build-to-rent multifamily units + 18,100 sf commercial; staff/P&amp;Z recommended approval (2023). (2) As of June 2026, Quarterra/Lennar filed a pre-application &#x27;Emblem Meridian&#x27; for 250 units (apartments + townhomes) on ~13 ac just north of Eagle &amp; Victory, with clubhouse/pool/dog park. Site remains developable (Artisan unbuilt); Emblem is the current active proposal.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2026/06/10/meridian-emblem-victory-eagle-homes-apartment/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2022/11/17/multifamily-housing-meridian/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="approved" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status approved">Approved</span>
+      <span class="dist">1.12 mi from subject</span>
+    </header>
+    <h3>E Franklin Rd, Meridian (1475 E Franklin Rd; SW corner of E Franklin Rd &amp; S Locust Grove Rd, R-40)</h3>
+    <div class="meta">5 ac · Meridian:R-40 · FLU: Mixed Use – Community</div>
+    <dl>
+      <dt>Owner</dt><dd>Owner of record not named in the staff report. Applicant/developer is Realm Venture Group (Meridian OZ Apartments). The ~4.9-ac / 2-parcel block combines the 2.39-ac OZ apartment parcel + the adjacent parcel south; site was part of the 1999 Cobblestone Village annexation.</dd>
+      <dt>Type</dt><dd>developer / investor (Realm Venture Group)</dd>
+      <dt>Owned since</dt><dd>unknown; property annexed 1999 as part of Cobblestone Village (which had a 96-unit multifamily CUP then).</dd>
+      <dt>Who they are</dt><dd>Realm Venture Group is an apartment development entity (&#x27;OZ&#x27; likely references a federal Opportunity Zone). LLC principals not confirmed via Idaho SOS in this research.</dd>
+      <dt>Intent</dt><dd>Meridian OZ Apartments (H-2022-0073, ~2022-23): a CUP for a 60-unit multifamily development (30 one-bed + 30 two-bed) at ~25 du/ac in R-40, plus a DA modification to remove the site from the 1999 Cobblestone Village DA. Sole access off Locust Grove. Meridian P&amp;Z voiced concern that 25 du/ac exceeded the 6-15 du/ac anticipated for the MU-Community FLU; several leaned toward denial. Final Council outcome not confirmed; no evidence built as of 2026. Multifamily threat = 60 units.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2023/01/23/meridian-oz-apartments/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="uc" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">1.79 mi from subject</span>
+    </header>
+    <h3>S Johnson Ln, Meridian (between I-84/Waltman Ln and W Overland Rd, west of Meridian Rd)</h3>
+    <div class="meta">48 ac · Meridian:C-G, Meridian:R-15, Meridian:R-40 · FLU: Mixed Use – Community</div>
+    <dl>
+      <dt>Owner</dt><dd>Not definitively confirmed for the specific parcels. Corresponds to the Tanner Creek / Hawkins Companies assemblage near Meridian Rd &amp; I-84 (Waltman Ln). Commercial portion associated with Hawkins Companies; residential (Tanner Creek) originally Schultz Development, now developed by CBH Homes.</dd>
+      <dt>Type</dt><dd>developer (Hawkins Companies – retail/commercial; CBH Homes – large local homebuilder; Schultz Development – original proposer)</dd>
+      <dt>Owned since</dt><dd>Long history: Tanner Creek first proposed under Schultz Development (denied 2018), revived 2023; dates/prices not stated.</dd>
+      <dt>Who they are</dt><dd>Hawkins Companies = Boise retail/commercial developer; CBH Homes = Idaho&#x27;s largest homebuilder, now building Tanner Creek; Schultz Development = local developer that originally proposed the project.</dd>
+      <dt>Intent</dt><dd>Tanner Creek (joint hearing Nov 21 2023; moved forward) proposes 83 single-family homes + 45 townhomes + 280 apartments (phased) on ~37.9 ac, paired with a ~30-ac Hawkins commercial development between I-84 and Waltman Ln west of Meridian Rd. Zoning C-G/R-15/R-40 + Mixed-Use Community FLU match SM-15. Apartment occupancy tied to the Linder Rd overpass. Multifamily threat = 280 apartments. (Street name &#x27;S Johnson Ln&#x27; inferred from zoning + geography.)</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2023/11/28/plans-for-two-large-developments-off-i-84-and-meridian-rd-move-forward/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/project/tanner-creek/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="proposed" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status proposed">Proposed / planned</span>
+      <span class="dist">2.52 mi from subject</span>
+    </header>
+    <h3>E Amity Rd, Meridian (N side, between Meridian Rd and Locust Grove Rd)</h3>
+    <div class="meta">58 ac · County:RUT, Meridian:R-4 · FLU: Mixed Use – Community</div>
+    <dl>
+      <dt>Owner</dt><dd>not publicly identified (Ada County restricts owner data; no filed application names an owner for this block). Reads as farm/rural ground — likely a farm-family/investor.</dd>
+      <dt>Type</dt><dd>Farmer-family / investor (inferred)</dd>
+      <dt>Owned since</dt><dd>unknown</dd>
+      <dt>Who they are</dt><dd>Not identified; unincorporated/edge farmland in the Amity Rd growth corridor.</dd>
+      <dt>Intent</dt><dd>~57.5 ac on E Amity Rd, county RUT with adjacent Meridian R-4; FLU = Mixed Use-Community. No confirmed active application on this exact block. The dominant proposal on this Amity stretch is Hawkins Companies&#x27; &#x27;Syringa Crossing&#x27; immediately west (NW/SW corners of Amity &amp; Meridian): ~62-ac annexation (R-15/R-40/C-C) for ~400 apartments/townhomes + community commercial incl. a grocery pad; recommended for denial by Meridian P&amp;Z (Apr 2026), remanded by Council, revised June 2026 (more office/retail, fewer homes) — contested.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2026/04/09/meridian-skeptical-of-project-proposing-400-homes-grocery-store-businesses-in-citys-southwest/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2024/04/29/hawkins-amity-meridian-project/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="uc" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">2.69 mi from subject</span>
+    </header>
+    <h3>738 W Harris St, Meridian (Graycliff Estates; west of Meridian Rd along W Harris St)</h3>
+    <div class="meta">97 ac · County:R1, Meridian:R-4, Meridian:R-8 · FLU: High-Density Residential (planned); Medium-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Predominantly Star Development Inc. (principal Allen Lee Centers) for the Graycliff Estates portion; adjacent unincorporated Ada County R1 farmland parcels along Harris St not publicly identified.</dd>
+      <dt>Type</dt><dd>developer / local homebuilder (Star Development Inc.); adjacent parcels likely farmer-family (county R1 ag land)</dd>
+      <dt>Owned since</dt><dd>Star Development held the Graycliff land under a 2015 City development agreement (original 2015 plan of 134 homes), modified 2020; price not stated.</dd>
+      <dt>Who they are</dt><dd>Star Development Inc. = Meridian residential developer/homebuilder (Allen Lee Centers), building 220+ contiguous acres between Meridian and Linder roads across three projects (Graycliff Estates, Biltmore Estates ~90 homes, Brundage Estates ~366 homes; ~870 units total).</dd>
+      <dt>Intent</dt><dd>Graycliff Estates (hearing Feb 6 2020; building since 2021) approved a preliminary plat of ~200 single-family homes (R-8) PLUS 224 apartments (R-40, high-density) and a neighborhood park on ~52 ac, via a modification of the 2015 DA. The multifamily component is the R-40 224-unit apartments. The rest of the 96.9-ac block is still unincorporated county R1 farmland with High-/Medium-Density Residential FLU — targeted for future annexation but no separate active application found.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.weknowboise.com/graycliff-estates.php" target="_blank" rel="noopener">www.weknowboise.com</a> · <a href="https://www.buildidaho.com/meridian-homes-for-sale/graycliff-estates-subdivision/" target="_blank" rel="noopener">www.buildidaho.com</a></div>
+  </article>
+<article class="card sm" data-status="proposed" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status proposed">Proposed / planned</span>
+      <span class="dist">3.09 mi from subject</span>
+    </header>
+    <h3>S Grand Fork Way, Meridian (SW quadrant of Overland Rd &amp; Ten Mile Rd)</h3>
+    <div class="meta">92 ac · Meridian:R-15, Meridian:R-2, Meridian:R-4, Meridian:R-8 · FLU: Civic; High-Density Residential (planned); Medium-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Not individually published (Ada County withholds owners). Master-developer land assembly attributable to Brighton Corporation (Ten Mile Crossing); platted lots owned by homebuilders (e.g. CBH Homes) and homeowners.</dd>
+      <dt>Type</dt><dd>Regional master developer (Brighton Corp) + production homebuilders; not a single owner across 92.5 ac / 8 parcels.</dd>
+      <dt>Owned since</dt><dd>unknown (Brighton assembled/developed Ten Mile Crossing through the 2010s-2020s); no per-parcel figures found.</dd>
+      <dt>Who they are</dt><dd>Brighton Corporation = Meridian-based master developer (founded 1968) controlling the Ten Mile Crossing &#x27;west gateway&#x27; district at the I-84/Ten Mile interchange; Grand Fork Way / Spanish Fork Way sit inside it. CBH Homes actively building single-family here.</dd>
+      <dt>Intent</dt><dd>SM-4 is the RESIDENTIAL portion (R-15/R-8/R-4/R-2; FLU High/Medium-Density Residential + Civic) of Ten Mile Crossing at SW Overland &amp; Ten Mile. Partially built: Cortland South Meridian apartments + CBH single-family; remaining R-15 High-Density parcels planned/entitled for more multifamily. NOTE: the Assemble Management/Realm 200-unit &#x27;Overland apartments&#x27; project is a SEPARATE ~7-ac parcel ~4 mi east at 4270 E Overland (Rolling Hill) — 154-unit Realm proposal DENIED 2024; Assemble&#x27;s 200-unit re-file APPROVED by Council May 19 2026.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.brighton.co/brighton-place/ten-mile-crossing/" target="_blank" rel="noopener">www.brighton.co</a> · <a href="https://boisedev.com/news/2026/05/20/ready-for-its-next-phase-meridian-approves-project-bringing-something-new-to-overland-rd/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2026/01/14/overland-rolling-hill/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="approved" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status approved">Approved</span>
+      <span class="dist">3.29 mi from subject</span>
+    </header>
+    <h3>E Lake Hazel Rd (north side, ~0.5 mi east of S Meridian Rd), Meridian</h3>
+    <div class="meta">15 ac · Meridian:R-15 · FLU: Med-High-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Brighton Corporation / Brighton Development, Inc. and affiliated Brighton entities (within its &#x27;Apex&#x27;/Pinnacle assemblage). Not independently confirmed for this specific parcel; owner derived, not certain.</dd>
+      <dt>Type</dt><dd>Developer (regional master-planned-community developer)</dd>
+      <dt>Owned since</dt><dd>Brighton assembled Pinnacle/Apex lands ~2019-2024 with rolling annexations; specific parcel date/price not published.</dd>
+      <dt>Who they are</dt><dd>Brighton Corporation = Idaho&#x27;s largest diversified real-estate developer (HQ at Ten Mile Crossing, Meridian; Jon Wardle, President of Development). Building the 800+-ac Pinnacle master-planned community centered on Lake Hazel &amp; Locust Grove with many &#x27;Apex&#x27; subdivisions.</dd>
+      <dt>Intent</dt><dd>R-15 (med-high-density) residential parcel on the north side of E Lake Hazel Rd just east of Meridian Rd, inside Brighton&#x27;s Apex/Pinnacle footprint. Adjacent approved Brighton phases: Apex Farr (H-2024-0014, 381 SF lots on 131.89 ac) and Apex Cadence (H-2024-0061, 228 SF lots on 51.5 ac, R-15). FLU Med-High-Density Residential; 8-15 du/ac housing planned in Brighton&#x27;s phased build-out. Exact plat/unit count for this specific parcel not separately confirmed.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2024/12/20/brighton-pinnacle-costco-meridian/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://www.brighton.co/brighton-place/pinnacle/" target="_blank" rel="noopener">www.brighton.co</a> · <a href="https://boisedev.com/news/2022/04/13/apex-west-meridian/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="proposed" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status proposed">Proposed / planned</span>
+      <span class="dist">3.3 mi from subject</span>
+    </header>
+    <h3>5621 S Meridian Rd, Meridian 83642 (west side of Meridian Rd, north of Lake Hazel Rd)</h3>
+    <div class="meta">38 ac · Meridian:TN-R · FLU: Med-High-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>not publicly identified. Parcel S1236417204; the 5621 S Meridian Rd frontage is operated by Askatu Construction (a fence contractor); an adjacent same-address parcel still shows county RUT/agricultural. No developer application found; do NOT attribute to Brighton (whose Apex/Pinnacle land lies east of Meridian Rd).</dd>
+      <dt>Type</dt><dd>Likely farmer-family / rural landowner (current agricultural use with an on-site fence business); not a known developer.</dd>
+      <dt>Owned since</dt><dd>unknown</dd>
+      <dt>Who they are</dt><dd>Not publicly identified. Current use agricultural land with a fence-contracting operation (Askatu Construction); the NW quadrant of Lake Hazel &amp; Meridian Rd still transitioning county to city.</dd>
+      <dt>Intent</dt><dd>Dataset lists TN-R zoning with Med-High-Density Residential FLU, but no active annexation/rezone/subdivision/apartment application found for this specific parcel, and a neighboring parcel remains county RUT/agricultural (zoning in transition). No named project/developer/units/approval. Consistent with a land-banked farm parcel whose comp-plan-planned use is med-high-density residential but is currently dormant / pre-application.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://www.loopnet.com/property/5621-s-meridian-rd-meridian-id-83642/16001-S1236244400/" target="_blank" rel="noopener">www.loopnet.com</a> · <a href="https://boisedev.com/news/2025/10/21/meridian-rd-lake-hazel-retail/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="proposed" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status proposed">Proposed / planned</span>
+      <span class="dist">3.34 mi from subject</span>
+    </header>
+    <h3>S Ten Mile Rd, Meridian (SE quadrant of Ten Mile Rd &amp; I-84 / Overland Rd)</h3>
+    <div class="meta">83 ac · County:RUT, Meridian:C-C, Meridian:L-O, Meridian:M-E, Meridian:R-8 · FLU: Mixed Employment</div>
+    <dl>
+      <dt>Owner</dt><dd>Ball Ventures Ahlquist / Ahlquist (master developer controlling the &#x27;Ten Mile Slopes&#x27; land via a BVA/Ahlquist-affiliated LLC; specific title-holding LLC not publicly identified)</dd>
+      <dt>Type</dt><dd>Developer / investor</dd>
+      <dt>Owned since</dt><dd>Part of BVA/Ahlquist&#x27;s Ten Mile interchange holdings; firm built supporting infrastructure (Tasa Dr, Jersey Way, Overland realignment) on the SE quadrant in the early 2010s. Date/price not disclosed.</dd>
+      <dt>Who they are</dt><dd>Ball Ventures Ahlquist (BVA), led by Tommy Ahlquist, backed by Idaho Falls-based Ball Ventures (Allen L. Ball, Melaleuca co-founder); rebranded to &#x27;Ahlquist&#x27; July 2024. Master developer of Ten Mile Crossing, Eagle View Landing/Topgolf, Pioneer Crossing, Eighth &amp; Main. In Feb 2026 several BVA/Ahlquist properties were listed for sale (CBRE).</dd>
+      <dt>Intent</dt><dd>&#x27;Ten Mile Slopes&#x27; — proposed ~80-ac office/employment (business-park) off Ten Mile Rd near I-84/Overland, inside Meridian&#x27;s Linder District URA. Concept: 37 lots, multiple 100k+ sf office buildings, service station, food uses. Requires a rezone from Medium-Density/MU-Residential to Mixed Employment to match the FLU. Employment/office, NOT residential. As of 2023-24, pre-application; no formal application filed.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2023/09/14/ten-mile-slopes-large-scale-mixed-use-project-along-i-84-in-early-stages/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2026/02/19/bva-portfolio/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+<article class="card sm" data-status="uc" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">3.38 mi from subject</span>
+    </header>
+    <h3>3727 E Lake Hazel Rd, Meridian 83642</h3>
+    <div class="meta">25 ac · Meridian:R-15, Meridian:R-8 · FLU: Med-High-Density Residential (planned); Medium-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Pura Vida Ranch, LLC (developer entity). Land annexed under H-2020-0064 &#x27;Pura Vida Ridge Ranch&#x27;; prior fee owner/seller not separately published (Ada County withholds owners).</dd>
+      <dt>Type</dt><dd>Local residential developer / homebuilder</dd>
+      <dt>Owned since</dt><dd>Annexed into Meridian in 2020 (H-2020-0064, AZ/PUD/PP); vertical construction since ~2021-2022. Price not stated.</dd>
+      <dt>Who they are</dt><dd>Pura Vida Ranch, LLC develops the Pura Vida Ridge Ranch community east of S Eagle Rd on the south side of E Lake Hazel Rd — rear-loaded townhomes plus &#x27;rim&#x27; single-family lots.</dd>
+      <dt>Intent</dt><dd>Approved and building: 2020 annexation of ~26.34 ac (R-8 6.64 ac / R-15 19.69 ac), a PUD + preliminary plat (H-2020-0064). First three phases ≈127 rear-load townhomes on ~1,500 sf lots + ~45 single-family rim lots. Amenities: pathways, mews; adjacent to Boise Ranch Golf Course and South Meridian YMCA. Under construction / partially built.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://puravidaranch.net/" target="_blank" rel="noopener">puravidaranch.net</a> · <a href="https://www.buildidaho.com/meridian-homes-for-sale/pura-vida-ranch/" target="_blank" rel="noopener">www.buildidaho.com</a> · <a href="https://compassidaho.org/wp-content/uploads/PuraVida_Application.pdf" target="_blank" rel="noopener">compassidaho.org</a></div>
+  </article>
+<article class="card sm" data-status="dormant" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">3.41 mi from subject</span>
+    </header>
+    <h3>S Locust Grove Rd, Meridian (Rescue Ranch; between E Amity Rd and E Lake Hazel Rd)</h3>
+    <div class="meta">85 ac · Meridian:R-15, Meridian:R-4 · FLU: Civic; Medium-Density Residential (planned)</div>
+    <dl>
+      <dt>Owner</dt><dd>Not publicly identified for the residential/ranch parcels. A ~37-ac &#x27;Civic&#x27; portion at the north end (E Amity Rd near Hillsdale/Locust Grove) is owned by West Ada School District (reserved for a future middle school).</dd>
+      <dt>Type</dt><dd>farmer-family / rural large-lot landowners (Rescue Ranch) + institution (West Ada School District)</dd>
+      <dt>Owned since</dt><dd>unknown</dd>
+      <dt>Who they are</dt><dd>Rescue Ranch is an older rural/large-lot subdivision east of Locust Grove between Amity and Lake Hazel. West Ada School District (Idaho&#x27;s largest) holds a ~37-ac reservation for a future middle school, no firm build date.</dd>
+      <dt>Intent</dt><dd>No active annexation/subdivision/apartment application identified on these specific parcels as of mid-2026. FLU is Civic + Medium-Density Residential (planned); current use agricultural/rural residential. The corridor is urbanizing (nearby Solara Estates, Brighton&#x27;s Apex/Pinnacle, Summerlin West; ACHD Amity/Locust Grove roundabout), but SM-5 itself is dormant aside from the school reservation.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2025/05/29/you-asked-is-west-ada-going-to-build-a-high-school-on-amity/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://engage.achdidaho.org/amity-road-and-locust-grove-road-intersection" target="_blank" rel="noopener">engage.achdidaho.org</a></div>
+  </article>
+<article class="card sm" data-status="uc" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">3.54 mi from subject</span>
+    </header>
+    <h3>E Lake Hazel Rd (SE corner of Lake Hazel Rd &amp; S Meridian Rd), Meridian</h3>
+    <div class="meta">35 ac · Meridian:C-G · FLU: Mixed Use – Regional</div>
+    <dl>
+      <dt>Owner</dt><dd>DWT Investments, LLC and Smith Brighton, Inc., with affiliated Brighton entities and family trusts: Brighton Apex LLC; Brighton Development Inc.; SCSH Properties LLC; SCS Investments LLC; The David &amp; Kristin Turnbull Family Trust; The Tomlinson Foundation.</dd>
+      <dt>Type</dt><dd>Developer + affiliated family trusts/investors (Brighton Corp-controlled)</dd>
+      <dt>Owned since</dt><dd>Held/assembled by Brighton-controlled entities; annexed and (partially) rezoned to C-G in 2024-2025. &#x27;DWT Investments&#x27; controlled by Brighton (DWT = David W. Turnbull). Price/timing not stated.</dd>
+      <dt>Who they are</dt><dd>Brighton Corporation (Idaho&#x27;s largest developer) via DWT Investments, Smith Brighton and related trusts — the commercial/&#x27;town-center&#x27; arm of its Pinnacle master plan. Owns the SE corner where a Costco is targeted.</dd>
+      <dt>Intent</dt><dd>Approved: &#x27;Apex Zenith&#x27; (H-2025-0041), the ~149.4-ac commercial component of Pinnacle at SE Lake Hazel &amp; Meridian Rd (FLU Mixed Use-Regional, C-G). Program: ~446,000 sf commercial incl. a ~346,000 sf box store rumored to be Costco (+ fuel), ~100,000 sf retail, ~100,000 sf office/medical, and 58+ ac of med-high-density residential (Phase 2). Council annexed/rezoned + approved an updated DA 4-1 in Jan 2025; a plat splitting 2 parcels into 7 C-G lots approved. Phase 1 roadwork mid-2026, commercial opening ~Aug 2026; Phase 2 residential returns to Council.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2025/01/15/apex-zenith-costco-meridian/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://compassidaho.org/wp-content/uploads/ApexZenith_Application.pdf" target="_blank" rel="noopener">compassidaho.org</a></div>
+  </article>
+<article class="card sm" data-status="uc" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status uc">Under construction</span>
+      <span class="dist">3.73 mi from subject</span>
+    </header>
+    <h3>3500 W Cobalt Dr, Meridian (Ten Mile/I-84 interchange employment core)</h3>
+    <div class="meta">198 ac · Meridian:C-C, Meridian:C-G, Meridian:H-E, Meridian:R-15, Meridian:R-40 · FLU: High-Density Employment; Ten Mile Interchange (specific area plan)</div>
+    <dl>
+      <dt>Owner</dt><dd>Multiple owners (197.9 ac / 32 parcels). Predominantly Brighton Corporation (Ten Mile Crossing / TM Creek); Outer Banks Subdivision portion held by a separate applicant group; SCS Development also active. No single owner.</dd>
+      <dt>Type</dt><dd>Master developer (Brighton Corp) + multiple investors/developers within the Ten Mile Interchange Specific Area Plan (TMISAP) employment core.</dd>
+      <dt>Owned since</dt><dd>unknown per parcel; Brighton developing Ten Mile Crossing since the interchange opened (2011).</dd>
+      <dt>Who they are</dt><dd>TMISAP &#x27;High-Density Employment&#x27; district — Meridian&#x27;s designated west employment/mixed-use gateway. Brighton Corporation the dominant master developer; SCS Development another major player.</dd>
+      <dt>Intent</dt><dd>TMISAP high-density employment/mixed-use core with heavy multifamily already delivered along Cobalt Dr: The Flats at Ten Mile (~235 units, 2021), The Lofts at Ten Mile, Cortland at Ten Mile. Outer Banks Subdivision approved Dec 2021 (~516 units: 364 apartments + 126 flats + 26 townhomes). Adjacent Ten Mile Crossing/TM Creek continues office + high-density residential phases. A district, not a single deal — remaining employment parcels planned/partly dormant.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2021/12/17/outer-banks-pera-place/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://boisedev.com/news/2021/04/14/meridian-ten-mile-crossing/" target="_blank" rel="noopener">boisedev.com</a> · <a href="https://www.apartments.com/the-flats-at-ten-mile-meridian-id/bl4vjr8/" target="_blank" rel="noopener">www.apartments.com</a></div>
+  </article>
+<article class="card sm" data-status="dormant" data-subj="SM">
+    <header>
+      <span class="chip subj sm">Seasons</span>
+      <span class="chip status dormant">Dormant / none</span>
+      <span class="dist">3.9 mi from subject</span>
+    </header>
+    <h3>W Hidden Valley Dr, unincorporated Ada County (SE of Eagle Rd &amp; Lake Hazel Rd)</h3>
+    <div class="meta">98 ac · County:RSW, County:RUT · FLU: Low-Density Residential (planned); Suburban Residential</div>
+    <dl>
+      <dt>Owner</dt><dd>not publicly identified (Ada County does not publish owners; no application/news names one). Parcel mix (a small rural subdivision + unplatted metes-and-bounds farm parcels) points to farm-family/rural landowners.</dd>
+      <dt>Type</dt><dd>Farmer-family / rural landowner (inferred)</dd>
+      <dt>Owned since</dt><dd>unknown</dd>
+      <dt>Who they are</dt><dd>Not identified; unincorporated Ada County land in Meridian&#x27;s area of impact.</dd>
+      <dt>Intent</dt><dd>~98.5 ac unincorporated county land, zoned county RSW/RUT (5-ac-lot rural residential + ag). FLU = Suburban / Low-Density Residential. No annexation/rezone/subdivision identified — presents as rural-residential/agricultural. Ringed by active Meridian subdivisions in the Eagle/Lake Hazel hot spot (The Keep, Century Farm, Pura Vida Ranch) — a longer-term low-density candidate, not near-term multifamily.</dd>
+    </dl>
+    <div class="src">Sources: <a href="https://boisedev.com/news/2025/07/07/hundreds-of-homes-apartments-planned-for-lake-hazel-and-linder/" target="_blank" rel="noopener">boisedev.com</a></div>
+  </article>
+</div>
+</section>
+
+<section>
+<h2 class="serif">What this means</h2>
+<p class="sec-intro" style="max-width:74ch;color:var(--ink)">
+Near <b style="color:var(--cr)">Canyon Ridge</b>, the "developable land" is dominated by uses that will never
+compete for renters: Micron's expanding chip fabs and the surrounding Simplot/rangeland (planned for ~20,000 future
+homes but <i>stalled</i> for lack of a second wildfire-evacuation road), the Boise Airport and its
+Airport-Influence-Area overlay that <i>prohibits</i> new housing, city-owned Gateway East industrial parks
+(Boyer, Flint), and foothills land now being converted to open space. The handful of genuinely multifamily-zoned
+vacant parcels are mostly false positives — an existing apartment complex's pond, an HOA common lot — with the one
+real opportunity being the Barber Valley / Harris Ranch town center, ~4 miles north.</p>
+<p class="sec-intro" style="max-width:74ch;color:var(--ink)">
+Near <b style="color:var(--sm)">Seasons at Meridian</b>, the developable land is the Treasure Valley's actual
+housing engine. It is controlled by active master developers — <b>Brighton Corporation</b> (Ten Mile Crossing and
+the 800-acre Pinnacle/Apex community with a rumored Costco town center), <b>Ball Ventures Ahlquist</b>,
+<b>Hawkins Companies</b>, <b>Quarterra/Lennar</b>, <b>CBH Homes</b>, <b>Star Development</b> and others — with
+thousands of homes and a stack of apartment projects already built, approved, or in the pipeline (Aren 396 units,
+The Flats 235, Outer Banks 516, Graycliff 224, Tanner Creek 280, Emblem 250, the Overland/Assemble 200, and more).
+For an apartment owner, Seasons faces materially more competitive new-supply risk; Canyon Ridge is unusually
+insulated by the airport, industry and terrain.</p>
+</section>
+
+<section>
+<h2 class="serif">Method &amp; data</h2>
+<div class="note">
+<b>Coverage.</b> Ada County Assessor parcels (28,026 near Canyon Ridge; 92,773 near Seasons), classified by land use
+(PROPCODE) and joined to a 7-jurisdiction base-zoning crosswalk (Boise, Meridian, Ada County, Kuna, Eagle, Garden
+City, Star — 0 unmapped codes) and to the adopted Future Land Use / comprehensive-plan designation (Boise, Meridian,
+Ada County). Each parcel carries land-use bucket, base zoning + multifamily-supply threat, comp-plan designation +
+intent, assessor value, homestead (owner-occupancy) and HOA-common flags — see the per-subject Excel workbooks and
+interactive map viewers.<br><br>
+<b>The owner-data limit (and how it's handled).</b> Idaho does not publish parcel owner names in the free county GIS,
+and the county's lookup portal is reCAPTCHA-gated for reference only — so a bulk owner roll is not possible. This
+report answers "who owns what, since when, who they are, and what they'll do with it" by <b>researching the material
+developable sites individually</b> from development applications, city P&amp;Z / Council staff reports, COMPASS filings,
+BoiseDev / Idaho Statesman / KTVB reporting and the Idaho Secretary of State registry. Where an owner could not be
+identified from public records, it is labeled "not publicly identified" — never fabricated. Confidence and sources are
+noted per site.<br><br>
+<b>Correction of a prior artifact.</b> An earlier version of this study clustered vacant parcels by owner; because owner
+is null, that collapsed into adjacency-only "mega-blobs" (e.g. a single 8,600- and 14,100-acre cluster spanning a dozen
+zones). This analysis uses a per-parcel developable inventory with contiguous blocks grouped but not fused, and it
+removes HOA/common, detention, floodplain and sliver parcels via the assessor legal text.
+</div>
+</section>
+
+<footer>
+Competitive land-use / developable-land analysis · Canyon Ridge vs Seasons at Meridian · Treasure Valley, ID ·
+Sources: AdaCountyGIS (parcels, zoning, future land use), city/county development records, BoiseDev, COMPASS, Idaho SOS.
+Ownership/intent findings carry per-site confidence ratings; treat "inferred/derived" owners as leads, not title.
+</footer>
+</div>
+<script>
+(function(){
+  var F=document.getElementById('filters');
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  F.addEventListener('click',function(e){
+    var b=e.target.closest('.filt'); if(!b) return;
+    [].forEach.call(F.children,function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+    var f=b.getAttribute('data-f');
+    cards.forEach(function(c){
+      var show = f==='all' || c.getAttribute('data-subj')===f || c.getAttribute('data-status')===f;
+      c.classList.toggle('hide', !show);
+    });
+    document.querySelectorAll('.grid').forEach(function(g){
+      var any=[].some.call(g.children,function(c){return !c.classList.contains('hide');});
+      g.previousElementSibling && g.previousElementSibling.tagName==='H3' &&
+        (g.previousElementSibling.style.display = any?'':'none');
+      g.style.display = any?'':'none';
+    });
+  });
+})();
+</script>

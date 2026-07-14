@@ -1,0 +1,4626 @@
+[
+ {
+  "gid": 13,
+  "acres": 108.8,
+  "parcels": 8,
+  "min_dist": 0.909,
+  "interest": 158.1,
+  "rep_situs": "4800 S FEDERAL WAY",
+  "subdivision": "3N 2E 36",
+  "zones": [
+   "Boise:A-1",
+   "Boise:I-1",
+   "Boise:I-2",
+   "Boise:MX-3"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "High",
+   "Low"
+  ],
+  "accounts": [
+   "S1036212450",
+   "S1036142110",
+   "R3220000050",
+   "S1036110300",
+   "S1036120660",
+   "S1036120605",
+   "S1036120630",
+   "S1036120615"
+  ],
+  "lat": 43.55879,
+  "lon": -116.164329
+ },
+ {
+  "gid": 3,
+  "acres": 1305.4,
+  "parcels": 35,
+  "min_dist": 0.172,
+  "interest": 155.4,
+  "rep_situs": "E COLUMBIA RD",
+  "subdivision": "2N 3E 09",
+  "zones": [
+   "Boise:I-3",
+   "Boise:R-1C",
+   "Boise:R-2",
+   "County:C2",
+   "County:M3",
+   "County:RUT"
+  ],
+  "flus": [
+   "Commercial",
+   "Industrial",
+   "Planned Community",
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low",
+   "Medium"
+  ],
+  "accounts": [
+   "S1609234000",
+   "S1608233600",
+   "S1608325400",
+   "S1608314800",
+   "S1608336000",
+   "S1608427800",
+   "S1608141800",
+   "S1608417250",
+   "S1609233900",
+   "R5350490060",
+   "R5350490040",
+   "R5350490020"
+  ],
+  "lat": 43.524861,
+  "lon": -116.112032
+ },
+ {
+  "gid": 2,
+  "acres": 1678.7,
+  "parcels": 21,
+  "min_dist": 2.092,
+  "interest": 140.8,
+  "rep_situs": "5901 E LAKE FOREST DR",
+  "subdivision": "2N 3E 04",
+  "zones": [
+   "Boise:A-1",
+   "County:RP",
+   "County:RUT"
+  ],
+  "flus": [
+   "Planned Community",
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1604223300",
+   "S1604131350",
+   "S1604449060",
+   "S1603233000",
+   "S1610212455",
+   "S1610244250",
+   "S1610131400",
+   "S1610131251",
+   "S1610110000",
+   "S1610427900",
+   "S1610440000",
+   "S1615110010"
+  ],
+  "lat": 43.542077,
+  "lon": -116.109426
+ },
+ {
+  "gid": 6,
+  "acres": 449.8,
+  "parcels": 25,
+  "min_dist": 0.744,
+  "interest": 135.5,
+  "rep_situs": "7563 S EISENMAN RD",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 03",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3220250660",
+   "R3220250680",
+   "R3220250732",
+   "S1512112030",
+   "S1512110002",
+   "S1512111270",
+   "S1512111280",
+   "S1512112050",
+   "S1512120850",
+   "S1512122325",
+   "S1512114875",
+   "S1512147900"
+  ],
+  "lat": 43.533186,
+  "lon": -116.160218
+ },
+ {
+  "gid": 4,
+  "acres": 596.0,
+  "parcels": 24,
+  "min_dist": 0.971,
+  "interest": 135.1,
+  "rep_situs": "1062 E EXCHANGE ST",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 01",
+  "zones": [
+   "Boise:I-1",
+   "Boise:I-2"
+  ],
+  "flus": [
+   "Airport",
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3219900017",
+   "R3219900011",
+   "R3219910010",
+   "R3219910040",
+   "S1036336000",
+   "S1035438400",
+   "S1035427800",
+   "S1035142150",
+   "S1035131500",
+   "S1035346222",
+   "S1035120700",
+   "S1035314800"
+  ],
+  "lat": 43.54541,
+  "lon": -116.169909
+ },
+ {
+  "gid": 11,
+  "acres": 194.5,
+  "parcels": 4,
+  "min_dist": 0.932,
+  "interest": 135.1,
+  "rep_situs": "5040 S APPLE ST",
+  "subdivision": "3N 2E 36",
+  "zones": [
+   "Boise:A-1",
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1036346600",
+   "S1036325400",
+   "S1036233600",
+   "S1036223165"
+  ],
+  "lat": 43.550439,
+  "lon": -116.165427
+ },
+ {
+  "gid": 1,
+  "acres": 4570.3,
+  "parcels": 77,
+  "min_dist": 1.394,
+  "interest": 134.2,
+  "rep_situs": "S SUPPLY WAY",
+  "subdivision": "2N 2E 02",
+  "zones": [
+   "Boise:A-1",
+   "Boise:A-2",
+   "Boise:I-1",
+   "County:RP"
+  ],
+  "flus": [
+   "(no FLU)",
+   "Airport",
+   "Industrial",
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1502417205",
+   "S1511110000",
+   "S1502244550",
+   "S1511110600",
+   "S1511131200",
+   "S1511211000",
+   "S1502314900",
+   "S1502315005",
+   "S1502331100",
+   "S1511212000",
+   "S1511213000",
+   "S1502230135"
+  ],
+  "lat": 43.536148,
+  "lon": -116.17845
+ },
+ {
+  "gid": 7,
+  "acres": 338.2,
+  "parcels": 5,
+  "min_dist": 2.179,
+  "interest": 132.6,
+  "rep_situs": "S FEDERAL WAY",
+  "subdivision": "2N 3E 18",
+  "zones": [
+   "Boise:I-1",
+   "County:M3",
+   "County:RP"
+  ],
+  "flus": [
+   "(no FLU)",
+   "Industrial",
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1618244250",
+   "S1618314900",
+   "S1618315010",
+   "S1619120600",
+   "S1619417300"
+  ],
+  "lat": 43.51045,
+  "lon": -116.145712
+ },
+ {
+  "gid": 12,
+  "acres": 159.3,
+  "parcels": 6,
+  "min_dist": 3.011,
+  "interest": 131.0,
+  "rep_situs": "S TRENT POINT WAY",
+  "subdivision": "3N 3E 19",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0919110520",
+   "S0919110300",
+   "S0919110590",
+   "S0918438860",
+   "S0918449050",
+   "R1035190140"
+  ],
+  "lat": 43.583857,
+  "lon": -116.135807
+ },
+ {
+  "gid": 5,
+  "acres": 558.2,
+  "parcels": 1,
+  "min_dist": 3.231,
+  "interest": 130.5,
+  "rep_situs": "E COLUMBIA RD",
+  "subdivision": "2N 3E 16",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1616110000"
+  ],
+  "lat": 43.509425,
+  "lon": -116.104569
+ },
+ {
+  "gid": 10,
+  "acres": 217.8,
+  "parcels": 2,
+  "min_dist": 4.711,
+  "interest": 127.6,
+  "rep_situs": "E HWY 21",
+  "subdivision": "2N 3E 02",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1602110000",
+   "S1601231050"
+  ],
+  "lat": 43.544076,
+  "lon": -116.057199
+ },
+ {
+  "gid": 8,
+  "acres": 319.0,
+  "parcels": 1,
+  "min_dist": 4.759,
+  "interest": 127.5,
+  "rep_situs": "4560 S ORCHARD ST",
+  "subdivision": "3N 2E 29",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Airport"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1029120615"
+  ],
+  "lat": 43.566918,
+  "lon": -116.23966
+ },
+ {
+  "gid": 9,
+  "acres": 235.6,
+  "parcels": 1,
+  "min_dist": 4.963,
+  "interest": 127.1,
+  "rep_situs": "E SHAW MOUNTAIN RD",
+  "subdivision": "3N 3E 15",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0915120600"
+  ],
+  "lat": 43.598115,
+  "lon": -116.089763
+ },
+ {
+  "gid": 14,
+  "acres": 78.6,
+  "parcels": 6,
+  "min_dist": 3.089,
+  "interest": 96.7,
+  "rep_situs": "2472 E WARM SPRINGS AVE",
+  "subdivision": "3N 2E 13",
+  "zones": [
+   "Boise:A-1",
+   "Boise:A-2",
+   "Boise:R-1A"
+  ],
+  "flus": [
+   "Buildable (future growth)",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1013449500",
+   "S1013417612",
+   "S1013417515",
+   "R1035170010",
+   "R1035150270",
+   "R1035150050"
+  ],
+  "lat": 43.591755,
+  "lon": -116.15577
+ },
+ {
+  "gid": 15,
+  "acres": 76.6,
+  "parcels": 3,
+  "min_dist": 4.572,
+  "interest": 92.5,
+  "rep_situs": "E WILDHORSE LN",
+  "subdivision": "3N 3E 08",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Buildable (future growth)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0908346720",
+   "S0908346605",
+   "R9404671025"
+  ],
+  "lat": 43.605478,
+  "lon": -116.126709
+ },
+ {
+  "gid": 57,
+  "acres": 10.3,
+  "parcels": 2,
+  "min_dist": 4.473,
+  "interest": 88.3,
+  "rep_situs": "1507 S OAKLAND AVE",
+  "subdivision": "MCDONALD TRACT",
+  "zones": [
+   "Boise:R-3"
+  ],
+  "flus": [
+   "Mixed Use"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R5577760530",
+   "R5577760451"
+  ],
+  "lat": 43.59377,
+  "lon": -116.204365
+ },
+ {
+  "gid": 66,
+  "acres": 7.6,
+  "parcels": 1,
+  "min_dist": 3.764,
+  "interest": 87.0,
+  "rep_situs": "1550 S LOGGERS POND PL",
+  "subdivision": "3N 2E 14",
+  "zones": [
+   "Boise:R-3"
+  ],
+  "flus": [
+   "High-Density Residential (planned)"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "S1014449000"
+  ],
+  "lat": 43.593573,
+  "lon": -116.174333
+ },
+ {
+  "gid": 106,
+  "acres": 3.3,
+  "parcels": 1,
+  "min_dist": 2.552,
+  "interest": 85.1,
+  "rep_situs": "281 E FAIRBROOK DR",
+  "subdivision": "LAKEWOOD UNIT NO 11B",
+  "zones": [
+   "Boise:R-3"
+  ],
+  "flus": [
+   "High-Density Residential (planned)"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R5125630141"
+  ],
+  "lat": 43.572131,
+  "lon": -116.180158
+ },
+ {
+  "gid": 166,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 2.604,
+  "interest": 83.0,
+  "rep_situs": "3534 S FEDERAL WAY",
+  "subdivision": "TOMLINSON SUB",
+  "zones": [
+   "Boise:R-3"
+  ],
+  "flus": [
+   "High-Density Residential (planned)"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R8499350101"
+  ],
+  "lat": 43.570223,
+  "lon": -116.185236
+ },
+ {
+  "gid": 16,
+  "acres": 67.9,
+  "parcels": 3,
+  "min_dist": 2.351,
+  "interest": 80.2,
+  "rep_situs": "4747 E WARM SPRINGS AVE",
+  "subdivision": "3N 3E 29",
+  "zones": [
+   "Boise:A-1",
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Public / Quasi-Public",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0929244200",
+   "S0929212400",
+   "R3482170150"
+  ],
+  "lat": 43.570257,
+  "lon": -116.125611
+ },
+ {
+  "gid": 17,
+  "acres": 56.9,
+  "parcels": 7,
+  "min_dist": 2.186,
+  "interest": 69.6,
+  "rep_situs": "10143 S FEDERAL WAY",
+  "subdivision": "2N 3E 18",
+  "zones": [
+   "County:M2",
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1618131250",
+   "S1618141900",
+   "S1618417250",
+   "S1618427810",
+   "S1618427900",
+   "S1618417300",
+   "S1619110100"
+  ],
+  "lat": 43.510883,
+  "lon": -116.141522
+ },
+ {
+  "gid": 51,
+  "acres": 11.5,
+  "parcels": 1,
+  "min_dist": 2.41,
+  "interest": 68.7,
+  "rep_situs": "3453 E PARKCENTER BLVD",
+  "subdivision": "3N 3E 19",
+  "zones": [
+   "Boise:SP-02"
+  ],
+  "flus": [
+   "High-Density Residential (planned)"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "S0919448585"
+  ],
+  "lat": 43.575891,
+  "lon": -116.141415
+ },
+ {
+  "gid": 42,
+  "acres": 17.1,
+  "parcels": 1,
+  "min_dist": 0.105,
+  "interest": 63.9,
+  "rep_situs": "2500 E RED CEDAR LN",
+  "subdivision": "2N 3E 06",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "S1606223219"
+  ],
+  "lat": 43.543253,
+  "lon": -116.151327
+ },
+ {
+  "gid": 81,
+  "acres": 6.0,
+  "parcels": 1,
+  "min_dist": 2.213,
+  "interest": 63.6,
+  "rep_situs": "4247 E BRIGHTSIDE ST",
+  "subdivision": "DALLAS HARRIS SOUTH SUB NO 02",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "Mixed Use"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "R1719910020"
+  ],
+  "lat": 43.570439,
+  "lon": -116.131579
+ },
+ {
+  "gid": 79,
+  "acres": 6.2,
+  "parcels": 2,
+  "min_dist": 2.342,
+  "interest": 63.5,
+  "rep_situs": "E PARKCENTER BLVD",
+  "subdivision": "3N 3E 29",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "High-Density Residential (planned)",
+   "Mixed Use"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "S0929223405",
+   "S0929223100"
+  ],
+  "lat": 43.57288,
+  "lon": -116.132719
+ },
+ {
+  "gid": 82,
+  "acres": 5.9,
+  "parcels": 3,
+  "min_dist": 2.356,
+  "interest": 63.2,
+  "rep_situs": "4055 E PARKCENTER BLVD",
+  "subdivision": "3N 3E 29",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "High-Density Residential (planned)",
+   "Mixed Use"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "S0929223395",
+   "S0929223150",
+   "S0920336227"
+  ],
+  "lat": 43.573375,
+  "lon": -116.133672
+ },
+ {
+  "gid": 49,
+  "acres": 12.6,
+  "parcels": 3,
+  "min_dist": 0.84,
+  "interest": 62.9,
+  "rep_situs": "7983 S FEDERAL WAY",
+  "subdivision": "2N 3E 07",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "S1607223301",
+   "S1607223575",
+   "S1607223595"
+  ],
+  "lat": 43.529589,
+  "lon": -116.15182
+ },
+ {
+  "gid": 141,
+  "acres": 1.9,
+  "parcels": 1,
+  "min_dist": 3.961,
+  "interest": 61.0,
+  "rep_situs": "2310 E WARM SPRINGS AVE",
+  "subdivision": "3N 2E 13",
+  "zones": [
+   "Boise:MX-1"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "S1013244540"
+  ],
+  "lat": 43.598349,
+  "lon": -116.163661
+ },
+ {
+  "gid": 45,
+  "acres": 14.1,
+  "parcels": 3,
+  "min_dist": 0.13,
+  "interest": 60.6,
+  "rep_situs": "2900 E HEARTLEAF LN",
+  "subdivision": "ELEVATION RIDGE SUB",
+  "zones": [
+   "Boise:R-1C",
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low",
+   "Medium"
+  ],
+  "accounts": [
+   "R2322810012",
+   "R7909020254",
+   "R7909020015"
+  ],
+  "lat": 43.541596,
+  "lon": -116.146854
+ },
+ {
+  "gid": 123,
+  "acres": 2.4,
+  "parcels": 1,
+  "min_dist": 2.12,
+  "interest": 60.2,
+  "rep_situs": "3655 S MILLBROOK WAY",
+  "subdivision": "BARBER JUNCTION SUB",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "Mixed Use"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "R0805500010"
+  ],
+  "lat": 43.568714,
+  "lon": -116.131051
+ },
+ {
+  "gid": 68,
+  "acres": 7.0,
+  "parcels": 2,
+  "min_dist": 0.613,
+  "interest": 57.8,
+  "rep_situs": "6880 S EISENMAN RD",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 02",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R3219920100",
+   "R3219920066"
+  ],
+  "lat": 43.540539,
+  "lon": -116.163325
+ },
+ {
+  "gid": 18,
+  "acres": 43.5,
+  "parcels": 7,
+  "min_dist": 1.577,
+  "interest": 57.4,
+  "rep_situs": "201 E AMITY RD",
+  "subdivision": "3N 2E 35",
+  "zones": [
+   "Boise:I-1",
+   "Boise:I-2"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1035141920",
+   "S1035141950",
+   "S1035110225",
+   "S1035110250",
+   "S1035110400",
+   "S1035131200",
+   "S1035110305"
+  ],
+  "lat": 43.556128,
+  "lon": -116.175648
+ },
+ {
+  "gid": 56,
+  "acres": 10.5,
+  "parcels": 3,
+  "min_dist": 3.93,
+  "interest": 54.6,
+  "rep_situs": "W SUNRISE RIM RD",
+  "subdivision": "3N 2E 28",
+  "zones": [
+   "Boise:R-2",
+   "Boise:R-3"
+  ],
+  "flus": [
+   "Commercial",
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "High",
+   "Medium"
+  ],
+  "accounts": [
+   "S1028110110",
+   "S1021449110",
+   "S1021438510"
+  ],
+  "lat": 43.574723,
+  "lon": -116.215138
+ },
+ {
+  "gid": 104,
+  "acres": 3.3,
+  "parcels": 1,
+  "min_dist": 0.592,
+  "interest": 54.1,
+  "rep_situs": "7050 S EISENMAN RD",
+  "subdivision": "ICE WORLD SUB",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R3936960200"
+  ],
+  "lat": 43.536962,
+  "lon": -116.161015
+ },
+ {
+  "gid": 129,
+  "acres": 2.2,
+  "parcels": 1,
+  "min_dist": 0.335,
+  "interest": 53.5,
+  "rep_situs": "2149 E HOSPITALITY LN",
+  "subdivision": "FREEWAY SUB",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R2929910032"
+  ],
+  "lat": 43.539046,
+  "lon": -116.156775
+ },
+ {
+  "gid": 19,
+  "acres": 40.2,
+  "parcels": 1,
+  "min_dist": 2.439,
+  "interest": 52.4,
+  "rep_situs": "S EISENMAN RD",
+  "subdivision": "2N 2E 14",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1514141800"
+  ],
+  "lat": 43.511436,
+  "lon": -116.176163
+ },
+ {
+  "gid": 67,
+  "acres": 7.1,
+  "parcels": 3,
+  "min_dist": 3.565,
+  "interest": 51.9,
+  "rep_situs": "2421 W AIRPORT WAY",
+  "subdivision": "3N 2E 27",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "S1027233830",
+   "S1027233850",
+   "S1027233840"
+  ],
+  "lat": 43.569242,
+  "lon": -116.211609
+ },
+ {
+  "gid": 160,
+  "acres": 1.3,
+  "parcels": 1,
+  "min_dist": 0.711,
+  "interest": 51.9,
+  "rep_situs": "6400 S EISENMAN RD",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 01",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R3219900065"
+  ],
+  "lat": 43.544396,
+  "lon": -116.164915
+ },
+ {
+  "gid": 63,
+  "acres": 8.3,
+  "parcels": 3,
+  "min_dist": 4.35,
+  "interest": 51.6,
+  "rep_situs": "3530 W ELDER ST",
+  "subdivision": "WESTMONT HOTELS SUB",
+  "zones": [
+   "Boise:MX-1"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R9322560100",
+   "R9322560200",
+   "R9322560300"
+  ],
+  "lat": 43.57393,
+  "lon": -116.226101
+ },
+ {
+  "gid": 77,
+  "acres": 6.4,
+  "parcels": 1,
+  "min_dist": 4.189,
+  "interest": 50.0,
+  "rep_situs": "300 E PARKCENTER BLVD",
+  "subdivision": "PARKCENTER SUB NO 01",
+  "zones": [
+   "Boise:MX-3"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R6907010160"
+  ],
+  "lat": 43.598991,
+  "lon": -116.178691
+ },
+ {
+  "gid": 22,
+  "acres": 39.4,
+  "parcels": 1,
+  "min_dist": 3.375,
+  "interest": 49.7,
+  "rep_situs": "E BARBER RD",
+  "subdivision": "3N 3E 20",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Public / Quasi-Public"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0920211000"
+  ],
+  "lat": 43.586869,
+  "lon": -116.125431
+ },
+ {
+  "gid": 76,
+  "acres": 6.4,
+  "parcels": 3,
+  "min_dist": 4.408,
+  "interest": 49.6,
+  "rep_situs": "1225 S FEDERAL WAY",
+  "subdivision": "LOVELAND SUB",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Mixed Use"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5336000010",
+   "R3638510025",
+   "R8843000302"
+  ],
+  "lat": 43.59137,
+  "lon": -116.206521
+ },
+ {
+  "gid": 145,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 2.178,
+  "interest": 49.5,
+  "rep_situs": "3140 S ABIGAIL WAY",
+  "subdivision": "RIVERWALK SUB NO 02",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Mixed Use"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R7476730410"
+  ],
+  "lat": 43.573241,
+  "lon": -116.15242
+ },
+ {
+  "gid": 29,
+  "acres": 27.8,
+  "parcels": 3,
+  "min_dist": 2.731,
+  "interest": 49.4,
+  "rep_situs": "6060 E GRAND PRAIRIE DR",
+  "subdivision": "RIVERHEIGHTS SUB NO 01",
+  "zones": [
+   "Boise:A-2",
+   "Boise:SP-02"
+  ],
+  "flus": [
+   "Large Lot / Rural",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low",
+   "Unknown"
+  ],
+  "accounts": [
+   "R7475320350",
+   "R7475330140",
+   "S0928314810"
+  ],
+  "lat": 43.565782,
+  "lon": -116.107927
+ },
+ {
+  "gid": 23,
+  "acres": 36.9,
+  "parcels": 3,
+  "min_dist": 2.333,
+  "interest": 49.2,
+  "rep_situs": "E WARM SPRINGS AVE",
+  "subdivision": "3N 3E 28",
+  "zones": [
+   "County:M2",
+   "County:RP"
+  ],
+  "flus": [
+   "Large Lot / Rural"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0928333120",
+   "S0928336350",
+   "S0928333150"
+  ],
+  "lat": 43.561527,
+  "lon": -116.113462
+ },
+ {
+  "gid": 20,
+  "acres": 40.0,
+  "parcels": 2,
+  "min_dist": 4.273,
+  "interest": 48.4,
+  "rep_situs": "E BLACKS CREEK RD",
+  "subdivision": "2N 3E 22",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1622212500",
+   "S1622212400"
+  ],
+  "lat": 43.500372,
+  "lon": -116.087797
+ },
+ {
+  "gid": 21,
+  "acres": 39.8,
+  "parcels": 1,
+  "min_dist": 4.279,
+  "interest": 48.2,
+  "rep_situs": "E HIGHLAND VALLEY RD",
+  "subdivision": "3N 3E 26",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0926325400"
+  ],
+  "lat": 43.565551,
+  "lon": -116.072315
+ },
+ {
+  "gid": 96,
+  "acres": 4.2,
+  "parcels": 3,
+  "min_dist": 1.757,
+  "interest": 47.7,
+  "rep_situs": "1001 E INSIGNIA DR",
+  "subdivision": "PROMONTORY RIDGE SUB",
+  "zones": [
+   "Boise:I-1",
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low",
+   "Medium"
+  ],
+  "accounts": [
+   "R7198560010",
+   "R7198560440",
+   "R7198560430"
+  ],
+  "lat": 43.562619,
+  "lon": -116.171209
+ },
+ {
+  "gid": 131,
+  "acres": 2.1,
+  "parcels": 1,
+  "min_dist": 3.209,
+  "interest": 47.7,
+  "rep_situs": "1915 W AIRPORT WAY",
+  "subdivision": "STOUT SUB AMD",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R8184740900"
+  ],
+  "lat": 43.567083,
+  "lon": -116.204892
+ },
+ {
+  "gid": 97,
+  "acres": 4.0,
+  "parcels": 2,
+  "min_dist": 4.272,
+  "interest": 47.5,
+  "rep_situs": "198 W PARKCENTER BLVD",
+  "subdivision": "PARKCENTER SUB NO 01",
+  "zones": [
+   "Boise:MX-3"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R6907010090",
+   "R6907010050"
+  ],
+  "lat": 43.599044,
+  "lon": -116.183223
+ },
+ {
+  "gid": 174,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.979,
+  "interest": 47.2,
+  "rep_situs": "1085 W WRIGHT ST",
+  "subdivision": "3N 2E 27",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "S1027141831"
+  ],
+  "lat": 43.571264,
+  "lon": -116.194542
+ },
+ {
+  "gid": 159,
+  "acres": 1.4,
+  "parcels": 1,
+  "min_dist": 3.189,
+  "interest": 47.0,
+  "rep_situs": "1850 W AIRPORT WAY",
+  "subdivision": "PETROL SUB",
+  "zones": [
+   "Boise:MX-2"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R7024760010"
+  ],
+  "lat": 43.567668,
+  "lon": -116.203871
+ },
+ {
+  "gid": 150,
+  "acres": 1.7,
+  "parcels": 1,
+  "min_dist": 3.85,
+  "interest": 46.0,
+  "rep_situs": "449 E PARKCENTER BLVD",
+  "subdivision": "PARKCENTER SUB NO 03",
+  "zones": [
+   "Boise:MX-1"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R6907070090"
+  ],
+  "lat": 43.593794,
+  "lon": -116.178629
+ },
+ {
+  "gid": 143,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 4.154,
+  "interest": 45.5,
+  "rep_situs": "3177 W PASADENA DR",
+  "subdivision": "ELDER SUB",
+  "zones": [
+   "Boise:MX-1"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R2320000092"
+  ],
+  "lat": 43.574827,
+  "lon": -116.220471
+ },
+ {
+  "gid": 161,
+  "acres": 1.3,
+  "parcels": 1,
+  "min_dist": 3.918,
+  "interest": 45.5,
+  "rep_situs": "2807 W ELDER ST",
+  "subdivision": "ELDER SUB",
+  "zones": [
+   "Boise:MX-3"
+  ],
+  "flus": [
+   "Commercial"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R2320000190"
+  ],
+  "lat": 43.573033,
+  "lon": -116.21644
+ },
+ {
+  "gid": 136,
+  "acres": 2.0,
+  "parcels": 1,
+  "min_dist": 4.369,
+  "interest": 45.3,
+  "rep_situs": "444 W PARKCENTER BLVD",
+  "subdivision": "PARKCENTER SUB NO 01",
+  "zones": [
+   "Boise:MX-3"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "High"
+  ],
+  "accounts": [
+   "R6907010020"
+  ],
+  "lat": 43.599369,
+  "lon": -116.187081
+ },
+ {
+  "gid": 71,
+  "acres": 6.8,
+  "parcels": 1,
+  "min_dist": 4.729,
+  "interest": 44.3,
+  "rep_situs": "2350 W KOOTENAI ST",
+  "subdivision": "3N 2E 15",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "S1015325410"
+  ],
+  "lat": 43.595298,
+  "lon": -116.210006
+ },
+ {
+  "gid": 26,
+  "acres": 31.0,
+  "parcels": 3,
+  "min_dist": 2.076,
+  "interest": 43.9,
+  "rep_situs": "4125 S FEDERAL WAY",
+  "subdivision": "3N 2E 26",
+  "zones": [
+   "Boise:I-1",
+   "Boise:I-2"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1026417510",
+   "S1026428005",
+   "S1026427910"
+  ],
+  "lat": 43.564838,
+  "lon": -116.177689
+ },
+ {
+  "gid": 171,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 2.216,
+  "interest": 43.7,
+  "rep_situs": "494 E LAKE RIM LN",
+  "subdivision": "LAKEWOOD UNIT NO 17",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R5125680080"
+  ],
+  "lat": 43.567365,
+  "lon": -116.177805
+ },
+ {
+  "gid": 25,
+  "acres": 32.9,
+  "parcels": 2,
+  "min_dist": 3.167,
+  "interest": 43.6,
+  "rep_situs": "E COLUMBIA RD",
+  "subdivision": "2N 3E 10",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1610233600",
+   "S1610233700"
+  ],
+  "lat": 43.525366,
+  "lon": -116.092138
+ },
+ {
+  "gid": 24,
+  "acres": 35.5,
+  "parcels": 1,
+  "min_dist": 4.908,
+  "interest": 42.7,
+  "rep_situs": "5110 W GOWEN RD",
+  "subdivision": "3N 2E 32",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1032212403"
+  ],
+  "lat": 43.558947,
+  "lon": -116.246296
+ },
+ {
+  "gid": 177,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.808,
+  "interest": 42.5,
+  "rep_situs": "2931 S FALLING BROOK WAY",
+  "subdivision": "LAKEWOOD UNIT NO 07",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R5125560040"
+  ],
+  "lat": 43.576026,
+  "lon": -116.181281
+ },
+ {
+  "gid": 176,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.92,
+  "interest": 42.3,
+  "rep_situs": "2750 S GEKELER LN",
+  "subdivision": "LAKEWOOD UNIT NO 06",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R5125550215"
+  ],
+  "lat": 43.577195,
+  "lon": -116.182932
+ },
+ {
+  "gid": 28,
+  "acres": 28.6,
+  "parcels": 6,
+  "min_dist": 1.988,
+  "interest": 41.6,
+  "rep_situs": "5750 S SURPRISE WAY",
+  "subdivision": "SURPRISE VALLEY SUB NO 02",
+  "zones": [
+   "Boise:A-1",
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8226680010",
+   "R8226690140",
+   "R8226700015",
+   "R8226720010",
+   "R8226710020",
+   "R8226710010"
+  ],
+  "lat": 43.551044,
+  "lon": -116.11364
+ },
+ {
+  "gid": 30,
+  "acres": 25.2,
+  "parcels": 8,
+  "min_dist": 4.397,
+  "interest": 41.4,
+  "rep_situs": "2691 E EASTDALE DR",
+  "subdivision": "NATIVA TERRA SUB",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Buildable (future growth)",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983350330",
+   "R5983350415",
+   "R5983350430",
+   "R5983350480",
+   "R1160210100",
+   "R5983350100",
+   "R5983360032",
+   "R5983350010"
+  ],
+  "lat": 43.605382,
+  "lon": -116.155907
+ },
+ {
+  "gid": 190,
+  "acres": 1.0,
+  "parcels": 1,
+  "min_dist": 3.361,
+  "interest": 41.3,
+  "rep_situs": "E CHESTER LN",
+  "subdivision": "BOARDWALK TOWNHOUSES",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R1005710140"
+  ],
+  "lat": 43.586501,
+  "lon": -116.177455
+ },
+ {
+  "gid": 31,
+  "acres": 24.7,
+  "parcels": 6,
+  "min_dist": 4.339,
+  "interest": 41.0,
+  "rep_situs": "140 N ALTO VIA CT",
+  "subdivision": "NATIVA TERRA SUB NO 04",
+  "zones": [
+   "Boise:A-1",
+   "County:RP"
+  ],
+  "flus": [
+   "Buildable (future growth)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983390030",
+   "R5983390040",
+   "R5983390028",
+   "S0907346600",
+   "R5983390014",
+   "S0907346700"
+  ],
+  "lat": 43.604733,
+  "lon": -116.148949
+ },
+ {
+  "gid": 32,
+  "acres": 24.3,
+  "parcels": 2,
+  "min_dist": 0.31,
+  "interest": 40.7,
+  "rep_situs": "E GOWEN RD",
+  "subdivision": "2N 2E 01",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Commercial",
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1501141950",
+   "S1501120610"
+  ],
+  "lat": 43.541915,
+  "lon": -116.157385
+ },
+ {
+  "gid": 152,
+  "acres": 1.6,
+  "parcels": 1,
+  "min_dist": 2.539,
+  "interest": 38.5,
+  "rep_situs": "2750 S PALMATIER WAY",
+  "subdivision": "DALLAS HARRIS ESTATES SUB NO 07",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "R1719470200"
+  ],
+  "lat": 43.576621,
+  "lon": -116.13529
+ },
+ {
+  "gid": 41,
+  "acres": 17.2,
+  "parcels": 2,
+  "min_dist": 3.007,
+  "interest": 38.2,
+  "rep_situs": "5759 E BARBER DR",
+  "subdivision": "3N 3E 20",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "S0920417550",
+   "S0921336315"
+  ],
+  "lat": 43.57812,
+  "lon": -116.118238
+ },
+ {
+  "gid": 27,
+  "acres": 29.6,
+  "parcels": 3,
+  "min_dist": 4.364,
+  "interest": 37.9,
+  "rep_situs": "4553 W HARVARD ST",
+  "subdivision": "3N 2E 32",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Airport"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1032141900",
+   "S1032110025",
+   "S1032131200"
+  ],
+  "lat": 43.556305,
+  "lon": -116.236002
+ },
+ {
+  "gid": 37,
+  "acres": 19.7,
+  "parcels": 4,
+  "min_dist": 0.82,
+  "interest": 35.1,
+  "rep_situs": "E LAKE FOREST DR",
+  "subdivision": "COLUMBIA VILLAGE NO 09",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "School",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1525640070",
+   "R7909030330",
+   "R1525690400",
+   "S0931447200"
+  ],
+  "lat": 43.550058,
+  "lon": -116.139467
+ },
+ {
+  "gid": 33,
+  "acres": 21.4,
+  "parcels": 4,
+  "min_dist": 2.084,
+  "interest": 34.2,
+  "rep_situs": "E SAWMILL WAY",
+  "subdivision": "3N 3E 29",
+  "zones": [
+   "Boise:A-2",
+   "Boise:R-1C",
+   "County:M2"
+  ],
+  "flus": [
+   "Large Lot / Rural",
+   "Public / Quasi-Public",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0929438572",
+   "S0929449100",
+   "S0929449200",
+   "S0928336050"
+  ],
+  "lat": 43.562406,
+  "lon": -116.120901
+ },
+ {
+  "gid": 35,
+  "acres": 19.9,
+  "parcels": 2,
+  "min_dist": 1.664,
+  "interest": 33.6,
+  "rep_situs": "S EISENMAN RD",
+  "subdivision": "HARLAN SUB",
+  "zones": [
+   "Boise:I-1",
+   "County:M3"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3466000251",
+   "S1618223150"
+  ],
+  "lat": 43.517694,
+  "lon": -116.14906
+ },
+ {
+  "gid": 40,
+  "acres": 17.4,
+  "parcels": 2,
+  "min_dist": 0.489,
+  "interest": 33.4,
+  "rep_situs": "2286 E SUMMERSWEET DR",
+  "subdivision": "BUSINESS PARK SUB NO 04",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1179380090",
+   "R1179380105"
+  ],
+  "lat": 43.54794,
+  "lon": -116.15591
+ },
+ {
+  "gid": 52,
+  "acres": 11.3,
+  "parcels": 1,
+  "min_dist": 2.084,
+  "interest": 32.2,
+  "rep_situs": "5800 E COLUMBIA RD",
+  "subdivision": "2N 3E 04",
+  "zones": [
+   "County:RUT"
+  ],
+  "flus": [
+   "Planned Community"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1604336300"
+  ],
+  "lat": 43.532702,
+  "lon": -116.111491
+ },
+ {
+  "gid": 38,
+  "acres": 18.8,
+  "parcels": 3,
+  "min_dist": 1.937,
+  "interest": 32.0,
+  "rep_situs": "9587 S FEDERAL WAY",
+  "subdivision": "2N 3E 18",
+  "zones": [
+   "County:M2"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1618212442",
+   "S1618120900",
+   "S1618241150"
+  ],
+  "lat": 43.514052,
+  "lon": -116.145058
+ },
+ {
+  "gid": 43,
+  "acres": 15.7,
+  "parcels": 3,
+  "min_dist": 0.469,
+  "interest": 31.8,
+  "rep_situs": "7090 S EISENMAN RD",
+  "subdivision": "2N 2E 01",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1501417450",
+   "S1501417500",
+   "S1501449003"
+  ],
+  "lat": 43.53718,
+  "lon": -116.158128
+ },
+ {
+  "gid": 39,
+  "acres": 17.6,
+  "parcels": 3,
+  "min_dist": 1.654,
+  "interest": 31.3,
+  "rep_situs": "E FOTHERGILL ST",
+  "subdivision": "LAHONTAN RIDGE SUB",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5121650080",
+   "S1025427910",
+   "S1025325450"
+  ],
+  "lat": 43.564905,
+  "lon": -116.159483
+ },
+ {
+  "gid": 138,
+  "acres": 2.0,
+  "parcels": 1,
+  "min_dist": 1.545,
+  "interest": 30.9,
+  "rep_situs": "S REDHAWK PL",
+  "subdivision": "SILVERWOOD SUB NO 04",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R7909990140"
+  ],
+  "lat": 43.563886,
+  "lon": -116.155423
+ },
+ {
+  "gid": 110,
+  "acres": 3.0,
+  "parcels": 1,
+  "min_dist": 2.279,
+  "interest": 30.5,
+  "rep_situs": "E BOISE AVE",
+  "subdivision": "3N 2E 25",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1025121000"
+  ],
+  "lat": 43.57412,
+  "lon": -116.1598
+ },
+ {
+  "gid": 83,
+  "acres": 5.7,
+  "parcels": 1,
+  "min_dist": 4.144,
+  "interest": 29.4,
+  "rep_situs": "2825 W MALAD ST",
+  "subdivision": "HOME ACRES SUB NO 16",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3719160500"
+  ],
+  "lat": 43.57804,
+  "lon": -116.217068
+ },
+ {
+  "gid": 36,
+  "acres": 19.9,
+  "parcels": 1,
+  "min_dist": 3.862,
+  "interest": 29.2,
+  "rep_situs": "E HWY 21",
+  "subdivision": "3N 3E 17",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Public / Quasi-Public"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0917311000"
+  ],
+  "lat": 43.594422,
+  "lon": -116.125445
+ },
+ {
+  "gid": 34,
+  "acres": 19.9,
+  "parcels": 5,
+  "min_dist": 3.986,
+  "interest": 29.0,
+  "rep_situs": "STAGECOACH RD",
+  "subdivision": "2N 3E 11",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1611221110",
+   "S1611221150",
+   "S1611223200",
+   "S1611221200",
+   "S1611221250"
+  ],
+  "lat": 43.531033,
+  "lon": -116.072992
+ },
+ {
+  "gid": 118,
+  "acres": 2.7,
+  "parcels": 1,
+  "min_dist": 2.889,
+  "interest": 28.9,
+  "rep_situs": "3100 S SNOWFLAKE WAY",
+  "subdivision": "LAKEWOOD UNIT NO 03",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5125520210"
+  ],
+  "lat": 43.574427,
+  "lon": -116.187181
+ },
+ {
+  "gid": 116,
+  "acres": 2.8,
+  "parcels": 1,
+  "min_dist": 3.014,
+  "interest": 28.7,
+  "rep_situs": "311 W FALL DR",
+  "subdivision": "LAKEWOOD UNIT NO 01",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5125500225"
+  ],
+  "lat": 43.577544,
+  "lon": -116.185568
+ },
+ {
+  "gid": 172,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 2.253,
+  "interest": 28.7,
+  "rep_situs": "4057 S MILL SITE AVE",
+  "subdivision": "HARRIS RANCH SUB NO 01",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3482151700"
+  ],
+  "lat": 43.565339,
+  "lon": -116.120146
+ },
+ {
+  "gid": 44,
+  "acres": 14.1,
+  "parcels": 4,
+  "min_dist": 1.297,
+  "interest": 28.5,
+  "rep_situs": "S ADONIS WAY",
+  "subdivision": "COLUMBIA VILLAGE NO 20",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1525760430",
+   "R0541500060",
+   "R1525770290",
+   "R0541500320"
+  ],
+  "lat": 43.55608,
+  "lon": -116.134509
+ },
+ {
+  "gid": 127,
+  "acres": 2.3,
+  "parcels": 1,
+  "min_dist": 2.976,
+  "interest": 28.3,
+  "rep_situs": "W SUNRISE RD",
+  "subdivision": "QUAST SUB",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R7284000800"
+  ],
+  "lat": 43.568873,
+  "lon": -116.197355
+ },
+ {
+  "gid": 46,
+  "acres": 13.8,
+  "parcels": 1,
+  "min_dist": 1.392,
+  "interest": 28.0,
+  "rep_situs": "E AMITY RD",
+  "subdivision": "3N 3E 30",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0930347000"
+  ],
+  "lat": 43.561403,
+  "lon": -116.145179
+ },
+ {
+  "gid": 80,
+  "acres": 6.1,
+  "parcels": 1,
+  "min_dist": 2.796,
+  "interest": 27.5,
+  "rep_situs": "6390 E WARM SPRINGS AVE",
+  "subdivision": "RIVERHEIGHTS SUB NO 05",
+  "zones": [
+   "Boise:SP-02"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "R7475360220"
+  ],
+  "lat": 43.562095,
+  "lon": -116.10295
+ },
+ {
+  "gid": 147,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 3.147,
+  "interest": 27.5,
+  "rep_situs": "3412 S LINDSAY AVE",
+  "subdivision": "3N 2E 27",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "S1027131235"
+  ],
+  "lat": 43.571226,
+  "lon": -116.199085
+ },
+ {
+  "gid": 155,
+  "acres": 1.6,
+  "parcels": 1,
+  "min_dist": 3.116,
+  "interest": 27.4,
+  "rep_situs": "1250 E BRIGHTWATER LN",
+  "subdivision": "AVERY SPRINGS",
+  "zones": [
+   "Boise:R-2"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Medium"
+  ],
+  "accounts": [
+   "R0619790190"
+  ],
+  "lat": 43.585305,
+  "lon": -116.167277
+ },
+ {
+  "gid": 175,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.89,
+  "interest": 27.3,
+  "rep_situs": "2969 S GEKELER LN",
+  "subdivision": "LAKEWOOD UNIT NO 02",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5125510275"
+  ],
+  "lat": 43.575782,
+  "lon": -116.184729
+ },
+ {
+  "gid": 189,
+  "acres": 1.0,
+  "parcels": 1,
+  "min_dist": 2.881,
+  "interest": 27.2,
+  "rep_situs": "180 E TWIN WILLOW DR",
+  "subdivision": "LAKEWOOD UNIT NO 06",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5125550325"
+  ],
+  "lat": 43.577194,
+  "lon": -116.181457
+ },
+ {
+  "gid": 53,
+  "acres": 11.2,
+  "parcels": 2,
+  "min_dist": 0.818,
+  "interest": 26.5,
+  "rep_situs": "7451 S EISENMAN RD",
+  "subdivision": "2N 2E 01",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1501346900",
+   "S1501346800"
+  ],
+  "lat": 43.534336,
+  "lon": -116.163954
+ },
+ {
+  "gid": 120,
+  "acres": 2.6,
+  "parcels": 2,
+  "min_dist": 4.06,
+  "interest": 26.4,
+  "rep_situs": "2290 E WARM SPRINGS AVE",
+  "subdivision": "3N 2E 13",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1013244710",
+   "S1013244762"
+  ],
+  "lat": 43.599657,
+  "lon": -116.164826
+ },
+ {
+  "gid": 48,
+  "acres": 12.7,
+  "parcels": 4,
+  "min_dist": 2.036,
+  "interest": 25.6,
+  "rep_situs": "S HABITAT LN",
+  "subdivision": "NATURES WOOD DUCK ISLAND NO 06",
+  "zones": [
+   "Boise:R-1A"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983920020",
+   "R5983920012",
+   "R5983920011",
+   "R5983920013"
+  ],
+  "lat": 43.571079,
+  "lon": -116.147608
+ },
+ {
+  "gid": 183,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 3.731,
+  "interest": 25.6,
+  "rep_situs": "252 E SCHMEIZER LN",
+  "subdivision": "MARTIN SUB",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5471000075"
+  ],
+  "lat": 43.591376,
+  "lon": -116.180542
+ },
+ {
+  "gid": 164,
+  "acres": 1.3,
+  "parcels": 1,
+  "min_dist": 3.885,
+  "interest": 25.5,
+  "rep_situs": "1022 W CHAMBERLIN ST",
+  "subdivision": "DUNDEE 03RD SUB AND AMD BLK 13",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1955021145"
+  ],
+  "lat": 43.588352,
+  "lon": -116.1946
+ },
+ {
+  "gid": 126,
+  "acres": 2.3,
+  "parcels": 1,
+  "min_dist": 1.053,
+  "interest": 25.2,
+  "rep_situs": "E GOWEN RD",
+  "subdivision": "2N 3E 05",
+  "zones": [
+   "County:RUT"
+  ],
+  "flus": [
+   "Planned Community"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1605223000"
+  ],
+  "lat": 43.542285,
+  "lon": -116.130195
+ },
+ {
+  "gid": 185,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 4.022,
+  "interest": 25.0,
+  "rep_situs": "2291 S COLUMBUS ST",
+  "subdivision": "3N 2E 22",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1022325410"
+  ],
+  "lat": 43.581608,
+  "lon": -116.20971
+ },
+ {
+  "gid": 134,
+  "acres": 2.0,
+  "parcels": 1,
+  "min_dist": 4.638,
+  "interest": 24.7,
+  "rep_situs": "352 N COSTON ST",
+  "subdivision": "3N 2E 11",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Compact / walkable neighborhood"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1011449710"
+  ],
+  "lat": 43.606621,
+  "lon": -116.174939
+ },
+ {
+  "gid": 54,
+  "acres": 11.0,
+  "parcels": 2,
+  "min_dist": 1.712,
+  "interest": 24.6,
+  "rep_situs": "301 W GOWEN RD",
+  "subdivision": "2N 2E 02",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1502212620",
+   "S1502244507"
+  ],
+  "lat": 43.544125,
+  "lon": -116.185213
+ },
+ {
+  "gid": 142,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 1.116,
+  "interest": 24.6,
+  "rep_situs": "E COLUMBIA RD",
+  "subdivision": "2N 3E 05",
+  "zones": [
+   "County:RUT"
+  ],
+  "flus": [
+   "Planned Community"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1605336000"
+  ],
+  "lat": 43.531593,
+  "lon": -116.133848
+ },
+ {
+  "gid": 153,
+  "acres": 1.6,
+  "parcels": 1,
+  "min_dist": 2.363,
+  "interest": 23.9,
+  "rep_situs": "3111 E BARBER VALLEY DR",
+  "subdivision": "BARBERVALLEY SUB NO 01",
+  "zones": [
+   "Boise:SP-02"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "R0805810210"
+  ],
+  "lat": 43.575828,
+  "lon": -116.147377
+ },
+ {
+  "gid": 132,
+  "acres": 2.1,
+  "parcels": 1,
+  "min_dist": 2.774,
+  "interest": 23.5,
+  "rep_situs": "5300 E BARBER DR",
+  "subdivision": "3N 3E 20",
+  "zones": [
+   "Boise:SP-01"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "S0920438560"
+  ],
+  "lat": 43.576242,
+  "lon": -116.122876
+ },
+ {
+  "gid": 78,
+  "acres": 6.4,
+  "parcels": 3,
+  "min_dist": 4.01,
+  "interest": 23.3,
+  "rep_situs": "E TABLE ROCK RD",
+  "subdivision": "3N 3E 18",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Buildable (future growth)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0918131500",
+   "S0981120650",
+   "S0918121000"
+  ],
+  "lat": 43.599429,
+  "lon": -116.142458
+ },
+ {
+  "gid": 187,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.443,
+  "interest": 23.2,
+  "rep_situs": "3244 E BARBER VALLEY DR",
+  "subdivision": "BARBERVALLEY SUB NO 01",
+  "zones": [
+   "Boise:SP-02"
+  ],
+  "flus": [
+   "Office"
+  ],
+  "threats": [
+   "Unknown"
+  ],
+  "accounts": [
+   "R0805810115"
+  ],
+  "lat": 43.576732,
+  "lon": -116.144306
+ },
+ {
+  "gid": 55,
+  "acres": 10.6,
+  "parcels": 1,
+  "min_dist": 2.238,
+  "interest": 23.1,
+  "rep_situs": "S GEKELER LN",
+  "subdivision": "3N 2E 26",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1026335235"
+  ],
+  "lat": 43.561696,
+  "lon": -116.186389
+ },
+ {
+  "gid": 50,
+  "acres": 11.9,
+  "parcels": 1,
+  "min_dist": 3.276,
+  "interest": 22.3,
+  "rep_situs": "E I-84",
+  "subdivision": "2N 3E 20",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1620231125"
+  ],
+  "lat": 43.496849,
+  "lon": -116.13014
+ },
+ {
+  "gid": 74,
+  "acres": 6.6,
+  "parcels": 3,
+  "min_dist": 0.902,
+  "interest": 21.8,
+  "rep_situs": "2625 E EASTGATE DR",
+  "subdivision": "COLUMBIA VILLAGE NO 05",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1525600130",
+   "R1582210240",
+   "R1582200320"
+  ],
+  "lat": 43.554735,
+  "lon": -116.152813
+ },
+ {
+  "gid": 154,
+  "acres": 1.6,
+  "parcels": 1,
+  "min_dist": 2.597,
+  "interest": 21.4,
+  "rep_situs": "8021 S SNOW BIRD AVE",
+  "subdivision": "SUNNYRIDGE SUB NO 01",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Planned Community"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8221590460"
+  ],
+  "lat": 43.529213,
+  "lon": -116.102313
+ },
+ {
+  "gid": 61,
+  "acres": 9.1,
+  "parcels": 1,
+  "min_dist": 2.402,
+  "interest": 21.3,
+  "rep_situs": "W MEMORY RD",
+  "subdivision": "2N 3E 18",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1618428000"
+  ],
+  "lat": 43.507666,
+  "lon": -116.141629
+ },
+ {
+  "gid": 62,
+  "acres": 8.4,
+  "parcels": 2,
+  "min_dist": 2.251,
+  "interest": 20.9,
+  "rep_situs": "S EISENMAN RD",
+  "subdivision": "2N 2E 14",
+  "zones": [
+   "County:M3"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1514110050",
+   "S1514110075"
+  ],
+  "lat": 43.515681,
+  "lon": -116.178186
+ },
+ {
+  "gid": 47,
+  "acres": 12.7,
+  "parcels": 1,
+  "min_dist": 4.519,
+  "interest": 20.7,
+  "rep_situs": "E HWY 21",
+  "subdivision": "2N 3E 11",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1611121375"
+  ],
+  "lat": 43.529404,
+  "lon": -116.062601
+ },
+ {
+  "gid": 75,
+  "acres": 6.5,
+  "parcels": 1,
+  "min_dist": 1.451,
+  "interest": 20.6,
+  "rep_situs": "4863 E GRAND FOREST DR",
+  "subdivision": "3N 3E 32",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0932438612"
+  ],
+  "lat": 43.546451,
+  "lon": -116.122965
+ },
+ {
+  "gid": 88,
+  "acres": 5.1,
+  "parcels": 1,
+  "min_dist": 0.722,
+  "interest": 20.6,
+  "rep_situs": "E ALTA RIDGE",
+  "subdivision": "SUPERIOR RIDGE SUB",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8224270250"
+  ],
+  "lat": 43.54319,
+  "lon": -116.136918
+ },
+ {
+  "gid": 89,
+  "acres": 5.0,
+  "parcels": 1,
+  "min_dist": 0.796,
+  "interest": 20.4,
+  "rep_situs": "8000 S FEDERAL WAY",
+  "subdivision": "2N 3E 07",
+  "zones": [
+   "Boise:I-3"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1607223026"
+  ],
+  "lat": 43.530249,
+  "lon": -116.150058
+ },
+ {
+  "gid": 84,
+  "acres": 5.5,
+  "parcels": 1,
+  "min_dist": 1.161,
+  "interest": 20.2,
+  "rep_situs": "4511 E TANOAK DR",
+  "subdivision": "COLUMBIA VILLAGE NO 22",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1525780830"
+  ],
+  "lat": 43.544006,
+  "lon": -116.128238
+ },
+ {
+  "gid": 95,
+  "acres": 4.3,
+  "parcels": 3,
+  "min_dist": 0.56,
+  "interest": 20.1,
+  "rep_situs": "7475 S FEDERAL WAY",
+  "subdivision": "ISAACS CANYON SUB",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R4330110025",
+   "R4330110055",
+   "S1501449200"
+  ],
+  "lat": 43.533922,
+  "lon": -116.154165
+ },
+ {
+  "gid": 59,
+  "acres": 9.8,
+  "parcels": 2,
+  "min_dist": 3.781,
+  "interest": 19.2,
+  "rep_situs": "E KUNA MORA RD",
+  "subdivision": "2N 2E 25",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1525110500",
+   "S1630223000"
+  ],
+  "lat": 43.487143,
+  "lon": -116.156485
+ },
+ {
+  "gid": 65,
+  "acres": 7.7,
+  "parcels": 1,
+  "min_dist": 2.952,
+  "interest": 18.8,
+  "rep_situs": "501 E BOISE AVE",
+  "subdivision": "3N 2E 23",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "School"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1023417793"
+  ],
+  "lat": 43.579963,
+  "lon": -116.177502
+ },
+ {
+  "gid": 111,
+  "acres": 3.0,
+  "parcels": 2,
+  "min_dist": 4.597,
+  "interest": 18.8,
+  "rep_situs": "432 N STRATA VIA PL",
+  "subdivision": "NATIVA TERRA SUB NO 05",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Buildable (future growth)",
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983400030",
+   "R5983400020"
+  ],
+  "lat": 43.608255,
+  "lon": -116.152851
+ },
+ {
+  "gid": 58,
+  "acres": 10.1,
+  "parcels": 2,
+  "min_dist": 4.184,
+  "interest": 18.7,
+  "rep_situs": "9800 E HWY 21",
+  "subdivision": "2N 3E 11",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1611212445",
+   "S1602343740"
+  ],
+  "lat": 43.530788,
+  "lon": -116.069034
+ },
+ {
+  "gid": 124,
+  "acres": 2.4,
+  "parcels": 1,
+  "min_dist": 0.393,
+  "interest": 18.7,
+  "rep_situs": "2199 E SUMMERSWEET DR",
+  "subdivision": "BUSINESS PARK SUB NO 02",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1179360210"
+  ],
+  "lat": 43.546394,
+  "lon": -116.155707
+ },
+ {
+  "gid": 69,
+  "acres": 6.9,
+  "parcels": 2,
+  "min_dist": 2.642,
+  "interest": 18.6,
+  "rep_situs": "W BOEING ST",
+  "subdivision": "BOISE IND FOUNDATION SUB NO 03",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1013680005",
+   "R1013670221"
+  ],
+  "lat": 43.564029,
+  "lon": -116.194065
+ },
+ {
+  "gid": 70,
+  "acres": 6.8,
+  "parcels": 1,
+  "min_dist": 2.654,
+  "interest": 18.5,
+  "rep_situs": "858 W MCGREGOR CT",
+  "subdivision": "FEDERAL WAY PARK",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R2767200930"
+  ],
+  "lat": 43.567204,
+  "lon": -116.190867
+ },
+ {
+  "gid": 101,
+  "acres": 3.6,
+  "parcels": 1,
+  "min_dist": 1.001,
+  "interest": 18.5,
+  "rep_situs": "E SWEETWATER DR",
+  "subdivision": "LITTLETREE EAST SUB NO 01 (OREGON TRAIL)",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5279760010"
+  ],
+  "lat": 43.555758,
+  "lon": -116.146201
+ },
+ {
+  "gid": 93,
+  "acres": 4.4,
+  "parcels": 3,
+  "min_dist": 1.505,
+  "interest": 18.4,
+  "rep_situs": "9035 S FEDERAL WAY",
+  "subdivision": "HARLAN SUB",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3466000084",
+   "R3466000098",
+   "R3466000155"
+  ],
+  "lat": 43.520066,
+  "lon": -116.148167
+ },
+ {
+  "gid": 94,
+  "acres": 4.4,
+  "parcels": 2,
+  "min_dist": 1.593,
+  "interest": 18.2,
+  "rep_situs": "2397 E GLOUCESTER PL",
+  "subdivision": "HOLCOMB GREEN SUB",
+  "zones": [
+   "Boise:A-1",
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3695650040",
+   "S0930325635"
+  ],
+  "lat": 43.564746,
+  "lon": -116.153981
+ },
+ {
+  "gid": 103,
+  "acres": 3.5,
+  "parcels": 1,
+  "min_dist": 1.26,
+  "interest": 18.0,
+  "rep_situs": "8611 S FEDERAL WAY",
+  "subdivision": "2N 3E 07",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1607325700"
+  ],
+  "lat": 43.523566,
+  "lon": -116.149117
+ },
+ {
+  "gid": 125,
+  "acres": 2.3,
+  "parcels": 1,
+  "min_dist": 0.736,
+  "interest": 17.9,
+  "rep_situs": "6651 S EISENMAN RD",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 03",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3220250015"
+  ],
+  "lat": 43.54221,
+  "lon": -116.165872
+ },
+ {
+  "gid": 146,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 4.531,
+  "interest": 17.8,
+  "rep_situs": "363 N ALTO VIA CT",
+  "subdivision": "NATIVA TERRA SUB NO 09",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Buildable (future growth)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983440020"
+  ],
+  "lat": 43.607307,
+  "lon": -116.151062
+ },
+ {
+  "gid": 139,
+  "acres": 1.9,
+  "parcels": 1,
+  "min_dist": 0.692,
+  "interest": 17.5,
+  "rep_situs": "E BRANIFF ST",
+  "subdivision": "COLUMBIA VILLAGE NO 01",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1525750011"
+  ],
+  "lat": 43.551685,
+  "lon": -116.152781
+ },
+ {
+  "gid": 186,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 4.444,
+  "interest": 17.2,
+  "rep_situs": "3920 E WILDHORSE LN",
+  "subdivision": "3N 3E 07",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Buildable (future growth)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0907447700"
+  ],
+  "lat": 43.605041,
+  "lon": -116.1355
+ },
+ {
+  "gid": 115,
+  "acres": 2.8,
+  "parcels": 1,
+  "min_dist": 1.391,
+  "interest": 17.0,
+  "rep_situs": "E GOWEN RD",
+  "subdivision": "2N 2E 02",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1502120615"
+  ],
+  "lat": 43.544075,
+  "lon": -116.178783
+ },
+ {
+  "gid": 156,
+  "acres": 1.6,
+  "parcels": 1,
+  "min_dist": 0.766,
+  "interest": 17.0,
+  "rep_situs": "1400 W EXCHANGE ST",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 01",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3219900060"
+  ],
+  "lat": 43.544949,
+  "lon": -116.165841
+ },
+ {
+  "gid": 158,
+  "acres": 1.5,
+  "parcels": 1,
+  "min_dist": 0.743,
+  "interest": 17.0,
+  "rep_situs": "7678 S EISENMAN RD",
+  "subdivision": "2N 2E 01",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1501449057"
+  ],
+  "lat": 43.532261,
+  "lon": -116.158207
+ },
+ {
+  "gid": 98,
+  "acres": 3.9,
+  "parcels": 1,
+  "min_dist": 2.049,
+  "interest": 16.8,
+  "rep_situs": "S EISENMAN RD",
+  "subdivision": "2N 2E 13",
+  "zones": [
+   "County:M3"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1513223000"
+  ],
+  "lat": 43.515645,
+  "lon": -116.170626
+ },
+ {
+  "gid": 86,
+  "acres": 5.5,
+  "parcels": 1,
+  "min_dist": 2.875,
+  "interest": 16.7,
+  "rep_situs": "S PLEASANT VALLEY RD",
+  "subdivision": "2N 2E 15",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1515110010"
+  ],
+  "lat": 43.515688,
+  "lon": -116.195961
+ },
+ {
+  "gid": 107,
+  "acres": 3.2,
+  "parcels": 1,
+  "min_dist": 1.717,
+  "interest": 16.7,
+  "rep_situs": "5240 S SURPRISE WAY",
+  "subdivision": "SURPRISE VALLEY SUB NO 01",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8226670030"
+  ],
+  "lat": 43.553721,
+  "lon": -116.121159
+ },
+ {
+  "gid": 60,
+  "acres": 9.1,
+  "parcels": 1,
+  "min_dist": 4.766,
+  "interest": 16.6,
+  "rep_situs": "E HWY 21",
+  "subdivision": "2N 3E 02",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1602434000"
+  ],
+  "lat": 43.531868,
+  "lon": -116.057021
+ },
+ {
+  "gid": 64,
+  "acres": 8.0,
+  "parcels": 2,
+  "min_dist": 4.222,
+  "interest": 16.6,
+  "rep_situs": "STAGECOACH RD",
+  "subdivision": "2N 3E 11",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1611212565",
+   "S1611212547"
+  ],
+  "lat": 43.527879,
+  "lon": -116.069114
+ },
+ {
+  "gid": 122,
+  "acres": 2.5,
+  "parcels": 1,
+  "min_dist": 1.475,
+  "interest": 16.5,
+  "rep_situs": "S INTERCON WAY",
+  "subdivision": "BASALT BLUFFS SUB",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R0830140250"
+  ],
+  "lat": 43.544844,
+  "lon": -116.122069
+ },
+ {
+  "gid": 91,
+  "acres": 4.8,
+  "parcels": 2,
+  "min_dist": 2.703,
+  "interest": 16.4,
+  "rep_situs": "2441 S STARLITE LN",
+  "subdivision": "3N 3E 19",
+  "zones": [
+   "Boise:A-1",
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0919325600",
+   "R2855120010"
+  ],
+  "lat": 43.580849,
+  "lon": -116.152581
+ },
+ {
+  "gid": 109,
+  "acres": 3.1,
+  "parcels": 1,
+  "min_dist": 1.834,
+  "interest": 16.4,
+  "rep_situs": "E BOISE AVE",
+  "subdivision": "3N 3E 30",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0930417240"
+  ],
+  "lat": 43.566075,
+  "lon": -116.13661
+ },
+ {
+  "gid": 119,
+  "acres": 2.6,
+  "parcels": 1,
+  "min_dist": 1.598,
+  "interest": 16.4,
+  "rep_situs": "4627 S FEDERAL WAY",
+  "subdivision": "3N 2E 36",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1036223006"
+  ],
+  "lat": 43.560455,
+  "lon": -116.169942
+ },
+ {
+  "gid": 92,
+  "acres": 4.6,
+  "parcels": 1,
+  "min_dist": 2.644,
+  "interest": 16.3,
+  "rep_situs": "E WARM SPRINGS AVE",
+  "subdivision": "3N 3E 33",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Large Lot / Rural"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0933417700"
+  ],
+  "lat": 43.547338,
+  "lon": -116.098964
+ },
+ {
+  "gid": 149,
+  "acres": 1.7,
+  "parcels": 1,
+  "min_dist": 1.265,
+  "interest": 16.2,
+  "rep_situs": "S CAPER PL",
+  "subdivision": "COLUMBIA VILLAGE NO 13",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1525680080"
+  ],
+  "lat": 43.552526,
+  "lon": -116.130797
+ },
+ {
+  "gid": 102,
+  "acres": 3.5,
+  "parcels": 1,
+  "min_dist": 2.192,
+  "interest": 16.1,
+  "rep_situs": "4707 S MARKET ST",
+  "subdivision": "ASSOCIATED FOODS SUB",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R0551610010"
+  ],
+  "lat": 43.559856,
+  "lon": -116.187129
+ },
+ {
+  "gid": 87,
+  "acres": 5.4,
+  "parcels": 1,
+  "min_dist": 3.197,
+  "interest": 16.0,
+  "rep_situs": "2107 W COMMERCE AVE",
+  "subdivision": "BOISE IND FOUNDATION SUB NO 01 AMD",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1013610045"
+  ],
+  "lat": 43.56322,
+  "lon": -116.207739
+ },
+ {
+  "gid": 117,
+  "acres": 2.7,
+  "parcels": 1,
+  "min_dist": 1.96,
+  "interest": 15.8,
+  "rep_situs": "E PARKRIVER DR",
+  "subdivision": "NATURES WOOD DUCK ISLAND NO 04",
+  "zones": [
+   "Boise:R-1A"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983900170"
+  ],
+  "lat": 43.570096,
+  "lon": -116.15073
+ },
+ {
+  "gid": 135,
+  "acres": 2.0,
+  "parcels": 1,
+  "min_dist": 1.753,
+  "interest": 15.5,
+  "rep_situs": "E BOISE AVE",
+  "subdivision": "3N 3E 29",
+  "zones": [
+   "Boise:R-1A"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0929325625"
+  ],
+  "lat": 43.563079,
+  "lon": -116.132289
+ },
+ {
+  "gid": 182,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 1.353,
+  "interest": 15.4,
+  "rep_situs": "8812 S EISENMAN RD",
+  "subdivision": "PATRICIA SUB",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R6933730315"
+  ],
+  "lat": 43.522147,
+  "lon": -116.151144
+ },
+ {
+  "gid": 170,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 1.462,
+  "interest": 15.3,
+  "rep_situs": "6615 S BUSINESS WAY",
+  "subdivision": "SUPPLY WAY PARK SUB",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8224640020"
+  ],
+  "lat": 43.54209,
+  "lon": -116.180392
+ },
+ {
+  "gid": 180,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 1.419,
+  "interest": 15.3,
+  "rep_situs": "6530 S BUSINESS WAY",
+  "subdivision": "BOISE IND FOUNDATION SUB NO 05",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1013700050"
+  ],
+  "lat": 43.543076,
+  "lon": -116.179463
+ },
+ {
+  "gid": 108,
+  "acres": 3.2,
+  "parcels": 1,
+  "min_dist": 2.509,
+  "interest": 15.1,
+  "rep_situs": "5550 E WARM SPRINGS AVE",
+  "subdivision": "3N 3E 29",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "School"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0929417200"
+  ],
+  "lat": 43.566492,
+  "lon": -116.114556
+ },
+ {
+  "gid": 99,
+  "acres": 3.8,
+  "parcels": 1,
+  "min_dist": 3.015,
+  "interest": 14.8,
+  "rep_situs": "4465 S INDUSTRIAL ST",
+  "subdivision": "BOISE IND FOUNDATION SUB NO 02",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1013670050"
+  ],
+  "lat": 43.561955,
+  "lon": -116.204555
+ },
+ {
+  "gid": 72,
+  "acres": 6.7,
+  "parcels": 1,
+  "min_dist": 4.484,
+  "interest": 14.7,
+  "rep_situs": "9725 E DISCOVERY STATE PARK RD",
+  "subdivision": "2N 3E 11",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1611246550"
+  ],
+  "lat": 43.525883,
+  "lon": -116.064381
+ },
+ {
+  "gid": 148,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 2.014,
+  "interest": 14.7,
+  "rep_situs": "5995 S SURPRISE WAY",
+  "subdivision": "SURPRISE VALLEY SUB NO 04",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8226700260"
+  ],
+  "lat": 43.546868,
+  "lon": -116.111609
+ },
+ {
+  "gid": 144,
+  "acres": 1.8,
+  "parcels": 1,
+  "min_dist": 2.051,
+  "interest": 14.7,
+  "rep_situs": "211 E AMITY RD",
+  "subdivision": "3N 2E 35",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1035212500"
+  ],
+  "lat": 43.55967,
+  "lon": -116.183837
+ },
+ {
+  "gid": 162,
+  "acres": 1.3,
+  "parcels": 1,
+  "min_dist": 1.794,
+  "interest": 14.7,
+  "rep_situs": "E BOISE AVE",
+  "subdivision": "NATURES WOOD DUCK ISLAND NO 01",
+  "zones": [
+   "Boise:R-1A"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5983870060"
+  ],
+  "lat": 43.567414,
+  "lon": -116.145884
+ },
+ {
+  "gid": 130,
+  "acres": 2.1,
+  "parcels": 1,
+  "min_dist": 2.271,
+  "interest": 14.6,
+  "rep_situs": "3620 S CROSSPOINT AVE",
+  "subdivision": "LAKEWOOD UNIT NO 14",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5125640450"
+  ],
+  "lat": 43.56958,
+  "lon": -116.175277
+ },
+ {
+  "gid": 112,
+  "acres": 2.9,
+  "parcels": 1,
+  "min_dist": 2.775,
+  "interest": 14.4,
+  "rep_situs": "S BROADWAY AVE",
+  "subdivision": "3N 2E 27",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1027417250"
+  ],
+  "lat": 43.566754,
+  "lon": -116.19456
+ },
+ {
+  "gid": 188,
+  "acres": 1.0,
+  "parcels": 1,
+  "min_dist": 1.899,
+  "interest": 14.2,
+  "rep_situs": "3650 S HOLCOMB RD",
+  "subdivision": "HENSON ACRES",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3577000035"
+  ],
+  "lat": 43.569208,
+  "lon": -116.152562
+ },
+ {
+  "gid": 85,
+  "acres": 5.5,
+  "parcels": 1,
+  "min_dist": 4.171,
+  "interest": 14.1,
+  "rep_situs": "SANDY POINT DR",
+  "subdivision": "2N 3E 02",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1602243700"
+  ],
+  "lat": 43.538913,
+  "lon": -116.068003
+ },
+ {
+  "gid": 100,
+  "acres": 3.6,
+  "parcels": 1,
+  "min_dist": 3.216,
+  "interest": 14.1,
+  "rep_situs": "1790 S RIDGE POINT WAY",
+  "subdivision": "BOULDER HEIGHTS SUB NO 02",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1035130020"
+  ],
+  "lat": 43.588235,
+  "lon": -116.14839
+ },
+ {
+  "gid": 121,
+  "acres": 2.5,
+  "parcels": 1,
+  "min_dist": 2.727,
+  "interest": 14.0,
+  "rep_situs": "7099 E WARM SPRINGS AVE",
+  "subdivision": "2N 3E 04",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Large Lot / Rural"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1604110215"
+  ],
+  "lat": 43.545074,
+  "lon": -116.096936
+ },
+ {
+  "gid": 73,
+  "acres": 6.7,
+  "parcels": 2,
+  "min_dist": 4.904,
+  "interest": 13.9,
+  "rep_situs": "1465 E SHENANDOAH DR",
+  "subdivision": "FOOTHILLS EAST NO 06",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R2884050050",
+   "R2884060222"
+  ],
+  "lat": 43.6117,
+  "lon": -116.168129
+ },
+ {
+  "gid": 137,
+  "acres": 2.0,
+  "parcels": 1,
+  "min_dist": 2.564,
+  "interest": 13.9,
+  "rep_situs": "3940 S FINDLEY AVE",
+  "subdivision": "FEDERAL WAY PARK",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R2767201030"
+  ],
+  "lat": 43.566862,
+  "lon": -116.188881
+ },
+ {
+  "gid": 128,
+  "acres": 2.2,
+  "parcels": 1,
+  "min_dist": 2.709,
+  "interest": 13.8,
+  "rep_situs": "5346 E QUARTERPATH CT",
+  "subdivision": "HARRIS RANCH SUB NO 04",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3482180010"
+  ],
+  "lat": 43.573016,
+  "lon": -116.118583
+ },
+ {
+  "gid": 113,
+  "acres": 2.9,
+  "parcels": 2,
+  "min_dist": 3.089,
+  "interest": 13.7,
+  "rep_situs": "2071 S SILVERCREEK LN",
+  "subdivision": "RIVER RUN NO 04",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R7475830750",
+   "R7475830170"
+  ],
+  "lat": 43.585699,
+  "lon": -116.162344
+ },
+ {
+  "gid": 168,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 2.393,
+  "interest": 13.4,
+  "rep_situs": "4475 S MARKET ST",
+  "subdivision": "BOISE IND FOUNDATION SUB NO 03",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1013680048"
+  ],
+  "lat": 43.562043,
+  "lon": -116.189904
+ },
+ {
+  "gid": 133,
+  "acres": 2.0,
+  "parcels": 1,
+  "min_dist": 2.855,
+  "interest": 13.3,
+  "rep_situs": "S EISENMAN RD",
+  "subdivision": "2N 2E 14",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1514231550"
+  ],
+  "lat": 43.512567,
+  "lon": -116.191556
+ },
+ {
+  "gid": 178,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.483,
+  "interest": 13.1,
+  "rep_situs": "990 W AMITY RD",
+  "subdivision": "KOWALLIS SUB",
+  "zones": [
+   "Boise:I-1"
+  ],
+  "flus": [
+   "Industrial"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5026140020"
+  ],
+  "lat": 43.561031,
+  "lon": -116.193031
+ },
+ {
+  "gid": 184,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.517,
+  "interest": 13.0,
+  "rep_situs": "5043 E STEMWOOD ST",
+  "subdivision": "HARRIS RANCH SUB NO 03",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3482170670"
+  ],
+  "lat": 43.570841,
+  "lon": -116.120975
+ },
+ {
+  "gid": 179,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.561,
+  "interest": 13.0,
+  "rep_situs": "3450 S MILLSPUR WAY",
+  "subdivision": "HARRIS RANCH SUB NO 02",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3482160060"
+  ],
+  "lat": 43.570295,
+  "lon": -116.118591
+ },
+ {
+  "gid": 151,
+  "acres": 1.6,
+  "parcels": 1,
+  "min_dist": 2.862,
+  "interest": 12.9,
+  "rep_situs": "S COUNCIL SPRING RD",
+  "subdivision": "3N 3E 28",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S0928222490"
+  ],
+  "lat": 43.572567,
+  "lon": -116.113021
+ },
+ {
+  "gid": 181,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.64,
+  "interest": 12.8,
+  "rep_situs": "3140 S WHITE FIR PL",
+  "subdivision": "HARRIS RANCH SUB NO 03",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R3482170910"
+  ],
+  "lat": 43.573739,
+  "lon": -116.122405
+ },
+ {
+  "gid": 165,
+  "acres": 1.3,
+  "parcels": 1,
+  "min_dist": 2.785,
+  "interest": 12.7,
+  "rep_situs": "5903 E MILLET DR",
+  "subdivision": "TRIPLETT SUB",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R8528670210"
+  ],
+  "lat": 43.569522,
+  "lon": -116.110909
+ },
+ {
+  "gid": 90,
+  "acres": 4.8,
+  "parcels": 1,
+  "min_dist": 4.633,
+  "interest": 12.6,
+  "rep_situs": "1149 E LEWIS ST",
+  "subdivision": "3N 2E 11",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1011438500"
+  ],
+  "lat": 43.604559,
+  "lon": -116.183566
+ },
+ {
+  "gid": 173,
+  "acres": 1.1,
+  "parcels": 1,
+  "min_dist": 2.794,
+  "interest": 12.6,
+  "rep_situs": "2791 E STONE POINT DR",
+  "subdivision": "3N 2E 24",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1024141851"
+  ],
+  "lat": 43.582122,
+  "lon": -116.153822
+ },
+ {
+  "gid": 157,
+  "acres": 1.5,
+  "parcels": 1,
+  "min_dist": 3.333,
+  "interest": 11.9,
+  "rep_situs": "975 E RIVER RUN DR",
+  "subdivision": "RIVER RUN NO 02",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R7475790005"
+  ],
+  "lat": 43.587741,
+  "lon": -116.171197
+ },
+ {
+  "gid": 105,
+  "acres": 3.3,
+  "parcels": 1,
+  "min_dist": 4.936,
+  "interest": 10.4,
+  "rep_situs": "S PLEASANT VALLEY RD",
+  "subdivision": "2N 2E 27",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1527412350"
+  ],
+  "lat": 43.479175,
+  "lon": -116.198759
+ },
+ {
+  "gid": 114,
+  "acres": 2.8,
+  "parcels": 1,
+  "min_dist": 4.746,
+  "interest": 10.3,
+  "rep_situs": "E KUNA MORA RD",
+  "subdivision": "2N 3E 29",
+  "zones": [
+   "County:RP"
+  ],
+  "flus": [
+   "Rural (county)"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "S1629336400"
+  ],
+  "lat": 43.474199,
+  "lon": -116.133856
+ },
+ {
+  "gid": 140,
+  "acres": 1.9,
+  "parcels": 1,
+  "min_dist": 4.638,
+  "interest": 9.6,
+  "rep_situs": "430 N MORNINGSIDE WAY",
+  "subdivision": "MORNINGSIDE HEIGHTS SUB NO 02",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5820560070"
+  ],
+  "lat": 43.608081,
+  "lon": -116.165236
+ },
+ {
+  "gid": 163,
+  "acres": 1.3,
+  "parcels": 1,
+  "min_dist": 4.722,
+  "interest": 8.9,
+  "rep_situs": "2818 E TABLE ROCK RD",
+  "subdivision": "CREST AT NORTHRIDGE NO 03",
+  "zones": [
+   "Boise:R-1B"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R1608730090"
+  ],
+  "lat": 43.610061,
+  "lon": -116.152959
+ },
+ {
+  "gid": 167,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 4.739,
+  "interest": 8.8,
+  "rep_situs": "1736 E HAYS CT",
+  "subdivision": "MORNINGSIDE HEIGHTS SUB",
+  "zones": [
+   "Boise:A-1"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R5820550160"
+  ],
+  "lat": 43.608815,
+  "lon": -116.170955
+ },
+ {
+  "gid": 169,
+  "acres": 1.2,
+  "parcels": 1,
+  "min_dist": 4.966,
+  "interest": 8.3,
+  "rep_situs": "W HILLCREST LN",
+  "subdivision": "EAGLESON PARK SUB NO 04",
+  "zones": [
+   "Boise:R-1C"
+  ],
+  "flus": [
+   "Suburban Residential"
+  ],
+  "threats": [
+   "Low"
+  ],
+  "accounts": [
+   "R2024380710"
+  ],
+  "lat": 43.582658,
+  "lon": -116.232742
+ }
+]

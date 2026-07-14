@@ -1,0 +1,433 @@
+[
+ {
+  "site_id": "SEA-4",
+  "gid": 4,
+  "acres": 92.5,
+  "parcels_n": 8,
+  "dist_mi": 3.09,
+  "address": "S GRAND FORK WAY",
+  "subdivision": "3N 1W 23",
+  "mf_threat": "High/Low/Medium",
+  "zoning": [
+   "Meridian:R-15",
+   "Meridian:R-2",
+   "Meridian:R-4",
+   "Meridian:R-8"
+  ],
+  "future_land_use": [
+   "Civic",
+   "High-Density Residential (planned)",
+   "Medium-Density Residential (planned)"
+  ],
+  "lat": 43.58695,
+  "lon": -116.42233,
+  "sample_parcels": [
+   "S1223120955",
+   "S1223212615",
+   "S1223131245",
+   "S1223244225",
+   "S1223244280",
+   "S1223234020",
+   "S1223233920",
+   "S1223233950"
+  ]
+ },
+ {
+  "site_id": "SEA-1",
+  "gid": 1,
+  "acres": 197.9,
+  "parcels_n": 32,
+  "dist_mi": 3.73,
+  "address": "3500 W COBALT DR",
+  "subdivision": "OUTER BANKS SUB",
+  "mf_threat": "High/Low/Medium",
+  "zoning": [
+   "Meridian:C-C",
+   "Meridian:C-G",
+   "Meridian:H-E",
+   "Meridian:R-15",
+   "Meridian:R-40"
+  ],
+  "future_land_use": [
+   "High-Density Employment",
+   "Ten Mile Interchange (specific area plan)"
+  ],
+  "lat": 43.60269,
+  "lon": -116.43783,
+  "sample_parcels": [
+   "R6733720460",
+   "S1215131410",
+   "S1215244250",
+   "S1215233700",
+   "R1863770700",
+   "R1863770400",
+   "R1863770500",
+   "R1863770800"
+  ]
+ },
+ {
+  "site_id": "SEA-3",
+  "gid": 3,
+  "acres": 96.9,
+  "parcels_n": 7,
+  "dist_mi": 2.69,
+  "address": "738 W HARRIS ST",
+  "subdivision": "GRAYCLIFF ESTATES SUB NO 02",
+  "mf_threat": "Low/Medium",
+  "zoning": [
+   "County:R1",
+   "Meridian:R-4",
+   "Meridian:R-8"
+  ],
+  "future_land_use": [
+   "High-Density Residential (planned)",
+   "Medium-Density Residential (planned)"
+  ],
+  "lat": 43.5681,
+  "lon": -116.40334,
+  "sample_parcels": [
+   "R3259151240",
+   "S1225325700",
+   "S1225336525",
+   "S1225314840",
+   "S1225325800",
+   "S1225325900",
+   "S1225336400"
+  ]
+ },
+ {
+  "site_id": "SEA-40",
+  "gid": 40,
+  "acres": 20.9,
+  "parcels_n": 9,
+  "dist_mi": 0.62,
+  "address": "1074 S SILVERSTONE WAY",
+  "subdivision": "RACKHAM SUB",
+  "mf_threat": "High/Medium",
+  "zoning": [
+   "Meridian:C-G",
+   "Meridian:R-40"
+  ],
+  "future_land_use": [
+   "Mixed Use \u2013 Regional"
+  ],
+  "lat": 43.59479,
+  "lon": -116.34501,
+  "sample_parcels": [
+   "R7319431905",
+   "R7319430820",
+   "R7319431200",
+   "R7319431300",
+   "R7319431400",
+   "R7319431500",
+   "R7319431600",
+   "R7319431700"
+  ]
+ },
+ {
+  "site_id": "SEA-76",
+  "gid": 76,
+  "acres": 11.9,
+  "parcels_n": 5,
+  "dist_mi": 0.98,
+  "address": "2820 S EAGLE RD",
+  "subdivision": "3N 1E 21",
+  "mf_threat": "High",
+  "zoning": [
+   "Meridian:R-15"
+  ],
+  "future_land_use": [
+   "Mixed Use \u2013 Community"
+  ],
+  "lat": 43.57895,
+  "lon": -116.35283,
+  "sample_parcels": [
+   "S1121336101",
+   "S1121336200",
+   "S1121336230",
+   "S1121336251",
+   "S1121336276"
+  ]
+ },
+ {
+  "site_id": "SEA-5",
+  "gid": 5,
+  "acres": 85.1,
+  "parcels_n": 3,
+  "dist_mi": 3.41,
+  "address": "S LOCUST GROVE RD",
+  "subdivision": "RESCUE RANCH SUB",
+  "mf_threat": "High/Low",
+  "zoning": [
+   "Meridian:R-15",
+   "Meridian:R-4"
+  ],
+  "future_land_use": [
+   "Civic",
+   "Medium-Density Residential (planned)"
+  ],
+  "lat": 43.53872,
+  "lon": -116.36891,
+  "sample_parcels": [
+   "R7406180022",
+   "R7406180019",
+   "S1405212402"
+  ]
+ },
+ {
+  "site_id": "SEA-15",
+  "gid": 15,
+  "acres": 47.7,
+  "parcels_n": 4,
+  "dist_mi": 1.79,
+  "address": "S JOHNSON LN",
+  "subdivision": "3N 1W 13",
+  "mf_threat": "High/Medium",
+  "zoning": [
+   "Meridian:C-G",
+   "Meridian:R-15",
+   "Meridian:R-40"
+  ],
+  "future_land_use": [
+   "Mixed Use \u2013 Community"
+  ],
+  "lat": 43.59551,
+  "lon": -116.39987,
+  "sample_parcels": [
+   "S1213428320",
+   "S1213427900",
+   "S1213417707",
+   "S1213417600"
+  ]
+ },
+ {
+  "site_id": "SEA-155",
+  "gid": 155,
+  "acres": 4.9,
+  "parcels_n": 2,
+  "dist_mi": 1.12,
+  "address": "E FRANKLIN RD",
+  "subdivision": "3N 1E 18",
+  "mf_threat": "High",
+  "zoning": [
+   "Meridian:R-40"
+  ],
+  "future_land_use": [
+   "Mixed Use \u2013 Community"
+  ],
+  "lat": 43.60439,
+  "lon": -116.37527,
+  "sample_parcels": [
+   "S1118110022",
+   "S1118110051"
+  ]
+ },
+ {
+  "site_id": "SEA-31",
+  "gid": 31,
+  "acres": 25.4,
+  "parcels_n": 4,
+  "dist_mi": 3.38,
+  "address": "3727 E LAKE HAZEL RD",
+  "subdivision": "2N 1E 04",
+  "mf_threat": "High/Medium",
+  "zoning": [
+   "Meridian:R-15",
+   "Meridian:R-8"
+  ],
+  "future_land_use": [
+   "Med-High-Density Residential (planned)",
+   "Medium-Density Residential (planned)"
+  ],
+  "lat": 43.54394,
+  "lon": -116.34836,
+  "sample_parcels": [
+   "S1404212755",
+   "S1404212555",
+   "S1404233680",
+   "S1404233800"
+  ]
+ },
+ {
+  "site_id": "SEA-61",
+  "gid": 61,
+  "acres": 15.1,
+  "parcels_n": 3,
+  "dist_mi": 3.29,
+  "address": "E LAKE HAZEL RD",
+  "subdivision": "3N 1E 31",
+  "mf_threat": "High",
+  "zoning": [
+   "Meridian:R-15"
+  ],
+  "future_land_use": [
+   "Med-High-Density Residential (planned)"
+  ],
+  "lat": 43.54775,
+  "lon": -116.38563,
+  "sample_parcels": [
+   "S1131347001",
+   "S1131346925",
+   "S1131346941"
+  ]
+ },
+ {
+  "site_id": "SEA-20",
+  "gid": 20,
+  "acres": 34.6,
+  "parcels_n": 3,
+  "dist_mi": 3.54,
+  "address": "E LAKE HAZEL RD",
+  "subdivision": "2N 1E 06",
+  "mf_threat": "Medium",
+  "zoning": [
+   "Meridian:C-G"
+  ],
+  "future_land_use": [
+   "Mixed Use \u2013 Regional"
+  ],
+  "lat": 43.54554,
+  "lon": -116.39076,
+  "sample_parcels": [
+   "S1406223030",
+   "S1406223040",
+   "S1406223020"
+  ]
+ },
+ {
+  "site_id": "SEA-9",
+  "gid": 9,
+  "acres": 64.3,
+  "parcels_n": 6,
+  "dist_mi": 0.92,
+  "address": "325 S TOUCHMARK WAY",
+  "subdivision": "TOUCHMARK LIVING CENTER SUB NO 01",
+  "mf_threat": "Low/Medium",
+  "zoning": [
+   "Boise:R-2",
+   "Meridian:L-O"
+  ],
+  "future_land_use": [
+   "Industrial",
+   "Mixed Use \u2013 Community"
+  ],
+  "lat": 43.60171,
+  "lon": -116.34763,
+  "sample_parcels": [
+   "R8509130020",
+   "S1116244261",
+   "S1116120662",
+   "S1116121055",
+   "S1116212561",
+   "S1116110300"
+  ]
+ },
+ {
+  "site_id": "SEA-12",
+  "gid": 12,
+  "acres": 57.5,
+  "parcels_n": 5,
+  "dist_mi": 2.52,
+  "address": "E AMITY RD",
+  "subdivision": "3N 1E 31",
+  "mf_threat": "Low",
+  "zoning": [
+   "County:RUT",
+   "Meridian:R-4"
+  ],
+  "future_land_use": [
+   "Mixed Use \u2013 Community"
+  ],
+  "lat": 43.55927,
+  "lon": -116.38321,
+  "sample_parcels": [
+   "S1131120760",
+   "S1131212400",
+   "S1131212500",
+   "S1131223350",
+   "S1131223400"
+  ]
+ },
+ {
+  "site_id": "SEA-2",
+  "gid": 2,
+  "acres": 98.5,
+  "parcels_n": 7,
+  "dist_mi": 3.9,
+  "address": "W HIDDEN VALLEY DR",
+  "subdivision": "2N 1E 04",
+  "mf_threat": "Low",
+  "zoning": [
+   "County:RSW",
+   "County:RUT"
+  ],
+  "future_land_use": [
+   "Low-Density Residential (planned)",
+   "Suburban Residential"
+  ],
+  "lat": 43.53728,
+  "lon": -116.34136,
+  "sample_parcels": [
+   "S1404427850",
+   "S1404438775",
+   "R2861910300",
+   "R2861910200",
+   "S1404449320",
+   "R2861910100",
+   "S1404449025"
+  ]
+ },
+ {
+  "site_id": "SEA-18",
+  "gid": 18,
+  "acres": 38.2,
+  "parcels_n": 1,
+  "dist_mi": 3.3,
+  "address": "5621 S MERIDIAN RD",
+  "subdivision": "3N 1W 36",
+  "mf_threat": "Medium",
+  "zoning": [
+   "Meridian:TN-R"
+  ],
+  "future_land_use": [
+   "Med-High-Density Residential (planned)"
+  ],
+  "lat": 43.55174,
+  "lon": -116.39648,
+  "sample_parcels": [
+   "S1236417204"
+  ]
+ },
+ {
+  "site_id": "SEA-6",
+  "gid": 6,
+  "acres": 83.3,
+  "parcels_n": 10,
+  "dist_mi": 3.34,
+  "address": "S TEN MILE RD",
+  "subdivision": "3N 1W 23",
+  "mf_threat": "Low/Medium",
+  "zoning": [
+   "County:RUT",
+   "Meridian:C-C",
+   "Meridian:L-O",
+   "Meridian:M-E",
+   "Meridian:R-8"
+  ],
+  "future_land_use": [
+   "Mixed Employment"
+  ],
+  "lat": 43.5889,
+  "lon": -116.43058,
+  "sample_parcels": [
+   "S1223223010",
+   "S1223233670",
+   "S1223223255",
+   "S1223233820",
+   "S1214346905",
+   "S1223212620",
+   "S1214336350",
+   "S1214336415"
+  ]
+ }
+]

@@ -1,0 +1,381 @@
+[
+ {
+  "site_id": "CAN-3",
+  "gid": 3,
+  "acres": 1305.4,
+  "parcels_n": 35,
+  "dist_mi": 0.17,
+  "address": "E COLUMBIA RD",
+  "subdivision": "2N 3E 09",
+  "mf_threat": "Low/Medium",
+  "zoning": [
+   "Boise:I-3",
+   "Boise:R-1C",
+   "Boise:R-2",
+   "County:C2",
+   "County:M3",
+   "County:RUT"
+  ],
+  "future_land_use": [
+   "Commercial",
+   "Industrial",
+   "Planned Community",
+   "Rural (county)"
+  ],
+  "lat": 43.52486,
+  "lon": -116.11203,
+  "sample_parcels": [
+   "S1609234000",
+   "S1608233600",
+   "S1608325400",
+   "S1608314800",
+   "S1608336000",
+   "S1608427800",
+   "S1608141800",
+   "S1608417250"
+  ]
+ },
+ {
+  "site_id": "CAN-13",
+  "gid": 13,
+  "acres": 108.8,
+  "parcels_n": 8,
+  "dist_mi": 0.91,
+  "address": "4800 S FEDERAL WAY",
+  "subdivision": "3N 2E 36",
+  "mf_threat": "High/Low",
+  "zoning": [
+   "Boise:A-1",
+   "Boise:I-1",
+   "Boise:I-2",
+   "Boise:MX-3"
+  ],
+  "future_land_use": [
+   "Industrial"
+  ],
+  "lat": 43.55879,
+  "lon": -116.16433,
+  "sample_parcels": [
+   "S1036212450",
+   "S1036142110",
+   "R3220000050",
+   "S1036110300",
+   "S1036120660",
+   "S1036120605",
+   "S1036120630",
+   "S1036120615"
+  ]
+ },
+ {
+  "site_id": "CAN-6",
+  "gid": 6,
+  "acres": 449.8,
+  "parcels_n": 25,
+  "dist_mi": 0.74,
+  "address": "7563 S EISENMAN RD",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 03",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:I-1"
+  ],
+  "future_land_use": [
+   "Industrial"
+  ],
+  "lat": 43.53319,
+  "lon": -116.16022,
+  "sample_parcels": [
+   "R3220250660",
+   "R3220250680",
+   "R3220250732",
+   "S1512112030",
+   "S1512110002",
+   "S1512111270",
+   "S1512111280",
+   "S1512112050"
+  ]
+ },
+ {
+  "site_id": "CAN-4",
+  "gid": 4,
+  "acres": 596.0,
+  "parcels_n": 24,
+  "dist_mi": 0.97,
+  "address": "1062 E EXCHANGE ST",
+  "subdivision": "GOWEN BUSINESS PARK SUB NO 01",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:I-1",
+   "Boise:I-2"
+  ],
+  "future_land_use": [
+   "Airport",
+   "Industrial"
+  ],
+  "lat": 43.54541,
+  "lon": -116.16991,
+  "sample_parcels": [
+   "R3219900017",
+   "R3219900011",
+   "R3219910010",
+   "R3219910040",
+   "S1036336000",
+   "S1035438400",
+   "S1035427800",
+   "S1035142150"
+  ]
+ },
+ {
+  "site_id": "CAN-1",
+  "gid": 1,
+  "acres": 4570.3,
+  "parcels_n": 77,
+  "dist_mi": 1.39,
+  "address": "S SUPPLY WAY",
+  "subdivision": "2N 2E 02",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:A-1",
+   "Boise:A-2",
+   "Boise:I-1",
+   "County:RP"
+  ],
+  "future_land_use": [
+   "(no FLU)",
+   "Airport",
+   "Industrial",
+   "Rural (county)"
+  ],
+  "lat": 43.53615,
+  "lon": -116.17845,
+  "sample_parcels": [
+   "S1502417205",
+   "S1511110000",
+   "S1502244550",
+   "S1511110600",
+   "S1511131200",
+   "S1511211000",
+   "S1502314900",
+   "S1502315005"
+  ]
+ },
+ {
+  "site_id": "CAN-2",
+  "gid": 2,
+  "acres": 1678.7,
+  "parcels_n": 21,
+  "dist_mi": 2.09,
+  "address": "5901 E LAKE FOREST DR",
+  "subdivision": "2N 3E 04",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:A-1",
+   "County:RP",
+   "County:RUT"
+  ],
+  "future_land_use": [
+   "Planned Community",
+   "Rural (county)"
+  ],
+  "lat": 43.54208,
+  "lon": -116.10943,
+  "sample_parcels": [
+   "S1604223300",
+   "S1604131350",
+   "S1604449060",
+   "S1603233000",
+   "S1610212455",
+   "S1610244250",
+   "S1610131400",
+   "S1610131251"
+  ]
+ },
+ {
+  "site_id": "CAN-7",
+  "gid": 7,
+  "acres": 338.2,
+  "parcels_n": 5,
+  "dist_mi": 2.18,
+  "address": "S FEDERAL WAY",
+  "subdivision": "2N 3E 18",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:I-1",
+   "County:M3",
+   "County:RP"
+  ],
+  "future_land_use": [
+   "(no FLU)",
+   "Industrial",
+   "Rural (county)"
+  ],
+  "lat": 43.51045,
+  "lon": -116.14571,
+  "sample_parcels": [
+   "S1618244250",
+   "S1618314900",
+   "S1618315010",
+   "S1619120600",
+   "S1619417300"
+  ]
+ },
+ {
+  "site_id": "CAN-16",
+  "gid": 16,
+  "acres": 67.9,
+  "parcels_n": 3,
+  "dist_mi": 2.35,
+  "address": "4747 E WARM SPRINGS AVE",
+  "subdivision": "3N 3E 29",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:A-1",
+   "Boise:R-1C"
+  ],
+  "future_land_use": [
+   "Public / Quasi-Public",
+   "Suburban Residential"
+  ],
+  "lat": 43.57026,
+  "lon": -116.12561,
+  "sample_parcels": [
+   "S0929244200",
+   "S0929212400",
+   "R3482170150"
+  ]
+ },
+ {
+  "site_id": "CAN-57",
+  "gid": 57,
+  "acres": 10.3,
+  "parcels_n": 2,
+  "dist_mi": 4.47,
+  "address": "1507 S OAKLAND AVE",
+  "subdivision": "MCDONALD TRACT",
+  "mf_threat": "High",
+  "zoning": [
+   "Boise:R-3"
+  ],
+  "future_land_use": [
+   "Mixed Use"
+  ],
+  "lat": 43.59377,
+  "lon": -116.20436,
+  "sample_parcels": [
+   "R5577760530",
+   "R5577760451"
+  ]
+ },
+ {
+  "site_id": "CAN-66",
+  "gid": 66,
+  "acres": 7.6,
+  "parcels_n": 1,
+  "dist_mi": 3.76,
+  "address": "1550 S LOGGERS POND PL",
+  "subdivision": "3N 2E 14",
+  "mf_threat": "High",
+  "zoning": [
+   "Boise:R-3"
+  ],
+  "future_land_use": [
+   "High-Density Residential (planned)"
+  ],
+  "lat": 43.59357,
+  "lon": -116.17433,
+  "sample_parcels": [
+   "S1014449000"
+  ]
+ },
+ {
+  "site_id": "CAN-51",
+  "gid": 51,
+  "acres": 11.5,
+  "parcels_n": 1,
+  "dist_mi": 2.41,
+  "address": "3453 E PARKCENTER BLVD",
+  "subdivision": "3N 3E 19",
+  "mf_threat": "Unknown",
+  "zoning": [
+   "Boise:SP-02"
+  ],
+  "future_land_use": [
+   "High-Density Residential (planned)"
+  ],
+  "lat": 43.57589,
+  "lon": -116.14141,
+  "sample_parcels": [
+   "S0919448585"
+  ]
+ },
+ {
+  "site_id": "CAN-106",
+  "gid": 106,
+  "acres": 3.3,
+  "parcels_n": 1,
+  "dist_mi": 2.55,
+  "address": "281 E FAIRBROOK DR",
+  "subdivision": "LAKEWOOD UNIT NO 11B",
+  "mf_threat": "High",
+  "zoning": [
+   "Boise:R-3"
+  ],
+  "future_land_use": [
+   "High-Density Residential (planned)"
+  ],
+  "lat": 43.57213,
+  "lon": -116.18016,
+  "sample_parcels": [
+   "R5125630141"
+  ]
+ },
+ {
+  "site_id": "CAN-14",
+  "gid": 14,
+  "acres": 78.6,
+  "parcels_n": 6,
+  "dist_mi": 3.09,
+  "address": "2472 E WARM SPRINGS AVE",
+  "subdivision": "3N 2E 13",
+  "mf_threat": "Low",
+  "zoning": [
+   "Boise:A-1",
+   "Boise:A-2",
+   "Boise:R-1A"
+  ],
+  "future_land_use": [
+   "Buildable (future growth)",
+   "Suburban Residential"
+  ],
+  "lat": 43.59175,
+  "lon": -116.15577,
+  "sample_parcels": [
+   "S1013449500",
+   "S1013417612",
+   "S1013417515",
+   "R1035170010",
+   "R1035150270",
+   "R1035150050"
+  ]
+ },
+ {
+  "site_id": "CAN-5",
+  "gid": 5,
+  "acres": 558.2,
+  "parcels_n": 1,
+  "dist_mi": 3.23,
+  "address": "E COLUMBIA RD",
+  "subdivision": "2N 3E 16",
+  "mf_threat": "Low",
+  "zoning": [
+   "County:RP"
+  ],
+  "future_land_use": [
+   "Rural (county)"
+  ],
+  "lat": 43.50943,
+  "lon": -116.10457,
+  "sample_parcels": [
+   "S1616110000"
+  ]
+ }
+]

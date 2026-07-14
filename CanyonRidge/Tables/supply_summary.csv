@@ -1,0 +1,21 @@
+Metric,Group,Parcels,Acres
+TOTAL developable vacant,,502,12322.6
+Vacant parcels in area (all),,3072,
+Dropped: under 1.0 ac (small lots),,1921,379.9
+Developable by MF-threat,Low,436,12074.8
+Developable by MF-threat,High,32,102.5
+Developable by MF-threat,Medium,17,81.2
+Developable by MF-threat,Unknown,17,64.1
+Developable by FLU intent,low-density / rural,76,3934.9
+Developable by FLU intent,non-residential,171,3429.5
+Developable by FLU intent,airport — residential restricted,41,2380.7
+Developable by FLU intent,n/a,5,898.3
+Developable by FLU intent,master-plan (use TBD),22,721.0
+Developable by FLU intent,single-family oriented,84,417.2
+Developable by FLU intent,"development-ready, use TBD",25,193.4
+Developable by FLU intent,institutional,8,146.3
+Developable by FLU intent,supports attached/medium,27,73.0
+Developable by FLU intent,non-residential (MF only if mixed),26,65.9
+Developable by FLU intent,supports multifamily,17,62.5
+Developable by jurisdiction,City of Boise,392,7244.6
+Developable by jurisdiction,Ada County,110,5078.0

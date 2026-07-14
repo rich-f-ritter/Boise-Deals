@@ -1,0 +1,19 @@
+# Heavy intermediates (regenerable; not committed)
+*/in/_ck/
+*/in/parcels_all.geojson
+*/in/parcels_classified.geojson
+*/in/parcels_enriched.geojson
+*/in/parcels_attrs.json
+*/in/zoning.geojson
+*/in/flu.geojson
+scratchpad/
+__pycache__/
+*.pyc
+# scratch metadata / logs
+*/pull.log
+*/pull_parcels2.log
+*/classify.log
+*/enrich.log
+*/attr.log
+*/viewer*.log
+attr.log

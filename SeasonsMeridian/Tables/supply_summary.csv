@@ -1,0 +1,21 @@
+Metric,Group,Parcels,Acres
+TOTAL developable vacant,,891,3900.6
+Vacant parcels in area (all),,10785,
+Dropped: under 1.0 ac (small lots),,7382,1439.1
+Developable by MF-threat,Low,481,2323.7
+Developable by MF-threat,Medium,314,1070.1
+Developable by MF-threat,High,96,506.7
+Developable by FLU intent,supports multifamily,166,787.4
+Developable by FLU intent,supports attached/medium,182,692.9
+Developable by FLU intent,single-family oriented,159,616.6
+Developable by FLU intent,institutional,48,470.3
+Developable by FLU intent,non-residential,106,465.2
+Developable by FLU intent,master-plan (use TBD),63,302.3
+Developable by FLU intent,non-residential (MF only if mixed),125,274.9
+Developable by FLU intent,see city plan,14,171.8
+Developable by FLU intent,low-density / rural,19,61.5
+Developable by FLU intent,n/a,9,57.6
+Developable by jurisdiction,City of Meridian,496,2065.3
+Developable by jurisdiction,Ada County,189,979.9
+Developable by jurisdiction,City of Boise,192,676.8
+Developable by jurisdiction,City of Kuna,14,178.6

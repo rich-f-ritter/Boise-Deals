@@ -1,0 +1,126 @@
+Threat Level,Jurisdiction,Base Zone,Zone Category,Definition
+High,Ada County,R12,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,Ada County,R20,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-1,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-2,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-3,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-4,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-5,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-H,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,MX-U,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Boise,R-3,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Eagle,R-12,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Eagle,R-15,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Garden City,R-20,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Garden City,R-3,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Kuna,R-16,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Kuna,R-20,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Meridian,O-T,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Meridian,R-15,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Meridian,R-40,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Meridian,TN-C,Mixed Use,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Star,R-13,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+High,City of Star,R-14,Multifamily Residential,Multifamily can be built BY-RIGHT - no special approval needed.
+Medium,Ada County,R8,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Boise,R-2,Two-Family / Low-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Eagle,CBD,Mixed Use,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Eagle,MU,Mixed Use,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Eagle,R-10,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Eagle,R-9,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Kuna,CBD,Mixed Use,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Kuna,R-12,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Kuna,R-8,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Meridian,C-C,Commercial,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Meridian,C-G,Commercial,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Meridian,R-8,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Meridian,TN-R,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Star,CBD,Mixed Use,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Star,MU,Mixed Use,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Star,R-10,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Medium,City of Star,R-8,Townhouse / Med-Density Residential,Multifamily possible but CONDITIONAL - townhouse / 3-4-family / mixed-use / TOD / corridor; limited density or special permitting.
+Low,Ada County,C1,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,C2,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,LO,Office,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,M1,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,M2,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,M3,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,R1,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,R1M,Manufactured Home,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,R2,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,R4,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,R6,Two-Family / Low-Density Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,RP,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,RR,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,RSW,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,Ada County,RUT,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,A-1,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,A-2,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,I-1,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,I-2,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,I-3,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,R-1A,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,R-1B,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Boise,R-1C,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,A,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,A-R,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,BP,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,C-1,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,C-2,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,C-3,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,L-O,Office,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,M-1,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,PS,Institutional / Governmental,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-1,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-2,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-3,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-4,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-5,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-6,Two-Family / Low-Density Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Eagle,R-E,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Garden City,C-1,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Garden City,C-2,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Garden City,LI,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Garden City,M,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Garden City,R-1A,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Garden City,R-2,Two-Family / Low-Density Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,A,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,C-1,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,C-2,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,C-3,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,L-O,Office,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,M-1,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,M-2,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,P,Park / Recreation,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,R-1,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,R-2,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,R-3,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,R-4,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,R-5,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Kuna,R-6,Two-Family / Low-Density Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,C-N,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,H-E,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,I-L,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,L-O,Office,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,M-E,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,R-2,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Meridian,R-4,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,C-1,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,C-2,Commercial,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,L-O,Office,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,LI,Industrial / Business Park,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-1,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-2,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-3,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-4,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-5,Single-Family Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-7,Two-Family / Low-Density Residential,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,R-R,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Low,City of Star,RT,Agricultural / Rural,"Multifamily NOT permitted by base zoning (single-family, duplex, commercial, industrial, civic, or agricultural)."
+Unknown,Ada County,PC,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Boise,SP-01,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Boise,SP-02,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Boise,SP-03,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Boise,SP-04,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Eagle,APD,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Garden City,SAP -01,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.
+Unknown,City of Kuna,PUD,Planned / Overlay,Planned-development / overlay / older unit-development district - allowed use depends on the negotiated plan; must read it to determine MF potential.

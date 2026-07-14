@@ -1,0 +1,158 @@
+{
+  "CanyonRidge": {
+    "total_dev": {
+      "parcels": 502,
+      "acres": 12322.6
+    },
+    "all_vacant": 3072,
+    "by_threat": {
+      "Low": {
+        "parcels": 436,
+        "acres": 12074.8
+      },
+      "High": {
+        "parcels": 32,
+        "acres": 102.5
+      },
+      "Medium": {
+        "parcels": 17,
+        "acres": 81.2
+      },
+      "Unknown": {
+        "parcels": 17,
+        "acres": 64.1
+      }
+    },
+    "by_intent": {
+      "low-density / rural": {
+        "parcels": 76,
+        "acres": 3934.9
+      },
+      "non-residential": {
+        "parcels": 171,
+        "acres": 3429.5
+      },
+      "airport \u2014 residential restricted": {
+        "parcels": 41,
+        "acres": 2380.7
+      },
+      "n/a": {
+        "parcels": 5,
+        "acres": 898.3
+      },
+      "master-plan (use TBD)": {
+        "parcels": 22,
+        "acres": 721.0
+      },
+      "single-family oriented": {
+        "parcels": 84,
+        "acres": 417.2
+      },
+      "development-ready, use TBD": {
+        "parcels": 25,
+        "acres": 193.4
+      },
+      "institutional": {
+        "parcels": 8,
+        "acres": 146.3
+      },
+      "supports attached/medium": {
+        "parcels": 27,
+        "acres": 73.0
+      },
+      "non-residential (MF only if mixed)": {
+        "parcels": 26,
+        "acres": 65.9
+      },
+      "supports multifamily": {
+        "parcels": 17,
+        "acres": 62.5
+      }
+    },
+    "apartment_ready": {
+      "parcels": 44,
+      "acres": 142.7
+    },
+    "apartment_ready_2mi": {
+      "parcels": 9,
+      "acres": 39.5
+    },
+    "total_parcels": 28026,
+    "owner_occupied": 16705,
+    "hoa_common_vacant": 384
+  },
+  "SeasonsMeridian": {
+    "total_dev": {
+      "parcels": 891,
+      "acres": 3900.6
+    },
+    "all_vacant": 10785,
+    "by_threat": {
+      "Low": {
+        "parcels": 481,
+        "acres": 2323.7
+      },
+      "Medium": {
+        "parcels": 314,
+        "acres": 1070.1
+      },
+      "High": {
+        "parcels": 96,
+        "acres": 506.7
+      }
+    },
+    "by_intent": {
+      "supports multifamily": {
+        "parcels": 166,
+        "acres": 787.4
+      },
+      "supports attached/medium": {
+        "parcels": 182,
+        "acres": 692.9
+      },
+      "single-family oriented": {
+        "parcels": 159,
+        "acres": 616.6
+      },
+      "institutional": {
+        "parcels": 48,
+        "acres": 470.3
+      },
+      "non-residential": {
+        "parcels": 106,
+        "acres": 465.2
+      },
+      "master-plan (use TBD)": {
+        "parcels": 63,
+        "acres": 302.3
+      },
+      "non-residential (MF only if mixed)": {
+        "parcels": 125,
+        "acres": 274.9
+      },
+      "see city plan": {
+        "parcels": 14,
+        "acres": 171.8
+      },
+      "low-density / rural": {
+        "parcels": 19,
+        "acres": 61.5
+      },
+      "n/a": {
+        "parcels": 9,
+        "acres": 57.6
+      }
+    },
+    "apartment_ready": {
+      "parcels": 228,
+      "acres": 1130.2
+    },
+    "apartment_ready_2mi": {
+      "parcels": 89,
+      "acres": 308.9
+    },
+    "total_parcels": 92773,
+    "owner_occupied": 60005,
+    "hoa_common_vacant": 2368
+  }
+}

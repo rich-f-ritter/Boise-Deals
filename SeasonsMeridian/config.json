@@ -1,0 +1,712 @@
+{
+  "subject": {
+    "name": "Seasons at Meridian",
+    "address": "2700 E Overland Rd, Meridian, ID 83642",
+    "lat": 43.591935,
+    "lon": -116.360877,
+    "location_note": "Apartment community on E Overland Rd in southeast Meridian, ~0.5 mi south of I-84 near S Eagle Rd. Point from ArcGIS World Geocoder (PointAddress, score 100)."
+  },
+  "analysis_area": {
+    "mode": "radius",
+    "radius_mi": 5.0,
+    "note": "5.0-mile geodesic radius around Seasons at Meridian"
+  },
+  "parcel_sources": [
+    {
+      "name": "Ada County Assessor Parcels (AdaCountyGIS)",
+      "county": "Ada",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Parcels/FeatureServer/5/query",
+      "fields": {
+        "account": "PARCEL",
+        "situs": "ADDRESS",
+        "landuse_code": "PROPCODE",
+        "legal": "LEGAL1",
+        "total_value": "TOTALVALUE"
+      },
+      "dedupe_field": "PARCEL",
+      "data_confidence": "full",
+      "page": 1000
+    }
+  ],
+  "zoning_sources": [
+    {
+      "jurisdiction": "City of Boise",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='City of Boise'",
+      "format": "geojson"
+    },
+    {
+      "jurisdiction": "City of Meridian",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='City of Meridian'",
+      "format": "geojson"
+    },
+    {
+      "jurisdiction": "Ada County",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='Ada County'",
+      "format": "geojson"
+    },
+    {
+      "jurisdiction": "City of Kuna",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='City of Kuna'",
+      "format": "geojson"
+    },
+    {
+      "jurisdiction": "City of Eagle",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='City of Eagle'",
+      "format": "geojson"
+    },
+    {
+      "jurisdiction": "City of Garden City",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='City of Garden City'",
+      "format": "geojson"
+    },
+    {
+      "jurisdiction": "City of Star",
+      "url": "https://services2.arcgis.com/dgGjZc6xAH5m5JyP/arcgis/rest/services/Zoning/FeatureServer/22/query",
+      "code_field": "BASEZONE",
+      "desc_field": "ZONING",
+      "where": "CITY='City of Star'",
+      "format": "geojson"
+    }
+  ],
+  "landuse_scheme": {
+    "name": "Ada County Assessor Property Code (PROPCODE: R/C/F/L/M)",
+    "codes": {
+      "R": [
+        "Single Family Residential",
+        "Residential (improved homes, condos, townhomes) - Ada PROPCODE R"
+      ],
+      "C": [
+        "Commercial",
+        "Commercial property (retail/office/commercial condo) - Ada PROPCODE C"
+      ],
+      "F": [
+        "Agricultural / Rural",
+        "Farm / agricultural land (ag-exempt acreage) - Ada PROPCODE F"
+      ],
+      "L": [
+        "Vacant Land",
+        "Land (vacant lots + HOA/condo common-area land) - Ada PROPCODE L"
+      ],
+      "M": [
+        "Single Family Residential",
+        "Manufactured / mobile home - Ada PROPCODE M"
+      ]
+    },
+    "vacant_buckets": [
+      "Vacant Land"
+    ],
+    "vacant_note": "Ada County PROPCODE 'L' = Land (vacant lots incl. HOA/condo common-area land, many at $0 value). Treated as undeveloped 'vacant' for the developable-land screen; HOA commons, floodplain, foothills-preservation and airport land are then reasoned out per parcel. PROPCODE: R=Residential, C=Commercial, F=Farm, L=Land, M=Manufactured.",
+    "default_bucket": "Other / Unclassified",
+    "public_owner_regex": null
+  },
+  "zoning_crosswalk": {
+    "City of Boise": {
+      "A-1": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "A-2": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "R-1A": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-1B": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-1C": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-2": [
+        "Two-Family / Low-Density Residential",
+        "Medium"
+      ],
+      "R-3": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "MX-1": [
+        "Mixed Use",
+        "High"
+      ],
+      "MX-2": [
+        "Mixed Use",
+        "High"
+      ],
+      "MX-3": [
+        "Mixed Use",
+        "High"
+      ],
+      "MX-4": [
+        "Mixed Use",
+        "High"
+      ],
+      "MX-5": [
+        "Mixed Use",
+        "High"
+      ],
+      "MX-U": [
+        "Mixed Use",
+        "High"
+      ],
+      "MX-H": [
+        "Mixed Use",
+        "High"
+      ],
+      "I-1": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "I-2": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "I-3": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "SP-01": [
+        "Planned / Overlay",
+        "Unknown"
+      ],
+      "SP-02": [
+        "Planned / Overlay",
+        "Unknown"
+      ],
+      "SP-03": [
+        "Planned / Overlay",
+        "Unknown"
+      ],
+      "SP-04": [
+        "Planned / Overlay",
+        "Unknown"
+      ]
+    },
+    "City of Meridian": {
+      "R-2": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-4": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-8": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-15": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R-40": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "L-O": [
+        "Office",
+        "Low"
+      ],
+      "C-N": [
+        "Commercial",
+        "Low"
+      ],
+      "C-C": [
+        "Commercial",
+        "Medium"
+      ],
+      "C-G": [
+        "Commercial",
+        "Medium"
+      ],
+      "O-T": [
+        "Mixed Use",
+        "High"
+      ],
+      "TN-R": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "TN-C": [
+        "Mixed Use",
+        "High"
+      ],
+      "M-E": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "H-E": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "I-L": [
+        "Industrial / Business Park",
+        "Low"
+      ]
+    },
+    "Ada County": {
+      "RUT": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "RR": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "RP": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "RSW": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R1M": [
+        "Manufactured Home",
+        "Low"
+      ],
+      "R1": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R2": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R4": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R6": [
+        "Two-Family / Low-Density Residential",
+        "Low"
+      ],
+      "R8": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R12": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R20": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "C1": [
+        "Commercial",
+        "Low"
+      ],
+      "C2": [
+        "Commercial",
+        "Low"
+      ],
+      "LO": [
+        "Office",
+        "Low"
+      ],
+      "M1": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "M2": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "M3": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "PC": [
+        "Planned / Overlay",
+        "Unknown"
+      ]
+    },
+    "City of Kuna": {
+      "A": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "R-1": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-2": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-3": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-4": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-5": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-6": [
+        "Two-Family / Low-Density Residential",
+        "Low"
+      ],
+      "R-8": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-12": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-16": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R-20": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "C-1": [
+        "Commercial",
+        "Low"
+      ],
+      "C-2": [
+        "Commercial",
+        "Low"
+      ],
+      "C-3": [
+        "Commercial",
+        "Low"
+      ],
+      "CBD": [
+        "Mixed Use",
+        "Medium"
+      ],
+      "L-O": [
+        "Office",
+        "Low"
+      ],
+      "M-1": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "M-2": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "P": [
+        "Park / Recreation",
+        "Low"
+      ],
+      "PUD": [
+        "Planned / Overlay",
+        "Unknown"
+      ]
+    },
+    "City of Eagle": {
+      "A": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "A-R": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "R-E": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "APD": [
+        "Planned / Overlay",
+        "Unknown"
+      ],
+      "R-1": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-2": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-3": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-4": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-5": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-6": [
+        "Two-Family / Low-Density Residential",
+        "Low"
+      ],
+      "R-9": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-10": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-12": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R-15": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "BP": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "M-1": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "C-1": [
+        "Commercial",
+        "Low"
+      ],
+      "C-2": [
+        "Commercial",
+        "Low"
+      ],
+      "C-3": [
+        "Commercial",
+        "Low"
+      ],
+      "CBD": [
+        "Mixed Use",
+        "Medium"
+      ],
+      "MU": [
+        "Mixed Use",
+        "Medium"
+      ],
+      "L-O": [
+        "Office",
+        "Low"
+      ],
+      "PS": [
+        "Institutional / Governmental",
+        "Low"
+      ]
+    },
+    "City of Garden City": {
+      "R-1A": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-2": [
+        "Two-Family / Low-Density Residential",
+        "Low"
+      ],
+      "R-3": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R-20": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "C-1": [
+        "Commercial",
+        "Low"
+      ],
+      "C-2": [
+        "Commercial",
+        "Low"
+      ],
+      "LI": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "M": [
+        "Industrial / Business Park",
+        "Low"
+      ],
+      "SAP -01": [
+        "Planned / Overlay",
+        "Unknown"
+      ]
+    },
+    "City of Star": {
+      "R-1": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-2": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-3": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-4": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-5": [
+        "Single-Family Residential",
+        "Low"
+      ],
+      "R-7": [
+        "Two-Family / Low-Density Residential",
+        "Low"
+      ],
+      "R-8": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-10": [
+        "Townhouse / Med-Density Residential",
+        "Medium"
+      ],
+      "R-13": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R-14": [
+        "Multifamily Residential",
+        "High"
+      ],
+      "R-R": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "RT": [
+        "Agricultural / Rural",
+        "Low"
+      ],
+      "C-1": [
+        "Commercial",
+        "Low"
+      ],
+      "C-2": [
+        "Commercial",
+        "Low"
+      ],
+      "CBD": [
+        "Mixed Use",
+        "Medium"
+      ],
+      "MU": [
+        "Mixed Use",
+        "Medium"
+      ],
+      "L-O": [
+        "Office",
+        "Low"
+      ],
+      "LI": [
+        "Industrial / Business Park",
+        "Low"
+      ]
+    }
+  },
+  "zone_plain": {
+    "A-1": "Boise Open Land/Airport-Ag",
+    "A-2": "Boise Open Land/Ag",
+    "R-1A": "Boise Single-Family (large lot)",
+    "R-1B": "Boise Single-Family (medium lot)",
+    "R-1C": "Boise Single-Family (compact)",
+    "R-2": "Two-Family / Low-Density",
+    "R-3": "Boise Multifamily",
+    "MX-1": "Boise Mixed-Use Neighborhood",
+    "MX-2": "Boise Mixed-Use Community",
+    "MX-3": "Boise Mixed-Use Regional",
+    "MX-4": "Boise Mixed-Use (Gateway)",
+    "MX-5": "Boise Mixed-Use (high intensity)",
+    "MX-U": "Boise Mixed-Use Urban",
+    "MX-H": "Boise Mixed-Use Healthcare",
+    "I-1": "Boise Industrial (light)",
+    "I-2": "Boise Industrial (general)",
+    "I-3": "Boise Industrial (heavy)",
+    "SP-01": "Specific Plan SP-01",
+    "SP-02": "Specific Plan SP-02",
+    "SP-03": "Specific Plan SP-03",
+    "SP-04": "Specific Plan SP-04",
+    "R-4": "Meridian Med-Low Density Res (4 du/ac)",
+    "R-8": "Meridian Medium Density Res (8 du/ac)",
+    "R-15": "Meridian Med-High Density Res (15 du/ac)",
+    "R-40": "Meridian High Density Res (40 du/ac)",
+    "L-O": "Limited Office",
+    "C-N": "Neighborhood Business",
+    "C-C": "Community Business",
+    "C-G": "General Retail & Service Commercial",
+    "O-T": "Old Town (mixed use)",
+    "TN-R": "Traditional Neighborhood Residential",
+    "TN-C": "Traditional Neighborhood Center",
+    "M-E": "Mixed Employment",
+    "H-E": "High-Density Employment",
+    "I-L": "Light Industrial",
+    "RUT": "County Rural-Urban Transition",
+    "RR": "County Rural Residential",
+    "RP": "County Rural Preservation/Foothills",
+    "RSW": "County Residential (subdivision)",
+    "R1": "County Residential R1",
+    "R1M": "County Residential R1 (manufactured)",
+    "R6": "County Residential R6",
+    "R12": "County Residential R12 (MF)",
+    "R20": "County Residential R20 (MF)",
+    "C1": "County Neighborhood Commercial",
+    "C2": "County Commercial",
+    "LO": "County Limited Office",
+    "M1": "County Manufacturing M1",
+    "M2": "County Manufacturing M2",
+    "M3": "County Manufacturing M3",
+    "PC": "County Planned Community",
+    "A": "Agricultural",
+    "A-R": "Agricultural-Residential",
+    "R-E": "Residential Estates",
+    "MU": "Mixed Use",
+    "CBD": "Central Business District",
+    "BP": "Business Park",
+    "PS": "Public/Semi-Public",
+    "LI": "Light Industrial",
+    "M": "Manufacturing",
+    "PUD": "Planned Unit Development",
+    "APD": "Area of Planned Development",
+    "P": "Public"
+  },
+  "nondev_owner_regex": "\\b(CITY|COUNTY|STATE|IDAHO|USA|UNITED STATES|BLM|FEDERAL|SCHOOL|DISTRICT|CHURCH|HOA|HOMEOWNER|OWNERS ASSOC|ASSOCIATION|COMMON|IRRIGATION|CEMETERY|ACHD|HIGHWAY|SEWER|WATER|UNIVERSITY|COLLEGE)\\b",
+  "company_owner_regex": "\\b(LLC|L\\.L\\.C|INC|CORP|LP|L\\.P|LTD|COMPANY|CO\\.|PARTNERS|HOLDINGS|GROUP|PROPERTIES|CAPITAL|TRUST|DEVELOPMENT|BUILDERS|HOMES|CONSTRUCTION)\\b",
+  "min_acres": 1.0,
+  "min_compactness": 0.16,
+  "data_gap_label": "No public zoning (data gap)",
+  "crs_local": null,
+  "branding": {
+    "primary": "#0B4F6C",
+    "accent": "#C9A227"
+  },
+  "viewer_simplify": 0.0001
+}
