@@ -837,13 +837,19 @@ def parse_realpage_subject_rents(path, subject_name):
     wb = openpyxl.load_workbook(path, data_only=True)
     ws = wb.active
     hdr = [ws.cell(1, c).value for c in range(1, ws.max_column + 1)]
-    qcols = {}
+    qcols = {}          # col -> (year, quarter): quarterly Y####Q# columns
+    mcols = {}          # col -> (year, quarter): monthly Y####M## columns
     for c, v in enumerate(hdr, 1):
         m = re.match(r"Y(\d{4})Q([1-4])", str(v or ""))
         if m:
             qcols[c] = (int(m.group(1)), int(m.group(2)))
+            continue
+        m = re.match(r"Y(\d{4})M(\d{2})", str(v or ""))
+        if m and 1 <= int(m.group(2)) <= 12:
+            mcols[c] = (int(m.group(1)), (int(m.group(2)) - 1) // 3 + 1)
     key = name_key(subject_name)
     out = {}
+    acc = {}            # (yq, field) -> [monthly values], averaged into quarters
     for r in range(2, ws.max_row + 1):
         if name_key(str(ws.cell(r, 1).value or "")) != key:
             continue
@@ -858,6 +864,14 @@ def parse_realpage_subject_rents(path, subject_name):
                 if field == "occ" and v > 1.5:     # percent (95.7) -> fraction
                     v /= 100.0
                 out.setdefault(yq, {}).setdefault(field, v)
+        for c, yq in mcols.items():
+            v = _float(ws.cell(r, c).value)
+            if v:
+                if field == "occ" and v > 1.5:
+                    v /= 100.0
+                acc.setdefault((yq, field), []).append(v)
+    for (yq, field), vals in acc.items():
+        out.setdefault(yq, {}).setdefault(field, sum(vals) / len(vals))
     return out
 
 
@@ -1182,9 +1196,16 @@ def subject_annual_by_window(plan, as_idx, subj_monthly, subj_costar,
             occ = avg(hd, "occ")
             if occ is None:                      # fill financials gap from CoStar
                 occ = occ_fallback()
-            out[label] = {"mkt": avg(hd, "mkt"), "eff": avg(hd, "eff"),
+            # a T12-only subject feed carries occupancy but no rents — fill the
+            # rent fields from the better-fit vendor series rather than blanking
+            mkt, eff = avg(hd, "mkt"), avg(hd, "eff")
+            src = "HD" if len(hd) >= 10 else f"HD ({len(hd)} mo)"
+            if mkt is None and eff is None and fb_has_rent:
+                mkt, eff = srcavg(fb, "ask"), srcavg(fb, "eff")
+                src += f" occ + {fb_name} rents"
+            out[label] = {"mkt": mkt, "eff": eff,
                           "occ": occ, "conc": avg(hd, "conc"),
-                          "src": "HD" if len(hd) >= 10 else f"HD ({len(hd)} mo)"}
+                          "src": src}
         else:
             ask = srcavg(fb, "ask")              # rents from the better-fit source
             eff = srcavg(fb, "eff")

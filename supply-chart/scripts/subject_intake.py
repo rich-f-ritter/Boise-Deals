@@ -281,10 +281,15 @@ def t12_monthly_occupancy(path):
                 return v.strip().lower()
         return ""
 
+    def has_values(r):
+        return any(_f(ws.cell(r, c).value) is not None for c in colmap)
+
     gpr = ltl = pot = vac = None
     for r in range(hdr_r + 1, ws.max_row + 1):
         lbl = label(r)
-        if not lbl:
+        # a section header ("Gross Potential Rents") can carry the same label as
+        # the value line below it — only rows with numeric month values qualify
+        if not lbl or not has_values(r):
             continue
         if pot is None and "potential rent" in lbl:
             pot = r
