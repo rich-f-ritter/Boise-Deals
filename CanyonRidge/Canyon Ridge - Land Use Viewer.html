@@ -1827,4 +1827,73 @@ document.getElementById('dl').onclick=()=>{ if(typeof leafletImage==='undefined'
 
   const J=id=>JSON.parse(document.getElementById(id).textContent);
   start(J('d-parcels'),J('d-legends'),J('d-config'));
-</script></body></html>
+</script><!-- SUPPLY-LAYER-START -->
+<style>
+ .slx-pin{border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.45),0 1px 4px rgba(0,0,0,.55);
+   color:#fff;font:700 11px/1 Calibri,Arial;display:flex;align-items:center;justify-content:center;}
+ .slx-panel{position:absolute;left:14px;bottom:18px;z-index:1000;background:rgba(255,255,255,.95);
+   border:1px solid #bbb;border-radius:6px;padding:9px 12px;font:12px/1.55 Calibri,Arial;color:#222;
+   box-shadow:0 1px 4px rgba(0,0,0,.25);max-width:280px}
+ .slx-panel h4{margin:0 0 5px;font:700 11px Calibri,Arial;letter-spacing:.06em;color:#0B4F6C}
+ .slx-panel .row{display:flex;align-items:center;margin:2px 0;gap:6px}
+ .slx-panel .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #999;flex:none}
+ .slx-panel label{cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:700}
+ .slx-pop b{font-size:13px}
+</style>
+<script>
+(function(){
+  const SUPPLY_PINS = [{"num": "S", "name": "Canyon Ridge", "bucket": "SUBJECT", "color": "#FF00E5", "lat": 43.541835, "lng": -116.151797, "units": 287, "deliver": "2024 (built)", "occ": null, "rent": null, "owner": "Hawkins Companies", "typ": "Mid-Rise", "dist": 0.0, "notes": "Subject property \u2014 the underwriting target."}, {"num": 1, "name": "The Timbers at Harris Ranch", "bucket": "Stabilized / stabilizing", "color": "#2E75B6", "lat": 43.572632, "lng": -116.135177, "units": 274, "deliver": "Q2 2023", "occ": 97, "rent": 2148, "owner": "Highland Canyon Partners", "typ": "Garden", "dist": 2.3, "notes": "Year built: 2023/2024; Occ: CoStar 97% vs RealPage 100%"}, {"num": 2, "name": "The Betty", "bucket": "Stabilized / stabilizing", "color": "#2E75B6", "lat": 43.582744, "lng": -116.213277, "units": 46, "deliver": "Q4 2023", "occ": 93, "rent": 1577, "owner": "Commercial Northwest Property Management", "typ": "Mid-Rise", "dist": 4.2, "notes": "Occ: CoStar 93% vs RealPage 96%; Rent: CoStar ask $1,577 vs RealPage eff $1,273"}, {"num": 3, "name": "The Mill at Loggers Creek", "bucket": "Stabilized / stabilizing", "color": "#2E75B6", "lat": 43.597735, "lng": -116.188117, "units": 125, "deliver": "Q2 2024", "occ": 91, "rent": 2149, "owner": "Baron Properties", "typ": "Mid-Rise", "dist": 4.3, "notes": "Occ: CoStar 91% vs RealPage 94%"}, {"num": 4, "name": "Mesa Pointe Apartments", "bucket": "Stabilized / stabilizing", "color": "#2E75B6", "lat": 43.589618, "lng": -116.204011, "units": 12, "deliver": "Q3 2024", "occ": 100, "rent": 1647, "owner": "Rre Mesa Pointe Llc", "typ": "Low-Rise", "dist": 4.2, "notes": ""}, {"num": 5, "name": "Veazey Apartments", "bucket": "Stabilized / stabilizing", "color": "#2E75B6", "lat": 43.581483, "lng": -116.193117, "units": 35, "deliver": "Q4 2024", "occ": 97, "rent": 1547, "owner": "Conrad J Frank", "typ": "Low-Rise", "dist": 3.4, "notes": ""}, {"num": 6, "name": "737 ParkCenter", "bucket": "Under construction", "color": "#2FB344", "lat": 43.584995, "lng": -116.174117, "units": 30, "deliver": "Q3 2027", "occ": null, "rent": null, "owner": "Scott G Kimball", "typ": "Low-Rise", "dist": 3.2, "notes": "Diligence: under construction"}, {"num": 7, "name": "Seasons on the Bench", "bucket": "Proposed pipeline", "color": "#FF0000", "lat": 43.572774, "lng": -116.209703, "units": 300, "deliver": "Q3 2028", "occ": null, "rent": null, "owner": "\u2014", "typ": "Garden", "dist": 3.6, "notes": "RealPage pipeline (not yet in CoStar); Diligence: proposed"}, {"num": 8, "name": "The Ranahan", "bucket": "Proposed pipeline", "color": "#FF0000", "lat": 43.570459, "lng": -116.131691, "units": 138, "deliver": "Q4 2028", "occ": null, "rent": null, "owner": "Dave Evans Construction", "typ": "Mid-Rise", "dist": 2.2, "notes": "Diligence: proposed"}, {"num": 9, "name": "Vista Point", "bucket": "Proposed pipeline", "color": "#FF0000", "lat": 43.572098, "lng": -116.205003, "units": 892, "deliver": "TBD", "occ": null, "rent": null, "owner": "\u2014", "typ": "Mid-Rise", "dist": 3.4, "notes": "RealPage pipeline (not yet in CoStar); Diligence: proposed"}, {"num": 10, "name": "1519 South Londoner Avenue", "bucket": "Proposed pipeline", "color": "#FF0000", "lat": 43.59368, "lng": -116.18581, "units": 189, "deliver": "TBD", "occ": null, "rent": null, "owner": "\u2014", "typ": "Garden", "dist": 4.0, "notes": "RealPage pipeline (not yet in CoStar); Diligence: proposed"}, {"num": 11, "name": "3300 South Vista Avenue", "bucket": "Proposed pipeline", "color": "#FF0000", "lat": 43.572137, "lng": -116.212921, "units": 183, "deliver": "TBD", "occ": null, "rent": null, "owner": "\u2014", "typ": "Mid-Rise", "dist": 3.7, "notes": "RealPage pipeline (not yet in CoStar); Diligence: proposed"}, {"num": 12, "name": "Station Village", "bucket": "Proposed pipeline", "color": "#FF0000", "lat": 43.594967, "lng": -116.210304, "units": 86, "deliver": "TBD", "occ": null, "rent": null, "owner": "Privately Owned", "typ": "Garden", "dist": 4.7, "notes": "RealPage pipeline (not yet in CoStar); Diligence: proposed"}, {"num": "\u2022", "name": "Barber Valley SP-02 HDR block (Parkcenter)", "bucket": "Shadow / latent supply", "color": "#7C4DFF", "lat": 43.575891, "lng": -116.141415, "units": null, "deliver": "TBD", "occ": null, "rent": null, "owner": "\u2014", "typ": "\u2014", "dist": null, "notes": "Land-use analysis site CR-51: 11.5 ac zoned SP-02 with High-Density Residential FLU inside the adopted Barber Valley Specific Plan; OUTSIDE the Airport Influence Area. Entitled/planned multifamily block, master-developed by Barber Valley Development (Harris Family LP); HDR blocks typically sold to merchant apartment developers. No active application found \u2014 the most apartment-competitive latent site in the 5-mi ring."}, {"num": "\u2022", "name": "McDonald Tract (S Oakland Ave)", "bucket": "Shadow / latent supply", "color": "#7C4DFF", "lat": 43.59377, "lng": -116.204365, "units": null, "deliver": "TBD", "occ": null, "rent": null, "owner": "\u2014", "typ": "\u2014", "dist": null, "notes": "Land-use analysis site CR-57: 10.3 ac zoned R-3 (multifamily by-right) with Mixed Use FLU, outside the Airport Influence Area. Dormant \u2014 no application, listing, or news found; owner not published. By-right MF capacity makes it a genuine watch item despite no activity."}, {"num": "\u2022", "name": "East Columbia bench (Rush Valley / planned community)", "bucket": "Shadow / latent supply", "color": "#7C4DFF", "lat": 43.542077, "lng": -116.109426, "units": null, "deliver": "TBD", "occ": null, "rent": null, "owner": "\u2014", "typ": "\u2014", "dist": null, "notes": "Land-use analysis sites CR-2/CR-3/CR-5: ~1,700+ ac far-SE 'East Columbia' bench with Boise 'Planned Community' FLU \u2014 one of three strategic planning areas the city began studying Jan 2026. Rush Valley subdivision portion (Conger Group/DevCo) approved but capped and largely unbuilt; residential blocked by missing secondary fire access and landowner coordination (Simplot, Micron, Ball Ventures, Murgoitio). Long-horizon supply, not near-term."}];
+  const SUPPLY_LEG  = [{"key": "stab", "color": "#2E75B6", "label": "Stabilized / stabilizing", "n": 5, "u": 492}, {"key": "uc", "color": "#2FB344", "label": "Under construction", "n": 1, "u": 30}, {"key": "prop", "color": "#FF0000", "label": "Proposed pipeline", "n": 6, "u": 1788}];
+  const RING_MI = 5.0;
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function popup(p){
+    let h='<div class="slx-pop"><b>'+(p.num!=null&&p.num!=='•'?p.num+'. ':'')+esc(p.name)+'</b><br>';
+    h+='<span style="color:'+p.color+';font-weight:700">'+esc(p.bucket)+'</span><br>';
+    if(p.units) h+=p.units.toLocaleString()+' units · ';
+    if(p.deliver) h+='Delivery: '+esc(p.deliver)+' · ';
+    if(p.dist!=null) h+=p.dist+' mi';
+    h+='<br>';
+    if(p.occ!=null) h+='Occupancy: <b>'+p.occ+'%</b> · ';
+    if(p.rent) h+='Avg rent: <b>$'+p.rent.toLocaleString()+'</b>';
+    if(p.occ!=null||p.rent) h+='<br>';
+    if(p.notes) h+='<i style="font-size:11px">'+esc(p.notes)+'</i>';
+    return h+'</div>';
+  }
+  function pinMarker(p){
+    const sz=(p.units||0)>=300?26:(p.units||0)>=100?22:18;
+    const icon=L.divIcon({className:'', iconSize:[sz,sz], iconAnchor:[sz/2,sz/2],
+      html:'<div class="slx-pin" style="width:'+sz+'px;height:'+sz+'px;background:'+p.color+'">'+ (p.num==null?'':p.num) +'</div>'});
+    return L.marker([p.lat,p.lng],{icon:icon,zIndexOffset:600}).bindPopup(popup(p),{maxWidth:340});
+  }
+  const comps=L.layerGroup(), shadows=L.layerGroup();
+  let subjPt=null;
+  for(const p of SUPPLY_PINS){
+    if(p.bucket==='SUBJECT'){ subjPt=[p.lat,p.lng]; continue; }   // viewer already pins the subject
+    (/shadow/i.test(p.bucket)?shadows:comps).addLayer(pinMarker(p));
+  }
+  const ring = subjPt ? L.circle(subjPt,{radius:RING_MI*1609.34,color:'#D4A017',weight:2,
+                                         fill:false,dashArray:'6 6'}) : null;
+  // control panel
+  const panel=document.createElement('div');
+  panel.className='slx-panel';
+  let rows='';
+  for(const l of SUPPLY_LEG)
+    rows+='<div class="row"><span class="dot" style="background:'+l.color+'"></span>'+esc(l.label)+
+          ' <span style="color:#666">('+l.n+' / '+l.u.toLocaleString()+' u)</span></div>';
+  panel.innerHTML='<h4>COMPETITIVE SUPPLY (5-MI CHART)</h4>'+
+    '<label><input type="checkbox" id="slx-c" checked> Supply comps (numbered)</label>'+rows+
+    '<label style="margin-top:4px"><input type="checkbox" id="slx-s" checked> '+
+    '<span class="dot" style="background:#7C4DFF;margin:0"></span> Shadow / latent (land-use)</label>'+
+    '<div style="color:#666;font-size:11px">Pin numbers match the Supply Chart rows; gold dashes = 5-mi ring.</div>';
+  document.body.appendChild(panel);
+  function sync(){
+    const c=document.getElementById('slx-c').checked, s=document.getElementById('slx-s').checked;
+    c?comps.addTo(map):map.removeLayer(comps);
+    s?shadows.addTo(map):map.removeLayer(shadows);
+    if(ring){ (c||s)?ring.addTo(map):map.removeLayer(ring); }
+  }
+  panel.addEventListener('change',sync);
+  sync();
+})();
+</script>
+<!-- SUPPLY-LAYER-END --></body></html>
