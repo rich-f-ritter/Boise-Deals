@@ -32,7 +32,11 @@ SIMPLIFY_TOL = 0.00004  # ~4 m
 VENDOR = Path(__file__).resolve().parents[1] / "assets" / "vendor"
 
 
-def _round(c, nd=5):
+COORD_ND = 5  # coordinate decimal places (build_payload may lower for dense metros to cut file size)
+
+
+def _round(c, nd=None):
+    nd = COORD_ND if nd is None else nd
     if isinstance(c[0], (int, float)):
         return [round(c[0], nd), round(c[1], nd)]
     return [_round(x, nd) for x in c]
@@ -47,12 +51,25 @@ def simp(geom):
 
 
 def build_payload(cfg):
-    global SIMPLIFY_TOL
+    global SIMPLIFY_TOL, COORD_ND
     SIMPLIFY_TOL = float(cfg.get("viewer_simplify", SIMPLIFY_TOL))  # coarser geometry for dense metros
+    COORD_ND = int(cfg.get("viewer_coord_nd", COORD_ND))           # fewer decimals => smaller file
     IN = C.indir(cfg)
     feats = json.loads((IN / "parcels_classified.geojson").read_text())["features"]
     dev = set(json.loads((IN / "developable_accounts.json").read_text())) \
         if (IN / "developable_accounts.json").exists() else set()
+
+    # Leaner payload: index-encode the repeated string fields into small dictionaries and
+    # compute colors client-side (keeps dense-metro viewers well under the size cliff).
+    BK, CT, ZP, JU, TH = [], [], [], [], []
+
+    def idx(lst, v):
+        v = v if v is not None else ""
+        try:
+            return lst.index(v)
+        except ValueError:
+            lst.append(v)
+            return len(lst) - 1
 
     # dedupe by simplified-geometry signature: draw each physical footprint once.
     out, sig_ix = [], {}
@@ -66,16 +83,30 @@ def build_payload(cfg):
             kept = out[sig_ix[sig]]["properties"]
             kept["n"] += 1
             if dv:
-                kept["dv"] = True
+                kept["dv"] = 1
             dupes += 1
             continue
         sig_ix[sig] = len(out)
+        ac = p["acres"]
         out.append({"type": "Feature", "geometry": g, "properties": {
-            "o": p["owner"], "s": p["situs"], "u": p["landuse_code"], "b": p["bucket"],
-            "j": p["jurisdiction"], "z": p["zone_plain"], "zc": p["zone_category"],
-            "t": p["mf_threat"], "ac": p["acres"], "d": p["dist_mi"],
-            "dc": p.get("data_confidence"), "lc": p["landuse_color"],
-            "zcol": p["zone_color"], "tc": p["threat_color"], "dv": dv, "n": 1}})
+            "s": p["situs"], "u": p["landuse_code"] or "",
+            "b": idx(BK, p["bucket"]), "j": idx(JU, p["jurisdiction"]),
+            "z": idx(ZP, p["zone_plain"]), "c": idx(CT, p["zone_category"]),
+            "t": idx(TH, p["mf_threat"]),
+            "ac": round(ac, 2) if isinstance(ac, (int, float)) else None,
+            "d": p["dist_mi"], "n": 1, **({"dv": 1} if dv else {})}})
+    # drop default-valued keys to shrink further (JS treats missing n as 1, missing u as "")
+    for f in out:
+        pr = f["properties"]
+        if pr.get("n") == 1:
+            pr.pop("n", None)
+        if not pr.get("u"):
+            pr.pop("u", None)
+    DICT = {"BK": BK, "CT": CT, "ZP": ZP, "JU": JU, "TH": TH,
+            "BKC": [P.landuse_color(x) for x in BK],
+            "CTC": [P.zone_color(x) for x in CT],
+            "THC": [P.threat_color(x) for x in TH],
+            "gap": (CT.index(P.DATA_GAP_LABEL) if P.DATA_GAP_LABEL in CT else -1)}
 
     def leg(order, cmap, key):
         present = Counter(f["properties"][key] for f in feats)
@@ -100,7 +131,8 @@ def build_payload(cfg):
     b = geo.bbox(cfg)
     cfgout = {"subject": {"lat": slat, "lon": slon, "name": cfg["subject"]["name"]},
               "bounds_all": [[b[1], b[0]], [b[3], b[2]]],
-              "bounds_threat": [[slat - 0.033, slon - 0.045], [slat + 0.033, slon + 0.045]]}
+              "bounds_threat": [[slat - 0.033, slon - 0.045], [slat + 0.033, slon + 0.045]],
+              "dict": DICT}
     print(f"  viewer: {len(feats)} parcel records -> {len(out)} distinct footprints "
           f"({dupes} coincident merged)", file=sys.stderr)
     return out, legends, cfgout
@@ -208,17 +240,16 @@ function setBase(b){{ if(baseLayer){{map.removeLayer(baseLayer);baseLayer=null;}
  baseLayer.addTo(map); baseLayer.bringToBack(); }}
 const info=document.getElementById('info');
 function fmtAc(a){{return (a==null?'?':a.toLocaleString(undefined,{{maximumFractionDigits:2}}))+' ac';}}
-function show(p){{ let h='<b>'+(p.o||'(owner n/a)')+'</b><br>'+(p.s||'')+'<br>';
- if(curMap==='landuse') h+='Land use: <b>'+p.b+'</b>'+(p.u?' ('+p.u+')':'')+'<br>'+fmtAc(p.ac)+' · '+p.d+' mi';
- else if(curMap==='zoning') h+='Zoning: <b>'+(p.z||'—')+'</b> ('+p.j+')<br>'+p.zc+'<br>MF threat: <b>'+p.t+'</b> · '+fmtAc(p.ac);
- else h+='Zoning: <b>'+(p.z||'—')+'</b> ('+p.j+')<br>MF threat: <b>'+p.t+'</b><br>'+fmtAc(p.ac)+' · '+p.d+' mi · developable vacant';
+function show(p){{ const D=CFG.dict; let h='<b>'+(p.s||'(address n/a)')+'</b><br>';
+ if(curMap==='landuse') h+='Land use: <b>'+D.BK[p.b]+'</b>'+(p.u?' ('+p.u+')':'')+'<br>'+fmtAc(p.ac)+' · '+p.d+' mi';
+ else if(curMap==='zoning') h+='Zoning: <b>'+(D.ZP[p.z]||'—')+'</b> ('+D.JU[p.j]+')<br>'+D.CT[p.c]+'<br>MF threat: <b>'+D.TH[p.t]+'</b> · '+fmtAc(p.ac);
+ else h+='Zoning: <b>'+(D.ZP[p.z]||'—')+'</b> ('+D.JU[p.j]+')<br>MF threat: <b>'+D.TH[p.t]+'</b><br>'+fmtAc(p.ac)+' · '+p.d+' mi · developable vacant';
  if(p.n>1) h+='<br><i>'+p.n+' unit/parcel records share this footprint (e.g. condo)</i>';
- if(p.dc&&p.dc!=='full') h+='<br><i>'+p.dc+' source</i>';
  info.innerHTML=h; info.style.display='block'; }}
-function colorFor(p){{ return curMap==='landuse'?p.lc:curMap==='zoning'?p.zcol:p.tc; }}
+function colorFor(p){{ const D=CFG.dict; return curMap==='landuse'?D.BKC[p.b]:curMap==='zoning'?D.CTC[p.c]:D.THC[p.t]; }}
 function styleFor(f){{ const p=f.properties, threat=curMap==='threat';
  return {{color:threat?'#222':'#555', weight:threat?0.9:0.3, fillColor:colorFor(p),
-  fillOpacity:(curMap==='zoning'&&p.zc==='No public zoning (data gap)')?0.3:(threat?0.85:0.8)}}; }}
+  fillOpacity:(curMap==='zoning'&&p.c===CFG.dict.gap)?0.3:(threat?0.85:0.8)}}; }}
 function hookHover(layer){{ layer.on('mouseover',e=>{{ if(e.layer&&e.layer.feature) show(e.layer.feature.properties);
    e.layer.setStyle({{weight:2,color:'#fff'}}); }});
  layer.on('mouseout',e=>{{ info.style.display='none'; if(e.layer) layer.resetStyle(e.layer); }}); }}

@@ -708,5 +708,6 @@
     "primary": "#0B4F6C",
     "accent": "#C9A227"
   },
-  "viewer_simplify": 0.0001
+  "viewer_simplify": 0.00025,
+  "viewer_coord_nd": 4
 }
