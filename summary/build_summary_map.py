@@ -17,7 +17,7 @@ CATS = [
      "Vacant land that can host apartments by-right or via a likely rezone, with no active project yet — the latent competitive supply."),
     ("mpc_res", "Active master-planned residential", "#D65DB1", "opportunity",
      "Large communities under construction — mostly for-sale, but they add rooftops and some attached / multifamily."),
-    ("landbank", "Land-bank / future growth (long-term)", "#C8A24B", "longterm",
+    ("landbank", "Land-bank / future growth (long-term)", "#AFA77E", "longterm",
      "Large vacant urban-edge tracts planned for growth but not near-term — future supply that is currently constrained or stalled."),
     ("micron", "Micron — campus & expansion", "#7E3F98", "offlimits",
      "Micron's semiconductor campus & expansion. Removes land from housing AND is the metro's #1 apartment DEMAND driver (thousands of jobs)."),
@@ -64,6 +64,10 @@ header button.on{background:#fff;color:#0e1620;border-color:#fff}
 .pad{padding:14px 16px}
 .headline{background:linear-gradient(180deg,#f6f8fa,#fff);border-bottom:1px solid var(--hair)}
 .headline .lead{font-size:12.5px;color:var(--muted);margin:0 0 8px}
+.headline .take{font-size:12.5px;color:var(--ink);background:#eef3f7;border-left:3px solid var(--sm);padding:8px 11px;border-radius:0 8px 8px 0;margin:10px 0 2px}
+.headline .take{font-weight:500}
+.barkey{font-size:11px;color:var(--muted);margin:0 0 6px;display:flex;align-items:center;gap:5px}
+.barkey .ks{display:inline-block;width:10px;height:10px;border-radius:2px;margin-left:8px}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
 .cmp .box{border:1px solid var(--hair);border-radius:10px;padding:10px 12px;position:relative;overflow:hidden}
 .cmp .box::before{content:"";position:absolute;inset:0 auto 0 0;width:4px}
@@ -109,8 +113,8 @@ header button.on{background:#fff;color:#0e1620;border-color:#fff}
     <h1>Treasure Valley — Development-Opportunity Summary</h1>
     <span class="sub">Where new apartments can &amp; can't go around two communities · like-kind parcels dissolved into sections · click any section for detail</span>
     <div class="toggles">
-      <button id="b-sat" class="on">Satellite</button>
-      <button id="b-light">Light</button>
+      <button id="b-sat">Satellite</button>
+      <button id="b-light" class="on">Light</button>
       <button id="b-cr">Canyon Ridge</button>
       <button id="b-sm">Seasons</button>
       <button id="b-both">Both</button>
@@ -135,11 +139,11 @@ const TILES={sat:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Im
 let base=null;
 function setBase(k){ if(base)map.removeLayer(base); base=L.tileLayer(TILES[k][0],{maxZoom:19,attribution:TILES[k][1],opacity:k==='light'?1:0.9}).addTo(map); base.bringToBack();
   document.getElementById('b-sat').classList.toggle('on',k==='sat'); document.getElementById('b-light').classList.toggle('on',k==='light'); }
-setBase('sat');
+setBase('light');
 function fillFor(k){ return OFFL.indexOf(k)>=0 ? 'url(#hx-'+k+')' : catByK[k].color; }
 function style(f){ const k=f.properties.cat, c=catByK[k], g=c.group;
   const w = g==='opportunity'?1.3 : g==='offlimits'?0.5 : g==='longterm'?0.6 : 0.2;
-  const op = off.has(k)?0 : g==='opportunity'?0.92 : g==='longterm'?0.72 : g==='offlimits'?0.95 : 0.34;
+  const op = off.has(k)?0 : g==='opportunity'?0.92 : g==='longterm'?0.6 : g==='offlimits'?0.95 : 0.34;
   const bc = g==='opportunity'?'#3a1400' : g==='offlimits'?'#20262e' : g==='longterm'?'#5c4611' : '#8a929b';
   return {color:bc, weight:w, fillColor:fillFor(k), fillOpacity:op}; }
 const STCOL={approved:'#2e8259',construction:'#2f6fb0',proposed:'#c08a16',built:'#6e7a88',denied:'#ab4630',dormant:'#8a8f98'};
@@ -158,32 +162,32 @@ SUBJ.forEach(function(s){
 });
 function fnum(n){return n==null?'—':Number(n).toLocaleString(undefined,{maximumFractionDigits:0});}
 function sumCats(subj,keys){ let t=0; keys.forEach(function(k){ t+=(TOT[k]&&TOT[k][subj])||0; }); return t; }
+const CRC='#3E6E9C', SMC='#C0692A';
 function drawHeadline(){
   const S=['Canyon Ridge','Seasons at Meridian'];
-  const oppKeys=['apartments','apt_ready','mpc_res'];
-  const crOpp=sumCats(S[0],oppKeys), smOpp=sumCats(S[1],oppKeys);
   const crApt=sumCats(S[0],['apartments','apt_ready']), smApt=sumCats(S[1],['apartments','apt_ready']);
-  const h='<p class="lead">Developable-land supply that can become <b>competing apartments</b>, within 5 miles of each community:</p>'+
-    '<div class="cmp"><div class="box cr"><div class="nm">Canyon Ridge</div><div class="v">'+fnum(crApt)+' ac</div><div class="u">apartment-capable land (built + ready)</div></div>'+
-    '<div class="box sm"><div class="nm">Seasons</div><div class="v">'+fnum(smApt)+' ac</div><div class="u">apartment-capable land (built + ready)</div></div></div>'+
-    '<div class="barwrap"><h3>Acres by role — Canyon Ridge (top) vs Seasons</h3><div id="bars"></div></div>';
+  const ratio = crApt>0 ? Math.round(smApt/crApt) : null;
+  const h='<p class="lead">Existing + pipeline <b>apartment competition</b> — built, approved &amp; apartment-ready land — within 5 miles of each community:</p>'+
+    '<div class="cmp"><div class="box cr"><div class="nm">Canyon Ridge</div><div class="v">'+fnum(crApt)+' ac</div><div class="u">apartment-capable land</div></div>'+
+    '<div class="box sm"><div class="nm">Seasons</div><div class="v">'+fnum(smApt)+' ac</div><div class="u">apartment-capable land</div></div></div>'+
+    (ratio?'<p class="take">≈'+ratio+'× more competing supply around Seasons. Canyon Ridge is boxed in by the airport, Micron and industry.</p>':'')+
+    '<div class="barwrap"><h3>Apartment-supply roles — CR vs Seasons <span style="font-weight:400;text-transform:none;letter-spacing:0">(each row scaled to its own max)</span></h3>'+
+    '<div class="barkey"><span class="ks" style="background:'+CRC+'"></span>Canyon Ridge <span class="ks" style="background:'+SMC+'"></span>Seasons</div><div id="bars"></div></div>';
   document.getElementById('headline').innerHTML=h;
   drawBars();
 }
 function drawBars(){
-  const rows=[['apartments','Competing apartments'],['apt_ready','Apartment-ready'],['mpc_res','Master-planned res'],['landbank','Land-bank / future'],['offlimits','Off-limits (Micron/airport/industry)']];
-  function val(subj,k){ return k==='offlimits'?sumCats(subj,['micron','airport_land','airport','industry']):(TOT[k]&&TOT[k][subj])||0; }
-  let mx=0; rows.forEach(function(r){ mx=Math.max(mx,val('Canyon Ridge',r[0]),val('Seasons at Meridian',r[0])); });
-  const W=344, bh=13, gap=4, lh=40;
-  let svg='<svg width="'+W+'" height="'+(rows.length*lh+6)+'" font-size="11" font-family="ui-sans-serif,system-ui">';
+  const rows=[['apartments','Competing apartments'],['apt_ready','Apartment-ready'],['mpc_res','Master-planned res'],['landbank','Land-bank / future']];
+  function val(subj,k){ return (TOT[k]&&TOT[k][subj])||0; }
+  const W=344, bh=12, gap=3, lh=39, x0=146, bw=W-x0-32;
+  let svg='<svg width="'+W+'" height="'+(rows.length*lh)+'" font-size="11" font-family="ui-sans-serif,system-ui">';
   rows.forEach(function(r,i){
-    const y=i*lh+4, cr=val('Canyon Ridge',r[0]), sm=val('Seasons at Meridian',r[0]);
-    const col = catByK[r[0]] ? catByK[r[0]].color : '#565B63';
-    svg+='<text x="0" y="'+(y+9)+'" fill="#59636f">'+r[1]+'</text>';
-    svg+='<rect x="150" y="'+(y+2)+'" width="'+(cr/mx*(W-200))+'" height="'+bh+'" rx="2" fill="'+col+'" opacity="0.55"/>';
-    svg+='<text x="'+(150+cr/mx*(W-200)+4)+'" y="'+(y+12)+'" fill="#16202b">'+fnum(cr)+'</text>';
-    svg+='<rect x="150" y="'+(y+2+bh+gap)+'" width="'+(sm/mx*(W-200))+'" height="'+bh+'" rx="2" fill="'+col+'"/>';
-    svg+='<text x="'+(150+sm/mx*(W-200)+4)+'" y="'+(y+12+bh+gap)+'" fill="#16202b">'+fnum(sm)+'</text>';
+    const y=i*lh, cr=val('Canyon Ridge',r[0]), sm=val('Seasons at Meridian',r[0]), mx=Math.max(cr,sm,1);
+    svg+='<text x="0" y="'+(y+11)+'" fill="#59636f">'+r[1]+'</text>';
+    svg+='<rect x="'+x0+'" y="'+(y+2)+'" width="'+(cr/mx*bw)+'" height="'+bh+'" rx="2" fill="'+CRC+'"/>';
+    svg+='<text x="'+(x0+cr/mx*bw+4)+'" y="'+(y+11)+'" fill="#16202b" font-variant-numeric="tabular-nums">'+fnum(cr)+'</text>';
+    svg+='<rect x="'+x0+'" y="'+(y+2+bh+gap)+'" width="'+(sm/mx*bw)+'" height="'+bh+'" rx="2" fill="'+SMC+'"/>';
+    svg+='<text x="'+(x0+sm/mx*bw+4)+'" y="'+(y+11+bh+gap)+'" fill="#16202b" font-variant-numeric="tabular-nums">'+fnum(sm)+'</text>';
   });
   svg+='</svg>';
   document.getElementById('bars').innerHTML=svg;

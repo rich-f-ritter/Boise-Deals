@@ -36,9 +36,15 @@ Tanner Creek 280, Emblem 250, Overland/Assemble 200, and more).
 
 ## Deliverables
 
+- **`summary/Treasure Valley - Development Opportunity Summary Map.html`** — the combined **development-opportunity
+  summary map**. One interactive map of both areas that reframes raw parcels into *what governs apartment supply*:
+  competing/ready apartment land, Micron's campus, the airport & its influence-area "moat" (new housing barred),
+  industrial, long-term land-bank, and context. Like-kind parcels are **dissolved into labeled sections** (click any
+  for owner/intent); off-limits categories are **hatched** so go-vs-no-go reads in five seconds. Built and refined
+  over three agent-reviewed iterations.
 - **`comparison/Canyon Ridge vs Seasons - Developable Land Comparison.html`** — the head-to-head report:
-  scorecard, supply-by-intent charts, and all 30 researched ownership/intent dossiers (also published as a
-  shareable Claude artifact).
+  scorecard, supply-by-intent charts, the synthesis-map summary, and all 30 researched ownership/intent dossiers
+  (also published as a shareable Claude artifact).
 - **`CanyonRidge/Canyon Ridge - Land Use Analysis.xlsx`** and **`SeasonsMeridian/Seasons at Meridian - Land
   Use Analysis.xlsx`** — the full auditable workbooks. Sheets: Overview · Assumptions & Decisions ·
   Ownership & Intent · Supply Summary · Developable Inventory · Parcels (every classified parcel, enriched) ·

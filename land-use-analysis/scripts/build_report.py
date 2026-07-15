@@ -9,6 +9,15 @@ BASE = Path("/home/user/Boise-Deals")
 D = json.load(open(BASE / "comparison" / "report_data.json"))
 comp, dossiers = D["comp"], D["dossiers"]
 CR, SM = comp["CanyonRidge"], comp["SeasonsMeridian"]
+# synthesis-map category rollup (acres by subject) + the interactive map's URL (if published)
+_ss = BASE / "summary" / "sections_summary.json"
+SECT = json.load(open(_ss)) if _ss.exists() else {}
+_mu = BASE / "summary" / "map_url.txt"
+MAP_URL = _mu.read_text().strip() if _mu.exists() else ""
+
+
+def sect_ac(cat, subj):
+    return (SECT.get(cat, {}).get("by_subject", {}) or {}).get(subj, 0) or 0
 
 
 def esc(s):
@@ -219,8 +228,57 @@ dt{color:var(--muted);font-weight:600}dd{margin:0}
 footer{margin-top:3em;padding-top:1.2em;border-top:1px solid var(--hair);color:var(--muted);font-size:12.5px}
 a.inline{color:var(--brass)}
 .hide{display:none!important}
+.maplink{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 16px}
+.maplink a{font-size:15px;font-weight:650;color:#fff;background:var(--sm);padding:9px 16px;border-radius:9px;text-decoration:none}
+.maplink a:hover{filter:brightness(1.06)}
+.maplink span{font-size:12.5px;color:var(--muted)}
+table.synth{border-collapse:collapse;width:100%;font-size:13.5px;margin:.4em 0}
+table.synth th,table.synth td{border-bottom:1px solid var(--hair);padding:8px 10px;text-align:left}
+table.synth th.cr,table.synth td.cr{color:var(--cr)} table.synth th.sm,table.synth td.sm{color:var(--sm)}
+table.synth th.cr,table.synth th.sm{text-align:right} table.synth td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:650}
+table.synth thead th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+table.synth .rh{display:block;font-size:11px;color:var(--muted);font-weight:400}
+table.synth tr:has(td:first-child) td:first-child{font-weight:500}
 """
 
+
+def _srow(label, cr, sm, hint=""):
+    return (f'<tr><td>{esc(label)}<span class="rh">{esc(hint)}</span></td>'
+            f'<td class="n cr">{fnum(cr)}</td><td class="n sm">{fnum(sm)}</td></tr>')
+
+
+CRc = "Canyon Ridge"
+SMc = "Seasons at Meridian"
+apt_cr = sect_ac("apartments", CRc) + sect_ac("apt_ready", CRc)
+apt_sm = sect_ac("apartments", SMc) + sect_ac("apt_ready", SMc)
+offl_cr = sum(sect_ac(k, CRc) for k in ("micron", "airport_land", "airport", "industry"))
+offl_sm = sum(sect_ac(k, SMc) for k in ("micron", "airport_land", "airport", "industry"))
+summary_html = (f'''
+<section>
+<h2 class="serif">One map: where apartments can &amp; can't go</h2>
+<p class="sec-intro">The same parcels, reframed. Instead of raw zoning, every parcel is sorted into what actually
+governs apartment supply — competing/ready apartment land, Micron's campus, the airport &amp; its influence-area
+"moat" where new housing is barred, industrial land, long-term land-bank, and context — then like-kind parcels are
+dissolved into labeled sections you can click for owner &amp; intent. It makes the difference between the two areas
+legible at a glance.</p>
+<div class="maplink">
+  <a href="{esc(MAP_URL) if MAP_URL else '#'}" target="_blank" rel="noopener">Open the interactive summary map →</a>
+  <span>Both study areas · click any section for detail · toggle categories</span>
+</div>
+<table class="synth"><thead><tr><th>Land role (acres, 5-mi radius)</th><th class="cr">Canyon&nbsp;Ridge</th><th class="sm">Seasons</th></tr></thead>
+<tbody>
+{_srow("Competing apartments (built / approved / proposed)", sect_ac("apartments", CRc), sect_ac("apartments", SMc))}
+{_srow("Apartment-ready land (available now)", sect_ac("apt_ready", CRc), sect_ac("apt_ready", SMc))}
+{_srow("Active master-planned residential", sect_ac("mpc_res", CRc), sect_ac("mpc_res", SMc))}
+{_srow("→ Apartment-capable subtotal", apt_cr, apt_sm, "built + ready")}
+{_srow("Land-bank / future growth (long-term)", sect_ac("landbank", CRc), sect_ac("landbank", SMc))}
+{_srow("Off-limits to new housing", offl_cr, offl_sm, "Micron + airport + industry")}
+</tbody></table>
+<p class="sec-intro" style="margin-top:.8em">Canyon Ridge sits behind ~{fnum(offl_cr)} acres of off-limits land (airport, Micron,
+industry) with only <b style="color:var(--cr)">{fnum(apt_cr)} acres</b> that can host new apartments; Seasons has
+<b>{fnum(apt_sm)} acres</b> — roughly <b>{round(apt_sm / apt_cr) if apt_cr else '—'}×</b> more.</p>
+</section>
+''')
 
 HTMLDOC = f"""<title>Canyon Ridge vs Seasons — Developable Land</title>
 <style>{CSS}</style>
@@ -244,7 +302,7 @@ HTMLDOC = f"""<title>Canyon Ridge vs Seasons — Developable Land</title>
   acreage is Micron's fabs, the Boise Airport, city-owned industrial parks and rural rangeland — almost none of it
   can legally or practically become competing apartments.
 </div>
-
+{summary_html}
 <section>
 <h2 class="serif">Scorecard</h2>
 <p class="sec-intro">"Developable" here means genuinely buildable vacant land — after removing HOA/common lots,

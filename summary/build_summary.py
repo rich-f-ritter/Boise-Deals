@@ -31,7 +31,7 @@ CATS = {
     "apartments":  ("Competing apartments — built / approved / proposed", "#E12726", "opportunity"),
     "apt_ready":   ("Apartment-ready land — available (no active plan)",   "#FB8C1A", "opportunity"),
     "mpc_res":     ("Active master-planned residential (mostly for-sale)", "#D65DB1", "opportunity"),
-    "landbank":    ("Land-bank / future growth (long-term potential)",      "#C8A24B", "longterm"),
+    "landbank":    ("Land-bank / future growth (long-term potential)",      "#AFA77E", "longterm"),
     "micron":      ("Micron — semiconductor campus & expansion",            "#7E3F98", "offlimits"),
     "airport_land":("Boise Airport / Gowen Field (aviation)",                "#26406B", "offlimits"),
     "airport":     ("Airport Influence Area — apartment-restricted",         "#5E86C4", "offlimits"),
