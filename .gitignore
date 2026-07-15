@@ -17,3 +17,5 @@ __pycache__/
 */attr.log
 */viewer*.log
 attr.log
+
+summary/_v*.png

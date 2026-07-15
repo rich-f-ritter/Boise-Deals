@@ -26,17 +26,20 @@ SUBJECTS = {"CanyonRidge": "Canyon Ridge", "SeasonsMeridian": "Seasons at Meridi
 # ── the synthesis taxonomy: category key -> (label, color, tier) ──────────────
 #   tier 'feature' = curated opportunity/constraint sections (detailed, kept small)
 #   tier 'context' = background fabric (muted, coarsely dissolved)
+# colors here mirror build_summary_map.py (the renderer is authoritative; kept in sync)
 CATS = {
-    "apartments":  ("Competing apartments — built / approved / proposed", "#D62728", "feature"),
-    "apt_ready":   ("Apartment-ready land — available (no active plan)",   "#FF7F0E", "feature"),
-    "mpc_res":     ("Active master-planned residential (mostly for-sale)", "#E377C2", "feature"),
-    "micron":      ("Micron — semiconductor campus & expansion",            "#7B3FA0", "feature"),
-    "airport":     ("Airport & Influence Area — new housing barred",        "#6C8EBF", "feature"),
-    "industry":    ("Industrial / employment (non-Micron)",                 "#565A61", "feature"),
-    "rural":       ("Rural / foothills / land-bank — long-term",            "#B49A5E", "feature"),
-    "civic":       ("Parks / open space / civic / institutional",          "#3E8E5A", "context"),
-    "commercial":  ("Commercial / retail",                                  "#2F6FB0", "context"),
-    "established": ("Established neighborhoods (built-out)",                 "#E7DFA6", "context"),
+    "apartments":  ("Competing apartments — built / approved / proposed", "#E12726", "opportunity"),
+    "apt_ready":   ("Apartment-ready land — available (no active plan)",   "#FB8C1A", "opportunity"),
+    "mpc_res":     ("Active master-planned residential (mostly for-sale)", "#D65DB1", "opportunity"),
+    "landbank":    ("Land-bank / future growth (long-term potential)",      "#C8A24B", "longterm"),
+    "micron":      ("Micron — semiconductor campus & expansion",            "#7E3F98", "offlimits"),
+    "airport_land":("Boise Airport / Gowen Field (aviation)",                "#26406B", "offlimits"),
+    "airport":     ("Airport Influence Area — apartment-restricted",         "#5E86C4", "offlimits"),
+    "industry":    ("Industrial / employment (non-Micron)",                 "#565B63", "offlimits"),
+    "rural":       ("Rural / foothills / protected — not developable",       "#A6A588", "context"),
+    "civic":       ("Parks / open space / civic / institutional",          "#A9C6B0", "context"),
+    "commercial":  ("Commercial / retail",                                  "#B7BCC2", "context"),
+    "established": ("Established neighborhoods (built-out)",                 "#DAD6CE", "context"),
 }
 
 # ── reasoned category for each researched dossier site (site_id -> cat) ───────
@@ -44,18 +47,18 @@ CATS = {
 # but tagging pins each researched SITE to the right synthesis bucket + carries its detail.
 DOSSIER_CAT = {
     # Canyon Ridge
-    "CR-1": "airport", "CR-4": "airport",
+    "CR-1": "airport_land", "CR-4": "airport",
     "CR-6": "industry", "CR-13": "industry", "CR-7": "industry",
-    "CR-2": "rural", "CR-5": "rural", "CR-14": "rural",
+    "CR-2": "landbank", "CR-5": "landbank", "CR-14": "rural",
     "CR-16": "civic", "CR-66": "civic", "CR-106": "civic",
     "CR-51": "apartments", "CR-57": "apt_ready",
-    "CR-3": None,  # split by geometry: I-3 -> Micron, remainder -> rural (rules)
+    "CR-3": None,  # split by geometry: I-3 -> Micron, remainder -> land-bank (rules)
     # Seasons at Meridian
     "SM-4": "apartments", "SM-1": "apartments", "SM-40": "apartments", "SM-76": "apartments",
     "SM-3": "apartments", "SM-15": "apartments", "SM-155": "apartments",
     "SM-31": "mpc_res", "SM-61": "mpc_res",
     "SM-20": "commercial", "SM-9": "civic", "SM-6": "industry",
-    "SM-2": "rural", "SM-12": "rural", "SM-18": "rural", "SM-5": "rural",
+    "SM-2": "landbank", "SM-12": "landbank", "SM-18": "landbank", "SM-5": "landbank",
 }
 
 RURAL_ZONES = {"RUT", "RR", "RP", "A-1", "A-2", "A", "A-R", "R-E"}
@@ -87,31 +90,49 @@ def load_overlays():
     return restrict, micron, airport_prop
 
 
+PROTECT_FLU = ("Parks/Open Space", "Slope Protection", "School", "Civic", "Public/Quasi-Public")
+
+
 def classify(p, in_micron, in_aia, in_airport, tagged_cat):
-    """Reasoned category for one parcel (priority order)."""
+    """Reasoned category for one parcel (priority order).
+
+    Order matters: Micron and the airfield itself are absolute; then RESEARCHED sites keep
+    their identity (so real approved/built apartments inside the AIA aren't erased); then the
+    AIA catch-all repaints only UNTAGGED land (generic MF-zoned vacant in an AIA ban zone is
+    moot); then opportunity/constraint/context rules.
+    """
     bucket = p.get("bucket") or ""
     zc = p.get("zone_code") or ""
     cat = p.get("zone_category") or ""
     intent = p.get("flu_intent") or ""
+    flu = p.get("flu_designation") or ""
     vac = p.get("is_vacant")
+    ac = p.get("acres") or 0
     established_home = (bucket == "Single Family Residential" and not vac)
     if in_micron:
         return "micron"
-    if (in_airport or in_aia) and not established_home:
-        return "airport"
-    if tagged_cat:
+    if in_airport:
+        return "airport_land"
+    if tagged_cat:                       # researched sites win over the AIA catch-all
         return tagged_cat
+    if in_aia and not established_home:   # generic land in AIA zone B/C: new housing barred
+        return "airport"
     if p.get("is_hoa_common") or "institutional" in intent or "not developable" in intent \
-            or bucket == "Public / Airport / Institutional" \
-            or p.get("flu_designation") in ("Parks/Open Space", "Slope Protection", "School",
-                                            "Civic", "Public/Quasi-Public"):
+            or bucket == "Public / Airport / Institutional" or flu in PROTECT_FLU:
         return "civic"
     if p.get("_developable") and ("multifamily" in intent or str(p.get("mf_threat", "")).startswith("High")):
         return "apt_ready"
-    if bucket in ("Industrial / Service / Auto",) or cat == "Industrial / Business Park":
+    if bucket == "Industrial / Service / Auto" or cat == "Industrial / Business Park":
         return "industry"
+    # large vacant urban-edge growth land planned for development => future supply (land-bank)
+    if vac and ac >= 10 and zc not in ("RP",) and "slope" not in intent \
+            and ("multifamily" in intent or "attached" in intent or "single-family" in intent
+                 or "master-plan" in intent or "development-ready" in intent
+                 or flu in ("Planned Community",) or zc in ("RUT", "PC")):
+        return "landbank"
+    # genuinely rural / protected foothills (RP, ag, slope) — not near-term developable
     if bucket == "Agricultural / Rural" or zc in RURAL_ZONES or "rural" in intent \
-            or (vac and (p.get("acres") or 0) >= 20):
+            or "slope" in intent or (vac and ac >= 20):
         return "rural"
     if bucket == "Commercial" or cat in ("Commercial", "Office"):
         return "commercial"
@@ -176,13 +197,13 @@ def main():
         for (cat, gk), members in groups.items():
             tier = CATS[cat][2]
             if tier == "context":
-                # inflate slightly so neighborhood parcels merge across road gaps into clean fabric
-                gg = [rows[i][0].simplify(0.0004, preserve_topology=True).buffer(0.00022) for i in members]
+                # inflate so neighborhood parcels merge across road gaps into clean fabric
+                gg = [rows[i][0].simplify(0.0004, preserve_topology=True).buffer(0.00016) for i in members]
             else:
-                gg = [rows[i][0].simplify(0.00012, preserve_topology=True) for i in members]
-            merged = unary_union(gg)
+                gg = [rows[i][0].simplify(0.00012, preserve_topology=True).buffer(0.00006) for i in members]
+            merged = unary_union(gg).buffer(-0.00004)  # de-stagger edges slightly
             polys = list(merged.geoms) if merged.geom_type.startswith("Multi") else [merged]
-            minac = 1.0 if tier == "feature" else 5.0
+            minac = 1.5 if tier == "feature" else 8.0    # drop tiny slivers (de-confetti)
             mp = [rows[i][1] for i in members]         # group-level parcel props (dominant stats)
             gz = Counter(x.get("zone_plain") for x in mp if x.get("zone_plain")).most_common(3)
             gf = Counter(x.get("flu_plain") for x in mp if x.get("flu_plain")).most_common(2)
