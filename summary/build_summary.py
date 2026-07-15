@@ -199,9 +199,10 @@ def main():
             if tier == "context":
                 # inflate so neighborhood parcels merge across road gaps into clean fabric
                 gg = [rows[i][0].simplify(0.0004, preserve_topology=True).buffer(0.00016) for i in members]
+                merged = unary_union(gg).buffer(-0.00018)  # net shrink: never overlap feature sections
             else:
-                gg = [rows[i][0].simplify(0.00012, preserve_topology=True).buffer(0.00006) for i in members]
-            merged = unary_union(gg).buffer(-0.00004)  # de-stagger edges slightly
+                gg = [rows[i][0].simplify(0.00012, preserve_topology=True).buffer(0.00003) for i in members]
+                merged = unary_union(gg).buffer(-0.00004)  # net -1m: adjacent sections don't overlap
             polys = list(merged.geoms) if merged.geom_type.startswith("Multi") else [merged]
             minac = 1.5 if tier == "feature" else 8.0    # drop tiny slivers (de-confetti)
             mp = [rows[i][1] for i in members]         # group-level parcel props (dominant stats)

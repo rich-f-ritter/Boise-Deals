@@ -142,9 +142,9 @@ function setBase(k){ if(base)map.removeLayer(base); base=L.tileLayer(TILES[k][0]
 setBase('light');
 function fillFor(k){ return OFFL.indexOf(k)>=0 ? 'url(#hx-'+k+')' : catByK[k].color; }
 function style(f){ const k=f.properties.cat, c=catByK[k], g=c.group;
-  const w = g==='opportunity'?1.3 : g==='offlimits'?0.5 : g==='longterm'?0.6 : 0.2;
+  const w = g==='opportunity'?1.3 : g==='offlimits'?0.5 : g==='longterm'?0.5 : 0.2;
   const op = off.has(k)?0 : g==='opportunity'?0.92 : g==='longterm'?0.6 : g==='offlimits'?0.95 : 0.34;
-  const bc = g==='opportunity'?'#3a1400' : g==='offlimits'?'#20262e' : g==='longterm'?'#5c4611' : '#8a929b';
+  const bc = g==='opportunity'?'#3a1400' : g==='offlimits'?'#20262e' : g==='longterm'?'#8d7f52' : '#8a929b';
   return {color:bc, weight:w, fillColor:fillFor(k), fillOpacity:op}; }
 const STCOL={approved:'#2e8259',construction:'#2f6fb0',proposed:'#c08a16',built:'#6e7a88',denied:'#ab4630',dormant:'#8a8f98'};
 function stChip(s){ if(!s)return''; const t=s.toLowerCase(); let k='dormant';
@@ -255,6 +255,11 @@ def hatch_defs():
 
 def main():
     fc = json.loads((SUM / "sections.geojson").read_text())
+    # deterministic draw order: muted context at the bottom, bold layers on top, so a
+    # neighboring section's outline can never draw over an opportunity/off-limits fill
+    zorder = {"context": 0, "longterm": 1, "offlimits": 2, "opportunity": 3}
+    catgrp = {c[0]: c[3] for c in CATS}
+    fc["features"].sort(key=lambda f: zorder.get(catgrp.get(f["properties"]["cat"], "context"), 0))
     summ = json.loads((SUM / "sections_summary.json").read_text())
     totals = {c[0]: summ.get(c[0], {}).get("by_subject", {}) for c in CATS}
     repl = {
