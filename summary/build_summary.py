@@ -204,7 +204,9 @@ def main():
                 gg = [rows[i][0].simplify(0.00012, preserve_topology=True).buffer(0.00003) for i in members]
                 merged = unary_union(gg).buffer(-0.00004)  # net -1m: adjacent sections don't overlap
             polys = list(merged.geoms) if merged.geom_type.startswith("Multi") else [merged]
-            minac = 1.5 if tier == "feature" else 8.0    # drop tiny slivers (de-confetti)
+            # feature floor 0.75: sections are unions of >=1-ac developable parcels, so any
+            # smaller fragment is a shrink/road-split artifact of a legit site — keep it.
+            minac = 0.75 if tier == "feature" else 8.0
             mp = [rows[i][1] for i in members]         # group-level parcel props (dominant stats)
             gz = Counter(x.get("zone_plain") for x in mp if x.get("zone_plain")).most_common(3)
             gf = Counter(x.get("flu_plain") for x in mp if x.get("flu_plain")).most_common(2)
