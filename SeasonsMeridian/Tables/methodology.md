@@ -14,3 +14,19 @@
    from development applications, city staff reports, local reporting, and the Idaho business registry.
 8. Deliverables — this workbook (fully auditable), an interactive HTML map viewer (land use / zoning /
    vacant-threat), and a head-to-head developable-land comparison with Canyon Ridge.
+
+## Supply-chart integration (added July 2026)
+
+9. Supply chart — a 5-mile competitive Supply Chart (CoStar + RealPage + HelloData
+   reconciliation, `<deal>/supply/`) now sits on top of this land-use analysis:
+   - `supply_crosswalk.csv` (this folder) maps every under-construction / proposed /
+     lease-up deal in the supply chart to the nearest developable-vacant parcel in
+     this analysis. A pipeline deal sitting on a developable parcel means that
+     acreage is already tracked supply — count it once, not as additional latent land.
+   - The land-use dossier sites that are genuinely apartment-competitive but NOT in
+     any vendor pipeline feed the supply chart's Diligence sheet as `type=shadow`
+     watch rows (plotted on the companion map); they are documentation, not forecast
+     supply.
+   - Direction of flow: land-use analysis = latent capacity (could be built);
+     supply chart = tracked pipeline (is being built / formally proposed). The
+     crosswalk is the bridge that prevents double-counting between the two.

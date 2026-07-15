@@ -431,6 +431,23 @@ def reconcile(costar: list[Prop], realpage: list[Prop]) -> list[Prop]:
         (e.g. an existing asset and its planned redevelopment on the same site)."""
         ta = {t for t in name_key(a.name).split() if len(t) >= 4}
         tb = {t for t in name_key(b.name).split() if len(t) >= 4}
+        # explicit phase markers on both names that DISAGREE mean two phases of
+        # one development — separate deals even at the same address ("South
+        # Ridge I" stabilized 2022 vs "South Ridge II" UC 2027)
+        pa = set(name_key(a.name).split()) & _PHASE_TOKENS
+        pb = set(name_key(b.name).split()) & _PHASE_TOKENS
+        if pa and pb and pa != pb:
+            return False
+        aka, akb = addr_key(a.address), addr_key(b.address)
+        if aka and akb and aka != akb:
+            # two different physical addresses: generic shared tokens ("Mill",
+            # "Creek") are not enough — the records must also agree on scale
+            # and vintage ("The Mill at Loggers Creek" 125u/2024 is not
+            # "Mill Creek Apartments" 12u/2019)
+            if a.units and b.units and abs(a.units - b.units) > 0.25 * max(a.units, b.units):
+                return False
+            if a.year_built and b.year_built and abs(a.year_built - b.year_built) > 5:
+                return False
         if ta & tb:
             return True                       # share a real name token -> same
         # no name overlap: an existing asset vs a pipeline deal = different
