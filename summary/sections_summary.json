@@ -4,15 +4,15 @@
     "color": "#E12726",
     "by_subject": {
       "Canyon Ridge": 12.0,
-      "Seasons at Meridian": 456.0
+      "Seasons at Meridian": 463.0
     }
   },
   "apt_ready": {
     "label": "Apartment-ready land \u2014 available (no active plan)",
     "color": "#FB8C1A",
     "by_subject": {
-      "Canyon Ridge": 10.0,
-      "Seasons at Meridian": 328.0
+      "Canyon Ridge": 67.0,
+      "Seasons at Meridian": 631.0
     }
   },
   "mpc_res": {
@@ -26,7 +26,7 @@
     "label": "Land-bank / future growth (long-term potential)",
     "color": "#AFA77E",
     "by_subject": {
-      "Canyon Ridge": 2633.0,
+      "Canyon Ridge": 2635.0,
       "Seasons at Meridian": 622.0
     }
   },
@@ -41,24 +41,24 @@
     "label": "Boise Airport / Gowen Field (aviation)",
     "color": "#26406B",
     "by_subject": {
-      "Canyon Ridge": 5881.0,
-      "Seasons at Meridian": 46.0
+      "Canyon Ridge": 5892.0,
+      "Seasons at Meridian": 68.0
     }
   },
   "airport": {
     "label": "Airport Influence Area \u2014 apartment-restricted",
     "color": "#5E86C4",
     "by_subject": {
-      "Canyon Ridge": 2779.0,
-      "Seasons at Meridian": 349.0
+      "Canyon Ridge": 2849.0,
+      "Seasons at Meridian": 378.0
     }
   },
   "industry": {
     "label": "Industrial / employment (non-Micron)",
     "color": "#565B63",
     "by_subject": {
-      "Canyon Ridge": 1817.0,
-      "Seasons at Meridian": 1760.0
+      "Canyon Ridge": 1837.0,
+      "Seasons at Meridian": 1864.0
     }
   },
   "rural": {
