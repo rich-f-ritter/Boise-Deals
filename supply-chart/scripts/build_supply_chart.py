@@ -757,7 +757,28 @@ def apply_diligence(props: list[Prop], rows):
             continue
         p = by.get(name_key(r["property"]))
         if not p:
-            continue
+            # A pipeline row that matches NO vendor-tracked comp is a NEW deal the
+            # analyst sourced directly (an OM, a permit, a planning file). Create
+            # it when the row carries enough to chart: units + a live pipeline
+            # status. Coordinates come from the row's latitude/longitude columns
+            # (never geocoded) so the deal plots on the map like any other comp.
+            st_head = (r.get("status") or "").lower().split(" - ", 1)[0].strip()
+            live = st_head and st_head.startswith(("proposed", "under construction",
+                                                   "permitted", "planned"))
+            if not (live and _int(r.get("units"))):
+                continue
+            uc = st_head.startswith("under construction")
+            p = Prop(name=r["property"].strip(), address=(r.get("address") or "").strip(),
+                     units=_int(r["units"]))
+            p.costar_status = "Under Construction" if uc else "Proposed"
+            p.bucket = "UNDER CONSTRUCTION" if uc else "PROPOSED"
+            p.sources = {"Diligence"}
+            lat, lng = _float(r.get("latitude")), _float(r.get("longitude"))
+            if lat is not None and lng is not None:
+                p.lat, p.lng = lat, lng
+            p.note("Analyst-sourced deal (not in CoStar/RealPage)")
+            props.append(p)
+            by[name_key(p.name)] = p
         # Only the explicit `status` field drives a drop/reclassify — NOT the
         # free-text `notes`, which legitimately mentions other deals ("…excluded
         # below", "distinct from the out-of-submarket comp") and would otherwise
