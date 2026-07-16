@@ -22,8 +22,8 @@ SLIDES = [
         out_html="cr_slide.html",
         title="Canyon Ridge — 5-Mile Competitive Supply & Land Capacity",
         takeaway=("Geography caps the competition: 67 ac of apartment-ready ground in the ring — airport, "
-                  "Micron and industrial land block the rest, and most of the 1,788-unit proposed "
-                  "pipeline is undated paper."),
+                  "Micron and industrial land block the rest; the July 2026 audit surfaced a permit-only UC project "
+                  "(The Quarter) and Hawkins' 194-unit Bench deal, but most of the ~2,000-unit proposed pipeline is undated paper."),
         landmarks=[("Boise Airport / Gowen Field", 43.5535, -116.2330),
                    ("Micron", 43.5270, -116.1465)],
         tl_note=("no deliveries 2025\u201326", 3.5),
@@ -33,9 +33,9 @@ SLIDES = [
         supply_map="SeasonsMeridian/supply/Seasons_at_Meridian__Map.html",
         out_html="sam_slide.html",
         title="Seasons at Meridian — 5-Mile Competitive Supply & Land Capacity",
-        takeaway=("Supply pressure is real and persistent: 815 units still in lease-up, 716 under "
-                  "construction and 2,826 live-proposed (+350 stalled in foreclosure) — with 631 ac of "
-                  "apartment-ready ground behind them, timing, not capacity, is the constraint."),
+        takeaway=("Supply pressure is real and understated by the vendors: 815 units still in lease-up, 1,213 under "
+                  "construction (audit revived Centrepoint and surfaced Dorado Station + Summertown) and 3,296 live-proposed "
+                  "(+350 stalled) on 631 ac of apartment-ready ground."),
         landmarks=[("Ten Mile / I-84", 43.5850, -116.4420),
                    ("The Village at Meridian", 43.6335, -116.3230)],
     ),

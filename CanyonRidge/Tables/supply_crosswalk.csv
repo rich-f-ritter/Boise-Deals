@@ -1,11 +1,15 @@
 supply_chart_entry,bucket,units,parcel_account,parcel_situs,parcel_acres,zone,mf_threat,flu_intent,dist_mi,reconciliation
+The Quarter at Harris Ranch,UNDER CONSTRUCTION,32,S0929212400,4775 E ARROW JUNCTION DR,58.3938,A-1,Low,institutional,0.1,"Pipeline deal sits on/next to a land-use developable parcel — count once (tracked pipeline, not latent)"
 737 ParkCenter,UNDER CONSTRUCTION,30,,,,,,,0.2,Not on a land-use developable parcel (site already improved or outside vacant set)
 Seasons on the Bench,PROPOSED,300,,,,,,,0.26,Not on a land-use developable parcel (site already improved or outside vacant set)
 The Ranahan,PROPOSED,138,R1719910020,4247 E BRIGHTSIDE ST,6.0105,SP-01,Unknown,supports multifamily,0.01,"Pipeline deal sits on/next to a land-use developable parcel — count once (tracked pipeline, not latent)"
 Vista Point,PROPOSED,892,,,,,,,0.3,Not on a land-use developable parcel (site already improved or outside vacant set)
+Kootenai & Federal Way (Hawkins),PROPOSED,194,,,,,,,0.23,Not on a land-use developable parcel (site already improved or outside vacant set)
 1519 South Londoner Avenue,PROPOSED,189,,,,,,,0.31,Not on a land-use developable parcel (site already improved or outside vacant set)
 3300 South Vista Avenue,PROPOSED,183,,,,,,,0.19,Not on a land-use developable parcel (site already improved or outside vacant set)
 Station Village,PROPOSED,86,S1015325410,2350 W KOOTENAI ST,6.7614,R-2,Medium,supports attached/medium,0.03,"Pipeline deal sits on/next to a land-use developable parcel — count once (tracked pipeline, not latent)"
 Barber Valley SP-02 HDR block (Parkcenter),SHADOW (land-use),,S0919448585,3453 E PARKCENTER BLVD,11.4687,SP-02,Unknown,supports multifamily,0.0,"Latent land-use supply — Diligence watch list only, NOT in forecast"
 McDonald Tract (S Oakland Ave),SHADOW (land-use),,R5577760530,1507 S OAKLAND AVE,7.6063,R-3,High,supports multifamily,0.0,"Latent land-use supply — Diligence watch list only, NOT in forecast"
 East Columbia bench (Rush Valley / planned community),SHADOW (land-use),,S1604223300,5901 E LAKE FOREST DR,24.9252,RUT,Low,master-plan (use TBD),0.0,"Latent land-use supply — Diligence watch list only, NOT in forecast"
+"East Hollow (CBH, south of Micron)",SHADOW (land-use),,S1617120000,E COLUMBIA RD,79.6032,I-3,Low,low-density / rural,0.44,"Latent land-use supply — Diligence watch list only, NOT in forecast"
+Arbor Village at Hillcrest conversion (verify),SHADOW (land-use),,R2024380710,W HILLCREST LN,1.2275,R-1C,Low,single-family oriented,0.61,"Latent land-use supply — Diligence watch list only, NOT in forecast"
