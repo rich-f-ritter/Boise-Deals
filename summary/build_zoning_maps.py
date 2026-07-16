@@ -121,10 +121,18 @@ def build(cfg):
         return " ".join("M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in
                         (xy(p[1], p[0]) for p in ring)) + " Z" for ring in rings)
 
-    svg = [f'<svg viewBox="0 0 {MAP} {MAP}" width="{MAP}" height="{MAP}" '
-           f'style="position:absolute;left:0;top:0" '
-           f'font-family="system-ui,-apple-system,\'Segoe UI\',sans-serif">']
-    svg.append('<defs><pattern id="aphatch" patternUnits="userSpaceOnUse" width="9" height="9" '
+    layers = {}          # layer_id -> [svg elements]
+    layer_order = []
+    def L(lid):
+        if lid not in layers:
+            layers[lid] = []
+            layer_order.append(lid)
+        return layers[lid]
+    svg_head = (f'<svg viewBox="0 0 {MAP} {MAP}" width="{MAP}" height="{MAP}" '
+                f'style="position:absolute;left:0;top:0" '
+                f'font-family="system-ui,-apple-system,\'Segoe UI\',sans-serif">')
+    svg = []
+    svg_defs = ('<defs><pattern id="aphatch" patternUnits="userSpaceOnUse" width="9" height="9" '
                'patternTransform="rotate(45)">'
                f'<line x1="0" y1="0" x2="0" y2="9" stroke="{AREA["airport_land"][1]}" '
                'stroke-width="2.2" stroke-opacity="0.55"/></pattern>'
@@ -134,39 +142,29 @@ def build(cfg):
                '<line x1="0" y1="0" x2="0" y2="10" stroke="#43552c" stroke-width="1.6" '
                'stroke-opacity="0.65"/></pattern></defs>')
 
-    # ---- area classes (bottom to top) ----
-    def draw(cats, color, wash, sw, style):
+    # ---- area classes (each into its own toggleable layer) ----
+    def draw(cats, color, wash, sw, style, lid):
         dash = ' stroke-dasharray="2 4"' if style == "dotted" else ""
         fill = "url(#aphatch)" if style == "hatch" else color
         fo = 1 if style == "hatch" else (wash or 0)
         for f in sections:
             if f["properties"]["cat"] not in (cats if isinstance(cats, set) else {cats}):
                 continue
-            svg.append(f'<path d="{path_of(f["geometry"])}" fill="{fill}" fill-opacity="{fo}" '
-                       f'fill-rule="evenodd" stroke="{color}" stroke-width="{sw}" '
-                       f'stroke-opacity="0.85"{dash}/>')
-    draw("rural", *AREA["rural"][1:])
-    draw("landbank", *AREA["landbank"][1:])
-    draw("commercial", *AREA["commercial"][1:])
-    draw("industry", *AREA["industry"][1:])
-    draw("airport_land", *AREA["airport_land"][1:])
-    draw("micron", *AREA["micron"][1:])
-    draw("apartments", *AREA["apartments"][1:])
-    # AIA: dashed restriction boundary, no fill
-    for f in sections:
-        if f["properties"]["cat"] == "airport":
-            d_ = path_of(f["geometry"])
-            svg.append(f'<path d="{d_}" fill="none" stroke="#0b0b0b" stroke-width="4.2" '
-                       f'stroke-dasharray="12 6" stroke-opacity="0.5"/>')
-            svg.append(f'<path d="{d_}" fill="none" stroke="#dce8f8" stroke-width="2" '
-                       f'stroke-dasharray="12 6" stroke-opacity="0.95"/>')
+            L(lid).append(f'<path d="{path_of(f["geometry"])}" fill="{fill}" fill-opacity="{fo}" '
+                          f'fill-rule="evenodd" stroke="{color}" stroke-width="{sw}" '
+                          f'stroke-opacity="0.85"{dash}/>')
+    draw("rural", *AREA["rural"][1:], "lyr-rural")
+    draw("landbank", *AREA["landbank"][1:], "lyr-landbank")
+    draw("commercial", *AREA["commercial"][1:], "lyr-commercial")
+    draw("industry", *AREA["industry"][1:], "lyr-industry")
+    draw("apartments", *AREA["apartments"][1:], "lyr-apartments")
 
-    # ---- occupied-but-open land: farms (PROPCODE F) + 5-ac+ homesteads ----
+    # ---- occupied-but-open land ----
     for pr in occ["ranchette"]:
-        svg.append(f'<path d="{path_of(pr["geometry"])}" fill="#cbbd8f" fill-opacity="0.48" '
+        L("lyr-ranchette").append(f'<path d="{path_of(pr["geometry"])}" fill="#cbbd8f" fill-opacity="0.48" '
                    f'fill-rule="evenodd" stroke="#8f8050" stroke-width="1.0" stroke-opacity="0.85"/>')
     for pr in occ["farm"]:
-        svg.append(f'<path d="{path_of(pr["geometry"])}" fill="url(#farmhatch)" '
+        L("lyr-farm").append(f'<path d="{path_of(pr["geometry"])}" fill="url(#farmhatch)" '
                    f'fill-rule="evenodd" stroke="#43552c" stroke-width="1.3" stroke-opacity="0.85"/>')
 
     # ---- vacant parcels ----
@@ -181,18 +179,28 @@ def build(cfg):
         for r in by_group[g]:
             geom = geoms.get(r["account"])
             if geom:
-                svg.append(f'<path d="{path_of(geom)}" fill="{fill}" fill-opacity="{op}" '
+                L(f"lyr-vac-{g}").append(f'<path d="{path_of(geom)}" fill="{fill}" fill-opacity="{op}" '
                            f'fill-rule="evenodd" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.85"/>')
     for r in parcels:
         if flu_flags_mf(r):
             geom = geoms.get(r["account"])
             if geom:
-                svg.append(f'<path d="{path_of(geom)}" fill="none" stroke="{FLU_FLAG}" '
+                L("lyr-flu").append(f'<path d="{path_of(geom)}" fill="none" stroke="{FLU_FLAG}" '
                            f'stroke-width="2" stroke-dasharray="6 4"/>')
+    # restriction overlays ABOVE the parcel fills (so Micron/airport/AIA stay visible)
+    draw("airport_land", *AREA["airport_land"][1:], "lyr-airport")
+    draw("micron", *AREA["micron"][1:], "lyr-micron")
+    for f in sections:
+        if f["properties"]["cat"] == "airport":
+            d_ = path_of(f["geometry"])
+            L("lyr-aia").append(f'<path d="{d_}" fill="none" stroke="#0b0b0b" stroke-width="4.2" '
+                       f'stroke-dasharray="12 6" stroke-opacity="0.5"/>')
+            L("lyr-aia").append(f'<path d="{d_}" fill="none" stroke="#dce8f8" stroke-width="2" '
+                       f'stroke-dasharray="12 6" stroke-opacity="0.95"/>')
 
     # ---- ring ----
     rpx = (merc(lat0, lon0, z)[1] - merc(lat0 + Rdeg, lon0, z)[1]) * scale
-    svg.append(f'<circle cx="{MAP/2}" cy="{MAP/2}" r="{rpx:.0f}" fill="none" '
+    L("lyr-ref").append(f'<circle cx="{MAP/2}" cy="{MAP/2}" r="{rpx:.0f}" fill="none" '
                f'stroke="{GOLD}" stroke-width="3" stroke-dasharray="10 8"/>')
 
     # ---- landmarks ----
@@ -201,7 +209,7 @@ def build(cfg):
         x, y = xy(la, lo)
         if 8 < x < MAP - 8 and 8 < y < MAP - 8:
             lplaced.append((x, y))
-            svg.append(f'<text x="{x:.0f}" y="{y:.0f}" font-size="14" font-weight="700" '
+            L("lyr-ref").append(f'<text x="{x:.0f}" y="{y:.0f}" font-size="14" font-weight="700" '
                        f'fill="#ffffff" text-anchor="middle" letter-spacing=".05em" '
                        f'stroke="#000000" stroke-width="3" stroke-opacity="0.55" paint-order="stroke" '
                        f'style="text-transform:uppercase">{name}</text>')
@@ -218,7 +226,7 @@ def build(cfg):
                 break
             y += 17 if y >= hit[1] else -17
         lplaced.append((x, y))
-        svg.append(f'<text x="{x:.0f}" y="{y:.0f}" font-size="12.5" font-weight="700" '
+        L("lyr-labels").append(f'<text x="{x:.0f}" y="{y:.0f}" font-size="12.5" font-weight="700" '
                    f'fill="#ffffff" text-anchor="middle" stroke="#000000" stroke-width="3" '
                    f'stroke-opacity="0.6" paint-order="stroke">{r["zone_code"]} · {float(r["acres"]):.0f} ac</text>')
 
@@ -229,10 +237,10 @@ def build(cfg):
         if (p.get("units") or 0) < 100:
             continue
         x, y = xy(p["lat"], p["lng"])
-        svg.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10.5" fill="{p["color"]}" '
+        L("lyr-pins").append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10.5" fill="{p["color"]}" '
                    f'stroke="#ffffff" stroke-width="2.2"/>')
         if p.get("num") not in (None, "•"):
-            svg.append(f'<text x="{x:.1f}" y="{y + 3.8:.1f}" font-size="11.5" font-weight="700" '
+            L("lyr-pins").append(f'<text x="{x:.1f}" y="{y + 3.8:.1f}" font-size="11.5" font-weight="700" '
                        f'fill="#ffffff" text-anchor="middle">{p["num"]}</text>')
 
     # ---- subject ----
@@ -242,11 +250,16 @@ def build(cfg):
         ang = -math.pi / 2 + i * math.pi / 5
         rr = 16 if i % 2 == 0 else 7
         star.append(f"{sx + rr*math.cos(ang):.1f},{sy + rr*math.sin(ang):.1f}")
-    svg.append(f'<polygon points="{" ".join(star)}" fill="{INK}" stroke="#ffffff" stroke-width="2.6"/>')
-    svg.append(f'<text x="{sx:.0f}" y="{sy - 25:.0f}" font-size="16" font-weight="800" fill="#ffffff" '
+    L("lyr-ref").append(f'<polygon points="{" ".join(star)}" fill="{INK}" stroke="#ffffff" stroke-width="2.6"/>')
+    L("lyr-ref").append(f'<text x="{sx:.0f}" y="{sy - 25:.0f}" font-size="16" font-weight="800" fill="#ffffff" '
                f'text-anchor="middle" stroke="#000000" stroke-width="3.6" stroke-opacity="0.6" '
                f'paint-order="stroke">{cfg["subject"].upper()}</text>')
-    svg.append("</svg>")
+    # assemble: layers in creation order, labels/pins/ref last
+    tail = [l for l in ("lyr-flu", "lyr-airport", "lyr-micron", "lyr-aia",
+                        "lyr-labels", "lyr-pins", "lyr-ref") if l in layers]
+    body = [l for l in layer_order if l not in tail] + tail
+    svg = [svg_head, svg_defs] + \
+          [f'<g id="{lid}">' + "".join(layers[lid]) + "</g>" for lid in body] + ["</svg>"]
 
     # ---- legend ----
     tot_n = sum(len(v) for v in by_group.values())
@@ -257,13 +270,16 @@ def build(cfg):
         lab, fill, op, loud = ZG[g]
         n = len(by_group[g]); ac = sum(float(r["acres"]) for r in by_group[g])
         codes = ", ".join(sorted(zcodes[g])[:7]) or "—"
-        zrows += (f'<div class="li{"" if loud else " quiet"}"><span class="sw" '
+        zrows += (f'<div class="li{"" if loud else " quiet"}" data-lyr="lyr-vac-{g}"><span class="sw" '
                   f'style="background:{fill};opacity:{max(op,0.6)}"></span>'
                   f'<div><b>{lab}</b> <span class="m">{n} parcel{"s" if n != 1 else ""} · {ac:,.0f} ac</span>'
                   f'<div class="codes">{codes}</div></div></div>')
     # area rows — only classes present in this ring
     present = {f["properties"]["cat"] for f in sections}
     arows = ""
+    LYR_OF = {"apartments": "lyr-apartments", "commercial": "lyr-commercial",
+              "industry": "lyr-industry", "airport_land": "lyr-airport",
+              "micron": "lyr-micron", "rural": "lyr-rural", "landbank": "lyr-landbank"}
     for cat, (lab, color, wash, sw, style) in AREA.items():
         if cat == "rural":
             lab = cfg.get("rural_label", lab)
@@ -275,17 +291,17 @@ def build(cfg):
             swd = f'<span class="sw" style="background:{color}33;border:2px dotted {color}"></span>'
         else:
             swd = f'<span class="sw" style="background:{color}33;border:2px solid {color}"></span>'
-        arows += f'<div class="li">{swd}{lab}</div>'
+        arows += f'<div class="li" data-lyr="{LYR_OF[cat]}">{swd}{lab}</div>'
     if "airport" in present:
-        arows += (f'<div class="li"><span class="sw" style="background:#5b6b7d;'
+        arows += (f'<div class="li" data-lyr="lyr-aia"><span class="sw" style="background:#5b6b7d;'
                   f'border:2.5px dashed #dce8f8"></span>{AIA[0]}</div>')
     f_n, f_ac = len(occ["farm"]), sum(p["acres"] for p in occ["farm"])
     r_n, r_ac = len(occ["ranchette"]), sum(p["acres"] for p in occ["ranchette"])
-    arows += (f'<div class="li"><span class="sw" style="background:repeating-linear-gradient(45deg,'
+    arows += (f'<div class="li" data-lyr="lyr-farm"><span class="sw" style="background:repeating-linear-gradient(45deg,'
               f'#7f925e55 0 4px,#5d7040aa 4px 5.5px)"></span><div><b>Working farms — ag-exempt</b> '
               f'<span class="m">{f_n} parcels · {f_ac:,.0f} ac</span><div class="codes">occupied ag '
               f'(assessor PROPCODE F) — sell-and-develop candidates; NOT assessor-vacant</div></div></div>')
-    arows += (f'<div class="li"><span class="sw" style="background:#cbbd8f59;border:1.5px solid #a89a68">'
+    arows += (f'<div class="li" data-lyr="lyr-ranchette"><span class="sw" style="background:#cbbd8f59;border:1.5px solid #a89a68">'
               f'</span><div><b>Large-lot homesteads (5+ ac)</b> <span class="m">{r_n} parcels · '
               f'{r_ac:,.0f} ac</span><div class="codes">one home on acreage — same sell-and-develop path'
               f'</div></div></div>')
@@ -329,12 +345,13 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
   <div class="leg">
     <h3>Vacant developable parcels — current zoning (fill)</h3>
     {zrows}
-    <div class="li"><span class="sw dash"></span><div><b>Future land use invites MF / attached</b>
+    <div class="li" data-lyr="lyr-flu"><span class="sw dash"></span><div><b>Future land use invites MF / attached</b>
       <span class="m">comp-plan signal — rezone-likely</span></div></div>
     <h3>Everything else — what it is today</h3>
     {arows}
     <h3>Supply-chart deals ≥100 units (number = chart row)</h3>
-    <div style="line-height:1.9">{prow}</div>
+    <div style="line-height:1.9" class="li" data-lyr="lyr-pins">{prow}</div>
+    <div class="li quiet" data-lyr="lyr-labels" style="font-size:11.5px">Parcel labels (largest MF-capable)</div>
     <div class="li quiet" style="font-size:11px">Deals under 100 units stay in the Supply Chart but are not pinned here.</div>
     <div class="li"><span class="sw" style="background:transparent;border:2.5px dashed {GOLD};border-radius:50%"></span>5-mile ring · ★ subject</div>
     <div class="foot">Vacant = Ada County assessor vacant-land parcels (PROPCODE L) ≥1 ac after removing
@@ -348,6 +365,29 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
 </div></body></html>"""
     open(f"{SP}/{cfg['out_html']}", "w", encoding="utf-8").write(html)
     print("wrote", cfg["out_html"])
+    # interactive variant: self-contained, per-layer checkboxes
+    import base64
+    b64 = base64.b64encode(open(f"{SP}/{cfg['key']}_sat.jpg", "rb").read()).decode()
+    inter = html.replace(f'src="{cfg["key"]}_sat.jpg"', f'src="data:image/jpeg;base64,{b64}"')
+    inter = inter.replace("</h1>", " <span style='font-size:13px;font-weight:400;color:#898781'>"
+                          "&mdash; interactive: use the legend checkboxes to toggle layers</span></h1>")
+    script = '''<script>
+document.querySelectorAll('[data-lyr]').forEach(function(row){
+  var lid = row.getAttribute('data-lyr');
+  var g = document.getElementById(lid);
+  if(!g) return;
+  var cb = document.createElement('input');
+  cb.type = 'checkbox'; cb.checked = true;
+  cb.style.cssText = 'margin:2px 4px 0 0;flex:none;cursor:pointer';
+  cb.addEventListener('change', function(){ g.style.display = cb.checked ? '' : 'none'; });
+  row.style.cursor = 'pointer';
+  row.insertBefore(cb, row.firstChild);
+});
+</script>'''
+    inter = inter.replace("</body>", script + "</body>")
+    out_i = f"{cfg['deal']}/{cfg['subject']} - Vacant Land by Zoning (interactive).html"
+    open(out_i, "w", encoding="utf-8").write(inter)
+    print("wrote", out_i)
 
 if __name__ == "__main__":
     for cfg in DEALS:
