@@ -1475,7 +1475,9 @@ def build_forecast_sheet(wb, series, props, as_of, target, latest_uc=None,
     ws.cell(rows["absorp"], 2, "ABSORPTION (5-mi)").font = font(size=9, bold=True)
     ws.cell(rows["occ"], 2, "OCCUPANCY (5-mi)").font = font(size=9, bold=True)
     ws.cell(HR + 5, 2, "SUBJECT (" + (subject_name or "subject") + ")").font = font(bold=True, size=9)
-    ws.cell(rows["smkt"], 2, f"  Market Rent  ({fb_name}→HD)").font = font(size=9, bold=True)
+    _lbl = f"  Market Rent  ({fb_name}\u2192HD)" if (subj_costar or subj_realpage) \
+           else "  Market Rent  (HelloData mix-wtd)"
+    ws.cell(rows["smkt"], 2, _lbl).font = font(size=9, bold=True)
     ws.cell(rows["smkt_yoy"], 2, "    Market Rent YoY %").font = font(size=8, italic=True)
     ws.cell(rows["seff"], 2, "  Effective Rent").font = font(size=9, bold=True)
     ws.cell(rows["seff_yoy"], 2, "    Effective Rent YoY %").font = font(size=8, italic=True)
@@ -1934,7 +1936,8 @@ def write_workbook(props, subject_name, latest_inv, latest_label,
             p.roster_row = r          # remember for cross-sheet links
             row_vals = {
                 "B": idx,
-                "C": p.name,
+                "C": (f"\u2605 {p.name}  (SUBJECT)" if getattr(p, "is_subject", False)
+                      else p.name),
                 "D": p.units,
                 "E": p.est_delivery or "TBD",
                 "F": p.occupancy,
@@ -2152,9 +2155,14 @@ def build_competitive_roster(costar_roster_path, realpage_path, deliveries, as_o
                       parse_realpage(realpage_path))
     subj_addr = addr_key(subject_address)
     subj_name = name_key(subject_name)
-    props = [p for p in props
-             if not ((subj_addr and addr_key(p.address) == subj_addr)
-                     or name_key(p.name) == subj_name)]
+    # The subject stays IN the roster (it is real 5-mi supply and belongs in the
+    # inventory/occupancy math) — it is marked, listed in its lifecycle bucket,
+    # and counted in bucket totals; the map suppresses its numbered pin (the
+    # subject star already marks it).
+    for p in props:
+        if (subj_addr and addr_key(p.address) == subj_addr)                 or name_key(p.name) == subj_name:
+            p.is_subject = True
+            p.note("SUBJECT — this deal")
     pp_match = make_name_matcher(pp.keys()) if pp else (lambda n: None)
     hd_match = make_name_matcher(hd_by_prop.keys()) if hd_by_prop else (lambda n: None)
     keep = []
@@ -2455,11 +2463,7 @@ def main(argv=None):
 
     # The subject's own delivery ((y,q), units) — added back in the tie-outs and
     # the Y0 supply when it delivered inside a window.
-    subject_delivery = None
-    if pp:
-        nm = make_name_matcher(pp.keys())(args.subject_name)
-        if nm and pp[nm]["deliveries"]:
-            subject_delivery = max(pp[nm]["deliveries"], key=lambda t: t[1])
+    subject_delivery = None   # subject is IN the roster now; no separate add-back
 
     # Apply analyst-supplied pipeline delivery quarters so they enter the forecast.
     if args.pipeline_dates:
@@ -2513,6 +2517,23 @@ def main(argv=None):
         subj_costar = {}
     subj_realpage = (parse_realpage_subject_rents(args.realpage_subject_rents, args.subject_name)
                      if args.realpage_subject_rents else {})
+    # CoStar back-fills a building's per-property row with submarket-average
+    # rents from long before it existed (inventory 0) — a subject 'rent history'
+    # for years the building wasn't built is fiction. Drop vendor quarters
+    # before the subject's delivery quarter.
+    subj_deliv_q = None
+    if pp:
+        _nm = make_name_matcher(pp.keys())(args.subject_name)
+        if _nm and pp[_nm]["deliveries"]:
+            subj_deliv_q = max(pp[_nm]["deliveries"], key=lambda t: t[1])[0]
+    if subj_deliv_q:
+        cut = quarter_index(*subj_deliv_q)
+        subj_costar = {q: v for q, v in subj_costar.items() if quarter_index(*q) >= cut}
+        subj_realpage = {q: v for q, v in subj_realpage.items() if quarter_index(*q) >= cut}
+    # HelloData is the subject rent source of record wherever it covers the
+    # deal — vendor subject series are only a pre-HD fallback for older assets.
+    if any((rec.get("eff") or rec.get("mkt")) for rec in subj_monthly.values()):
+        subj_costar, subj_realpage = {}, {}
 
     close_q = parse_as_of(args.close) if args.close else None
     write_workbook(props, args.subject_name, latest_inv, latest_label,
@@ -2589,7 +2610,8 @@ def main(argv=None):
                 import build_map
                 shadow = [r for r in (diligence_rows or []) if r.get("type") == "shadow"]
                 placed, _ = build_map.build_map(
-                    props, args.subject_name, args.subject_address, subj_ll,
+                    [p for p in props if not getattr(p, "is_subject", False)],
+                    args.subject_name, args.subject_address, subj_ll,
                     map_out, shadow or None,
                     build_map._subject_meta(args.costar_roster, args.subject_name))
                 print(f"Companion HTML map written: {map_out}  ({placed} properties)")
