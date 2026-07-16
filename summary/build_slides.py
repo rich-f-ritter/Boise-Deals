@@ -21,9 +21,9 @@ SLIDES = [
         supply_map="CanyonRidge/supply/Canyon_Ridge__Map.html",
         out_html="cr_slide.html",
         title="Canyon Ridge — 5-Mile Competitive Supply & Land Capacity",
-        takeaway=("Geography caps the competition: only 79 ac of apartment-capable land in the ring — "
-                  "airport, Micron and industrial ground block the rest, and most of the 1,788-unit "
-                  "proposed pipeline is unfunded paper."),
+        takeaway=("Geography caps the competition: 67 ac of apartment-ready ground in the ring — airport, "
+                  "Micron and industrial land block the rest, and most of the 1,788-unit proposed "
+                  "pipeline is undated paper."),
         landmarks=[("Boise Airport / Gowen Field", 43.5535, -116.2330),
                    ("Micron", 43.5270, -116.1465)],
         tl_note=("no deliveries 2025\u201326", 3.5),
@@ -34,8 +34,8 @@ SLIDES = [
         out_html="sam_slide.html",
         title="Seasons at Meridian — 5-Mile Competitive Supply & Land Capacity",
         takeaway=("Supply pressure is real and persistent: 815 units still in lease-up, 716 under "
-                  "construction and 3,176 proposed — with 1,094 ac of apartment-capable land behind "
-                  "them, timing (not capacity) is the constraint."),
+                  "construction and 2,826 live-proposed (+350 stalled in foreclosure) — with 631 ac of "
+                  "apartment-ready ground behind them, timing, not capacity, is the constraint."),
         landmarks=[("Ten Mile / I-84", 43.5850, -116.4420),
                    ("The Village at Meridian", 43.6335, -116.3230)],
     ),
@@ -187,6 +187,11 @@ def build_slide(cfg, sections, acres_by_subject):
         return (it["n"], it["u"]) if it else (0, 0)
     n_stab, u_stab = leg_get("stab"); n_lease, u_lease = leg_get("lease")
     n_uc, u_uc = leg_get("uc"); n_prop, u_prop = leg_get("prop")
+    def is_stalled(p):
+        return "stalled" in (p.get("notes") or "").lower()
+    stalled = [p for p in comps if bucket_key(p["bucket"]) == "prop" and is_stalled(p)]
+    u_stall = sum(p["units"] or 0 for p in stalled)
+    n_prop -= len(stalled); u_prop -= u_stall
     acres = acres_by_subject[cfg["subject"]]
 
     kpis = [
@@ -196,9 +201,10 @@ def build_slide(cfg, sections, acres_by_subject):
         (fmt(u_uc), "units under construction",
          f"{n_uc} project{'s' if n_uc != 1 else ''}, ground broken", C["uc"]),
         (fmt(u_prop), "units proposed (live)",
-         f"{n_prop} deals after July 2026 diligence", C["prop"]),
-        (fmt(acres) + " ac", "apartment-capable land",
-         "built/approved sites + apartment-ready ground", C["latent"]),
+         f"{n_prop} deals after July 2026 diligence"
+         + (f" · +{fmt(u_stall)} stalled, excluded" if u_stall else ""), C["prop"]),
+        (fmt(acres["ready"]) + " ac", "apartment-ready ground (no active plan)",
+         f"+{fmt(acres['behind'])} ac master-planned / land-bank behind it", C["latent"]),
     ]
 
     # ---------- timeline ----------
@@ -209,7 +215,11 @@ def build_slide(cfg, sections, acres_by_subject):
         k = bucket_key(p["bucket"])
         if k == "latent" or not p.get("units"):
             continue
+        if k == "prop" and is_stalled(p):
+            continue                      # stalled: mapped + tabled, not forecast
         y = year_of(p.get("deliver"))
+        if k == "prop" and y and y <= 2026:
+            y = None                      # a "proposed" deal can't deliver by as-of
         if y and y in tl:
             tl[y][k] += p["units"]
         else:
@@ -267,7 +277,7 @@ def build_slide(cfg, sections, acres_by_subject):
         status = "Under construction" if k == "uc" else "Proposed"
         note = ""
         nl = (p.get("notes") or "").lower()
-        if "stalled" in nl: note = " · stalled (foreclosure)"
+        if "stalled" in nl: status, note = "Stalled (foreclosure)", " · not in totals"
         elif "analyst-sourced" in nl: note = " · sourced from OM"
         elif "remand" in nl or "hearings" in nl: note = " · contested"
         rows += (f'<tr><td><span class="dot" style="background:{C[k]}"></span>{p["name"]}</td>'
@@ -358,7 +368,10 @@ def main():
     ss = json.load(open("summary/sections_summary.json"))
     acres = {}
     for subj in ("Canyon Ridge", "Seasons at Meridian"):
-        acres[subj] = sum(ss[k]["by_subject"].get(subj, 0) for k in ("apartments", "apt_ready"))
+        acres[subj] = {
+            "ready": ss["apt_ready"]["by_subject"].get(subj, 0),
+            "behind": sum(ss[k]["by_subject"].get(subj, 0) for k in ("mpc_res", "landbank")),
+        }
     outdir = sys.argv[1] if len(sys.argv) > 1 else "."
     for cfg in SLIDES:
         secs = [f for f in gj["features"] if f["properties"]["subject"] == cfg["subject"]]
