@@ -91,6 +91,7 @@ def build(cfg):
     z, tx0, ty0 = meta["z"], meta["tx0"], meta["ty0"]
     parcels = json.load(open(f"{cfg['deal']}/in/developable.json"))
     geoms = json.load(open(f"{cfg['deal']}/in/developable_geoms.json"))
+    occ = json.load(open(f"{cfg['deal']}/in/farm_ranchette_parcels.json"))
     sections = [f for f in json.load(open("summary/sections.geojson"))["features"]
                 if f["properties"]["subject"] == cfg["subject"]]
     s = open(cfg["supply_map"], encoding="utf-8").read()
@@ -124,7 +125,12 @@ def build(cfg):
     svg.append('<defs><pattern id="aphatch" patternUnits="userSpaceOnUse" width="9" height="9" '
                'patternTransform="rotate(45)">'
                f'<line x1="0" y1="0" x2="0" y2="9" stroke="{AREA["airport_land"][1]}" '
-               'stroke-width="2.2" stroke-opacity="0.55"/></pattern></defs>')
+               'stroke-width="2.2" stroke-opacity="0.55"/></pattern>'
+               '<pattern id="farmhatch" patternUnits="userSpaceOnUse" width="10" height="10" '
+               'patternTransform="rotate(45)">'
+               '<rect width="10" height="10" fill="#71875a" fill-opacity="0.42"/>'
+               '<line x1="0" y1="0" x2="0" y2="10" stroke="#43552c" stroke-width="1.6" '
+               'stroke-opacity="0.65"/></pattern></defs>')
 
     # ---- area classes (bottom to top) ----
     def draw(cats, color, wash, sw, style):
@@ -152,6 +158,14 @@ def build(cfg):
                        f'stroke-dasharray="12 6" stroke-opacity="0.5"/>')
             svg.append(f'<path d="{d_}" fill="none" stroke="#dce8f8" stroke-width="2" '
                        f'stroke-dasharray="12 6" stroke-opacity="0.95"/>')
+
+    # ---- occupied-but-open land: farms (PROPCODE F) + 5-ac+ homesteads ----
+    for pr in occ["ranchette"]:
+        svg.append(f'<path d="{path_of(pr["geometry"])}" fill="#cbbd8f" fill-opacity="0.48" '
+                   f'fill-rule="evenodd" stroke="#8f8050" stroke-width="1.0" stroke-opacity="0.85"/>')
+    for pr in occ["farm"]:
+        svg.append(f'<path d="{path_of(pr["geometry"])}" fill="url(#farmhatch)" '
+                   f'fill-rule="evenodd" stroke="#43552c" stroke-width="1.3" stroke-opacity="0.85"/>')
 
     # ---- vacant parcels ----
     zcodes = {k: set() for k in ZG}
@@ -261,9 +275,19 @@ def build(cfg):
     if "airport" in present:
         arows += (f'<div class="li"><span class="sw" style="background:#5b6b7d;'
                   f'border:2.5px dashed #dce8f8"></span>{AIA[0]}</div>')
+    f_n, f_ac = len(occ["farm"]), sum(p["acres"] for p in occ["farm"])
+    r_n, r_ac = len(occ["ranchette"]), sum(p["acres"] for p in occ["ranchette"])
+    arows += (f'<div class="li"><span class="sw" style="background:repeating-linear-gradient(45deg,'
+              f'#7f925e55 0 4px,#5d7040aa 4px 5.5px)"></span><div><b>Farm / ag-exempt parcels</b> '
+              f'<span class="m">{f_n} parcels · {f_ac:,.0f} ac</span><div class="codes">occupied ag '
+              f'(assessor PROPCODE F) — sellable & developable, NOT assessor-vacant</div></div></div>')
+    arows += (f'<div class="li"><span class="sw" style="background:#cbbd8f59;border:1.5px solid #a89a68">'
+              f'</span><div><b>Large-lot homesteads (5+ ac)</b> <span class="m">{r_n} parcels · '
+              f'{r_ac:,.0f} ac</span><div class="codes">one home on acreage — same sell-and-develop path'
+              f'</div></div></div>')
     arows += (f'<div class="li quiet"><span class="sw" style="background:transparent;'
-              f'border:1px solid {GRID}"></span>Uncoded = built-out single-family '
-              f'(visible on imagery)</div>')
+              f'border:1px solid {GRID}"></span>Uncoded = built-out single-family; bare dirt with '
+              f'street grids = platted SF subdivisions building out</div>')
     # pin status mini-legend from the chart's own colors
     prow = "".join(f'<span class="pli"><span class="pdot" style="background:{l["color"]}"></span>{l["label"]}</span>'
                    for l in leg_chart)
@@ -309,11 +333,12 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
     <div style="line-height:1.9">{prow}</div>
     <div class="li quiet" style="font-size:11px">Deals under 100 units stay in the Supply Chart but are not pinned here.</div>
     <div class="li"><span class="sw" style="background:transparent;border:2.5px dashed {GOLD};border-radius:50%"></span>5-mile ring · ★ subject</div>
-    <div class="foot">Vacant = Ada County assessor vacant-land parcels ≥1 ac after removing common/HOA,
-    non-buildable and road-sliver lots. Ag/rural-preservation and land-bank areas look vacant on imagery
-    but are screened out of the developable set (county RP / Airport-Ag zoning, Rural FLU) — shown as
-    area washes, not parcel fills. Airport ops, the AIA overlay, Micron, and non-Micron industrial are
-    coded separately. Satellite: Esri World Imagery. Full parcel detail: land-use workbook.</div>
+    <div class="foot">Vacant = Ada County assessor vacant-land parcels (PROPCODE L) ≥1 ac after removing
+    common/HOA, non-buildable and road-sliver lots. Green-hatched farms (PROPCODE F) and tan large-lot
+    homesteads look vacant on imagery and CAN sell &amp; develop — Syringa Crossing, Graycliff and the
+    Brighton master plans all started as this class — but they carry improvements, so they sit outside
+    the assessor-vacant screen. Airport ops, the AIA overlay, Micron, and non-Micron industrial are coded
+    separately. Satellite: Esri World Imagery. Full parcel detail: land-use workbook.</div>
   </div>
 </div>
 </div></body></html>"""
