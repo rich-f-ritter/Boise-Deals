@@ -29,12 +29,14 @@ DEALS = [
          supply_map="CanyonRidge/supply/Canyon_Ridge__Map.html",
          out_html="cr_zoning.html",
          title="Canyon Ridge — Vacant Land by Zoning, 5-Mile Ring",
+         rural_label="Rural preservation / foothills — comp-plan blocked",
          landmarks=[("Boise Airport / Gowen Field", 43.5535, -116.2330),
                     ("Micron", 43.5215, -116.1350), ("I-84", 43.5920, -116.2280)]),
     dict(key="sam", deal="SeasonsMeridian", subject="Seasons at Meridian",
          supply_map="SeasonsMeridian/supply/Seasons_at_Meridian__Map.html",
          out_html="sam_zoning.html",
          title="Seasons at Meridian — Vacant Land by Zoning, 5-Mile Ring",
+         rural_label="Unincorporated county ag — annexation required",
          landmarks=[("The Village at Meridian", 43.6335, -116.3230),
                     ("Downtown Meridian", 43.6115, -116.3970), ("I-84", 43.5965, -116.4310)]),
 ]
@@ -46,7 +48,7 @@ ZG = {   # vacant zoning groups: key -> (label, fill, opacity, loud)
     "com": ("Commercial (MF conditional)", "#e87ba4", 0.75, True),
     "sf":  ("Single-family only", "#e3d9a8", 0.60, False),
     "ind": ("Industrial vacant", "#b99d78", 0.55, False),
-    "ag":  ("Agricultural / rural vacant", "#a8b28c", 0.50, False),
+    "ag":  ("Vacant, zoned ag/rural (rezone candidate)", "#a8b28c", 0.50, False),
     "oth": ("Other / overlay", "#a9b0ba", 0.55, False),
 }
 FLU_FLAG = "#35e0ff"
@@ -263,6 +265,8 @@ def build(cfg):
     present = {f["properties"]["cat"] for f in sections}
     arows = ""
     for cat, (lab, color, wash, sw, style) in AREA.items():
+        if cat == "rural":
+            lab = cfg.get("rural_label", lab)
         if cat not in present:
             continue
         if style == "hatch":
@@ -278,9 +282,9 @@ def build(cfg):
     f_n, f_ac = len(occ["farm"]), sum(p["acres"] for p in occ["farm"])
     r_n, r_ac = len(occ["ranchette"]), sum(p["acres"] for p in occ["ranchette"])
     arows += (f'<div class="li"><span class="sw" style="background:repeating-linear-gradient(45deg,'
-              f'#7f925e55 0 4px,#5d7040aa 4px 5.5px)"></span><div><b>Farm / ag-exempt parcels</b> '
+              f'#7f925e55 0 4px,#5d7040aa 4px 5.5px)"></span><div><b>Working farms — ag-exempt</b> '
               f'<span class="m">{f_n} parcels · {f_ac:,.0f} ac</span><div class="codes">occupied ag '
-              f'(assessor PROPCODE F) — sellable & developable, NOT assessor-vacant</div></div></div>')
+              f'(assessor PROPCODE F) — sell-and-develop candidates; NOT assessor-vacant</div></div></div>')
     arows += (f'<div class="li"><span class="sw" style="background:#cbbd8f59;border:1.5px solid #a89a68">'
               f'</span><div><b>Large-lot homesteads (5+ ac)</b> <span class="m">{r_n} parcels · '
               f'{r_ac:,.0f} ac</span><div class="codes">one home on acreage — same sell-and-develop path'
