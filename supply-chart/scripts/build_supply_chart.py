@@ -803,6 +803,11 @@ def apply_diligence(props: list[Prop], rows):
                 p.state = r["state"].strip()
             if r.get("zip"):
                 p.zipcode = str(r["zip"]).strip()[:5]
+        ed = (r.get("est_delivery") or "").strip().lower()
+        if ed in ("tbd", "none", "undated"):
+            # researched: the vendor's delivery date is not defensible — clear it
+            p.deliv_year = p.deliv_q = None
+            p.est_delivery = ""
         yq = parse_quarter_label(r.get("est_delivery", ""))
         if yq:
             p.deliv_year, p.deliv_q = yq

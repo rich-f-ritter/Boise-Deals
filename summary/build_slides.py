@@ -22,8 +22,8 @@ SLIDES = [
         out_html="cr_slide.html",
         title="Canyon Ridge — 5-Mile Competitive Supply & Land Capacity",
         takeaway=("Geography caps the competition: 67 ac of apartment-ready ground in the ring — airport, "
-                  "Micron and industrial land block the rest; the July 2026 audit surfaced a permit-only UC project "
-                  "(The Quarter) and Hawkins' 194-unit Bench deal, but most of the ~2,000-unit proposed pipeline is undated paper."),
+                  "Micron and industrial land block the rest; the July 2026 deep-dive left only ~500 live proposed units "
+                  "(Roundhouse's Victory, permits filed + Hawkins' upsized 200-unit Bench deal) — the other ~1,500 are stalled or expired paper."),
         landmarks=[("Boise Airport / Gowen Field", 43.5535, -116.2330),
                    ("Micron", 43.5270, -116.1465)],
         tl_note=("no deliveries 2025\u201326", 3.5),
@@ -34,8 +34,8 @@ SLIDES = [
         out_html="sam_slide.html",
         title="Seasons at Meridian — 5-Mile Competitive Supply & Land Capacity",
         takeaway=("Supply pressure is real and understated by the vendors: 815 units still in lease-up, 1,213 under "
-                  "construction (audit revived Centrepoint and surfaced Dorado Station + Summertown) and 3,296 live-proposed "
-                  "(+350 stalled) on 631 ac of apartment-ready ground."),
+                  "construction, and 1,794 proposed still credible (+1,378 stalled, excluded) — the July 2026 deep-dive "
+                  "killed two dead proposals and revived Union 93 as Heritage Square (250u, Ahlquist/Pacific)."),
         landmarks=[("Ten Mile / I-84", 43.5850, -116.4420),
                    ("The Village at Meridian", 43.6335, -116.3230)],
     ),
@@ -277,8 +277,8 @@ def build_slide(cfg, sections, acres_by_subject):
         status = "Under construction" if k == "uc" else "Proposed"
         note = ""
         nl = (p.get("notes") or "").lower()
-        if "stalled" in nl: status, note = "Stalled (foreclosure)", " · not in totals"
-        elif "analyst-sourced" in nl: note = " · sourced from OM"
+        if "stalled" in nl: status, note = "Stalled", " · not in totals"
+        elif "analyst-sourced" in nl: note = " · analyst-sourced"
         elif "remand" in nl or "hearings" in nl: note = " · contested"
         rows += (f'<tr><td><span class="dot" style="background:{C[k]}"></span>{p["name"]}</td>'
                  f'<td class="num">{fmt(p["units"])}</td>'
