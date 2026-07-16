@@ -187,6 +187,9 @@ def build_slide(cfg, sections, acres_by_subject):
         return (it["n"], it["u"]) if it else (0, 0)
     n_stab, u_stab = leg_get("stab"); n_lease, u_lease = leg_get("lease")
     n_uc, u_uc = leg_get("uc"); n_prop, u_prop = leg_get("prop")
+    # the subject is real 5-mi supply — counted (and marked ★), same as the
+    # workbook roster; the map keeps it as the star, not a numbered pin
+    n_stab += 1; u_stab += subj["units"] or 0
     def is_stalled(p):
         return "stalled" in (p.get("notes") or "").lower()
     stalled = [p for p in comps if bucket_key(p["bucket"]) == "prop" and is_stalled(p)]
@@ -195,7 +198,7 @@ def build_slide(cfg, sections, acres_by_subject):
     acres = acres_by_subject[cfg["subject"]]
 
     kpis = [
-        (fmt(u_stab + u_lease), "units delivered since 2022",
+        (fmt(u_stab + u_lease), "units delivered since 2022 (incl. ★ subject)",
          (f"{n_stab + n_lease} communities · {fmt(u_lease)} still leasing up" if u_lease
           else f"{n_stab + n_lease} communities · all stabilized"), C["stab"]),
         (fmt(u_uc), "units under construction",
@@ -211,6 +214,9 @@ def build_slide(cfg, sections, acres_by_subject):
     years = list(range(2022, 2030))
     tl = {y: {k: 0 for k in C} for y in years}
     tbd = {k: 0 for k in C}
+    sy = year_of(subj.get("deliver"))
+    if sy and sy in tl:
+        tl[sy]["stab"] += subj["units"] or 0    # subject delivery counts (★)
     for p in comps:
         k = bucket_key(p["bucket"])
         if k == "latent" or not p.get("units"):

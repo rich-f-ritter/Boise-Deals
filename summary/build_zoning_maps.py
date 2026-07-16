@@ -363,7 +363,21 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
   </div>
 </div>
 </div></body></html>"""
-    open(f"{SP}/{cfg['out_html']}", "w", encoding="utf-8").write(html)
+    # Land-bank / future-growth reads as noise on the static export (analyst
+    # call, Jul 2026): cut layer + legend row from the PNG render entirely;
+    # keep it in the interactive but default-unchecked.
+    import re as _re
+    _lb_g = _re.search(r'<g id="lyr-landbank">.*?</g>', html, _re.S)
+    _lb_row = _re.search(r'<div class="li" data-lyr="lyr-landbank">.*?</div>', html, _re.S)
+    static_html = html
+    if _lb_g:
+        static_html = static_html.replace(_lb_g.group(0), "")
+        html = html.replace(_lb_g.group(0),
+                            _lb_g.group(0).replace('<g id="lyr-landbank">',
+                                                   '<g id="lyr-landbank" style="display:none">'))
+    if _lb_row:
+        static_html = static_html.replace(_lb_row.group(0), "")
+    open(f"{SP}/{cfg['out_html']}", "w", encoding="utf-8").write(static_html)
     print("wrote", cfg["out_html"])
     # interactive variant: self-contained, per-layer checkboxes
     import base64
@@ -377,7 +391,7 @@ document.querySelectorAll('[data-lyr]').forEach(function(row){
   var g = document.getElementById(lid);
   if(!g) return;
   var cb = document.createElement('input');
-  cb.type = 'checkbox'; cb.checked = true;
+  cb.type = 'checkbox'; cb.checked = (g.style.display !== 'none');
   cb.style.cssText = 'margin:2px 4px 0 0;flex:none;cursor:pointer';
   cb.addEventListener('change', function(){ g.style.display = cb.checked ? '' : 'none'; });
   row.style.cursor = 'pointer';
