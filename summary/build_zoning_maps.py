@@ -214,21 +214,8 @@ def build(cfg):
                        f'stroke="#000000" stroke-width="3" stroke-opacity="0.55" paint-order="stroke" '
                        f'style="text-transform:uppercase">{name}</text>')
 
-    # ---- top-10 MF-capable parcel labels ----
-    lplaced.append((xy(lat0, lon0)[0], xy(lat0, lon0)[1] - 25))
-    for r in sorted((r for g in ("mf", "mx") for r in by_group[g]),
-                    key=lambda r: -float(r["acres"]))[:10]:
-        x, y = xy(r["lat"], r["lon"])
-        y -= 10
-        for _ in range(24):
-            hit = next(((ox, oy) for ox, oy in lplaced if abs(x - ox) < 96 and abs(y - oy) < 18), None)
-            if not hit:
-                break
-            y += 17 if y >= hit[1] else -17
-        lplaced.append((x, y))
-        L("lyr-labels").append(f'<text x="{x:.0f}" y="{y:.0f}" font-size="12.5" font-weight="700" '
-                   f'fill="#ffffff" text-anchor="middle" stroke="#000000" stroke-width="3" '
-                   f'stroke-opacity="0.6" paint-order="stroke">{r["zone_code"]} · {float(r["acres"]):.0f} ac</text>')
+    # (top-10 MF-capable parcel labels removed per user, Jul 2026 — parcel
+    # detail lives in the land-use workbook)
 
     # ---- supply pins: >=100u only, chart bucket colors, numbered ----
     for p in pins:
@@ -243,6 +230,18 @@ def build(cfg):
             L("lyr-pins").append(f'<text x="{x:.1f}" y="{y + 3.8:.1f}" font-size="11.5" font-weight="700" '
                        f'fill="#ffffff" text-anchor="middle">{p["num"]}</text>')
 
+    # ---- latent / shadow watch sites: purple dashed pins (all, any size) ----
+    LATENT = "#4a3aa7"
+    for p in pins:
+        if "shadow" not in p["bucket"].lower():
+            continue
+        x, y = xy(p["lat"], p["lng"])
+        u = f' · ~{p["units"]}u' if p.get("units") else ""
+        L("lyr-latent").append(
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="8.5" fill="{LATENT}" fill-opacity="0.85" '
+            f'stroke="#ffffff" stroke-width="2" stroke-dasharray="3 2.4">'
+            f'<title>{p["name"]}{u}</title></circle>')
+
     # ---- subject ----
     sx, sy = xy(lat0, lon0)
     star = []
@@ -256,7 +255,7 @@ def build(cfg):
                f'paint-order="stroke">{cfg["subject"].upper()}</text>')
     # assemble: layers in creation order, labels/pins/ref last
     tail = [l for l in ("lyr-flu", "lyr-airport", "lyr-micron", "lyr-aia",
-                        "lyr-labels", "lyr-pins", "lyr-ref") if l in layers]
+                        "lyr-latent", "lyr-pins", "lyr-ref") if l in layers]
     body = [l for l in layer_order if l not in tail] + tail
     svg = [svg_head, svg_defs] + \
           [f'<g id="{lid}">' + "".join(layers[lid]) + "</g>" for lid in body] + ["</svg>"]
@@ -351,7 +350,9 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
     {arows}
     <h3>Supply-chart deals ≥100 units (number = chart row)</h3>
     <div style="line-height:1.9" class="li" data-lyr="lyr-pins">{prow}</div>
-    <div class="li quiet" data-lyr="lyr-labels" style="font-size:11.5px">Parcel labels (largest MF-capable)</div>
+    <div class="li" data-lyr="lyr-latent"><span class="pdot" style="background:#4a3aa7;border:1.5px dashed #fff;
+      width:12px;height:12px;flex:none;border-radius:50%;margin-top:2px"></span><div><b>Latent / shadow watch site</b>
+      <span class="m">land-use watch list — mapped, NOT in unit totals</span></div></div>
     <div class="li quiet" style="font-size:11px">Deals under 100 units stay in the Supply Chart but are not pinned here.</div>
     <div class="li"><span class="sw" style="background:transparent;border:2.5px dashed {GOLD};border-radius:50%"></span>5-mile ring · ★ subject</div>
     <div class="foot">Vacant = Ada County assessor vacant-land parcels (PROPCODE L) ≥1 ac after removing
