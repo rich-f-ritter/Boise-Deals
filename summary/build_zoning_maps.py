@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 """Build one 4:3 PNG per deal: satellite map + legend of VACANT parcels colored
-by current zoning, with future-land-use rezone flags and coded built areas.
+by current zoning, with future-land-use rezone flags and coded built/area classes.
 
-Spec (per user):
-- Base: real satellite imagery (Esri World_Imagery, stitched tiles from
-  scratchpad — run fetch_geoms_tiles.py first).
-- Vacant developable parcels (>=1 ac): semi-transparent (~75%) fills grouped
-  into 6 zoning classes; MF-capable classes loud, SF-only/industrial quiet.
-- Bright dashed cyan outline = comp-plan FLU invites MF/attached (rezone-likely).
-- Top ~10 MF-capable vacant parcels labeled "R-15 · 14 ac".
-- Non-vacant: dissolved current-use areas outlined + faint wash (existing
-  apartments / commercial / industrial+airport+Micron / built-out SF).
-- Supply projects: tiny neutral numbered pins (numbers = Supply Chart rows).
-- Gold 5-mi ring, subject star, slim title bar, legend column. 1600x1200 @2x.
+Spec (per user, v2):
+- Satellite base (Esri World_Imagery tiles; run fetch_geoms_tiles.py first).
+- Vacant developable parcels colored by zoning (6 groups, MF loudest, ~75% fill);
+  cyan dashed outline = FLU invites MF/attached (rezone-likely).
+- Built single-family = UNCODED (pure satellite — you can see it's houses).
+- Every other area class coded distinctly: existing apartments (blue),
+  commercial (slate), industrial (umber), AIRPORT OPS (steel hatch),
+  MICRON (purple) — bifurcated, not lumped — plus ag/rural-preservation and
+  land-bank ground (the 'vacant-looking' land that isn't assessor-vacant),
+  and the Airport Influence Area as a dashed restriction BOUNDARY (an overlay,
+  not a land use).
+- Supply pins: only deals >=100 units, numbered = Supply Chart rows, colored
+  with the Supply Chart's own lifecycle bucket colors (from the map PINS).
+- Top ~10 MF-capable parcel labels, gold 5-mi ring, subject star, slim title.
 
-Zoning fills validated (dataviz skill, all-pairs, light):
-  MF by-right #d03b3b · mixed-use #9085e9 · townhome/duplex #eda100 ·
-  commercial-conditional #e87ba4  (+ de-emphasis neutrals for SF-only / ind-ag).
+Vacant palette validated (dataviz skill, all-pairs): #d03b3b / #9085e9 /
+#eda100 / #e87ba4 + de-emphasis neutrals (straw / concrete).
 """
-import json, math, re, sys
+import json, math, re
 
 SP = "/tmp/claude-0/-home-user-Boise-Deals/eeeddfaf-76dc-502a-8545-5bd0f4be9c96/scratchpad"
 
@@ -37,22 +39,29 @@ DEALS = [
                     ("Downtown Meridian", 43.6115, -116.3970), ("I-84", 43.5965, -116.4310)]),
 ]
 
-ZG = {   # zoning groups: key -> (label, fill, opacity, loud)
-    "mf":  ("Multifamily by-right", "#d03b3b", 0.75, True),
-    "mx":  ("Mixed-use (MF allowed)", "#9085e9", 0.75, True),
-    "th":  ("Townhome / duplex", "#eda100", 0.75, True),
-    "com": ("Commercial (MF conditional)", "#e87ba4", 0.72, True),
-    "sf":  ("Single-family only", "#ded6b4", 0.55, False),
-    "oth": ("Industrial / ag / other", "#b9bfb3", 0.5, False),
+ZG = {   # vacant zoning groups: key -> (label, fill, opacity, loud)
+    "mf":  ("Multifamily by-right", "#d03b3b", 0.78, True),
+    "mx":  ("Mixed-use (MF allowed)", "#9085e9", 0.78, True),
+    "th":  ("Townhome / duplex", "#eda100", 0.78, True),
+    "com": ("Commercial (MF conditional)", "#e87ba4", 0.75, True),
+    "sf":  ("Single-family only", "#e3d9a8", 0.60, False),
+    "ind": ("Industrial vacant", "#b99d78", 0.55, False),
+    "ag":  ("Agricultural / rural vacant", "#a8b28c", 0.50, False),
+    "oth": ("Other / overlay", "#a9b0ba", 0.55, False),
 }
-FLU_FLAG = "#35e0ff"     # dashed outline: FLU supports MF/attached (rezone-likely)
-BUILT = {  # built-area coding: cat(s) -> (label, stroke, wash-opacity)
-    "apartments": ("Existing apartments", "#4f9cf0", 0.13),
-    "commercial": ("Commercial / retail", "#aab4c8", 0.07),
-    "offlimits":  ("Industrial · airport · Micron", "#d6d2c6", 0.12),
-    "established": ("Built-out single-family", "#cfc39a", 0.03),
+FLU_FLAG = "#35e0ff"
+
+# area classes over satellite — each visually distinct family
+AREA = {   # cat(s) -> (label, color, wash, stroke_w, style)
+    "apartments": ("Existing apartments", "#2f7fe0", 0.16, 1.8, "solid"),
+    "commercial": ("Commercial / retail", "#64748b", 0.10, 1.4, "solid"),
+    "industry":   ("Industrial / employment", "#8a5a2b", 0.13, 1.6, "solid"),
+    "airport_land": ("Airport ops (Gowen Field)", "#46586b", None, 1.6, "hatch"),
+    "micron":     ("Micron — campus & expansion", "#7E3F98", 0.15, 2.0, "solid"),
+    "rural":      ("Ag / rural preservation — not developable", "#7c8a5f", 0.10, 0.7, "solid"),
+    "landbank":   ("Land-bank / future growth (long-term)", "#b0a36e", 0.13, 1.2, "dotted"),
 }
-OFF_CATS = {"industry", "airport", "airport_land", "micron"}
+AIA = ("Airport Influence Area — apartments restricted", "#33424f")   # dashed boundary only
 GOLD, INK, PAGE, SURF = "#D4A017", "#0b0b0b", "#f9f9f7", "#fcfcfb"
 GRID, SEC, MUT = "#e1e0d9", "#52514e", "#898781"
 
@@ -63,6 +72,8 @@ def zgroup(row):
     if "Townhouse" in cat or "Two-Family" in cat or "Med-Density" in cat: return "th"
     if "Commercial" in cat: return "com"
     if "Single-Family" in cat or "Single Family" in cat: return "sf"
+    if "Industrial" in cat: return "ind"
+    if "Agricultural" in cat or "Rural" in cat: return "ag"
     if "Planned" in cat or "Overlay" in cat:
         return {"High": "mf", "Medium": "mx"}.get(threat, "oth")
     return "oth"
@@ -72,9 +83,8 @@ def flu_flags_mf(row):
 
 def merc(lat, lon, z):
     n = 256 * (2 ** z)
-    x = (lon + 180) / 360 * n
-    y = (1 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2 * n
-    return x, y
+    return ((lon + 180) / 360 * n,
+            (1 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2 * n)
 
 def build(cfg):
     meta = json.load(open(f"{SP}/{cfg['key']}_sat.json"))
@@ -85,104 +95,109 @@ def build(cfg):
                 if f["properties"]["subject"] == cfg["subject"]]
     s = open(cfg["supply_map"], encoding="utf-8").read()
     pins = json.loads(re.search(r"const PINS = (\[.*?\]);", s, re.S).group(1))
+    leg_chart = json.loads(re.search(r"const LEG = (\[.*?\]);", s, re.S).group(1))
     subj = next(p for p in pins if p["bucket"] == "SUBJECT")
     lat0, lon0 = subj["lat"], subj["lng"]
 
-    # map viewport: ring + 6% pad, square, in tile pixel space
     Rdeg = 5.0 / 69.0
     cx, cy = merc(lat0, lon0, z)
     _, ytop = merc(lat0 + Rdeg * 1.06, lon0, z)
     half = cy - ytop
-    MAP = 1122                                     # css px, square
+    MAP = 1122
     scale = MAP / (2 * half)
-    x0, y0 = cx - half, cy - half                  # viewport origin in world px
+    x0, y0 = cx - half, cy - half
     def xy(lat, lon):
         X, Y = merc(lat, lon, z)
         return ((X - x0) * scale, (Y - y0) * scale)
-    # satellite <img> placement
-    img_x = (tx0 * 256 - x0) * scale
-    img_y = (ty0 * 256 - y0) * scale
+    img_x, img_y = (tx0 * 256 - x0) * scale, (ty0 * 256 - y0) * scale
     img_w = meta["w"] * scale
 
     def path_of(geom):
         rings = geom["coordinates"] if geom["type"] == "Polygon" else \
                 [r for poly in geom["coordinates"] for r in poly]
-        d = []
-        for ring in rings:
-            pts = [xy(p[1], p[0]) for p in ring]
-            d.append("M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + " Z")
-        return " ".join(d)
+        return " ".join("M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in
+                        (xy(p[1], p[0]) for p in ring)) + " Z" for ring in rings)
 
     svg = [f'<svg viewBox="0 0 {MAP} {MAP}" width="{MAP}" height="{MAP}" '
            f'style="position:absolute;left:0;top:0" '
            f'font-family="system-ui,-apple-system,\'Segoe UI\',sans-serif">']
-    svg.append(f'<defs><clipPath id="disc"><circle cx="{MAP/2}" cy="{MAP/2}" r="{Rdeg/ (2*half/ (256*2**z) * 69/69) if False else 0}"/></clipPath></defs>')
+    svg.append('<defs><pattern id="aphatch" patternUnits="userSpaceOnUse" width="9" height="9" '
+               'patternTransform="rotate(45)">'
+               f'<line x1="0" y1="0" x2="0" y2="9" stroke="{AREA["airport_land"][1]}" '
+               'stroke-width="2.2" stroke-opacity="0.55"/></pattern></defs>')
 
-    # ---- built-area coding (outline + faint wash) ----
-    def draw_sections(cats, stroke, wash_op, dash=""):
+    # ---- area classes (bottom to top) ----
+    def draw(cats, color, wash, sw, style):
+        dash = ' stroke-dasharray="2 4"' if style == "dotted" else ""
+        fill = "url(#aphatch)" if style == "hatch" else color
+        fo = 1 if style == "hatch" else (wash or 0)
         for f in sections:
-            if f["properties"]["cat"] not in cats:
+            if f["properties"]["cat"] not in (cats if isinstance(cats, set) else {cats}):
                 continue
-            sw_ = 1.0 if f["properties"]["cat"] == "established" else 1.6
-            so_ = 0.45 if f["properties"]["cat"] == "established" else 0.9
-            svg.append(f'<path d="{path_of(f["geometry"])}" fill="{stroke}" '
-                       f'fill-opacity="{wash_op}" fill-rule="evenodd" stroke="{stroke}" '
-                       f'stroke-width="{sw_}" stroke-opacity="{so_}"{dash}/>')
-    draw_sections({"established"}, BUILT["established"][1], BUILT["established"][2])
-    draw_sections({"commercial"}, BUILT["commercial"][1], BUILT["commercial"][2])
-    draw_sections(OFF_CATS, BUILT["offlimits"][1], BUILT["offlimits"][2])
-    draw_sections({"apartments"}, BUILT["apartments"][1], BUILT["apartments"][2])
+            svg.append(f'<path d="{path_of(f["geometry"])}" fill="{fill}" fill-opacity="{fo}" '
+                       f'fill-rule="evenodd" stroke="{color}" stroke-width="{sw}" '
+                       f'stroke-opacity="0.85"{dash}/>')
+    draw("rural", *AREA["rural"][1:])
+    draw("landbank", *AREA["landbank"][1:])
+    draw("commercial", *AREA["commercial"][1:])
+    draw("industry", *AREA["industry"][1:])
+    draw("airport_land", *AREA["airport_land"][1:])
+    draw("micron", *AREA["micron"][1:])
+    draw("apartments", *AREA["apartments"][1:])
+    # AIA: dashed restriction boundary, no fill
+    for f in sections:
+        if f["properties"]["cat"] == "airport":
+            d_ = path_of(f["geometry"])
+            svg.append(f'<path d="{d_}" fill="none" stroke="#0b0b0b" stroke-width="4.2" '
+                       f'stroke-dasharray="12 6" stroke-opacity="0.5"/>')
+            svg.append(f'<path d="{d_}" fill="none" stroke="#dce8f8" stroke-width="2" '
+                       f'stroke-dasharray="12 6" stroke-opacity="0.95"/>')
 
-    # ---- vacant parcels: quiet classes first, loud on top ----
+    # ---- vacant parcels ----
     zcodes = {k: set() for k in ZG}
-    order = ["oth", "sf", "com", "th", "mx", "mf"]
     by_group = {k: [] for k in ZG}
     for r in parcels:
         g = zgroup(r)
         zcodes[g].add(r.get("zone_code") or "?")
         by_group[g].append(r)
-    for g in order:
-        lab, fill, op, loud = ZG[g]
+    for g in ["ag", "ind", "oth", "sf", "com", "th", "mx", "mf"]:
+        _, fill, op, _ = ZG[g]
         for r in by_group[g]:
             geom = geoms.get(r["account"])
-            if not geom:
-                continue
-            svg.append(f'<path d="{path_of(geom)}" fill="{fill}" fill-opacity="{op}" '
-                       f'fill-rule="evenodd" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.85"/>')
-    # FLU rezone-likely dashed outlines (all groups)
+            if geom:
+                svg.append(f'<path d="{path_of(geom)}" fill="{fill}" fill-opacity="{op}" '
+                           f'fill-rule="evenodd" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.85"/>')
     for r in parcels:
-        if not flu_flags_mf(r):
-            continue
-        geom = geoms.get(r["account"])
-        if geom:
-            svg.append(f'<path d="{path_of(geom)}" fill="none" stroke="{FLU_FLAG}" '
-                       f'stroke-width="2" stroke-dasharray="6 4"/>')
+        if flu_flags_mf(r):
+            geom = geoms.get(r["account"])
+            if geom:
+                svg.append(f'<path d="{path_of(geom)}" fill="none" stroke="{FLU_FLAG}" '
+                           f'stroke-width="2" stroke-dasharray="6 4"/>')
 
-    # ---- 5-mi ring ----
+    # ---- ring ----
     rpx = (merc(lat0, lon0, z)[1] - merc(lat0 + Rdeg, lon0, z)[1]) * scale
     svg.append(f'<circle cx="{MAP/2}" cy="{MAP/2}" r="{rpx:.0f}" fill="none" '
                f'stroke="{GOLD}" stroke-width="3" stroke-dasharray="10 8"/>')
 
-    # ---- landmark labels ----
+    # ---- landmarks ----
+    lplaced = []
     for name, la, lo in cfg["landmarks"]:
         x, y = xy(la, lo)
         if 8 < x < MAP - 8 and 8 < y < MAP - 8:
+            lplaced.append((x, y))
             svg.append(f'<text x="{x:.0f}" y="{y:.0f}" font-size="14" font-weight="700" '
                        f'fill="#ffffff" text-anchor="middle" letter-spacing=".05em" '
                        f'stroke="#000000" stroke-width="3" stroke-opacity="0.55" paint-order="stroke" '
                        f'style="text-transform:uppercase">{name}</text>')
 
     # ---- top-10 MF-capable parcel labels ----
-    cands = sorted((r for g in ("mf", "mx") for r in by_group[g]),
-                   key=lambda r: -float(r["acres"]))[:10]
-    lplaced = [xy(la, lo) for _, la, lo in cfg["landmarks"]]
-    lplaced.append((xy(lat0, lon0)[0], xy(lat0, lon0)[1] - 25))   # subject name label
-    for r in cands:
+    lplaced.append((xy(lat0, lon0)[0], xy(lat0, lon0)[1] - 25))
+    for r in sorted((r for g in ("mf", "mx") for r in by_group[g]),
+                    key=lambda r: -float(r["acres"]))[:10]:
         x, y = xy(r["lat"], r["lon"])
-        y -= 10                                    # sit above the parcel centroid
-        for _ in range(24):                        # push apart colliding labels
-            hit = next(((ox, oy) for ox, oy in lplaced
-                        if abs(x - ox) < 96 and abs(y - oy) < 18), None)
+        y -= 10
+        for _ in range(24):
+            hit = next(((ox, oy) for ox, oy in lplaced if abs(x - ox) < 96 and abs(y - oy) < 18), None)
             if not hit:
                 break
             y += 17 if y >= hit[1] else -17
@@ -191,18 +206,20 @@ def build(cfg):
                    f'fill="#ffffff" text-anchor="middle" stroke="#000000" stroke-width="3" '
                    f'stroke-opacity="0.6" paint-order="stroke">{r["zone_code"]} · {float(r["acres"]):.0f} ac</text>')
 
-    # ---- tiny numbered neutral pins ----
+    # ---- supply pins: >=100u only, chart bucket colors, numbered ----
     for p in pins:
         if p["bucket"] == "SUBJECT" or "shadow" in p["bucket"].lower():
             continue
+        if (p.get("units") or 0) < 100:
+            continue
         x, y = xy(p["lat"], p["lng"])
-        svg.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="8.5" fill="#ffffff" fill-opacity="0.92" '
-                   f'stroke="{INK}" stroke-width="1.4"/>')
+        svg.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10.5" fill="{p["color"]}" '
+                   f'stroke="#ffffff" stroke-width="2.2"/>')
         if p.get("num") not in (None, "•"):
-            svg.append(f'<text x="{x:.1f}" y="{y + 3.4:.1f}" font-size="10.5" font-weight="700" '
-                       f'fill="{INK}" text-anchor="middle">{p["num"]}</text>')
+            svg.append(f'<text x="{x:.1f}" y="{y + 3.8:.1f}" font-size="11.5" font-weight="700" '
+                       f'fill="#ffffff" text-anchor="middle">{p["num"]}</text>')
 
-    # ---- subject star ----
+    # ---- subject ----
     sx, sy = xy(lat0, lon0)
     star = []
     for i in range(10):
@@ -216,21 +233,40 @@ def build(cfg):
     svg.append("</svg>")
 
     # ---- legend ----
-    def sw(fill, op, extra=""):
-        return (f'<span class="sw" style="background:{fill};opacity:{max(op,0.55)}{extra}"></span>')
     tot_n = sum(len(v) for v in by_group.values())
     tot_ac = sum(float(r["acres"]) for v in by_group.values() for r in v)
-    zrows = f'<div class="li"><div style="font-size:12px;color:{MUT}">{tot_n:,} vacant parcels · {tot_ac:,.0f} ac inside the ring</div></div>'
-    for g in ("mf", "mx", "th", "com", "sf", "oth"):
+    zrows = (f'<div class="li"><div style="font-size:12px;color:{MUT}">{tot_n:,} vacant parcels · '
+             f'{tot_ac:,.0f} ac inside the ring</div></div>')
+    for g in ("mf", "mx", "th", "com", "sf", "ind", "ag", "oth"):
         lab, fill, op, loud = ZG[g]
         n = len(by_group[g]); ac = sum(float(r["acres"]) for r in by_group[g])
         codes = ", ".join(sorted(zcodes[g])[:7]) or "—"
-        zrows += (f'<div class="li{"" if loud else " quiet"}">{sw(fill, op)}'
+        zrows += (f'<div class="li{"" if loud else " quiet"}"><span class="sw" '
+                  f'style="background:{fill};opacity:{max(op,0.6)}"></span>'
                   f'<div><b>{lab}</b> <span class="m">{n} parcel{"s" if n != 1 else ""} · {ac:,.0f} ac</span>'
                   f'<div class="codes">{codes}</div></div></div>')
-    built_rows = "".join(
-        f'<div class="li"><span class="sw ol" style="border-color:{v[1]};background:{v[1]}22"></span>{v[0]}</div>'
-        for v in BUILT.values())
+    # area rows — only classes present in this ring
+    present = {f["properties"]["cat"] for f in sections}
+    arows = ""
+    for cat, (lab, color, wash, sw, style) in AREA.items():
+        if cat not in present:
+            continue
+        if style == "hatch":
+            swd = f'<span class="sw" style="background:repeating-linear-gradient(45deg,transparent 0 3px,{color} 3px 5px)"></span>'
+        elif style == "dotted":
+            swd = f'<span class="sw" style="background:{color}33;border:2px dotted {color}"></span>'
+        else:
+            swd = f'<span class="sw" style="background:{color}33;border:2px solid {color}"></span>'
+        arows += f'<div class="li">{swd}{lab}</div>'
+    if "airport" in present:
+        arows += (f'<div class="li"><span class="sw" style="background:#5b6b7d;'
+                  f'border:2.5px dashed #dce8f8"></span>{AIA[0]}</div>')
+    arows += (f'<div class="li quiet"><span class="sw" style="background:transparent;'
+              f'border:1px solid {GRID}"></span>Uncoded = built-out single-family '
+              f'(visible on imagery)</div>')
+    # pin status mini-legend from the chart's own colors
+    prow = "".join(f'<span class="pli"><span class="pdot" style="background:{l["color"]}"></span>{l["label"]}</span>'
+                   for l in leg_chart)
     html = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{width:1600px;height:1200px;background:{PAGE};overflow:hidden;
@@ -242,20 +278,19 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
 .map{{position:relative;width:{MAP}px;height:{MAP}px;flex:none;border-radius:8px;overflow:hidden;
   border:1px solid {GRID};background:#20241f}}
 .map img{{position:absolute;left:{img_x:.1f}px;top:{img_y:.1f}px;width:{img_w:.1f}px}}
-.leg{{flex:1;background:{SURF};border:1px solid {GRID};border-radius:8px;padding:16px 18px;
-  display:flex;flex-direction:column;gap:6px;font-size:13px;overflow:hidden}}
-.leg h3{{font-size:11.5px;font-weight:700;letter-spacing:.07em;color:{SEC};text-transform:uppercase;
+.leg{{flex:1;background:{SURF};border:1px solid {GRID};border-radius:8px;padding:15px 17px;
+  display:flex;flex-direction:column;gap:5px;font-size:12.5px;overflow:hidden}}
+.leg h3{{font-size:11px;font-weight:700;letter-spacing:.07em;color:{SEC};text-transform:uppercase;
   margin:6px 0 2px}}
 .li{{display:flex;gap:9px;align-items:flex-start;line-height:1.25;margin:1.5px 0}}
 .li.quiet{{color:{SEC}}}
-.li .m{{color:{MUT};font-weight:400;font-size:12px}}
-.codes{{color:{MUT};font-size:11px}}
-.sw{{width:17px;height:17px;border-radius:3px;flex:none;border:1px solid rgba(0,0,0,.25);margin-top:1px}}
-.sw.ol{{background:transparent;border-width:2px}}
-.sw.dash{{background:transparent;border:2.5px dashed {FLU_FLAG}}}
-.pin{{width:17px;height:17px;border-radius:50%;background:#fff;border:1.5px solid {INK};flex:none;
-  font:700 10px/14px system-ui;text-align:center}}
-.foot{{margin-top:auto;padding-top:8px;font-size:10.5px;color:{MUT};line-height:1.45}}
+.li .m{{color:{MUT};font-weight:400;font-size:11.5px}}
+.codes{{color:{MUT};font-size:10.5px}}
+.sw{{width:17px;height:17px;border-radius:3px;flex:none;border:1px solid rgba(0,0,0,.2);margin-top:1px}}
+.pli{{display:inline-flex;align-items:center;gap:5px;margin-right:10px;font-size:11.5px}}
+.pdot{{width:11px;height:11px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px #999}}
+.dash{{background:transparent;border:2.5px dashed {FLU_FLAG}}}
+.foot{{margin-top:auto;padding-top:8px;font-size:10px;color:{MUT};line-height:1.45}}
 </style></head><body><div class="slide">
 <div style="display:flex;justify-content:space-between;align-items:baseline">
   <h1>{cfg['title']}</h1>
@@ -268,21 +303,22 @@ h1{{font-size:25px;font-weight:800;letter-spacing:-.01em}}
     {zrows}
     <div class="li"><span class="sw dash"></span><div><b>Future land use invites MF / attached</b>
       <span class="m">comp-plan signal — rezone-likely</span></div></div>
-    <h3>Built environment today (outline + wash)</h3>
-    {built_rows}
-    <h3>Reference</h3>
-    <div class="li"><span class="pin">7</span>Supply-chart project (number = chart row)</div>
+    <h3>Everything else — what it is today</h3>
+    {arows}
+    <h3>Supply-chart deals ≥100 units (number = chart row)</h3>
+    <div style="line-height:1.9">{prow}</div>
+    <div class="li quiet" style="font-size:11px">Deals under 100 units stay in the Supply Chart but are not pinned here.</div>
     <div class="li"><span class="sw" style="background:transparent;border:2.5px dashed {GOLD};border-radius:50%"></span>5-mile ring · ★ subject</div>
     <div class="foot">Vacant = Ada County assessor vacant-land parcels ≥1 ac after removing common/HOA,
-    non-buildable and road-sliver lots. Zoning grouped from municipal districts (codes listed per class);
-    labels mark the largest MF-capable parcels. Satellite: Esri World Imagery.
-    Full parcel detail: land-use workbook; project detail: Supply Chart.</div>
+    non-buildable and road-sliver lots. Ag/rural-preservation and land-bank areas look vacant on imagery
+    but are screened out of the developable set (county RP / Airport-Ag zoning, Rural FLU) — shown as
+    area washes, not parcel fills. Airport ops, the AIA overlay, Micron, and non-Micron industrial are
+    coded separately. Satellite: Esri World Imagery. Full parcel detail: land-use workbook.</div>
   </div>
 </div>
 </div></body></html>"""
-    out = f"{SP}/{cfg['out_html']}"
-    open(out, "w", encoding="utf-8").write(html)
-    print("wrote", out, f"| {sum(len(v) for v in by_group.values())} parcels drawn")
+    open(f"{SP}/{cfg['out_html']}", "w", encoding="utf-8").write(html)
+    print("wrote", cfg["out_html"])
 
 if __name__ == "__main__":
     for cfg in DEALS:
