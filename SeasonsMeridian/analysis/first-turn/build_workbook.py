@@ -296,65 +296,90 @@ fp.freeze_panes = 'B2'
 # ============================= BY MONTH =============================
 bm = wb.create_sheet('By Month')
 bm.sheet_view.showGridLines = False
-cols = [('Month', 14), ('Expirations Due', 10), ('Renewed', 9), ('Moved Out', 9),
-        ('MTM', 7), ('Retention %', 10), ('Renewal TO Gross %', 10), ('Renewal TO Eff %', 10),
-        ('Units Re-Leased (n)', 10), ('New-Lease TO Gross %', 11), ('New-Lease TO Eff %', 11),
-        ('Coming Due (not yet expired)', 12)]
+cols = [('Month', 14), ('Expirations Due', 9), ('Renewed', 8), ('Moved Out', 8),
+        ('MTM', 6), ('Retention %', 9),
+        ('Renewal: Prior Gross $', 10), ('Renewal: New Gross $', 10), ('Renewal TO Gross %', 9),
+        ('Renewal: Prior Eff $', 10), ('Renewal: New Eff $', 10), ('Renewal TO Eff %', 9),
+        ('Units Re-Leased (n)', 9),
+        ('New Lease: Prior Gross $', 10), ('New Lease: New Gross $', 10), ('New-Lease TO Gross %', 9),
+        ('New Lease: Prior Eff $', 10), ('New Lease: New Eff $', 10), ('New-Lease TO Eff %', 9),
+        ('Coming Due (not yet expired)', 10)]
 for j, (h, w) in enumerate(cols, 1):
     c = bm.cell(row=1, column=j, value=h)
     c.font, c.fill = H_FONT, H_FILL
     c.alignment = Alignment(wrap_text=True, vertical='center', horizontal='center')
     bm.column_dimensions[get_column_letter(j)].width = w
-bm.row_dimensions[1].height = 30
+bm.row_dimensions[1].height = 42
 
 exp_months = {r['orig_expiration'][:7] for r in rows if r['orig_expiration']}
 rel_months = {r['new_move_in'][:7] for r in rows if r['new_move_in'] and r['outcome'] == 'Moved Out'}
 months = sorted(exp_months | rel_months)
+PCT_COLS = ('F', 'I', 'L', 'P', 'S')
+USD_COLS = ('G', 'H', 'J', 'K', 'N', 'O', 'Q', 'R')
 rn = 2
 for m in months:
     MK = f'{rng("J")},"{m}"'                      # original first-expiration month
     RK = f'{rng("AP")},"{m}"'                     # re-lease (new tenant move-in) month
     def cifs(qval):
         return f'=COUNTIFS({MK},{rng("S")},"Y",{rng("Q")},"{qval}")'
-    def aifs(acol, qval):
-        return (f'=IFERROR(AVERAGEIFS({rng(acol)},{MK},{rng("Q")},"{qval}",'
+    def aifs(acol):                               # renewal metrics, keyed to exp month
+        return (f'=IFERROR(AVERAGEIFS({rng(acol)},{MK},{rng("Q")},"Renewed",'
                 f'{rng("V")},"<>Y"),"")')
-    def aifs_rel(acol):
+    def aifs_rel(acol):                           # new-lease metrics, keyed to re-lease month
         return (f'=IFERROR(AVERAGEIFS({rng(acol)},{RK},{rng("Q")},"Moved Out",'
                 f'{rng("V")},"<>Y"),"")')
     vals = [m, f'=C{rn}+D{rn}+E{rn}', cifs('Renewed'), cifs('Moved Out'), cifs('MTM Holdover'),
             f'=IF(B{rn}=0,"",C{rn}/B{rn})',
-            aifs('AC', 'Renewed'), aifs('AD', 'Renewed'),
+            aifs('L'), aifs('Y'), aifs('AC'),
+            aifs('N'), aifs('AA'), aifs('AD'),
             f'=COUNTIFS({RK},{rng("Q")},"Moved Out")',
-            aifs_rel('AM'), aifs_rel('AN'),
+            aifs_rel('L'), aifs_rel('AJ'), aifs_rel('AM'),
+            aifs_rel('N'), aifs_rel('AL'), aifs_rel('AN'),
             f'=COUNTIFS({MK},{rng("Q")},"Not Yet Expired")']
     for j, v in enumerate(vals, 1):
         c = bm.cell(row=rn, column=j, value=v)
         c.font = BASE
     bm[f'F{rn}'].number_format = FMT_P0
-    for col in ('G', 'H', 'J', 'K'):
+    for col in ('I', 'L', 'P', 'S'):
         bm[f'{col}{rn}'].number_format = FMT_P
+    for col in USD_COLS:
+        bm[f'{col}{rn}'].number_format = FMT_C
     rn += 1
 tot = rn
-bm.cell(row=tot, column=1, value='TOTAL').font = BOLD
+bm.cell(row=tot, column=1, value='TOTAL / AVG').font = BOLD
 for j, col in enumerate('BCDE', 2):
     c = bm.cell(row=tot, column=j, value=f'=SUM({col}2:{col}{tot-1})')
     c.font = BOLD
 c = bm.cell(row=tot, column=6, value=f'=IF(B{tot}=0,"",C{tot}/B{tot})')
 c.font, c.number_format = BOLD, FMT_P0
-c = bm.cell(row=tot, column=9, value=f'=SUM(I2:I{tot-1})')
+tot_ren = [('G', 'L'), ('H', 'Y'), ('I', 'AC'), ('J', 'N'), ('K', 'AA'), ('L', 'AD')]
+for col, acol in tot_ren:
+    c = bm.cell(row=tot, column=ord(col) - 64,
+                value=f'=IFERROR(AVERAGEIFS({rng(acol)},{rng("Q")},"Renewed",{rng("V")},"<>Y"),"")')
+    c.font = BOLD
+    c.number_format = FMT_P if col in ('I', 'L') else FMT_C
+c = bm.cell(row=tot, column=13, value=f'=SUM(M2:M{tot-1})')
 c.font = BOLD
-c = bm.cell(row=tot, column=12, value=f'=SUM(L2:L{tot-1})')
+tot_nl = [(14, 'L'), (15, 'AJ'), (16, 'AM'), (17, 'N'), (18, 'AL'), (19, 'AN')]
+for coln, acol in tot_nl:
+    c = bm.cell(row=tot, column=coln,
+                value=f'=IFERROR(AVERAGEIFS({rng(acol)},{rng("Q")},"Moved Out",{rng("V")},"<>Y"),"")')
+    c.font = BOLD
+    c.number_format = FMT_P if coln in (16, 19) else FMT_C
+c = bm.cell(row=tot, column=20, value=f'=SUM(T2:T{tot-1})')
 c.font = BOLD
 note = bm.cell(row=tot + 2, column=1,
-               value=('Columns B–H are keyed to each initial lease\'s ORIGINAL first-expiration month '
-                      '(the renewal decision). Columns I–K are keyed to the month the replacement tenant '
-                      'moved in, so re-leases after early lease-breaks appear when they actually happened '
-                      '— not at the broken lease\'s future expiration date. Column L counts initial leases '
-                      'whose first expiration is still ahead.'))
+               value=('Columns B–L are keyed to each initial lease\'s ORIGINAL first-expiration month (the '
+                      'renewal decision). Columns M–S are keyed to the month the replacement tenant moved in, '
+                      'so re-leases after early lease-breaks appear when they actually happened — not at the '
+                      'broken lease\'s future expiration date. Column T counts initial leases whose first '
+                      'expiration is still ahead. $ columns are simple averages of the leases in that month, '
+                      'so the % columns (avg of per-lease trade-outs) won\'t exactly equal the ratio of the '
+                      '$ averages. Prior-lease $ for new leases = the departed initial tenant\'s rent on the '
+                      'same unit. TOTAL/AVG row: counts are sums; $ and % are averages across all leases.'))
 note.font = SUB
 note.alignment = Alignment(wrap_text=True, vertical='top')
-bm.merge_cells(start_row=tot + 2, start_column=1, end_row=tot + 4, end_column=12)
+bm.merge_cells(start_row=tot + 2, start_column=1, end_row=tot + 5, end_column=20)
 bm.freeze_panes = 'B2'
 
 # ============================= NOTES =============================
