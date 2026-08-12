@@ -69,7 +69,7 @@ headers = [
     ('New Move In', 10), ('New Lease Term (mo)', 8), ('New Gross Rent', 10),
     ('New Concession ($)', 10), ('New Effective Rent', 10),
     ('New-Lease Trade-Out Gross %', 9), ('New-Lease Trade-Out Eff %', 9),
-    ('Days Vacant', 7),
+    ('Days Vacant', 7), ('Re-Lease Month', 9),
 ]
 for j, (h, w) in enumerate(headers, 1):
     c = ws.cell(row=1, column=j, value=h)
@@ -104,6 +104,7 @@ for i, r in enumerate(rows):
         f'=IF(OR($AJ{rn}="",$L{rn}="",$L{rn}=0),"",$AJ{rn}/$L{rn}-1)',
         f'=IF(OR($AL{rn}="",$N{rn}="",$N{rn}=0),"",$AL{rn}/$N{rn}-1)',
         fnum(r['days_vacant']),
+        r['new_move_in'][:7] if r['new_move_in'] else None,
     ]
     for j, v in enumerate(vals, 1):
         c = ws.cell(row=rn, column=j, value=v)
@@ -118,7 +119,7 @@ for i, r in enumerate(rows):
         for j in range(1, len(headers) + 1):
             ws.cell(row=rn, column=j).fill = PatternFill('solid', fgColor=GREY)
 ws.freeze_panes = 'G2'
-ws.auto_filter.ref = f'A1:AO{LAST}'
+ws.auto_filter.ref = f'A1:AP{LAST}'
 
 L = "'Unit Ledger'!"
 def rng(col):
@@ -295,9 +296,10 @@ fp.freeze_panes = 'B2'
 # ============================= BY MONTH =============================
 bm = wb.create_sheet('By Month')
 bm.sheet_view.showGridLines = False
-cols = [('First-Expiration Month', 14), ('Expirations Due', 10), ('Renewed', 9), ('Moved Out', 9),
+cols = [('Month', 14), ('Expirations Due', 10), ('Renewed', 9), ('Moved Out', 9),
         ('MTM', 7), ('Retention %', 10), ('Renewal TO Gross %', 10), ('Renewal TO Eff %', 10),
-        ('New-Lease TO Gross %', 11), ('New-Lease TO Eff %', 11), ('Coming Due (not yet expired)', 12)]
+        ('Units Re-Leased (n)', 10), ('New-Lease TO Gross %', 11), ('New-Lease TO Eff %', 11),
+        ('Coming Due (not yet expired)', 12)]
 for j, (h, w) in enumerate(cols, 1):
     c = bm.cell(row=1, column=j, value=h)
     c.font, c.fill = H_FONT, H_FILL
@@ -305,25 +307,32 @@ for j, (h, w) in enumerate(cols, 1):
     bm.column_dimensions[get_column_letter(j)].width = w
 bm.row_dimensions[1].height = 30
 
-months = sorted({r['orig_expiration'][:7] for r in rows if r['orig_expiration']})
+exp_months = {r['orig_expiration'][:7] for r in rows if r['orig_expiration']}
+rel_months = {r['new_move_in'][:7] for r in rows if r['new_move_in'] and r['outcome'] == 'Moved Out'}
+months = sorted(exp_months | rel_months)
 rn = 2
 for m in months:
-    MK = f'{rng("J")},"{m}"'
+    MK = f'{rng("J")},"{m}"'                      # original first-expiration month
+    RK = f'{rng("AP")},"{m}"'                     # re-lease (new tenant move-in) month
     def cifs(qval):
         return f'=COUNTIFS({MK},{rng("S")},"Y",{rng("Q")},"{qval}")'
     def aifs(acol, qval):
         return (f'=IFERROR(AVERAGEIFS({rng(acol)},{MK},{rng("Q")},"{qval}",'
                 f'{rng("V")},"<>Y"),"")')
+    def aifs_rel(acol):
+        return (f'=IFERROR(AVERAGEIFS({rng(acol)},{RK},{rng("Q")},"Moved Out",'
+                f'{rng("V")},"<>Y"),"")')
     vals = [m, f'=C{rn}+D{rn}+E{rn}', cifs('Renewed'), cifs('Moved Out'), cifs('MTM Holdover'),
             f'=IF(B{rn}=0,"",C{rn}/B{rn})',
             aifs('AC', 'Renewed'), aifs('AD', 'Renewed'),
-            aifs('AM', 'Moved Out'), aifs('AN', 'Moved Out'),
+            f'=COUNTIFS({RK},{rng("Q")},"Moved Out")',
+            aifs_rel('AM'), aifs_rel('AN'),
             f'=COUNTIFS({MK},{rng("Q")},"Not Yet Expired")']
     for j, v in enumerate(vals, 1):
         c = bm.cell(row=rn, column=j, value=v)
         c.font = BASE
     bm[f'F{rn}'].number_format = FMT_P0
-    for col in ('G', 'H', 'I', 'J'):
+    for col in ('G', 'H', 'J', 'K'):
         bm[f'{col}{rn}'].number_format = FMT_P
     rn += 1
 tot = rn
@@ -333,8 +342,19 @@ for j, col in enumerate('BCDE', 2):
     c.font = BOLD
 c = bm.cell(row=tot, column=6, value=f'=IF(B{tot}=0,"",C{tot}/B{tot})')
 c.font, c.number_format = BOLD, FMT_P0
-c = bm.cell(row=tot, column=11, value=f'=SUM(K2:K{tot-1})')
+c = bm.cell(row=tot, column=9, value=f'=SUM(I2:I{tot-1})')
 c.font = BOLD
+c = bm.cell(row=tot, column=12, value=f'=SUM(L2:L{tot-1})')
+c.font = BOLD
+note = bm.cell(row=tot + 2, column=1,
+               value=('Columns B–H are keyed to each initial lease\'s ORIGINAL first-expiration month '
+                      '(the renewal decision). Columns I–K are keyed to the month the replacement tenant '
+                      'moved in, so re-leases after early lease-breaks appear when they actually happened '
+                      '— not at the broken lease\'s future expiration date. Column L counts initial leases '
+                      'whose first expiration is still ahead.'))
+note.font = SUB
+note.alignment = Alignment(wrap_text=True, vertical='top')
+bm.merge_cells(start_row=tot + 2, start_column=1, end_row=tot + 4, end_column=12)
 bm.freeze_panes = 'B2'
 
 # ============================= NOTES =============================
