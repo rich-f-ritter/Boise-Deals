@@ -270,7 +270,7 @@ em=[
  ('Units',256,NUM,''),('Avg NRSF / unit',938.98,NUM,''),
  ('Untrended NOI in-place 6/2026 ($)',5036490,M0,'Summary D49'),
  ('Marketed untrended ROC','=C10/C7',PC,'Book: 6.65%'),
- ('Untrended taxes embedded ($, est)',331600,M0,'2031 taxes deflated 3%/yr'),
+ ('Untrended taxes embedded ($, est)',331600,M0,'2031 taxes deflated 3%/yr; consistent with their cost-basis assessment path (~$73.5M 2026-equiv x 0.45%)'),
  ('Sale F12 NOI ($, Jan-30)',5638571,M0,''),('Marketed exit cap',0.055,PC,''),
  ('Gross sale ($)','=C13/C14',M0,'$400.5K/home'),
  ('OI as marketed: garage',266400,M0,'$1,041/u'),('wifi',331776,M0,'$1,296/u'),
@@ -328,6 +328,31 @@ for label,f,fmt,note in nc:
     put(ws,f'C{r}',f,BLACK,fmt); put(ws,f'F{r}',note,NOTE,wrap=True); ws[f'B{r}'].border=THIN; r+=1
 # aliases used by other tabs: C31=NormOI/u? keep mapping: C29 normalized OI/u; C45 taxes $; C46 taxes /u
 # For 3_Dev_Feasibility references: '4_Emblem_Norm'!C31 (norm OI /u) -> actually C29. Fix links there instead.
+
+sec(ws,'B54','D. TAX METHODOLOGY — VERIFIED, THEIRS vs OURS (apples-to-apples)')
+tm=[
+ ('THEIR ENGINE (Tax Calcs tab): assessment = cumulative construction cost; steps to $80.3M at completion (2030), +3%/yr to ~$82.7-85.4M in 2031 = ~83% of their own $102.5M sale. Taxed at 0.45%. Construction-period taxes capitalized (fine). NO step-up to value at stabilization and NO reassessment for the buyer at sale.',None,None,''),
+ ('OUR ENGINE (Seasons Taxes tab): current assessment $92.99M = 78.8% of our price; reassessment year 2027 steps taxable value to 95% x purchase price ($112.1M); +3.5%/yr assessment, -2%/yr levy; exit F12 NOI trued up to buyer taxes at 95% x EXIT price (= the -$15,345 adj in Assumptions M38).',None,None,''),
+ ('Emblem 2031 taxes as modeled ($)',384319,M0,'A-OperBgt col H; = $1,501/u; implied assessment $85.4M'),
+ ('Emblem 2031 NOI-ex-tax ($)','=5825182+C57',M0,''),
+ ('TMG-convention value @ C34 cap ($)','=C58/(C34+C33)',M0,'closed-form: V = NOI-ex-tax / (cap + 0.95 x levy)'),
+ ('TMG-convention 2031 taxes ($)','=C33*C59',M0,''),
+ ('  per unit','=C60/C8',M0,'vs $1,501/u as modeled'),
+ ('Understatement ($/yr)','=C60-C57',M0,'~8-11bp of stabilized YoC'),
+ ('Capitalized impact on exit value ($)','=C62/C34',M0,'~1.0-1.5% of their gross sale'),
+ ('  per unit','=C63/C8',M0,''),
+]
+r=55
+for label,val,fmt,note in tm:
+    if val is None:
+        put(ws,f'B{r}',label,NOTE,wrap=True); ws.merge_cells(f'B{r}:F{r}'); ws.row_dimensions[r].height=26; r+=1; continue
+    put(ws,f'B{r}',label,BOLD if 'Understatement' in label or 'Capitalized' in label else BLACK)
+    if isinstance(val,str): put(ws,f'C{r}',val,BLACK,fmt)
+    else: put(ws,f'C{r}',val,BLUE,fmt)
+    put(ws,f'F{r}',note,NOTE,wrap=True); ws[f'B{r}'].border=THIN; r+=1
+put(ws,'B66','SYMMETRY NOTE: Seasons current assessment (79% of price) shows the same assessor lag Emblem banks on — but TMG conservatively steps to 95% within a year on BOTH sides of the trade. If you underwrote Seasons on Emblem-style lag, Y1 taxes would be ~$419K not $482K (+5bp on the Y1 cap). The convention difference, not the levy, is the entire dispute.',NOTE,wrap=True)
+ws.merge_cells('B66:F68')
+
 
 # ================= 5_Judy_Norm =================
 ws=sheet('5_Judy_Norm',[2,46,16,16,16,60])

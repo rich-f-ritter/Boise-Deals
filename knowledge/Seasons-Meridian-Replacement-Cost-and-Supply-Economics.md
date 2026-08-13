@@ -186,6 +186,17 @@ Implications: (a) the supply moat is WIDER than the developers' books imply — 
 the Seasons exit band; (c) both books flatter the same metric (yield-on-cost) while roughly truth-telling on
 exit value — read developer books accordingly.
 
+**Emblem tax engine VERIFIED (2026-08-13, from Tax Calcs tab):** their assessment = cumulative construction
+cost — $19.5M (2028) → $59.8M (2029) → $80.3M at completion → +3%/yr to ~$85.4M in 2031 = **~83% of their own
+$102.5M sale** — at the 0.45% levy, with construction-period taxes capitalized and **no step-up to value at
+stabilization or reassessment for the buyer at sale**. Contrast the Seasons/TMG engine (Taxes tab): current
+assessment 78.8% of price → steps to **95% of purchase price in year 1 (2027: $112.1M)** → +3.5%/yr assessment,
+−2%/yr levy → exit F12 NOI trued up to the buyer's taxes at 95% of exit price (= the −$15,345 in Assumptions
+M38). Apples-to-apples at a 5.25% cap (closed-form): Emblem's 2031 taxes should be **$467.6K ($1,826/u) vs
+$384.3K ($1,501/u) as modeled** — understated $83K/yr ≈ $1.59M (~$6.2K/unit, ~1.5%) of exit value ≈ 8–11bp of
+stabilized YoC. Symmetry note: Seasons' current 79% assessment shows the same assessor lag Emblem banks on —
+TMG just refuses to underwrite the lag persisting, on both sides of the trade.
+
 **v2 workbook note (knowledge/exhibits/Boise_Deals_Normalized_Underwriting_v2.xlsx):** pencil convention updated
 to normalized taxes (vs marketed embedded), lifting pencil rents ~$20–70/mo vs the v1/artifact figures: at
 normalized OI & taxes, 6.0% YoC needs $1,991/mo ($2.12/SF) and 6.5% needs $2,122 ($2.26/SF) — Seasons sits 5–8%
