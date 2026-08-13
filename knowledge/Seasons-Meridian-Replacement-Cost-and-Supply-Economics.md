@@ -68,24 +68,30 @@ Method: solve Emblem's own operating model (their opex, 5.87% vacancy stack, the
 their cost basis, costs & opex escalated at their own 3%/yr) for the base rent required at target
 untrended ROC. Compare to our modeled Seasons market-rent path (RRA/S&A: $1,885 Y1 → 7.57%/4.0%/4.0%/3.5%/3.5%/3.0%).
 
-| | Today (2026) | At our exit (Oct 2031) |
-|---|---|---|
-| Seasons market rent | $1,885 = $2.02/SF | $2,249 = $2.41/SF (Y6 / F12-NOI year) |
-| Replication cost (Emblem basis) | ~$305K/u | ~$343K/u |
-| Pencil @ 6.0% ROC | $1,904 = $2.03/SF | $2,194 = $2.34/SF |
-| Pencil @ **6.5%** ROC | $2,035 = $2.17/SF | **$2,346 = $2.50/SF** |
-| Pencil @ 7.0% ROC | $2,166 = $2.31/SF | $2,497 = $2.66/SF |
-| Seasons vs 6.5% pencil | **−7.4%** | **−4.3%** |
+All components (cost, opex, other income) escalate 3%/yr from the 2026 base; pencil in year t compared
+to our modeled rent in year t. *(Corrected 2026-08-13 verification pass — an earlier draft compared Y6
+rents to a 2031 pencil, understating the exit gap as −4.3%.)*
 
-Year-by-year ratio (Seasons rent ÷ 6.5%-pencil): 0.90 → 0.91 → 0.92 → 0.92 → **0.93 and frozen** —
-from Y4 our UW rent growth converges to cost inflation (3%), so under our own underwriting Seasons-level
-rents **never cross the development-feasibility line**. Cross-check: Emblem's own model trends its rent to
-$2,443/mo (**$2.60/SF**) by 2031 to hold ~6.6% ROC — our exit-year rent ($2.41/SF) is ~8% below the
-merchant developer's own required 2031 rent.
+| Year | Seasons UW rent | Pencil @6.0% | Pencil @6.5% | Pencil @7.0% | Gap vs 6.5% | Gap vs 6.0% |
+|---|---|---|---|---|---|---|
+| 2026 (base) | $1,885 = $2.02/SF | $1,904 | $2,035 = $2.17/SF | $2,166 = $2.31/SF | −7.4% | −1.0% |
+| 2027 (Y1) | $1,885 | $1,961 | $2,096 | $2,231 | **−10.1%** | −3.9% |
+| 2029 (Y3) | $2,038 | $2,080 | $2,224 | $2,367 | −8.4% | −2.0% |
+| 2031 (Y5 / exit) | $2,184 | $2,207 | $2,359 | $2,511 | **−7.4%** | −1.0% |
+| 2032 (Y6 / F12 NOI) | $2,249 = $2.41/SF | $2,273 | $2,430 = $2.59/SF | $2,587 | **−7.4%** | −1.1% |
+
+The gap narrows from ~10% to ~7.4% by 2031 and **freezes at −7.4%** (ratio 0.926) as our UW rent growth
+converges to 3% cost inflation. Two findings:
+1. Under our own underwriting, Seasons-level rents **never cross the 6.5% development-feasibility line** —
+   and never even cross the **6.0%** line (gap −1% to −4% throughout), where the spread to a 5.25–5.5%
+   exit cap is too thin for institutional equity.
+2. Cross-check: Emblem's own model trends its rent to $2,443/mo (**$2.60/SF**) by 2031 to hold ~6.6% ROC —
+   our exit-year rent ($2.41/SF) is ~8% below the merchant developer's own required rent for that year.
 
 Product-matched pencil: a developer building *Seasons-like* garden product (our $2,736/u other income
-instead of Emblem's garage/wifi-loaded $4,207/u) needs **$2.35/SF today at 6.5%** — +16% over our rents.
-Emblem's amenity-income program is worth ~$0.17/SF of pencil rent.
+instead of Emblem's garage/wifi-loaded $4,207/u) needs **~$2.30–2.35/SF today at 6.5%** (ex-financing vs
+all-in cost denominator) — **+14–16%** over our rents. Emblem's amenity-income program is worth
+~$0.13–0.17/SF of pencil rent.
 
 At our actual rent levels, new construction yields ~**6.0% untrended** (market rents) or ~5.5%
 (contract rents) vs 5.25–5.5% exit caps → no development margin → the 1,130 apartment-ready acres

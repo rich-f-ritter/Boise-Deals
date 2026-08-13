@@ -74,17 +74,20 @@
     "today_2026": {
       "cost_per_unit": 304530,
       "rent_at_6.0_roc": {"mo": 1904, "psf": 2.03}, "rent_at_6.5_roc": {"mo": 2035, "psf": 2.17}, "rent_at_7.0_roc": {"mo": 2166, "psf": 2.31},
-      "rent_at_6.5_roc_seasons_like_other_income": {"mo": 2202, "psf": 2.35},
-      "seasons_vs_6.5_pencil": -0.074,
+      "rent_at_6.5_roc_seasons_like_other_income": {"mo_range": [2158, 2202], "psf_range": [2.30, 2.35], "note": "ex-financing vs all-in cost denominator"},
+      "seasons_vs_2026_pencil_6.5": -0.074,
       "roc_at_seasons_market_rents": 0.0598, "roc_at_seasons_contract_rents": 0.0546
     },
-    "exit_2031": {
-      "cost_per_unit": 342751,
-      "rent_at_6.0_roc": {"mo": 2194, "psf": 2.34}, "rent_at_6.5_roc": {"mo": 2346, "psf": 2.50}, "rent_at_7.0_roc": {"mo": 2497, "psf": 2.66},
-      "seasons_exit_rent": {"mo": 2249, "psf": 2.41}, "seasons_vs_6.5_pencil": -0.043,
-      "emblem_own_2031_trended_rent": {"mo": 2443, "psf": 2.60}
-    },
-    "gap_ratio_by_year": {"2027": 0.90, "2028": 0.91, "2029": 0.92, "2030": 0.92, "2031": 0.93, "note": "freezes at 0.93 as UW rent growth converges to 3% cost inflation"}
+    "trajectory_all_components_escalate_3pct": {
+      "note": "Verified 2026-08-13; corrects earlier draft that compared Y6 rents to a 2031 pencil (-4.3%). Pencil(t) vs Seasons UW rent(t).",
+      "seasons_rent_by_year": {"2027": 1885, "2028": 1960, "2029": 2038, "2030": 2110, "2031": 2184, "2032": 2249},
+      "pencil_6.5_by_year": {"2027": 2096, "2028": 2159, "2029": 2224, "2030": 2290, "2031": 2359, "2032": 2430},
+      "pencil_6.0_by_year": {"2027": 1961, "2028": 2020, "2029": 2080, "2030": 2143, "2031": 2207, "2032": 2273},
+      "gap_vs_6.5_by_year": {"2027": -0.101, "2028": -0.092, "2029": -0.084, "2030": -0.079, "2031": -0.074, "2032": -0.074},
+      "findings": ["gap freezes at -7.4% (ratio 0.926) as UW rent growth converges to 3% cost inflation",
+                   "Seasons rents never cross even the 6.0% pencil line during the projection",
+                   "Emblem's own 2031 trended rent $2,443 ($2.60/SF) is ~8% above Seasons exit-year rent"]
+    }
   },
   "land_supply_5mi": {
     "seasons": {"apartment_ready_acres": 1130, "parcels": 228, "mf_by_right_acres": 507, "within_2mi_acres": 309, "moat": "economic"},
