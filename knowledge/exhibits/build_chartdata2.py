@@ -31,11 +31,11 @@ U='/root/.claude/uploads/91c04b01-74f7-505b-b8cb-cd8084223f9d/'
 _wb=_o.load_workbook(U+'bec225b3-TMG_Acquisitions_model_7.26___Seasons_at_Meridian_v3.xlsm',read_only=True,data_only=True)
 _ws=_wb['HD Dump']
 _h=[c.value for c in next(_ws.iter_rows(min_row=1,max_row=1,max_col=25))]
-iFP=_h.index('Floorplan Mapped'); iOFF=_h.index('Off Market Date'); iASK=_h.index('Last Asking Rent'); iU=_h.index('Unit'); iSF=_h.index('SF')
+iFP=_h.index('Floorplan Mapped'); iOFF=_h.index('Off Market Date'); iASK=_h.index('Last Asking Rent'); iEFF=_h.index('Last Effective Rent'); iU=_h.index('Unit'); iSF=_h.index('SF')
 recs=[]
 for row in _ws.iter_rows(min_row=2,max_col=25,values_only=True):
     if row[iFP] and isinstance(row[iOFF],datetime.datetime) and isinstance(row[iASK],(int,float)):
-        recs.append((str(row[iFP]),row[iOFF],float(row[iASK]),str(row[iU]),row[iSF]))
+        recs.append((str(row[iFP]),row[iOFF],float(row[iASK]),str(row[iU]),row[iSF],float(row[iEFF])))
 _wb.close()
 
 # ---------- load Prelude HD unit-details records (lease-level export 8/13/2026) ----------
@@ -59,11 +59,11 @@ SEA=[("S1_Seas",15,1403.07),("A1_Seas",120,1479.41),("A2_Seas",45,1625.41),("B1_
 PRE=[("1x1-pp",106,1431),("2x2a-pp",100,1733),("2x2b-pp",30,1767),("3x2-pp",44,1984)]
 
 # ---------- HD_Seasons data tab ----------
-ws=sheet('HD_Seasons',[2,14,14,14,10,8])
-put(ws,'B1','Floorplan Mapped',BOLD); put(ws,'C1','Off Market Date',BOLD); put(ws,'D1','Last Asking Rent',BOLD); put(ws,'E1','Unit',BOLD); put(ws,'F1','SF',BOLD)
+ws=sheet('HD_Seasons',[2,14,14,14,10,8,16])
+put(ws,'B1','Floorplan Mapped',BOLD); put(ws,'C1','Off Market Date',BOLD); put(ws,'D1','Last Asking Rent',BOLD); put(ws,'E1','Unit',BOLD); put(ws,'F1','SF',BOLD); put(ws,'G1','Last Effective Rent',BOLD)
 r=2
-for fp,off,ask,u,sf in recs:
-    put(ws,f'B{r}',fp,BLUE); put(ws,f'C{r}',off,BLUE,D); put(ws,f'D{r}',ask,BLUE,M0); put(ws,f'E{r}',u,BLUE); put(ws,f'F{r}',sf,BLUE,NUM)
+for fp,off,ask,u,sf,eff in recs:
+    put(ws,f'B{r}',fp,BLUE); put(ws,f'C{r}',off,BLUE,D); put(ws,f'D{r}',ask,BLUE,M0); put(ws,f'E{r}',u,BLUE); put(ws,f'F{r}',sf,BLUE,NUM); put(ws,f'G{r}',eff,BLUE,M0)
     r+=1
 NSEA=r-1
 put(ws,'H1',f'{len(recs)} lease records — Seasons model HD Dump (HDUnitLevel), pull 8/2026',NOTE)
@@ -107,6 +107,25 @@ for j in range(NP):
     col=get_column_letter(5+j)
     put(ws,f'{col}{r}',f'=SUMPRODUCT({col}7:{col}{r-1},$C7:$C{r-1})/SUM($C7:$C{r-1})',BOLD,M0)
 SEAW=r
+r+=2
+put(ws,f'B{r}','SEASONS AT MERIDIAN — EFFECTIVE RENT (net of concessions; model CF(Annual) rows 321-340 convention, HDUnitLevel[Last Effective Rent])',BOLD,fill=SUB)
+hdr(ws,r+1,['B','C','D'],['Floor plan','Units','Fallback (contract rent)'])
+r0=r+2; r=r0
+for p,u,cr in SEA:
+    put(ws,f'B{r}',p); put(ws,f'C{r}',u,BLUE,NUM); put(ws,f'D{r}',cr,BLUE,M0)
+    for j in range(NP):
+        col=get_column_letter(5+j)
+        win=f'HD_Seasons!$C:$C,">="&EDATE({col}$4,-3)+1,HD_Seasons!$C:$C,"<="&{col}$4'
+        cnt=f'COUNTIFS(HD_Seasons!$B:$B,$B{r},{win})'
+        avg=f'AVERAGEIFS(HD_Seasons!$G:$G,HD_Seasons!$B:$B,$B{r},{win})'
+        fb = f'$D{r}' if j==0 else f'{get_column_letter(4+j)}{r}'
+        put(ws,f'{col}{r}',f'=IF({cnt}>0,{avg},{fb})',BLACK,M0)
+    r+=1
+put(ws,f'B{r}','SEASONS EFFECTIVE T90 MIX-WEIGHTED',BOLD)
+for j in range(NP):
+    col=get_column_letter(5+j)
+    put(ws,f'{col}{r}',f'=SUMPRODUCT({col}{r0}:{col}{r-1},$C{r0}:$C{r-1})/SUM($C{r0}:$C{r-1})',BOLD,M0)
+SEAEW=r
 r+=2
 put(ws,f'B{r}','PRELUDE AT PARAMOUNT (HD Unit Details, pull 8/13/2026)',BOLD,fill=SUB)
 hdr(ws,r+1,['B','C','D'],['Floor plan','Units','Fallback (RR avg rent)'])
@@ -164,30 +183,32 @@ put(ws,f'D{r}',f'=SUMPRODUCT(D{r0}:D{r-1},C{r0}:C{r-1})/SUM(C{r0}:C{r-1})',BOLD,
 SL5=r
 
 # ---------- Chart_Data ----------
-ws=sheet('Chart_Data',[2,12,16,15,15,16,15,15,15,46])
+ws=sheet('Chart_Data',[2,12,16,17,15,15,16,15,15,15,46])
 put(ws,'B2','Chart Data — monthly',TITLE)
 put(ws,'B3','Green = live formulas (T90_Monthly / L5 tabs). Blue = extracted (models/statements). Both T90 series computed from lease-level HelloData on HD_Seasons / HD_Prelude.',NOTE,wrap=True)
-hdr(ws,5,['B','C','D','E','F','G','H','I'],
-    ['Date','Seasons T90 (mix-wtd)','Seasons UW asking','Seasons L5 / UW entry','Prelude T90 (mix-wtd)','Prelude UW rent/occ','Prelude actual in-place','Prelude L5 (8/13/26)'])
-uwS={datetime.datetime(2026,8,4):1885,datetime.datetime(2027,11,1):1960,datetime.datetime(2028,11,1):2038,datetime.datetime(2029,11,1):2110,datetime.datetime(2030,11,1):2184,datetime.datetime(2031,11,1):2249}
+hdr(ws,5,['B','C','D','E','F','G','H','I','J'],
+    ['Date','Seasons T90 asking (mix-wtd)','Seasons T90 effective (mix-wtd)','Seasons UW mkt rent (yr avg)','Seasons L5 / UW entry','Prelude T90 (mix-wtd)','Prelude UW rent/occ (yr avg)','Prelude actual in-place','Prelude L5 (8/13/26)'])
+# UW values are ANNUAL AVERAGES -> plotted at UW-year midpoints (Seasons Y1 = Nov-26..Oct-27)
+uwS={datetime.datetime(2027,4,30):1885,datetime.datetime(2028,4,30):1960,datetime.datetime(2029,4,30):2038,datetime.datetime(2030,4,30):2110,datetime.datetime(2031,4,30):2184,datetime.datetime(2032,4,30):2249}
 uwP={datetime.datetime(2026,7,1):1668,datetime.datetime(2027,7,1):1745,datetime.datetime(2028,7,1):1808,datetime.datetime(2029,7,1):1883,datetime.datetime(2030,7,1):1952}
 act={datetime.datetime(2026,m,15):v for m,v in zip(range(1,8),[1668,1670,1672,1675,1675,1682,1684])}
-alld=sorted(set(months)|set(uwS)|set(uwP)|set(act)|{datetime.datetime(2026,8,13)})
+alld=sorted(set(months)|set(uwS)|set(uwP)|set(act)|{datetime.datetime(2026,8,4),datetime.datetime(2026,8,13)})
 r=6
 for dt in alld:
     put(ws,f'B{r}',dt,BLACK,D)
     if dt in months:
         j=months.index(dt); col=get_column_letter(5+j)
         put(ws,f'C{r}',f'=T90_Monthly!{col}{SEAW}',GREEN,M0)
-        put(ws,f'F{r}',f'=IF({FLAG}=0,"",T90_Monthly!{col}{PREW})',GREEN,M0)
-    if dt in uwS: put(ws,f'D{r}',uwS[dt],BLUE,M0)
-    if dt in uwP: put(ws,f'G{r}',uwP[dt],BLUE,M0)
-    if dt in act: put(ws,f'H{r}',act[dt],BLUE,M0)
-    if dt==datetime.datetime(2026,8,4): put(ws,f'E{r}',f'=L5_New_Leases!D{SL5}',GREEN,M0)
-    if dt==datetime.datetime(2026,8,13): put(ws,f'I{r}',f'=L5_New_Leases!D{PL5}',GREEN,M0)
+        put(ws,f'D{r}',f'=T90_Monthly!{col}{SEAEW}',GREEN,M0)
+        put(ws,f'G{r}',f'=IF({FLAG}=0,"",T90_Monthly!{col}{PREW})',GREEN,M0)
+    if dt in uwS: put(ws,f'E{r}',uwS[dt],BLUE,M0)
+    if dt in uwP: put(ws,f'H{r}',uwP[dt],BLUE,M0)
+    if dt in act: put(ws,f'I{r}',act[dt],BLUE,M0)
+    if dt==datetime.datetime(2026,8,4): put(ws,f'F{r}',f'=L5_New_Leases!D{SL5}',GREEN,M0)
+    if dt==datetime.datetime(2026,8,13): put(ws,f'J{r}',f'=L5_New_Leases!D{PL5}',GREEN,M0)
     r+=1
-put(ws,f'B{r+1}','Seasons UW path: $1,885 (executed L5, flat through Y1) then annual steps +4/4/3.5/3.5/3% each Nov. Prelude UW: rent/occupied path from acquisition model. Actuals: potential rent net LTL /280 from accrual statement.',NOTE,wrap=True)
-ws.merge_cells(f'B{r+1}:J{r+2}')
+put(ws,f'B{r+1}','UW market rents are ANNUAL AVERAGES, plotted at UW-year midpoints: Seasons Y1 (Nov-26..Oct-27) avg $1,885 sits at Apr-27, then +4/4/3.5/3.5/3% steps; Prelude UW = calendar-year averages at Jul-1. Seasons L5 marker 8/4/26 = executed new-lease spot. Actuals: potential rent net LTL /280 from accrual statement.',NOTE,wrap=True)
+ws.merge_cells(f'B{r+1}:K{r+2}')
 
 del wb['Sheet']
 wb.move_sheet('Chart_Data',offset=-4)

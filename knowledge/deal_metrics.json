@@ -55,7 +55,7 @@
     "revenue_share": 1077,
     "total": 2736
    },
-   "rent_growth_uw_note": "ASKING/market-rent series only (S&A B39). Y1 +7.57% = Y1 avg $1,885 (= L5 executed leases, held flat all of Y1) vs Y0 TTM HelloData avg $1,752 \u2014 zero intra-Y1 asking growth; annual growth starts Y2. Concession burn-off is separate: effective rent +15.1% Y1 (concessions 9.3%->2.9%; CF line 1.5/1.0/0.5/0% of AGPR).",
+   "rent_growth_uw_note": "ASKING/market-rent series only (S&A B39). Annual UW market rents are YEAR AVERAGES, not day-one spot rents (CF Monthly holds each year's average flat; Y1 avg = $1,884.69 all 12 months, steps to $1,960.07 in month 13). Y1 +7.57% = Y1 avg $1,885 (= L5 executed leases 8/4/26) vs Y0 TTM HelloData avg $1,752. Implied spot path under smooth 4%/yr growth: ~$1,848 at close (Nov-26) -> ~$1,922 (Oct-27), averaging $1,885 = today's executed spot at mid-Y1. Plot annual UW rents at UW-year midpoints (Y1 midpoint ~Apr-27). Concession burn-off separate: effective rent +15.1% Y1 (concessions 9.3%->2.9%; CF line 1.5/1.0/0.5/0% of AGPR).",
    "effective_rent_uw": {
     "y0": 1589,
     "y1": 1830,
@@ -73,7 +73,8 @@
      0.005,
      0.0
     ]
-   }
+   },
+   "hd_t90_effective_note": "Model CF(Annual) hidden rows 321-340 = same T90 machinery on HDUnitLevel[Last Effective Rent], same contract-rent fallback. Seasons effective T90 8/13/26 = $1,939 = asking (concessions zero on recent leases); trough Nov-25 $1,420 (-15.5% vs asking) during lease-up concession waves. Model T3 effective $1,855.8 ties to replication $1,858.3 (Jun-30-26 window)."
   },
   "prelude_at_paramount": {
    "role": "owned",
