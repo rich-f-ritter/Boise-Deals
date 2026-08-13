@@ -291,6 +291,25 @@ Against ~$320K/unit cost and a required ~6.0–6.5% yield-on-cost (vs a ~5.2% ma
 5. Prelude at Paramount price confirmation (non-disclosure; client holds the actual figure).
 6. Paired Eagle-vs-Ten-Mile land comps (CoStar pull recommended).
 
-# Appendix IV: Source Base
+# Appendix IV: Cross-Metro CES–QCEW Evidence (added Aug 13, 2026)
+
+To test whether the Boise survey-vs-tax-records divergence (Finding 1) is idiosyncratic, the same comparison was computed for nine peer metros (full table, method, and mechanism discussion in deal-file appendix J):
+
+| Metro | CES T3M Dec-25 | QCEW Q4-25 | Gap | CES T3M Jun-26 |
+|---|---|---|---|---|
+| **Boise** | +0.91% | **+2.32%** | **−1.41** | +0.42% |
+| Austin | +1.27% | +2.48% | −1.21 | +1.24% |
+| Salt Lake City | +0.82% | +1.72% | −0.90 | +2.09% |
+| Baton Rouge | −0.79% | +0.06% | −0.85 | +1.85% |
+| Las Vegas | +1.14% | +1.93% | −0.79 | +2.26% |
+| Reno | +1.64% | +2.15% | −0.50 | +1.63% |
+| Dallas–Fort Worth | +0.59% | +0.80% | −0.21 | +0.84% |
+| Houston | +0.31% | +0.48% | −0.17 | +0.66% |
+| Phoenix | −0.03% | +0.08% | −0.11 | +0.93% |
+| Denver | −0.11% | −0.37% | +0.26 | −0.09% |
+
+Three conclusions. **First**, the Q4 2025 understatement is systematic: the survey printed below the tax records in nine of ten metros in the shutdown quarter, after agreeing within ±0.3pp in seven of ten the quarter before. **Second**, the gap scales with actual growth — fast-formation metros (Boise, Austin, SLC, Vegas, Reno) show gaps of −0.5 to −1.4pp while flat metros (Phoenix, Denver, Houston) show none — the birth-death fingerprint: the model's error is proportional to how far actual business formation deviates from its modeled baseline. Boise, the smallest fast-growth metro in the set, is the extreme case, not an outlier in kind. **Third**, the honest wrinkle: several peers' CES prints recovered sharply by mid-2026 (Vegas +2.26%, SLC +2.09%) while Boise's has not — consistent with a small panel re-anchoring slowly (implying true Boise growth near +1.8%), but not provable until the Q1 2026 QCEW publishes in September 2026, which remains the diligence checkpoint.
+
+# Appendix V: Source Base
 
 This paper synthesizes three commissioned research streams (national causes; Boise local causes; Class A comps & replacement cost — preserved in full with URLs as deal-file appendices G, H, and I), the two prior research streams behind the v2 memo (appendices A–D), and original computation (appendix E + `t3m_sectors.json`). Principal primary sources: BLS (CES flat files, QCEW API, BED, OEWS, JOLTS, benchmark documentation), FRED, Idaho Department of Labor (releases, EORAC 2026 outlook), Idaho Capital Sun, BoiseDev, Idaho Statesman/Press, Idaho EdNews, Dallas/St. Louis/Cleveland/Chicago/KC Federal Reserve Banks, Brookings/AEI, CBO, Yale Budget Lab, Stanford Digital Economy Lab, IPA/Marcus & Millichap, Lee & Associates, TOK Commercial, CBRE, Colliers, MMG, REBusinessOnline, Multi-Housing News, Multifamily Dive, and City of Meridian records. ~200 distinct citations across the appendix set.
