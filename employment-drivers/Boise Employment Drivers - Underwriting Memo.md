@@ -1,111 +1,133 @@
-# Boise Employment Drivers — Underwriting Memo
-## Seasons at Meridian (2700 E Overland Rd, SE Meridian)
+# Boise Employment Drivers — Underwriting Memo (v2)
+## Seasons at Meridian (2700 E Overland Rd, SE Meridian — 360 units, built 2024, Eagle Rd × I-84 node)
 
-**Prepared August 13, 2026.** Synthesized from four parallel research streams (BLS/Idaho DOL statistics; corporate relocations & expansions; the established employer base; Meridian/Ten Mile + migration). Full source detail with URLs in `appendix/`.
+**Prepared August 13, 2026. v2 restates all employment figures on a trailing-3-month (T3M) YoY basis** (Apr–Jun 2026 avg vs. Apr–Jun 2025 avg, computed from raw BLS CES flat files — method and full tables in `appendix/E`). v2 also incorporates the Blue Cross of Idaho campus-exit announcement (Dec 2025) and corrects the District at Ten Mile sponsorship. Companion documents: `Location Premium - Eagle Rd x I-84.md` and `District at Ten Mile - Dossier.md`. Full source detail with URLs in `appendix/`.
 
 ---
 
 ## TL;DR
 
-**The Boise growth story is real but it has changed shape.** Metro job growth has decelerated four straight years — +2.7% (2023) → +2.5% (2024) → +2.0% (2025) → ~+1.0–1.2% now — yet that is still ~5x the nearly stalled US rate. The engine has rotated: the 2020–22 wave of remote workers and California HQ relocations is over, and white-collar corporate Boise is shrinking (HP exiting entirely by end-2027, Albertsons corporate eroding, Scentsy/Blue Cross/Lamb Weston/Cradlepoint/Kount all cutting). What's growing instead is **healthcare (~$1.55B of hospital construction underway), construction, logistics/distribution, government-adjacent anchors (Gowen Field F-16 mission, $700M airport expansion), and retail chasing rooftops** — and nearly all of it is concentrated in the **western valley (Meridian, Nampa, Kuna, Caldwell), i.e., the subject's trade area, not downtown Boise**.
+**The Boise growth story is real but it has changed shape — and on smoothed (T3M) data it is cooler than the single-month prints suggest.** T3M job growth has stair-stepped down from +2.9% (mid-2023) to **+0.42% now** — still above the US (+0.24% T3M NSA) but no longer a growth-market number, and now trailing SLC (+2.1%), Reno (+1.6%), and Phoenix (+0.9%). The engine has rotated: the 2020–22 wave of remote workers and California HQ relocations is over, and white-collar corporate Boise is shrinking (HP exiting entirely by end-2027, Albertsons corporate eroding, **Blue Cross of Idaho announced in Dec 2025 it will sell its Meridian campus and relocate**, Scentsy/Lamb Weston/Cradlepoint/Kount all cutting). What's still growing — construction, trade/transport, financial activities — plus the huge committed capex pipeline (Micron fabs, ~$1.55B hospitals, $700M airport, Kuna data centers, District at Ten Mile) is concentrated in the **western valley, i.e., the subject's side of the metro**.
 
-**On the "what else besides Micron" question specifically:** Micron is only ~1.5–1.7% of metro employment directly (~6,000–7,000 Treasure Valley jobs out of ~420,100). The metro's stability base is eds/meds/government at ~29% of all jobs, no supersector exceeds ~19%, and the largest employer is St. Luke's (~16–17k, growing), not Micron. Seasons' tenant base draws first from a dense suburban employment ring that has nothing to do with chips: the Silverstone/El Dorado office parks literally across Overland Rd (Citi, T-Mobile, AmeriBen, Power Engineers), St. Luke's Meridian hospital ~1.5 mi away, Ten Mile Crossing (2M+ SF built, only two-thirds complete), Blue Cross of Idaho and Scentsy HQs, ICCU's Eagle View Landing campus, West Ada School District (Idaho's largest), and the I-84 logistics corridor.
+**On "what else besides Micron":** Micron is ~1.5–1.7% of metro employment directly (~6,000–7,000 of ~416,400 T3M jobs). The stability base is eds/meds/government at ~29% of all jobs; no supersector exceeds ~19%; no private employer exceeds ~4%. The largest employer is St. Luke's (~16–17k, growing), not Micron. Seasons' tenant base draws first from the employment ring at its own interchange — Silverstone/El Dorado (Citi, T-Mobile), ICCU's Eagle View Landing, St. Luke's Meridian 1.3 mi north — detailed in the location-premium memo.
 
-**Underwriting posture:** support rent growth assumptions with ~1.0–1.5%/yr job growth, not the boom-era 2.5–3.5%. The strongest demand argument is not job growth at all — it's the **own-vs-rent spread of roughly $1,500–1,900/month** (median Meridian house ~$550K at 6.2–7% rates ≈ $3,300–3,600/mo vs ~$1,700–1,800 rent), which structurally traps would-be buyers in rentals. Micron's 2027–28 fab ramp is identifiable upside, not base case.
+**Underwriting posture:** the current run-rate is ~+0.4%; a defensible forward assumption is **~0.5–1.5%/yr job growth** (IDOL projects 1.2%), not the boom-era 2.5–3.5%. The strongest demand argument is not job growth — it's the **own-vs-rent spread of roughly $1,500–1,900/month**, plus the metro construction-pipeline collapse (~600 units under construction at Q4 2025, −55% YoY). Micron's 2027–28 fab ramp is identifiable upside, not base case.
 
 ---
 
-## 1. The macro picture (Boise MSA = Ada, Canyon, Boise, Gem, Owyhee counties)
+## 1. The macro picture — trailing-3-month basis (Apr–Jun 2026 avg vs. year prior)
 
-| Measure | Latest reading | Trend |
+**Total nonfarm, T3M: 416,400 — +1,733 jobs, +0.42% YoY.** The T3M history shows an unbroken deceleration staircase:
+
+| T3M ending | YoY % | YoY jobs |
 |---|---|---|
-| Total nonfarm employment | **420,100** (June 2026) | +5,100 (+1.2%) YoY |
-| Annual growth | 2023: +2.7% · 2024: +2.5% · 2025: +2.0% · 2026 YTD avg: ~+0.5% | Decelerating; June 2026 re-accelerated to +1.2% |
-| vs US / peers (Jun'25→Jun'26) | US +0.25% · SLC +2.7% · Reno +1.7% · Phoenix +1.4% · **Boise +1.2%** · Spokane −0.7% | Mid-pack in Mountain West, ~5x US |
-| Unemployment | 3.5% MSA (Jun 2026); Ada 3.4% | vs US 4.4%; up from ~2.4% cycle lows |
-| Labor force | **−0.7% YoY (Jun 2026)** — first sustained contraction post-COVID | Key soft spot; in-migration-driven labor supply has paused |
-| Wages | Ada Co. avg weekly wage +4.4% YoY; Idaho 3rd-fastest wage growth in the nation (2025) | Metro wage = 94% of US |
-| Median HH income | Ada County **$91.5K**; **Meridian $100.8K** (2024 ACS) | Meridian ~13% above US |
+| Jun 2023 | +2.85% | +10,933 |
+| Dec 2023 | +3.24% | +12,667 |
+| Jun 2024 | +2.70% | +10,633 |
+| Dec 2024 | +1.77% | +7,133 |
+| Jun 2025 | +2.48% | +10,033 |
+| Dec 2025 | +0.91% | +3,733 |
+| Mar 2026 | +0.51% | +2,067 |
+| **Jun 2026** | **+0.42%** | **+1,733** |
 
-**Sector scoreboard (Jun 2025 → Jun 2026):** winners were construction (+1,900, +4.8%), trade/transportation/utilities (+1,800), education & health (+1,400), professional/business services (+1,100), financial (+600). Losers: leisure & hospitality (−1,300, −3.0%), government (−700), information (−200). Manufacturing was flat — Micron's operational hiring is mostly 2027–28, so today its impact shows up in construction, not factory payrolls.
+The single-month June 2026 print (+1.2%) that headlines BLS coverage is noise — the smoothed trend is ~+0.4% and still slowing. **Peer comparison, same T3M basis:** SLC +2.09% · Reno +1.63% · Phoenix +0.93% · **Boise +0.42%** · Spokane −0.84% · US +0.24% (NSA). Boise has slipped from top-decile to next-to-last among its Mountain West peer set.
 
-**Diversification:** no supersector exceeds ~19% of employment. Eds/meds/government = ~120,000 jobs, **~29% of the metro** — the recession ballast. No private employer exceeds ~4% of MSA jobs. Idaho DOL projects +1.2%/yr through Q1 2027 statewide, led by healthcare (+7,250) and construction (+3,980); long-term 2022–2032 projection is +13.8% total with healthcare ~20% of all new jobs.
+**Sectors, T3M YoY (Apr–Jun 2026):**
+
+| Sector | T3M level (000s) | YoY jobs | YoY % | Trend vs. T3M Jun-25 |
+|---|---|---|---|---|
+| Mining/logging/**construction** | 39.7 | +900 | **+2.32%** | decelerating (was +7.4%) |
+| Other services | 14.5 | +367 | +2.59% | steady |
+| Financial activities | 23.6 | +500 | +2.17% | improving |
+| Trade/transport/utilities | 79.8 | +1,333 | +1.70% | rebounding |
+| Prof & business services | 62.5 | +667 | +1.08% | improving |
+| **Education & health** | 67.0 | +433 | **+0.65%** | sharp decel (was +6.3% two yrs ago) |
+| Manufacturing | 31.1 | −100 | −0.32% | flat |
+| Government | 53.4 | −400 | −0.74% | deteriorating |
+| Information | 4.3 | −200 | −4.44% | persistent decline |
+| **Leisure & hospitality** | 40.5 | −1,767 | **−4.18%** | worst sector |
+| **Total nonfarm** | **416.4** | **+1,733** | **+0.42%** | |
+
+Two T3M readings matter most for underwriting: **(a) healthcare hiring — the metro's supposed engine — decelerated from +6.3% (T3M Jun-24) to +0.65% now**, even as ~$1.55B of hospital construction proceeds (capex is running ahead of hiring; the hiring comes with the 2028–2030 openings); **(b) construction growth halved on a smoothed basis (+2.3% vs the +4.8% single-month print)** — still the leader, but Micron/hospital/airport buildouts are carrying it.
+
+**Labor market:** unemployment T3M 3.4% (vs US 4.4%); **labor force T3M −0.79% YoY** — the first sustained contraction of the post-COVID era; in-migration-driven labor supply has paused. Wages remain the bright spot: Ada County weekly wages +4.4% YoY, Idaho 3rd-fastest wage growth nationally (2025), Meridian median household income $100,795.
+
+**Diversification:** no supersector exceeds ~19% of employment; eds/meds/government ≈ 120,000 jobs, ~29% of the metro; no private employer exceeds ~4% of MSA jobs. IDOL projects +1.2%/yr statewide through Q1 2027, led by healthcare and construction.
 
 ---
 
 ## 2. The five real growth engines beyond Micron
 
-### a) Healthcare — the strongest non-Micron driver (~$1.55B under construction)
-- **St. Luke's** (Idaho's largest employer, ~16–17k statewide, growing): **$1.1B downtown Boise expansion** — 9-story tower, +80 beds to 500+, >1M SF, completion late 2029 — plus a **330K SF consolidated service center opened in Meridian (2025)**. St. Luke's Meridian hospital (550K SF, 157 beds) is ~1.5 mi northeast of the subject.
-- **Saint Alphonsus** (Trinity Health, ~6,000+ regionally, stable): **~$450M western-valley expansion announced Feb 2026** — Nampa hospital more than doubles (+64 beds, 7-story tower, complete fall 2028) plus a new **~80K SF North Meridian Health Plaza** (ground-break 2026, complete 2028). Explicitly justified by Canyon County's +15.5% 2020–24 population growth.
-- **Primary Health** expanding to 22 valley clinics, including Idaho's first pediatric urgent care in Meridian (its largest clinic ever, at Eagle/Franklin).
-- Healthcare is projected to be ~20% of all new Idaho jobs through 2032 — durable, mid-income, renter-relevant employment.
+*(Unchanged in substance from v1 — the committed-capex pipeline is the point; the T3M data says the payroll payoff is mostly 2027+.)*
 
-### b) Construction — +4.8% YoY, ~9.8% of metro jobs
-Micron ID1 fit-out (first wafers mid-2027) and ID2 site prep (~$1.2B of CHIPS money redirected from the delayed NY fab; ~4,500 construction jobs at peak), both hospital programs above, the **$700M Boise Airport terminal expansion** (Hensel Phelps, through 2029), and Kuna's data centers. Caveat: construction at ~2x the US employment share is itself an exposure if these programs roll over post-2028; and Micron abruptly terminated GC Exyte in fall 2025 (201 layoffs) — big but lumpy demand.
+### a) Healthcare — ~$1.55B under construction, hiring decelerated for now
+St. Luke's $1.1B downtown Boise tower (+80 beds, late 2029) + 330K SF Meridian service center (opened 2025); Saint Alphonsus ~$450M western-valley program (Nampa hospital doubles by fall 2028; new ~80K SF North Meridian plaza); Primary Health expanding to 22 clinics. **T3M caveat: ed/health payrolls are only +0.65% YoY right now** — the big permanent hiring arrives with the 2028–2030 openings. Healthcare is still ~20% of all projected new Idaho jobs through 2032.
+
+### b) Construction — +2.3% T3M, ~9.5% of metro jobs
+Micron ID1 fit-out (first wafers mid-2027) and ID2 site prep (~$1.2B CHIPS redirect; ~4,500 construction jobs at peak), hospitals, the $700M Boise Airport expansion (through 2029), Kuna data centers, and the District at Ten Mile. Construction at ~2× the US employment share is an exposure once these programs peak post-2028.
 
 ### c) Logistics & distribution along I-84
-- **Tractor Supply DC — Nampa: ~865K SF, ~$225M, 500+ jobs**, hiring began Q2 2026, open late 2026/early 2027. The largest non-Micron jobs announcement of the period.
-- **Amazon Nampa**: announced 1,000 jobs, actually employs ~2,000+.
-- **In-N-Out** expanded its Boise distribution warehouse to support its Idaho rollout; **WinCo** (HQ, ~20K ESOP employees companywide) expanding stores and distribution.
-- Steady blue-collar/workforce-housing demand feeding rentals within commuting range of the subject.
+Tractor Supply DC Nampa (~865K SF, ~$225M, 500+ jobs, hiring now); Amazon Nampa ~2,000+; In-N-Out and WinCo distribution. T3M trade/transport/utilities +1.7% — one of the few sectors re-accelerating.
 
-### d) Data centers — capex-rich, jobs-light, construction-heavy
-- **Meta Kuna**: scope grew from $800M announced to an estimated ~$5.8B cumulative; ~1,400 peak construction workers; ~100+ permanent jobs; fully operational end-2026. Meta also funded a $70M water/sewer system for Kuna — an enabler of future residential growth.
-- **Diode Ventures Kuna**: $1B+, 620 acres, 800–1,200 construction jobs, ~100 permanent — **operator not yet identified; treat as speculative**. (No confirmed Microsoft data center in the valley.)
-- Underwrite these as transient construction demand through ~2027–28, not permanent payrolls.
+### d) Data centers — capex-rich, jobs-light
+Meta Kuna (~$5.8B est., ~1,400 peak construction, ~100+ permanent, operational end-2026); Diode Ventures Kuna ($1B+, operator unnamed — speculative). Transient construction demand through ~2028, not payrolls.
 
 ### e) Government / military / airport anchors
-- **Gowen Field F-16 mission arriving 2027** — secures the Idaho Air Guard's flying-mission future (~1,300 Air Guard, ~5,255 Guard statewide, ~$650M annual impact).
-- **Boise Airport**: record traffic, $700M expansion, $2.9B annual economic impact, 21K+ supported jobs.
-- **NIFC** (~650 year-round federal fire-logistics HQ), State of Idaho capital functions, **Boise State at record enrollment (28,519, +4.7%)**. Note: government payrolls were −1.3% YoY in June 2026 (state restraint + federal cuts) — ballast, not growth, near-term.
+Gowen Field F-16 mission 2027; BOI $700M expansion, 21K+ supported jobs; NIFC; state capital functions; Boise State record enrollment (28,519). T3M government payrolls −0.74% — ballast, not growth, near-term.
 
 ---
 
-## 3. The subject's trade area: Meridian & the Ten Mile/Overland corridor
+## 3. The employer base: who's growing, who isn't
 
-Meridian is now **Idaho's 2nd-largest city (~147,300, +3.1% YoY)** — up ~24% since 2020, still growing at triple the national rate, with an AEI-estimated **~2,500-unit housing shortage (~4.9% of stock)**. The city's explicit strategy ("Built for Business, Designed for Living") is to build employment centers at its I-84 interchanges. What that means within ~3 miles of Seasons:
+**Update vs. v1 — Blue Cross of Idaho:** after cutting 135 jobs in April 2025, Blue Cross **announced Dec 3, 2025 it will sell its 34-acre, 238K SF Meridian campus (Pine/Eagle) and relocate** — 802 on-campus employees. Destination unannounced; treat as a potential full loss to the Eagle corridor and a watch item for whether it lands elsewhere in Meridian. (BoiseDev 12/3/25.)
 
-**The subject's front yard — Silverstone / El Dorado business parks (Eagle & Overland):** Power Engineers, **Citi** (one of Meridian's largest employers), **T-Mobile call center** (~1,000 announced jobs, walking distance at Goldstone Way), AmeriBen/IEC Group, Intermountain Orthopaedics, and more. This existing office/flex base — not Micron — is the closest employment to the property.
+Otherwise the v1 table stands (full detail in `appendix/C`): **growing** — St. Luke's, Micron, Saint Alphonsus, WinCo, Amazon, Idaho Power, ICCU, Boise State; **stable** — State of Idaho, schools, Simplot, Citi Meridian, Wells Fargo; **shrinking/exiting** — HP (full Boise exit by end-2027, ~1,100–1,700 jobs), Albertsons corporate, Blue Cross (campus exit), Scentsy (−22% in two rounds), Lamb Weston, Cradlepoint/Ericsson, Kount/Equifax, Clearwater flat locally ($8.4B take-private Dec 2025).
 
-**Ten Mile Crossing (Brighton), ~2.5 mi west:** 300+ acres, **2M+ SF built, only ~two-thirds complete**. Confirmed roster: Scheels (opened Apr 2024, ~400–500 employee-owners, Idaho's biggest sporting-goods anchor), Paylocity (62K SF), AmeriBen (~500 on site, second building underway), Brighton HQ, Leidos, Horrocks, ~15 more office tenants plus a growing medical cluster. Under construction: the ~100K SF **Sentinel Building** (early 2027, unnamed committed anchor) and CapEd Credit Union (fall 2026).
-
-**The District at Ten Mile (west of Ten Mile Rd): broke ground May 5, 2026.** ~220 acres: **Meridian's first Target (148K SF, ~May 2027)**, Life Time Fitness, hotels, In-N-Out, industrial/flex, ~1,800 residential units. The biggest near-term jobs/retail catalyst in the submarket.
-
-**Costco — get the geography right:** Meridian already has one (Ten Mile & Chinden, opened 2021, NW Meridian). A **second, ~200K SF Costco is under construction at Meridian Rd & Lake Hazel, opening late 2026** — making Meridian Idaho's only two-Costco city. Separately, BoiseDev (July 2026) reports an unnamed ~150K SF warehouse retailer negotiating for Hawkins land at Meridian Rd & I-84 (Tanner Creek, ~1.5 mi from the subject) — site plan consistent with Costco/Sam's, **unconfirmed rumor; do not underwrite**.
-
-**Other Meridian anchors:** St. Luke's Meridian hospital (~1.5 mi), Blue Cross of Idaho HQ (850+ at HQ, shrinking), Scentsy HQ (shrinking), ICCU Eagle View Landing operations campus (128K SF + second building; ICCU ~$12B assets, growing), Idaho State Police HQ (700+), The Village at Meridian, West Ada School District (~38,900 students, Idaho's largest).
+The 2024–26 pattern: **meds-eds-logistics-military up (in commitment if not current payrolls), legacy corporate down.** Micron ≈ 1.5–1.7% of MSA jobs directly — cyclicality, not existential concentration.
 
 ---
 
-## 4. Demand side: migration and the rent-vs-own spread
+## 4. The subject's trade area: Meridian & the two interchanges
 
-- **Ada County added ~10,916 people in the year to July 2025 — its largest absolute gain in Idaho and faster than 2024.** Roughly 75% of Idaho's growth is net in-migration ⇒ ~8,000+ net migrants into Ada County in 2025 (derived). California remains the #1 feeder (~11,800 CA licenses surrendered in the latest ITD year, Ada County the top landing spot), then WA/OR.
-- Boise MSA: **845,877 (2024), 13th fastest-growing US metro**; COMPASS plans for ~1.1M in Ada+Canyon by 2050. In-migration is clearly below the 2020–22 boom but has stabilized at strong-but-normal — and the **June 2026 labor-force contraction (−0.7% YoY) says don't extrapolate boom-era in-migration**.
-- **The own-vs-rent spread is the core rental-demand argument:** Meridian median sale ~$550K; at 6.2–7% rates, all-in ownership ≈ $3,300–3,600/mo vs ~$1,700–1,800 asking rent — renting costs roughly half of buying. Locked-in 2.5–4% owners freeze resale inventory. Boise rent growth is modest (~3% YoY) with vacancy ~2–3.5%.
+Meridian is Idaho's 2nd-largest city (~147,300, +3.1%/yr, ~24% growth since 2020), with an AEI-estimated ~2,500-unit housing shortage. The subject's competitive geography is now best understood as **two distinct I-84 nodes**:
 
----
+- **Eagle Rd × I-84 (the subject's node):** the valley's traffic and employment center of mass — Idaho's busiest arterial (~60–64K vpd at the subject's segment) crossing Idaho's busiest freeway stretch (~147K vpd), an estimated 15–25K corridor jobs within ~2 mi, and **essentially no remaining apartment-capable land** (see the location-premium memo — within 1.5 mi there are only ~26 ac of by-right MF land and zero sites ≥10 ac). Existing competitive set at the node: only ~1,100–1,200 units (Seasons 360, Silverstone Apts 312, Silver Ridge 112, Aren at Eagle View ~300–400), with one contested 184-unit proposal (Rolling Hill — council continued it May 2026).
+- **Ten Mile Rd × I-84 (4 mi west):** the growth-and-supply node — Ten Mile Crossing (2M+ SF, two-thirds built) plus the **District at Ten Mile** (~220 ac, Ahlquist Development; Target May 2027, Life Time, In-N-Out, two hotels, ~500K SF industrial, ~1,800 units at full buildout — see the dossier). The Ten Mile planning area has **~3,000 MF units approved, ~1,900 built** (mid-2024 count), plus Vanguard Village (552 entitled), Gateway (390), Outer Banks (516), and — nearest to the subject's path — **Southridge (640 units, under construction on Overland south of I-84)**.
 
-## 5. Honest negatives — the risk ledger
-
-1. **Deceleration is real.** Four straight years of slowing growth; April 2026 printed the first negative YoY month since 2020; the labor force is contracting; IDOL itself projects only ~1.2%/yr.
-2. **HP is leaving Boise entirely by end-2027** — announced March 5, 2026; ~1,100–1,700 mostly high-income engineering jobs, phased 2026–27. The largest single negative of the period, and it skews W. Boise/Meridian — the subject's renter-by-choice pool.
-3. **Albertsons HQ erosion:** post-merger-collapse corporate layoffs (Jan 2025, several hundred Boise roles + offshoring), July 2026 division consolidation with the Mountain West division office next to HQ listed for lease, and the company declining to discuss Boise impact. Underwrite the HQ as slow-shrink.
-4. **Meridian's own HQ wobbles:** Scentsy cut ~22% across two rounds (Apr 2025, Mar 2026); Blue Cross of Idaho −9% (135 laid off Apr 2025); Lamb Weston (Eagle) in repeated global cuts with an activist pushing more.
-5. **Tech is consolidating, not booming:** Cradlepoint/Ericsson shrinking, Kount/Equifax cut, Clearwater's $8.4B take-private (Dec 2025) adds long-term HQ-consolidation tail risk; no major VC-backed growth announcements 2024–26. The HQ-relocation wave of 2020–21 did not continue — 2023–26 wins were facility expansions, not headquarters.
-6. **Leisure & hospitality (−3.0%) and government (−1.3%) are shedding jobs**; construction's outsized share (~9.8% vs ~5% US) is an exposure once Micron/hospital/airport programs peak.
-7. **Data centers ≠ payrolls** (~100 permanent jobs each). **Buc-ee's Meridian is dead at that interchange** (traffic, no application filed). Darigold's announced Boise office has no confirmed follow-through. "Project Butterfly" (TRI-incented, 1,025 jobs in Meridian at $64K avg wage, approved 2023) is code-named and unverified — confirm with Idaho Commerce before citing.
-8. **Exit-comp caution:** Boise Regional Realtors' Dec 2025 outlook flagged a possible 2026 home-price dip — good for the rent-vs-own story, bad for exit optimism.
+**Costco, precisely:** existing store at Ten Mile & Chinden (2021); second ~200K SF store under construction at Meridian Rd & Lake Hazel, opening late 2026. The rumored warehouse club at Tanner Creek (Meridian Rd & I-84, Hawkins land) remains unconfirmed — do not underwrite.
 
 ---
 
-## 6. What this means for Seasons at Meridian
+## 5. Demand: migration and the rent-vs-own spread
 
-- **The tenant base is majority non-Micron and structurally diversified.** Within a short commute: hospital/medical (St. Luke's Meridian + Saint Al's plaza + Primary Health), office/back-office (Citi, T-Mobile, AmeriBen, Paylocity, Leidos, ICCU ops), the state's largest school district, big-box/lifestyle retail (Scheels, two Costcos, Target 2027, Village at Meridian), and I-84 logistics. That mix is workforce-housing-shaped — matching a 1990s-vintage value-add asset better than a downtown Class-A profile.
-- **Growth is coming to the subject, not away from it.** The metro's 2023–26 expansion map (Saint Al's $450M, Tractor Supply, Meta/Diode Kuna, Costco Lake Hazel, District at Ten Mile) is overwhelmingly western-valley. Meridian/south-Meridian is the center of gravity of the metro's next decade, per COMPASS planning.
-- **Use ~1.0–1.5%/yr job growth in the story, lean on the $1,500–1,900/mo own-vs-rent spread as the demand engine, and treat Micron's 2027–28 ramp (+2,000 direct, 15,000 indirect claimed) as upside.** The flip side from the land-supply work in this repo still applies: this same growth attracts heavy competing apartment supply near Seasons (~1,130 apartment-ready acres within 5 mi), so employment strength argues for absorption, not automatically for rent growth.
-- **Watch list for diligence/IC:** HP wind-down pace (2026–27), Albertsons corporate headcount, Scentsy/Blue Cross stabilization, Micron ID2 milestones, the Tanner Creek warehouse-club rumor, and whether the labor-force contraction persists into 2027.
+- Ada County added ~10,916 people in the year to July 2025 — its largest gain in Idaho, faster than 2024; ~75% of Idaho's growth is net in-migration (⇒ ~8,000+ net migrants into Ada in 2025, derived). California is the #1 feeder. But the **T3M labor-force contraction (−0.79%)** says the boom-rate flows have paused — be conservative.
+- Boise MSA 845,877 (2024), 13th-fastest-growing US metro; COMPASS plans ~1.1M in Ada+Canyon by 2050.
+- **Own-vs-rent:** Meridian median sale ~$550K → all-in ownership ~$3,300–3,600/mo at 6.2–7% rates vs ~$1,700–1,800 asking rent — renting is roughly half the cost of buying; 2.5–4% locked-in owners freeze resale inventory.
+- **Supply tailwind:** metro construction pipeline collapsed to ~597 units under construction (Q4 2025, −55% YoY), absorption ~2,500+/yr, occupancy ~94.3%, rents stabilizing — the supply trough arrives exactly as the subject stabilizes.
 
 ---
 
-*Sources: ~120 primary citations (BLS, FRED, Idaho DOL, Idaho Commerce TRI list, Census/COMPASS, BoiseDev, Idaho Statesman/Press, Idaho Business Review, company releases) — see the four appendix files for every claim with URL and data vintage. Known data conflicts (HP local headcount 1,100–1,700; ICCU and Clearwater headcounts; stale 2023 IDOL top-employer ranges) are flagged in the appendices.*
+## 6. Risk ledger — the honest negatives
+
+1. **T3M growth is ~+0.4% and still decelerating** — the four-year staircase has not yet found a floor; April 2026 printed the first negative single month since 2020; the labor force is shrinking.
+2. **Healthcare hiring has stalled for now** (+0.65% T3M vs +6.3% two years ago) even as hospital capex proceeds — the bridge to 2028–30 openings is thinner than the construction cranes suggest.
+3. **HP exits Boise entirely by end-2027** (~1,100–1,700 high-income jobs), skewing W. Boise/Meridian.
+4. **Albertsons HQ erosion** continues (division consolidation July 2026; Mountain West division office listed for lease).
+5. **The Eagle corridor's own white-collar wobbles:** Blue Cross selling its campus (802 jobs), Scentsy −22%, Meridian-South office vacancy ~21% (metro's softest), Paylocity long gone to Ten Mile.
+6. **Tech consolidating, not booming**; leisure & hospitality −4.2% T3M; government −0.7%.
+7. **Data centers ≠ payrolls; Buc-ee's dead at Meridian Rd; Darigold unconfirmed; "Project Butterfly" (1,025 code-named Meridian jobs) unverified.**
+8. **Exit caution:** possible 2026 home-price dip flagged by Boise Regional Realtors; Boise 2024–25 apartment trades cleared at $165K–$222K/unit vs ~$220K–$280K replacement — pricing at/above replacement forfeits the cycle's margin of safety (see location-premium memo §4).
+
+---
+
+## 7. What this means for Seasons at Meridian
+
+- **The tenant base is majority non-Micron and structurally diversified** — corridor office/medical/retail employment at the subject's own interchange, the state's largest school district, and I-84 logistics. The asset is 2024-built Class A; its renter profile skews to the corridor's office/medical/retail workforce and priced-out would-be buyers.
+- **Growth is concentrating in the subject's half of the metro** — but so is supply. Employment strength argues for absorption; the ~3,000-unit Ten Mile pipeline and Southridge (640, closest) argue against rent-growth heroics. Net: use the supply trough (2026–27 deliveries collapse) as the rent-growth window, and assume Ten Mile deliveries resume pressure 2028+.
+- **Underwrite ~0.5–1.5%/yr job growth** (current run-rate +0.4%, IDOL projection 1.2%); lean on the own-vs-rent spread and pipeline collapse as the demand engine; treat Micron's 2027–28 ramp and hospital openings (2028–30) as the upside case.
+- **The location question — is Eagle/I-84 extra valuable? Yes, with limits.** The node has a real, durable premium (traffic centrality, 15–25K corridor jobs, structural supply moat — no by-right MF land left) — but at/above-replacement pricing consumes that premium fully. See `Location Premium - Eagle Rd x I-84.md` for the full evidence-for/against and what has to stay true.
+- **Watch list:** HP wind-down pace; Albertsons corporate; **where Blue Cross lands**; Rolling Hill (184-unit) council outcome; Vanguard Village building permits (the early-warning for District apartments); Southridge lease-up pace; Micron ID2 milestones; whether the labor-force contraction persists into 2027.
+
+---
+
+*Sources: ~150 primary citations across the appendices (BLS, FRED, Idaho DOL, Idaho Commerce, Census/COMPASS, City of Meridian records, BoiseDev, Idaho Statesman/Press, IBR, TOK/CBRE/Lee & Associates, company releases). T3M method + tables: `appendix/E`. Known data conflicts flagged in each appendix.*

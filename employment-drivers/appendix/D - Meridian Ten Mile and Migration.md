@@ -1,4 +1,6 @@
 # Appendix D — Meridian / Ten Mile Employment & Boise Metro Migration
+> **CORRECTIONS (v2, Aug 13, 2026)** from the follow-up deep dives: (1) The District at Ten Mile's master developer is **Ahlquist Development** (with Ball Ventures and Elevated Property Company/Fred Bruning of CenterCal) — NOT Hawkins/Kuna-based developers; see `../District at Ten Mile - Dossier.md`. (2) **Blue Cross of Idaho announced Dec 3, 2025 it will sell its Meridian campus and relocate** (802 on-campus jobs) — the "850+ HQ employees, current" row below is superseded. (3) The ~1,800 District residential units break down as: Vanguard Village 552 entitled apartments (Franklin/Ten Mile), up to ~400 TN-C townhomes (Phase 3, 2028+), remainder paper units with no named builders.
+
 *Research stream 4 of 4. Prepared August 13, 2026. Subject: 2700 E Overland Rd, SE Meridian (note: subject sits ~2.5 mi east of the Ten Mile/I-84 interchange, in the Overland/Eagle–Silverstone corridor; Ten Mile Crossing is the nearest major master-planned employment node to the west).*
 
 ---
