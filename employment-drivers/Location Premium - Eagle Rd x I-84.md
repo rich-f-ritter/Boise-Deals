@@ -70,6 +70,7 @@ Fresh cut of `SeasonsMeridian/Tables/developable_parcels.csv` (891 developable p
 ## 5. Evidence for / against the premium
 
 **FOR:**
+0. **(v4, Placer.ai) The subject's ZIP is the metro's #1 demand zone:** ZIP 83642 posted the Treasure Valley's largest net in-migration in YE June 2026 (+2,417, +34.7/1,000, accelerating +1,077 over the prior year) while north Meridian (83646) decelerated sharply — the metro's strongest migration flow is landing precisely at the subject's corridor. See appendix K.
 1. Idaho's busiest arterial × busiest freeway segment; traffic is renter access to jobs, retail, and the hospital.
 2. Deep employment base at the front door (~15–25K corridor jobs est.) vs. a fraction of that at Ten Mile today; metro's highest office rents on this corridor's new product; ICCU/Ahlquist still investing.
 3. **Structural supply moat:** ~26 ac by-right MF within 1.5 mi, zero 10+ ac sites, one contested 184-unit proposal — vs ~3,000 approved units at Ten Mile. Node scarcity is land-and-zoning-based, not cyclical.

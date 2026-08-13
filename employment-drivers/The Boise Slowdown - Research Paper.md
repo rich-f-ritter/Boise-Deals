@@ -190,6 +190,8 @@ Rising job postings, rising wages, flat unemployment, and a shrinking labor forc
 
 **Implication for the asset:** a supply-constrained labor market with top-3 wage growth is materially better for apartment demand than the payroll number implies. Renters' incomes are rising ~4–5%/year; the people not appearing in CES payrolls (retirees, remote workers, the self-employed) still lease apartments; and school-enrollment declines in West Ada — driven by housing costs pricing out young families — are, perversely, a renter-retention signal for the own-vs-rent spread documented in the v2 memo.
 
+**Post-publication addendum (Placer.ai device data, ingested Aug 13, 2026 — appendix K):** client-provided mobile-device migration data extends the population picture through June 2026, eleven months past the last Census vintage — and it shows net migration *re-accelerating to a five-year high* (YE June 2026: ~+11.6–12.4K net domestic, nearly double the prior year; Boise ranks #5 of 925 US CBSAs in absolute net migration and #5 by rate; Ada County ranks #8 of 3,126 US counties; the subject's own ZIP, 83642, is the metro's #1 in-migration ZIP at +2,417 and accelerating). This sharpens the reconciliation above: record population inflow alongside a *measured* labor-force contraction is coherent only if the BLS population controls lag reality (the same artifact family as Finding 1) and/or the migrant mix skews toward non-workers — and under either reading, housing demand is running ahead of every payroll statistic in this paper.
+
 # 6. Finding 5: Timeline and Momentum — the Trough Is Behind Us on Current Data
 
 Sequential momentum (T3M level vs. six months prior, annualized, NSA — compared against like halves to control seasonality):
@@ -310,6 +312,21 @@ To test whether the Boise survey-vs-tax-records divergence (Finding 1) is idiosy
 
 Three conclusions. **First**, the Q4 2025 understatement is systematic: the survey printed below the tax records in nine of ten metros in the shutdown quarter, after agreeing within ±0.3pp in seven of ten the quarter before. **Second**, the gap scales with actual growth — fast-formation metros (Boise, Austin, SLC, Vegas, Reno) show gaps of −0.5 to −1.4pp while flat metros (Phoenix, Denver, Houston) show none — the birth-death fingerprint: the model's error is proportional to how far actual business formation deviates from its modeled baseline. Boise, the smallest fast-growth metro in the set, is the extreme case, not an outlier in kind. **Third**, the honest wrinkle: several peers' CES prints recovered sharply by mid-2026 (Vegas +2.26%, SLC +2.09%) while Boise's has not — consistent with a small panel re-anchoring slowly (implying true Boise growth near +1.8%), but not provable until the Q1 2026 QCEW publishes in September 2026, which remains the diligence checkpoint.
 
-# Appendix V: Source Base
+# Appendix V: Placer.ai Migration Evidence (added Aug 13, 2026)
+
+Client-provided Placer.ai device-based migration exports (eight files, archived in the deal file's `data/placerai/`; full analysis in appendix K) extend the demand picture through June 2026:
+
+| Measure | YE Jun 2025 | YE Jun 2026 |
+|---|---|---|
+| Boise MSA net domestic migration | +6,051 | **+11,647** |
+| Total growth (incl. natural + international) | +13,042 | **+18,769** |
+| Gross inbound | 21,134 | 27,875 |
+| Valley ZIP-level net (independent cut) | +6,045 | **+10,445** |
+
+Boise ranks **#5 of 925 US CBSAs** in absolute net migration (+12,398 per the national file) and #5 by rate (+1.45%) — ahead of Phoenix (+744), Denver (+1,046), SLC (+1,530), and Las Vegas (−3,950) combined. California supplies 47% of the net inflow; the Washington DC feeder doubled year-over-year (+338, $127K feeder MHHI) — the federal-exodus channel landing in Boise. **Ada County is the #8 migration county in America (+8,552, +1.58%). ZIP 83642 — containing the subject — is the metro's #1 net-in-migration ZIP (+2,417, +34.7/1,000, accelerating +1,077 over the prior year), while north Meridian (83646) decelerated — growth is rotating into the subject's corridor.** In-migrant income matches incumbent income (ratio ~1.00): the metro is importing its own income distribution.
+
+Caveats: the three Placer exports give net-migration levels of +8.5K/+11.6K/+12.4K for the same year (table truncation vs model totals) — treat the level as ~+11–12K and the *near-doubling trend* as the robust finding; device-panel levels are model outputs, most reliable in year-over-year comparison within the same methodology. Official confirmation arrives with Census Vintage 2026 (December 2026–March 2027), which joins the September 2026 QCEW pull as the second diligence checkpoint.
+
+# Appendix VI: Source Base
 
 This paper synthesizes three commissioned research streams (national causes; Boise local causes; Class A comps & replacement cost — preserved in full with URLs as deal-file appendices G, H, and I), the two prior research streams behind the v2 memo (appendices A–D), and original computation (appendix E + `t3m_sectors.json`). Principal primary sources: BLS (CES flat files, QCEW API, BED, OEWS, JOLTS, benchmark documentation), FRED, Idaho Department of Labor (releases, EORAC 2026 outlook), Idaho Capital Sun, BoiseDev, Idaho Statesman/Press, Idaho EdNews, Dallas/St. Louis/Cleveland/Chicago/KC Federal Reserve Banks, Brookings/AEI, CBO, Yale Budget Lab, Stanford Digital Economy Lab, IPA/Marcus & Millichap, Lee & Associates, TOK Commercial, CBRE, Colliers, MMG, REBusinessOnline, Multi-Housing News, Multifamily Dive, and City of Meridian records. ~200 distinct citations across the appendix set.
