@@ -128,7 +128,7 @@ where noted); Hawkins = Y3.
 | Real estate taxes | 1,340 | 1,169 (0.4507% actual) | 3,428 | 1,501 | 2,203 (understated) |
 | Insurance | 525 | 620 | 625 | 496 | 536 |
 | Total opex | 6,656 (28.9%) | — | 9,267 (34.7%) | 8,551 | 7,199 |
-| NOI | 16,402 | ~15,900 | 17,458 | 22,754 (2031, trended) | 17,989 |
+| NOI | 16,402 | 14,099 (4.95% Y1 cap × $284.8K) | 17,458 | 22,754 (2031, trended) | 17,989 |
 
 **Taxes (largest distortion — jurisdiction, not operations):**
 - Meridian effective levy **~0.45%** (Seasons actual 0.4507% = Prelude actual; Emblem stabilized $1,501/u consistent).
@@ -150,6 +150,33 @@ comparisons need revenue-model matching; (b) correcting OI to market pushes true
 **Opex quirks:** Hawkins shows $0 payroll — bundled in an 8%-of-EGI "management expense fee" ($2,878/u vs
 our $2,247 payroll+mgmt). Emblem vacancy stack 5.87% (4.0 phys + 0.5 CL + 1.37 model) ≈ our ~6.0% total
 deductions. All four books underwrite stabilized concessions to zero.
+
+## 4b. Developer underwriting normalized (added 2026-08-13; workbook: knowledge/exhibits/Boise_Deals_Normalized_Underwriting.xlsx)
+
+Corrections applied (all formula-driven in the workbook; edit the yellow cells to flex):
+
+**Emblem Meridian.** (1) Other income $4,207 → **$3,398/u** line-by-line: garages $1,041→$750 (Prelude
+achieves $759 WITH rentable garages; attached TH garages are usually in rent), wifi $1,296→$1,077 (Seasons'
+proven revenue share), billback $1,149→$850 (actual recoveries $698–763; new-build submetering premium),
+pets/misc kept. (2) Taxes marked to 95% of normalized value at the 0.45% Meridian levy (closed-form
+V = NOI-ex-tax ÷ (cap + levy×reassess)). (3) Exit cap 5.50% → 5.25% base / 5.00% alt (CR award 4.57%/5.12%
+tax-adj; Seasons 5.00%; Prelude 4.95%). **Result: true untrended ROC ≈ 6.3% (not 6.65%); normalized exit
+value ≈ their $102.5M book at an honest 5.25% — the sandbagged cap and aggressive OI roughly OFFSET on exit
+value, but the yield claim deflates and true pencil rents rise (~$2.24/SF at 6.5% on their product,
+~$2.30 on Seasons-like product).**
+
+**The Judy (Hawkins).** (1) Boise taxes corrected from $2,203/u to ~$2,950–3,000/u (0.92% levy × 95% of
+closed-form value) — their single largest error, ~50bp of ROC. (2) OI $3,568 → $3,000/u (CR-anchored; their
+wifi/valet/smart-home costs are already expensed). (3) Exit cap kept at 5.25% (post-tax-fix it is no longer
+conservative; CR clears 4.57% today). (4) Market-land test: land at ~$625K/ac (+$1.4M vs 2024 basis).
+**Result: true untrended ROC ≈ 6.0–6.15% on the stale-land basis, ≈ 5.9% on market land; normalized sale
+≈ $338K/u vs $362K marketed. The deal is a land-basis arbitrage — its 6.52% is not comparable to Emblem's
+6.65% without these fixes, and its equity raise is harder than the book suggests (pipeline-attrition signal).**
+
+Implications: (a) the supply moat is WIDER than the developers' books imply — corrected pencil rents are
++11–14% above Seasons at 6.5% ROC; (b) normalized new-product exit caps of 5.00–5.25% independently support
+the Seasons exit band; (c) both books flatter the same metric (yield-on-cost) while roughly truth-telling on
+exit value — read developer books accordingly.
 
 ## 5. Supply synthesis — land vs. economics (ties to repo land-use work)
 
