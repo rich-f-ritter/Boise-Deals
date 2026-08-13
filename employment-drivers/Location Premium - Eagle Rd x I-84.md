@@ -9,7 +9,7 @@
 
 **Yes — the node carries a genuine, durable location premium, and it is quantifiable on three axes: traffic centrality, employment density, and a structural supply moat.** It is the Treasure Valley's highest-traffic, highest-employment suburban node, and — critically — it is **built-out infill where a competing garden community essentially cannot be assembled**, while the valley's apartment pipeline is structurally pushed 2.5–4+ miles west to Ten Mile.
 
-**But:** at/above-replacement pricing (~$230K–$280K+/unit estimated) is a **30–60% premium to where every observable 2024–25 Boise-metro trade cleared ($165K–$222K/unit, ~$200K average)**. The premium is real; the price consumes it in full. The deal then depends on (a) the metro supply trough persisting through stabilization, and (b) the node's employment base not eroding further (Blue Cross is already leaving). Defensible, not conservative.
+**Pricing context (CORRECTED — see appendix I and the research paper §9):** replacement cost for a Seasons-equivalent today is **~$300–340K/unit** (Seasons itself cost ≥$278K/unit at January-2023 pricing), and institutional 2020s-vintage Class A in Ada County clears **~$250–340K/unit**. A ~$328K/unit valuation is therefore **replacement-cost parity within the observed Class A band** — not a premium to market. The earlier $165–222K/unit "clearing price" framing was an artifact of Idaho's non-disclosure tape (three sub-institutional Class B/C and Canyon County trades). The correct frame: basis at replacement parity, at the metro's most supply-protected node, while the pipeline is dead (2–3.5% of inventory under construction) because development math needs rents 25–35% above market — that combination is the margin of safety. Residual watch items: the node's white-collar wobbles (Blue Cross leaving) and the Ten Mile pipeline resuming 2028+.
 
 ---
 
@@ -58,12 +58,14 @@ Fresh cut of `SeasonsMeridian/Tables/developable_parcels.csv` (891 developable p
 
 **Conclusion: scarcity at this node is structural — land, zoning, and council posture together mean Seasons is plausibly the last large apartment community at this interchange for years.** New competition must locate 2.5+ mi west and compete from a lower-employment, higher-supply node.
 
-## 4. Replacement cost & where trades clear — the uncomfortable part
+## 4. Replacement cost & where trades clear — CORRECTED (v3; full detail in appendix I)
 
-- **Build cost (estimate):** national garden/wrap benchmark $210K–$270K/unit all-in; Boise cost index ~0.88 → **~$220K–$280K/unit with land** for new Class A in Meridian.
-- **Where Boise trades actually cleared (Lee & Associates/CoStar Q2 2025):** metro average **~$200K/unit** (caps ~4.4–5.9%). Named comps: Ridgecrest Commons, Nampa — $165K/unit; The Landon, Boise — $200K/unit; Telluride, Boise — $221.7K/unit. Q2 2025 median for 5+ unit sales: $211K/unit.
-- **So the market has been trading at or below replacement — which is exactly why construction collapsed:** ~597 units under construction metro-wide at Q4 2025 (CBRE), down from ~5,000+ in 2022; completions −65%; absorption ~2,500+/yr; occupancy 94.3%; rents stabilizing.
-- **Implication:** paying at/above replacement for Seasons is a ~30–60% premium to observed 2024–25 clearing prices. The buyer is explicitly *not* getting the buy-below-replacement thesis that defines this cycle in Boise — they are paying for (a) 2024 vintage, (b) the node premium documented above, and (c) the supply-trough window. The premium must therefore show up in rents/retention/exit cap, because it will not show up in basis.
+> *The v1 version of this section understated both replacement cost and Class A clearing prices by relying on a thin non-disclosure-state public tape (three sub-institutional Class B/C and Canyon County comps). Corrected analysis:*
+
+- **Replacement cost for a Seasons-equivalent: ~$300–340K/unit all-in.** Anchors: Seasons itself cost "$100M+" for 360 units at January-2023 pricing (≥$278K/unit; escalated ~$305–330K today); Village Apartments (336u, Meridian, 2022) carried a $202K/unit *senior construction loan alone* (→ ~$300–335K/unit total at 60–65% LTC); Roundhouse quotes builds at "100–125% more" than 2015 bids; suburban Meridian MF land ~$25–40K/unit.
+- **Where institutional Class A actually clears: ~$250–340K/unit ($230–300/SF)** for 2020s-vintage, 150+ unit Ada County product. Lee's own series printed a $348K/unit quarterly average in Q1 2025 when real product traded; the widely quoted ~$200K "average" reflects small, old, Canyon County deals. Milestone's Prelude at Paramount purchase (Dec 2025, 280u, 2018 vintage — price undisclosed but above $222K/unit ≈ only ~$219/SF) is consistent with this band. **~$328K/unit for Seasons ≈ replacement-cost parity, upper-middle of the Class A band, ~4.7–5.2% implied cap — inside the quoted Class A range (TOK 5.2% market).**
+- **The development math stays broken — which is the thesis:** at ~$320K/unit cost and a 6.0–6.5% required yield-on-cost, new construction needs ~$2,500–2,700/mo blended rents vs ~$1,950–2,000 in place — a 25–35% rent gap. Hence completions −64% (2025), under-construction at 2–3.5% of inventory, and Seasons' own entitled Phase 2 parked in concept design. Absorption (~1,700–2,500/yr) exceeded deliveries in 2025 for the first time since 2020.
+- **Implication (corrected):** the buyer at ~$328K/unit is paying what the asset costs to build, in a market where nobody can build, at the node where nobody could build even if the math worked. Basis at replacement parity plus a dead pipeline **is** the margin of safety; the node premium then reads as exit-liquidity and occupancy protection on top of it, not as compensation for an above-market basis.
 
 ## 5. Evidence for / against the premium
 
@@ -75,7 +77,7 @@ Fresh cut of `SeasonsMeridian/Tables/developable_parcels.csv` (891 developable p
 5. State keeps funding this interchange ($14.8M aux-lane/ramp package; completed ramp upgrades).
 
 **AGAINST:**
-1. **Price:** 30–60% above observed clearing prices; the cycle's margin of safety is surrendered.
+1. **Price:** full replacement-cost parity leaves no basis discount — returns depend on rent growth, retention, and exit rather than buying below intrinsic value (corrected from v1's erroneous "30–60% above market" claim).
 2. **Node employment cracks:** Blue Cross campus exit (802 jobs), Scentsy ~40% off peak, ~21% Meridian-South office vacancy, HP's metro-wide exit skews to this renter pool.
 3. **Congestion is the premium's shadow:** COMPASS names Eagle Rd among the valley's three worst congestion areas; ITD's remedy is slower speed limits, not lanes; renters pay the node's virtue as daily time cost.
 4. **The valley's marginal growth is drifting west** — SH-16 freeway (complete 2027), I-84 SYSTEM interchange, ChindenWest, Linder overpass all reinforce Ten Mile/Star/Nampa; the marginal job and household increasingly land west of the subject.
@@ -84,7 +86,7 @@ Fresh cut of `SeasonsMeridian/Tables/developable_parcels.csv` (891 developable p
 ## 6. Underwriting synthesis
 
 - **Count the premium as:** (a) durable occupancy/retention edge and a rent premium vs. Ten Mile-node comps (the node's scarcity + employment adjacency should let Seasons price above the west-corridor lease-ups); (b) exit-liquidity edge — the "last big community at the best interchange" story is exactly what the next institutional buyer pays for; (c) downside protection in a supply-shock scenario, since none of the shock can land within 1.5 mi.
-- **Do not count the premium as:** immunity from metro rent softness (Ten Mile is 6 minutes away), or a reason to accept boom-era rent-growth assumptions on top of at/above-replacement basis. One of the two — premium basis or premium growth — can be underwritten, not both.
+- **Do not count the premium as:** immunity from metro rent softness (Ten Mile is 6 minutes away), or a reason to stack boom-era rent-growth assumptions on top of replacement-parity basis. The basis is fair, not cheap — the return case rests on the supply trough, wage-driven rent growth (~3–4%), and the node's occupancy/exit advantages, not on multiple expansion from a discounted entry.
 - **What has to stay true (monitor):** metro pipeline stays collapsed through 2027; Rolling Hill stays small/stalled; Blue Cross backfill (a campus redevelopment could eventually include residential — also an opportunity comp); Southridge lease-up pace; the T3M job-growth staircase finding a floor in 2026–27.
 
 ---
