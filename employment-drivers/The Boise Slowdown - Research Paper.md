@@ -21,7 +21,7 @@ The trailing-3-month (T3M) year-over-year payroll growth figure for the Boise MS
 
 **Finding 6 — The 2027–2030 catalyst stack is unusually visible.** Micron's first Boise DRAM output (mid-2027) with semiconductor job postings already +92%; the ID2 fab (2028); ~$1.55B of hospital openings (2028–2030); the District at Ten Mile Phase 1 (spring 2027); SH-16 freeway completion (2027); the Gowen Field F-16 mission (2027); and the $700M airport program. Nationally, the re-acceleration channels are immigration normalization, rate cuts, and tariff sunset. IDOL's own forecast is +1.2%/year; with break-even payroll growth near zero, even modest prints in 2027 will coincide with a tight labor market.
 
-**Underwriting synthesis:** the defensible reading of Boise employment for underwriting purposes is a **true current growth trend of roughly +1.5% to +2.5%** (hard-count basis), against a published CES figure of +0.4% that is likely to be revised up. We recommend underwriting to **+1.0–1.5%** — below the hard-data trend for conservatism, above the artifact-depressed CES print — while recognizing that Boise apartment demand is only partially payroll-coupled (retirees, remote workers, and priced-out would-be buyers rent without appearing in local payrolls). This paper also corrects the prior memo's replacement-cost analysis (Section 9): institutional replacement cost for a Seasons-equivalent is **~$300–340K/unit**, Class A 2020s-vintage clearing prices in Ada County are **~$250–340K/unit**, and a ~$328K/unit valuation is replacement-cost *parity* at the metro's best node — while the construction pipeline sits at 2–3.5% of inventory because development math remains broken by a 25–35% rent gap.
+**Underwriting synthesis:** the defensible reading of Boise employment for underwriting purposes is a **true current growth trend of roughly +1.5% to +2.5%** (hard-count basis), against a published CES figure of +0.4% that is likely to be revised up. We recommend underwriting to **+1.0–1.5%** — below the hard-data trend for conservatism, above the artifact-depressed CES print — while recognizing that Boise apartment demand is only partially payroll-coupled (retirees, remote workers, and priced-out would-be buyers rent without appearing in local payrolls). (Valuation, comps, and replacement-cost analysis are maintained separately in the deal file's `valuation/` folder — outside the scope of this paper.)
 
 ---
 
@@ -223,46 +223,6 @@ Boise's near-term catalysts are unusually dated and visible; the honest column o
 4. **The wage story is the rent story.** Third-fastest wage growth in the nation, concentrated in a supply-constrained market, is the fundamental support for the ~3% rent growth the metro is printing — and for more once the 2026–27 supply trough bites.
 5. **Watch the white-collar column.** The QCEW-confirmed softness (finance, professional services) maps to the subject's corridor office parks. The v2 memo's watch list (HP wind-down, Albertsons, Blue Cross landing spot, Meridian-South office backfill) remains the right early-warning set for the top of the subject's renter income distribution.
 
-# 9. Corrigendum: Replacement Cost and Class A Clearing Prices
-
-The v2 memo asserted that Boise trades cleared at $165–222K/unit (~$200K average) against replacement cost of ~$220–280K/unit, and characterized at/above-replacement pricing as a 30–60% premium to market. **That analysis was wrong**, and this section replaces it.
-
-## 9.1 Why it was wrong
-
-The range came from a single brokerage report (Lee & Associates Q2 2025) whose trailing-12-month "top transactions" consisted of three sub-institutional deals: a 2017-vintage 2-story Nampa asset ($165K/unit), a 102-unit 2023 build in west Boise ($221.7K/unit — only ~$205/SF), and a 76-unit infill deal ($200K/unit). Idaho is a non-disclosure state; the public tape is thin and skews small, old, and Canyon County. The same brokerage's own quarterly series printed **$348K/unit average in Q1 2025** — the quarters in which institutional newer-vintage product actually trades triple the average.
-
-## 9.2 The corrected Class A record
-
-Institutional-size, 2018+ vintage Ada County trades (prices mostly undisclosed — Idaho non-disclosure — buyers/sellers verified):
-
-| Date | Property | City | Units | Vintage | Parties |
-|---|---|---|---|---|---|
-| Feb 2021 | Indigo → Cortland South Meridian | Meridian (Overland/Ten Mile) | 336 | ~2019 | Cortland (buyer) |
-| Jun 2021 | Kennedy Wilson portfolio (Lofts at Ten Mile, Jasper, Towne Sq + dev site) | Meridian/Boise | 640+ | 2018–20 | $143M reported (~$210K+/unit blended) |
-| Jan 2022 | Prelude at Paramount | Meridian | 280 | 2018/19 | Pacific Development Partners ← Brighton/Pacific Partners (IPA) |
-| Jun 2022 | The Addison + Franklin at Ten Mile | Boise + Meridian | 605 | <5 yrs old | Cortland (buyer) |
-| Dec 2024 | Verraso Village (BTR, avg 1,840 SF) | Meridian | 96 | 2016/18 | MJW ← undisclosed (3.2% assumable) |
-| **Dec 2025** | **Prelude at Paramount** | **Meridian** | **280** | **2018** | **The Milestone Group ← Pacific Development Partners (IPA)** |
-
-Milestone's own Prelude print — above $222K/unit for a 2018-vintage asset at ~1,016 SF average units — is fully consistent with this record and with the only reported-price 2020s trade ($205/SF): $222K/unit on Prelude is only ~$219/SF. **The defensible clearing range for 150+ unit, 2020s-vintage Class A garden product in Ada County is approximately $250–340K/unit ($230–300/SF)**, with the Eagle/I-84 and Ten Mile nodes at the top of the band.
-
-## 9.3 Replacement cost, rebuilt from local anchors
-
-- **Seasons itself cost "$100 million-plus" for 360 units at January-2023 pricing — ≥$278K/unit** (developer, via Multifamily Dive). Escalated at 3–5%/year, today's rebuild is **~$305–330K/unit**.
-- Village Apartments (336-unit, 4-story, Meridian): a **$202K/unit senior construction loan alone** (2022); at 60–65% LTC → ~$300–335K/unit total cost.
-- Roundhouse (2023): building a Fowler-equivalent costs "100–125% more" than its 2015 bid.
-- Suburban Meridian MF land at Seasons density: ~$25–40K/unit; construction financing at ~7%.
-
-**All-in for a Seasons-equivalent today: ~$300–340K/unit.** A ~$328K/unit valuation is therefore **replacement-cost parity, not a premium to it** — at the metro's most supply-protected node (per the location-premium memo: ~26 acres of by-right MF land within 1.5 miles, zero 10+ acre sites).
-
-## 9.4 The development math stays broken — which is the thesis
-
-Against ~$320K/unit cost and a required ~6.0–6.5% yield-on-cost (vs a ~5.2% market cap), new construction needs ~$2,500–2,700/month blended rents versus ~$1,950–2,000 in place at Seasons — a **25–35% rent gap**. That is why metro completions fell 64% in 2025, under-construction inventory sits at 2–3.5% of stock, and Seasons' own entitled Phase 2 (351 units) remains parked in concept design. Local cap-rate context: TOK pegs Treasure Valley multifamily at ~5.2% (2025); at $328K/unit, a realistic Seasons NOI implies ~4.7–5.2% — inside the quoted Class A band.
-
-**Corrected bottom line:** the buyer at ~$328K/unit is not paying 30–60% over the market; they are paying approximately what the asset would cost to build, in a market where nobody can build (the rent gap), at the node where nobody could build even if the math worked (the land moat). The prior framing — "the premium must show up in rents because it will not show up in basis" — inverts: **basis at replacement parity plus a dead pipeline is the margin of safety**, and the employment findings of this paper (supply-constrained labor market, wage growth, artifact-depressed payroll prints, 2027–30 catalyst stack) support the demand side of that thesis.
-
----
-
 # Appendix I: Methodology
 
 **T3M construction:** 3-month arithmetic mean of NSA CES employment ending in the stated month, compared to the identical window one year prior. Sources: BLS SM flat files (`sm.data.13.Idaho`, `sm.data.54.TotalNonFarm.All`), series IDs in `appendix/E` of the deal file; US comparisons from FRED (PAYNSA and SA supersector series for shift-share).
@@ -290,8 +250,7 @@ Against ~$320K/unit cost and a required ~6.0–6.5% yield-on-cost (vs a ~5.2% ma
 2. Ada–Canyon building-permit counts for 2025–H1 2026 (COMPASS/Census BPS pull recommended).
 3. Formal hospital-system hiring-policy statements (none public; visible only in aggregate data).
 4. Quantified immigration-enforcement employment effects for the Boise MSA.
-5. Prelude at Paramount price confirmation (non-disclosure; client holds the actual figure).
-6. Paired Eagle-vs-Ten-Mile land comps (CoStar pull recommended).
+5. (Valuation items moved to the separate `valuation/` workstream.)
 
 # Appendix IV: Cross-Metro CES–QCEW Evidence (added Aug 13, 2026)
 
@@ -329,4 +288,4 @@ Caveats: the three Placer exports give net-migration levels of +8.5K/+11.6K/+12.
 
 # Appendix VI: Source Base
 
-This paper synthesizes three commissioned research streams (national causes; Boise local causes; Class A comps & replacement cost — preserved in full with URLs as deal-file appendices G, H, and I), the two prior research streams behind the v2 memo (appendices A–D), and original computation (appendix E + `t3m_sectors.json`). Principal primary sources: BLS (CES flat files, QCEW API, BED, OEWS, JOLTS, benchmark documentation), FRED, Idaho Department of Labor (releases, EORAC 2026 outlook), Idaho Capital Sun, BoiseDev, Idaho Statesman/Press, Idaho EdNews, Dallas/St. Louis/Cleveland/Chicago/KC Federal Reserve Banks, Brookings/AEI, CBO, Yale Budget Lab, Stanford Digital Economy Lab, IPA/Marcus & Millichap, Lee & Associates, TOK Commercial, CBRE, Colliers, MMG, REBusinessOnline, Multi-Housing News, Multifamily Dive, and City of Meridian records. ~200 distinct citations across the appendix set.
+This paper synthesizes two commissioned research streams (national causes; Boise local causes — preserved in full with URLs as deal-file appendices G and H; a third stream on Class A comps/replacement cost was moved to the deal file's `valuation/` folder as a separate workstream), the prior research streams behind the v2 memo (appendices A–D), Placer.ai client-provided migration data (appendix K, raw exports in `data/placerai/`), and original computation (appendices E and J + `t3m_sectors.json`, `crossmetro.json`). Principal primary sources: BLS (CES flat files, QCEW API, BED, OEWS, JOLTS, benchmark documentation), FRED, Idaho Department of Labor (releases, EORAC 2026 outlook), Placer.ai, Idaho Capital Sun, BoiseDev, Idaho Statesman/Press, Idaho EdNews, Dallas/St. Louis/Cleveland/Chicago/KC Federal Reserve Banks, Brookings/AEI, CBO, Yale Budget Lab, Stanford Digital Economy Lab, and City of Meridian records. ~200 distinct citations across the appendix set.
