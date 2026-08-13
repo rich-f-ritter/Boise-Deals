@@ -66,7 +66,7 @@ exit rents $2,249 vs their 2031 $2,443 = −7.9%, the same relative position as 
 real and lives in the NOI. The price equality is manufactured entirely by the cap rates: we assume aged product
 trades 50bp *tighter* (5.00%) in 2031 than the merchant assumes new product does in 2030 (5.50%). Both cannot
 describe the same market. Evidence for 5.00%: today's prints show age-flat caps for young vintages (Prelude
-closed 4.95% at 8 years old; Seasons bid 5.00%; CR 5.12% tax-adjusted) and merchant books pad exit caps for LP
+closed 4.95% at 8 years old; Seasons bid 5.00%; CR award 4.57%) and merchant books pad exit caps for LP
 optics (at 5.0% market caps Emblem clears ~$440K and the vintage ladder reappears: new $440K → Seasons-at-7
 $400K → Prelude-at-12 $361K). Against: a stabilized, no-VA-story 7-year-old argues for the wider end of any
 curve, our UW holds Seasons' relative rent position flat for 5 years of aging, and today's 8-year-old print
@@ -134,8 +134,16 @@ where noted); Hawkins = Y3.
 - Meridian effective levy **~0.45%** (Seasons actual 0.4507% = Prelude actual; Emblem stabilized $1,501/u consistent).
 - Boise effective levy **~0.92%** (Canyon Ridge actual).
 - Gap on identical product ≈ **$2,088/u/yr ≈ $42K/unit of value at a 5% cap** — structural Meridian advantage.
-- **Tax-normalize before comparing caps:** CR Y1 cap 4.57% becomes **5.12%** at Meridian taxes — wider than
-  Seasons' 5.00%. The CR buyer is accepting a *thinner* tax-adjusted yield than our Seasons bid.
+- **Comparability principle (CORRECTED 2026-08-13 v2):** taxes sit inside NOI, so **cap rates compare directly
+  across jurisdictions** — the tax burden is capitalized into *price*, not the cap. What is NOT comparable is
+  **price per unit**: an identical building carries ~$42K/unit more value in Meridian. CR's $381.9K/u Boise award
+  is ~**$427.6K/u Meridian-equivalent** at its own 4.57% cap — Seasons at $327.8K is ~23% below its
+  jurisdiction-adjusted 2024-vintage comp. (An earlier draft presented a "tax-normalized cap" of 5.12% and said
+  caps shouldn't be compared without it — that was backwards and is retracted.)
+- **Levies VERIFIED vs Ada County 2024 certified rates:** Boise code areas 0.906–0.914% (City 0.4053% +
+  Boise SD#1 0.2797% + county/common ~0.22%); Meridian ~0.45% (City 0.2033% + West Ada SD 0.0332% + common
+  ~0.21%). The school district is the structural driver. Matches model actuals (CR bill 0.9217%; Seasons/Prelude
+  0.4507%).
 - **Hawkins understates taxes**: $2,203/u UW vs ~$3,160/u at Boise levy × 95% of their own exit value.
   ~$155K/yr → true untrended ROC ~**6.15%, not 6.52%**. Boise new-build feasibility worse than marketed.
 - Idaho is a **non-disclosure state**; assessments lag price (Prelude assessed at 91% of PP at close;
@@ -159,8 +167,8 @@ Corrections applied (all formula-driven in the workbook; edit the yellow cells t
 achieves $759 WITH rentable garages; attached TH garages are usually in rent), wifi $1,296→$1,077 (Seasons'
 proven revenue share), billback $1,149→$850 (actual recoveries $698–763; new-build submetering premium),
 pets/misc kept. (2) Taxes marked to 95% of normalized value at the 0.45% Meridian levy (closed-form
-V = NOI-ex-tax ÷ (cap + levy×reassess)). (3) Exit cap 5.50% → 5.25% base / 5.00% alt (CR award 4.57%/5.12%
-tax-adj; Seasons 5.00%; Prelude 4.95%). **Result: true untrended ROC ≈ 6.3% (not 6.65%); normalized exit
+V = NOI-ex-tax ÷ (cap + levy×reassess)). (3) Exit cap 5.50% → 5.25% base / 5.00% alt (today's prints:
+CR award 4.57%; Seasons 5.00%; Prelude 4.95%). **Result: true untrended ROC ≈ 6.3% (not 6.65%); normalized exit
 value ≈ their $102.5M book at an honest 5.25% — the sandbagged cap and aggressive OI roughly OFFSET on exit
 value, but the yield claim deflates and true pencil rents rise (~$2.24/SF at 6.5% on their product,
 ~$2.30 on Seasons-like product).**
@@ -177,6 +185,13 @@ Implications: (a) the supply moat is WIDER than the developers' books imply — 
 +11–14% above Seasons at 6.5% ROC; (b) normalized new-product exit caps of 5.00–5.25% independently support
 the Seasons exit band; (c) both books flatter the same metric (yield-on-cost) while roughly truth-telling on
 exit value — read developer books accordingly.
+
+**v2 workbook note (knowledge/exhibits/Boise_Deals_Normalized_Underwriting_v2.xlsx):** pencil convention updated
+to normalized taxes (vs marketed embedded), lifting pencil rents ~$20–70/mo vs the v1/artifact figures: at
+normalized OI & taxes, 6.0% YoC needs $1,991/mo ($2.12/SF) and 6.5% needs $2,122 ($2.26/SF) — Seasons sits 5–8%
+below even the 6.0% pencil through the hold, and 11–14% below the 6.5% pencil. Full Prelude Y1 opex now included
+(personnel 1,797 / mkt 347 / G&A 399 / turnover 228 / R&M 157 / contracts 716 / utilities 559 / mgmt 522 /
+ins 620 / taxes 1,191 = 6,536; EGI 20,862; NOI 14,326–14,335).
 
 ## 5. Supply synthesis — land vs. economics (ties to repo land-use work)
 
@@ -254,7 +269,7 @@ Coherence map (all files interlock):
 - [ ] Add Emblem Meridian (256u, Y3 bucket) to S&A proposed-pipeline toggle + Competitive Analysis roster; confirm site distance.
 - [ ] Pull Prelude actuals (Jan–Aug 2026) vs acquisition UW — rent growth, concessions, occupancy. First live test of the thesis.
 - [ ] Verify Emblem site address/parcel from repo dossiers ("Emblem 250" in README pipeline list).
-- [ ] Verify Ada County levies with assessor (Meridian ~0.45% vs Boise ~0.92% code areas) before quoting at IC.
+- [x] Ada County levies VERIFIED (2024 certified: Boise 0.906–0.914%, Meridian ~0.45%; school district is the driver).
 - [ ] Build the one-page IC exhibit: price ladder / rent ladder (today + exit) / normalization table.
 - [ ] Stress scenario: Y4–Y5 rent growth cut to consensus 3.5% with supply-response toggle ON (proposed roster converts).
 - [ ] Diligence Seasons garage/carport inventory & monetization gap ($360/u vs Prelude $759/u vs Emblem UW $1,041/u — possible revenue capture).

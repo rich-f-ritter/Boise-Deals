@@ -205,26 +205,26 @@ def taxbars():
     return ''.join(out)+'</svg>'
 c5a = taxbars()
 
-# --- Chart 5b: cap rate dumbbell ---
+# --- Chart 5b: jurisdiction-adjusted $/unit (compact, own coordinate space) ---
 def capdumb():
-    h=170; x0,x1=250,860
-    vmin,vmax=4.4,5.3
-    sx=lambda v: x0+(v-vmin)/(vmax-vmin)*(x1-x0)
-    out=[svg_open(h)]
-    for t in [4.5,4.75,5.0,5.25]:
+    sx=lambda v: 20+(v-310)/138*400
+    out=['<svg viewBox="0 0 440 185" class="chart compact" role="img" xmlns="http://www.w3.org/2000/svg">']
+    for t in [320,360,400,440]:
         tx=sx(t)
-        out.append(f'<line x1="{tx:.1f}" y1="40" x2="{tx:.1f}" y2="120" class="grid"/>')
-        out.append(txt(tx,140,f"{t:.2f}%","tick"))
-    ya,yb=60,100
-    out.append(txt(230, ya, "Canyon Ridge", "itemname", "end", dy=4))
-    out.append(f'<line x1="{sx(4.57):.1f}" y1="{ya}" x2="{sx(5.12):.1f}" y2="{ya}" class="dumbline"/>')
-    out.append(f'<circle cx="{sx(4.57):.1f}" cy="{ya}" r="8" class="dot c3 hollow" data-tip="CR as awarded: 4.57% Y1 NOI cap"/>')
-    out.append(f'<circle cx="{sx(5.12):.1f}" cy="{ya}" r="8" class="dot c3" data-tip="CR at Meridian tax burden: 5.12%"/>')
-    out.append(txt(sx(4.57), ya-16, "4.57% as awarded", "itemsub"))
-    out.append(txt(sx(5.12), ya-16, "5.12% tax-normalized", "itemsub"))
-    out.append(txt(230, yb, "Seasons bid", "itemname", "end", dy=4))
-    out.append(f'<circle cx="{sx(5.00):.1f}" cy="{yb}" r="8" class="dot c1" data-tip="Seasons at $118M: 5.00% Y1 NOI cap"/>')
-    out.append(txt(sx(5.00), yb+24, "5.00%", "itemsub"))
+        out.append(f'<line x1="{tx:.0f}" y1="30" x2="{tx:.0f}" y2="140" class="grid"/>')
+        out.append(txt(tx,158,f"${t}K","tick"))
+    out.append(txt(20,22,"CANYON RIDGE — same building, two tax bills","itemsub","start"))
+    ya=58
+    out.append(f'<line x1="{sx(381.9):.0f}" y1="{ya}" x2="{sx(427.6):.0f}" y2="{ya}" class="dumbline"/>')
+    out.append(f'<circle cx="{sx(381.9):.0f}" cy="{ya}" r="7" class="dot c3 hollow" data-tip="CR award: $381.9K/unit in Boise (0.91% levy)"/>')
+    out.append(f'<circle cx="{sx(427.6):.0f}" cy="{ya}" r="7" class="dot c3" data-tip="Same building with Meridian taxes at the same 4.57% cap: ~$427.6K/unit"/>')
+    out.append(txt(sx(381.9),ya+22,"$381.9K","itemname"))
+    out.append(txt(sx(381.9),ya+35,"Boise","itemsub"))
+    out.append(txt(sx(427.6),ya-14,"$427.6K Meridian-equiv.","itemname","end"))
+    out.append(txt(20,108,"SEASONS BID","itemsub","start"))
+    yb=126
+    out.append(f'<circle cx="{sx(327.8):.0f}" cy="{yb}" r="7" class="dot c1" data-tip="Seasons bid $327.8K/unit — ~23% below the jurisdiction-adjusted CR comp"/>')
+    out.append(txt(sx(327.8)+12,yb+4,"$327.8K — 23% below adj. comp","itemname","start"))
     return ''.join(out)+'</svg>'
 c5b = capdumb()
 
@@ -449,6 +449,8 @@ text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
 .seriesnote{font-size:12.5px;fill:var(--ink2);font-weight:600}
 .seriesval{font-size:14px;fill:var(--ink);font-weight:700}
 .c1t{fill:var(--c1)} .c3t{fill:var(--c3)}
+.dumbline{stroke:var(--axis);stroke-width:2}
+.chart.compact{min-width:340px}
 .hovercol{fill:transparent}
 .hovercol:hover{fill:var(--wash1)}
 [data-tip]{cursor:default}
@@ -568,14 +570,16 @@ html = f"""<title>Seasons Pencil Test</title>
 <section>
   <p class="secno">06 · Taxes</p>
   <h2>Same product, $2,100/unit apart on taxes</h2>
-  <p class="take"><b>Meridian's ~0.45% levy vs Boise's ~0.92% is worth ≈ $42K/unit of capitalized value at a 5% cap — and it flips
-  the cap-rate comparison.</b> Tax-normalized, the Canyon Ridge buyer is accepting a thinner real-estate yield than our Seasons bid.
-  The Judy's marketed 6.52% ROC also rests on a Boise tax line ~$1,000/unit light.</p>
+  <p class="take"><b>Meridian's verified ~0.45% levy vs Boise's ~0.91% is worth ≈ $42K/unit of value for identical product —
+  and it lives in price per unit, not in cap rates.</b> Taxes sit inside NOI, so cap rates compare directly across the two cities;
+  price per unit does not. Canyon Ridge's $381.9K/unit Boise award is ~$428K/unit Meridian-equivalent at its own 4.57% cap —
+  putting Seasons ~23% below its jurisdiction-adjusted 2024-vintage comp.</p>
   <div class="duo cols">
     <div class="panel">{c5a}</div>
-    <div class="panel">{c5b}<p class="note" style="margin:0 8px 8px">Y1 NOI cap rates. Adding the Meridian-vs-Boise
-    tax difference back to Canyon Ridge's NOI moves its cap from 4.57% to 5.12% — wider than Seasons' 5.00%.
-    Idaho is a non-disclosure state; all three TMG models reassess at 95% of price.</p></div>
+    <div class="panel">{c5b}<p class="note" style="margin:0 8px 8px">Levies verified vs Ada County 2024 certified rates —
+    the driver is the school district (Boise SD 0.280% vs West Ada 0.033%) plus the city levy (0.405% vs 0.203%).
+    The Judy's marketed ROC rests on a Boise tax line ~$750/unit light. <em>(Corrects an earlier version of this
+    page that presented a "tax-normalized cap rate" — caps compare directly; $/unit requires the adjustment.)</em></p></div>
   </div>
   <p class="src">Tax lines from each model's Y1/stabilized pro forma; levies implied by actuals (Seasons &amp; Prelude 0.4507%; Canyon Ridge 0.92%).</p>
 </section>
