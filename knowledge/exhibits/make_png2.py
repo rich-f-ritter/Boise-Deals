@@ -46,7 +46,7 @@ out.append(txt(sx(2026.54)-10,sy(1938)-10,"HD T90 $1,938","itemsub c1t","end"))
 sea_uw=[(2026.62,1885),(2027.83,1960),(2028.83,2038),(2029.83,2110),(2030.83,2184),(2031.9,2249)]
 out.append(f'<path d="{smooth(P(sea_uw))}" class="line seasons"/>')
 out.append(f'<circle cx="{sx(2026.62):.1f}" cy="{sy(1885):.1f}" r="5" class="dot c1"/>')
-out.append(txt(sx(2026.75)+2,sy(1885)+22,"UW enters $1,885","itemsub c1t","start"))
+out.append(txt(sx(2026.75)+2,sy(1885)-10,"UW enters $1,885","itemsub c1t","start"))
 out.append(f'<circle cx="{sx(2031.9):.1f}" cy="{sy(2249):.1f}" r="5" class="dot c1"/>')
 out.append(txt(866,sy(2249),"Seasons UW","seriesnote c1t","start",dy=-3))
 out.append(txt(866,sy(2249),"$2,249 in 2032","seriesval c1t","start",dy=13))
@@ -61,8 +61,8 @@ out.append(txt(sx(2030.62)+2,sy(1952)+4,"Prelude UW $1,952","seriesnote c2t","st
 act=[(2026+(m+0.5)/12,v) for m,v in enumerate([1668,1670,1672,1675,1675,1682,1684])]
 out.append(f'<path d="{smooth(P(act))}" class="line actual"/>')
 out.append(txt(sx(2026.05)-6,sy(1668)+18,"2026 actuals — in-place $1,680","itemsub c2t","end"))
-out.append(f'<circle cx="{sx(2026.54):.1f}" cy="{sy(1731):.1f}" r="5" class="dot c2"/>')
-out.append(txt(sx(2026.54)-12,sy(1731)+4,"new leases $1,731 = UW","itemsub c2t","end"))
+out.append(f'<circle cx="{sx(2026.62):.1f}" cy="{sy(1811):.1f}" r="5" class="dot c2"/>')
+out.append(txt(sx(2026.62)+12,sy(1811)+4,"L5 new leases $1,811","itemsub c2t","start"))
 out.append('</svg>')
 svg=''.join(out)
 
@@ -96,8 +96,9 @@ text{{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}}
 <div class="frame" id="frame">
 <h1>Rents: HelloData history, underwriting, and actuals</h1>
 <p class="sub">Mix-weighted asking rent per unit (HelloData, quarterly, thin lines) against each deal's underwriting (bold).
-Prelude actuals run on plan and its new leases sign at the UW market rent; Seasons' underwriting enters at $1,885 —
-below the latest 90-day HelloData asking of $1,938.</p>
+Weighting = per-floor-plan values x rent-roll unit counts (the Seasons model's CF-Annual convention). Prelude's last-5 new
+leases average $1,811 (Seasons L5 methodology), 4.7% above its UW market rent; Seasons' UW enters at $1,885 — below the
+latest 90-day HelloData asking of $1,938.</p>
 {svg}
 <p class="src">Blue = Seasons at Meridian (2024, 932 SF avg) · Orange = Prelude at Paramount (2018, 1,016 SF avg). Sources: HelloData mix-weighted asking per each TMG model's Rent Analysis / Market Rent Summary (Seasons pull 8/2026; Prelude pull 11/2025); Prelude accrual statement &amp; rent roll 8/13/26; acquisition models. Confidential — internal work product.</p>
 </div></body></html>"""
