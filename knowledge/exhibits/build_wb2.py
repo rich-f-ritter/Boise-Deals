@@ -143,6 +143,57 @@ for label,vals,fmt,note in pf:
 put(ws,f'B{r+1}','Prelude reconciliation: EGI $20,862 (Rev&Exp H27/280) − opex $6,536 = NOI $14,326 ≈ $14,335 (H53/280; rounding). Old-model note: its "Total Controllable" excludes utilities; utilities+insurance+mgmt+taxes reconcile to total.',NOTE,wrap=True)
 ws.merge_cells(f'B{r+1}:H{r+2}')
 
+# ================= 2b_Prelude_Actuals =================
+ws=sheet('2b_Prelude_Actuals',[2,40,15,15,15,15,50])
+put(ws,'B2','Prelude at Paramount — ACTUALS vs Acquisition Underwrite',TITLE)
+put(ws,'B3','Sources: 12-month accrual statement Aug-25 to Jul-26 (7 true months post-close: Jan-Jul 2026) and Rent Roll w/ Lease Charges 8/13/2026. UW = our Dec-2025 acquisition model Y1. The first live test of the Meridian recovery thesis.',NOTE,wrap=True)
+header(ws,5,['B','C','D','E','F','G'],['$/unit/yr unless noted','UW Y1','Actual 7-mo ann.','Actual T3 ann. (May-Jul)','T3 vs UW','Notes'])
+pa=[
+ ('REVENUE','SEC',None,None,''),
+ ('Gross potential rent',20756,20682,20682,'PM market-rent line held flat at $1,723.50/unit all 7 months'),
+ ('Loss to lease',-205,-581,-519,'Shrinking monthly: Jan -3.2% of GPR to Jul -2.3%'),
+ ('Concessions',-514,-856,-1154,'RED FLAG: T3 pace 5.7% of potential rent vs 2.5% UW; one-time (upfront) concessions on new signings'),
+ ('Vacancy + employee units',-1465,-1854,-1261,'Economic vacancy ~11% Jan-Apr to 6.1% T3 - strong absorption'),
+ ('Net rental income',18059,17398,17759,''),
+ ('Other income',2803,2347,2258,'Gap = bulk internet UW income not yet implemented ($0 actual); garages $609 actual vs $759 UW'),
+ ('EFFECTIVE GROSS INCOME',20862,19745,20017,''),
+ ('OPEX','SEC',None,None,''),
+ ('Payroll',1797,1461,1436,'Favorable'),
+ ('Marketing',347,365,481,''),
+ ('G&A',399,421,405,''),
+ ('Turnover / make-ready / amenities',228,141,180,'Favorable'),
+ ('R&M',157,120,169,'Favorable'),
+ ('Contracts',716,710,830,''),
+ ('Utilities',559,584,600,''),
+ ('Management fee',522,475,470,'2.4% of EGI actual'),
+ ('Insurance',620,551,481,'Favorable'),
+ ('RE taxes',1191,1191,1191,'Accruing exactly at the UW 2026 bill ($333.5K) - consistent with the 95% reassessment step'),
+ ('Total opex',6536,6019,6246,'~$500/u favorable, led by payroll'),
+ ('NOI',14335,13726,13772,'T3 -3.9% vs UW Y1 - behind but converging as vacancy burns off'),
+ ('RENT ROLL 8/13/2026','SEC',None,None,''),
+ ('Units paying rent (of 280)',None,271,None,'96.8% - 9 units down/model/vacant'),
+ ('In-place base rent ($/mo)',1668,1680,None,'vs UW Y1 rent/occupied $1,668: +0.7% AHEAD'),
+ ('PM market rent ($/mo)',1730,1724,None,'UW Y1 avg market rent $1,730'),
+ ('New leases May-Aug 2026 ($/mo, n=56)',1730,1731,None,'ON TARGET vs UW Y1 market rent - face rents; ~5-6% one-time concessions apply'),
+ ('New leases Jan-Apr 2026 ($/mo, n=28)',None,1575,None,'Winter signings were weak; intra-2026 acceleration is real'),
+ ('NEW-LEASE COHORTS BY FLOOR PLAN ($/mo) — col D = Jan-Apr 2026 cohort, col E = May-Aug 2026 cohort','SEC',None,None,''),
+ ('  1BR 787sf (pprA1)',None,1366,1509,'Jan-Apr n=15 / May-Aug n=20: +10.5% cohort-over-cohort'),
+ ('  2BR 1092sf (pprB1)',None,1713,1802,'n=4 / n=22: +5.2%'),
+ ('  2BR 1172sf (pprB2)',None,1762,1838,'n=4 / n=10: +4.3%'),
+ ('  3BR 1291sf (pprC1)',None,1940,2180,'n=5 / n=4: +12.4% (small n)'),
+]
+r=6
+for label,uw,a7,t3,note in pa:
+    if uw=='SEC': sec(ws,f'B{r}',label); r+=1; continue
+    put(ws,f'B{r}',label,BOLD if label in('NOI','EFFECTIVE GROSS INCOME','Total opex') else BLACK)
+    for col,v in (('C',uw),('D',a7),('E',t3)):
+        if v is not None: put(ws,f'{col}{r}',v,BLUE,M0)
+    if uw is not None and t3 is not None and isinstance(uw,(int,float)) and isinstance(t3,(int,float)) and uw!=0:
+        put(ws,f'F{r}',f'=E{r}/C{r}-1',BLACK,PC1)
+    put(ws,f'G{r}',note,NOTE,wrap=True); ws[f'B{r}'].border=THIN; r+=1
+put(ws,f'B{r+1}','VERDICT: The recovery thesis is tracking. Occupancy recovered 11% to 6% economic vacancy in six months; recent new leases sign at the UW market rent to the dollar; in-place rent is ahead of UW. NOI is ~4% behind Y1 pace on two identifiable gaps - concessions running ~2x UW ($640/u drag, burning off as the winter cohort rolls) and the unimplemented bulk-internet program (~$450/u, actionable). Opex runs ~$500/u favorable. For Seasons: supports the occupancy-recovery and rent-level assumptions; the caution is concessions - still 5-6% on new leases at 2018-vintage product in mid-2026, vs Seasons UW burning to 3.0% in Y1.',BOLD,wrap=True)
+ws.merge_cells(f'B{r+1}:G{r+5}')
+
 # ================= 3_Dev_Feasibility =================
 ws=sheet('3_Dev_Feasibility',[2,40,15,15,15,15,15,15,46])
 put(ws,'B2','Development Feasibility — Cost Build-Up, Pro Forma, and Pencil Rents',TITLE)

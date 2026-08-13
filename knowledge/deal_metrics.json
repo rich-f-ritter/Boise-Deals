@@ -104,7 +104,63 @@
    "cited_as_comp_by": [
     "Emblem book ($283k/u, 5.00% cap, Dec-25)",
     "Hawkins OM ($284,821/u, Jan-26)"
-   ]
+   ],
+   "actuals_2026": {
+    "asof": "2026-08-13",
+    "source": "Accrual T12 Aug25-Jul26 (7 true months post-close) + RR w/ lease charges 8/13/26",
+    "noi_t3_ann_per_unit": 13772,
+    "noi_7mo_ann_per_unit": 13726,
+    "uw_y1_noi_per_unit": 14335,
+    "noi_var_vs_uw": -0.039,
+    "econ_vacancy": {
+     "jan_apr": 0.11,
+     "t3": 0.061
+    },
+    "units_paying_rent": 271,
+    "in_place_rent": 1680,
+    "pm_market_rent": 1724,
+    "uw_y1_market_rent": 1730,
+    "new_leases": {
+     "may_aug_n56": 1731,
+     "jan_apr_n28": 1575,
+     "cohort_gain_by_plan": {
+      "pprA1_787sf": [
+       1366,
+       1509
+      ],
+      "pprB1_1092sf": [
+       1713,
+       1802
+      ],
+      "pprB2_1172sf": [
+       1762,
+       1838
+      ],
+      "pprC1_1291sf": [
+       1940,
+       2180
+      ]
+     }
+    },
+    "concessions_per_unit": {
+     "uw": 514,
+     "actual_7mo_ann": 856,
+     "t3_ann": 1154
+    },
+    "other_income_per_unit": {
+     "uw": 2803,
+     "actual_t3_ann": 2258,
+     "garage_actual": 609,
+     "carport": 52,
+     "smarthome": 250,
+     "bulk_internet_actual": 0
+    },
+    "opex_per_unit": {
+     "uw": 6536,
+     "actual_7mo_ann": 6019
+    },
+    "taxes_accruing_per_unit": 1191
+   }
   },
   "canyon_ridge": {
    "role": "sales_comp_under_contract",

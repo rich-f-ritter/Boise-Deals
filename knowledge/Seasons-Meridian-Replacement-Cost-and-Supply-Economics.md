@@ -278,7 +278,17 @@ Coherence map (all files interlock):
 ## 8. Open items / next actions
 
 - [ ] Add Emblem Meridian (256u, Y3 bucket) to S&A proposed-pipeline toggle + Competitive Analysis roster; confirm site distance.
-- [ ] Pull Prelude actuals (Jan–Aug 2026) vs acquisition UW — rent growth, concessions, occupancy. First live test of the thesis.
+- [x] Prelude actuals PULLED & ANALYZED (T12 thru Jul-26 + RR 8/13/26; workbook tab 2b_Prelude_Actuals).
+  **The recovery thesis is tracking:** economic vacancy 11% (Jan–Apr) → 6.1% (T3); in-place rent $1,680 vs UW
+  Y1 $1,668 (+0.7% ahead); May–Aug-26 new leases $1,731 = UW Y1 market rent to the dollar; within-floor-plan
+  cohort acceleration Jan-Apr → May-Aug of +4% to +12% (1BRs $1,366→$1,509). NOI T3 ann. $13,772/u = **−3.9% vs
+  UW Y1**, explained by two gaps: concessions running 2.2x UW (T3 $1,154/u pace, 5.7% of potential — one-time
+  concessions on new signings) and other income $2,258 vs $2,803 UW (bulk-internet program not implemented =
+  ~$450/u actionable; garages $609+$52 carport actual vs $759 UW). Opex ~$500/u favorable (payroll, insurance);
+  taxes accruing exactly at the UW $1,191/u. **Seasons read-through:** supports occupancy-recovery + rent-level
+  assumptions and the Y1 mark-to-market; the caution is concessions — still 5–6% on new leases at 2018-vintage
+  product in mid-2026 vs Seasons UW burning to 3.0% in Y1. Prelude actual OI $2,347 also lowers the market-actual
+  OI anchor (developers' $3.6–4.2K/u even more aggressive).
 - [ ] Verify Emblem site address/parcel from repo dossiers ("Emblem 250" in README pipeline list).
 - [x] Ada County levies VERIFIED (2024 certified: Boise 0.906–0.914%, Meridian ~0.45%; school district is the driver).
 - [ ] Build the one-page IC exhibit: price ladder / rent ladder (today + exit) / normalization table.
