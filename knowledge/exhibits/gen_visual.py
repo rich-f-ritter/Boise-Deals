@@ -166,6 +166,11 @@ c4 = ladder(
         dict(v=442.8, name="Canyon Ridge exit UW", sub="$442.8K · Oct-31 @4.75%", cls="c3", lane='a1', dx=-35),
     ])
 
+c4 = c4.replace('</svg>',
+  txt(500, 288, "Same price, different equations — Seasons: $20.1K NOI ÷ 5.00% · Emblem: $22.0K NOI ÷ 5.50%.", "cap")
+  + txt(500, 305, "The age discount is in the NOI; the price match comes entirely from the cap-rate assumption.", "cap")
+  + '</svg>')
+
 # --- Chart 5a: taxes per unit bars ---
 def taxbars():
     h=360; y1=290; y0=60
@@ -495,7 +500,7 @@ html = f"""<title>Seasons Pencil Test</title>
     <div class="kpi"><div class="l">vs replacement cost</div><div class="v">+7.6%</div><div class="s">above Emblem's $304.5K/unit build cost</div></div>
     <div class="kpi"><div class="l">vs replacement value</div><div class="v">−8.4%</div><div class="s">below the ~$357.7K that induces new supply</div></div>
     <div class="kpi"><div class="l">Rent gap to pencil</div><div class="v">−7 to −10%</div><div class="s">below the 6.5%-ROC rent, entire hold</div></div>
-    <div class="kpi"><div class="l">Exit UW vs dev's need</div><div class="v">$400.6K ≈ $400.5K</div><div class="s">our exit = Emblem's required exit</div></div>
+    <div class="kpi"><div class="l">Exit sensitivity</div><div class="v">$400.6K @ 5.00%</div><div class="s">$382K @ 5.25% · $365K @ 5.50% — each 25bp ≈ 90bp UIRR</div></div>
   </div>
 </header>
 
@@ -535,12 +540,18 @@ html = f"""<title>Seasons Pencil Test</title>
 
 <section>
   <p class="secno">04 · Exits</p>
-  <h2>Our exits are the supply side's required exits</h2>
-  <p class="take"><b>To the dollar: our Seasons exit ($400.6K) equals Emblem's required sale ($400.5K); our Prelude exit ($361.2K)
-  equals Hawkins' ($361.6K).</b> Five independent books, one price deck.</p>
-  <p class="note">We are not underwriting exits above what the market needs — we're underwriting exactly the prices merchant
-  developers have already told their LPs, in writing, they must achieve. And at $400.6K our exit is 1.17× forward replacement
-  cost: right at cost-plus-margin, the level at which the next supply wave gets induced, not beyond it.</p>
+  <h2>Same exit price, different anatomy</h2>
+  <p class="take"><b>Our Seasons exit ($400.6K) matches Emblem's required sale ($400.5K) — but that is not a validation:
+  it means 7-year-old product selling at the same $/unit as brand-new product.</b> The match is manufactured by the cap
+  rates — our exit NOI is 8.9% <em>below</em> the new build's ($20.1K vs $22.0K/unit); the equality comes from assuming
+  aged product trades 50bp tighter (5.00%) in 2031 than the merchant assumes new product does in 2030 (5.50%).</p>
+  <p class="note">The vintage discount is real, and it lives in the NOI: our exit rents sit 8% below Emblem's own 2031 rent —
+  the same relative position as today. The exposure is the cap-rate <em>level</em>. For 5.00%: today's prints show age-flat caps
+  for young vintages (Prelude closed at 4.95% at 8 years old; CR 5.12% tax-adjusted) and merchant books pad exit caps for LP
+  optics. Against: a stabilized no-story 7-year-old argues for the wider end of any curve. Sensitivity (rebuilt from the model's
+  cash flows): 5.25% → $382K/unit, UIRR ~7.8% / LIRR ~10.0%; 5.50% (Emblem's own) → $365K, UIRR ~6.9% / LIRR ~8.0%.
+  $382K in 2031 is what 2-year-old Canyon Ridge fetches today — the most defensible aged-product anchor. Present the exit
+  as a 5.00–5.25% band.</p>
   <div class="panel">{c4}</div>
   <p class="src">Exit values from each model. Forward replacement cost = Emblem $304.5K/unit escalated 3%/yr to 2031.</p>
 </section>

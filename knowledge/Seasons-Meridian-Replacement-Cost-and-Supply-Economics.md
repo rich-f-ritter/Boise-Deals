@@ -58,9 +58,24 @@ competing unit and get paid:
 **IC sentence:** *We're paying ~$328K/unit for a 2024 asset that costs ~$305K to build today but
 ~$355–400K to build-and-exit, at rents 9–14% below what any new competitor must underwrite to break ground.*
 
-Exit consistency: our 2031 exit $400.6K/u ≈ 1.17x forward replacement cost (~$343K at 3%/yr escalation)
-— i.e., right at cost + minimum development margin, and identical to Emblem's own required exit. Not heroic;
-it is the price at which the next supply wave gets induced.
+**Exit anatomy (revised 2026-08-13 after internal challenge — do NOT use the "our exit = their exit" line):**
+our $400.6K exit matching Emblem's $400.5K required sale is *not* a validation — read literally it prices
+7-year-old product (2031) at the same $/unit, and a higher $/SF ($429.6 vs $426.5), as brand-new product
+selling 22 months earlier. Decomposed: our exit NOI is **8.9% below** the new build's ($20,071 vs $22,026/unit;
+exit rents $2,249 vs their 2031 $2,443 = −7.9%, the same relative position as today) — the vintage discount is
+real and lives in the NOI. The price equality is manufactured entirely by the cap rates: we assume aged product
+trades 50bp *tighter* (5.00%) in 2031 than the merchant assumes new product does in 2030 (5.50%). Both cannot
+describe the same market. Evidence for 5.00%: today's prints show age-flat caps for young vintages (Prelude
+closed 4.95% at 8 years old; Seasons bid 5.00%; CR 5.12% tax-adjusted) and merchant books pad exit caps for LP
+optics (at 5.0% market caps Emblem clears ~$440K and the vintage ladder reappears: new $440K → Seasons-at-7
+$400K → Prelude-at-12 $361K). Against: a stabilized, no-VA-story 7-year-old argues for the wider end of any
+curve, our UW holds Seasons' relative rent position flat for 5 years of aging, and today's 8-year-old print
+(Prelude) is 0.94x current replacement cost vs our exit at 1.17x forward cost. **Sensitivity (rebuilt from the
+model's own cash flows; base case reproduces within 3bp):** 5.00% → $400.6K/u, UIRR 8.65% / LIRR 12.14%;
+5.25% → $382K/u, ~7.8% / ~10.0%; 5.50% (Emblem's own) → $365K/u, ~6.9% / ~8.0%. Each 25bp ≈ $18–19K/unit ≈
+90bp UIRR. Useful anchor: $382K at 5.25% = what 2-year-old Canyon Ridge fetches today. Recommended IC posture:
+present the exit as a 5.00–5.25% band; lead with "exit NOI carries a full ~9% discount to then-new product;
+the exit's true exposure is the cap-rate level."
 
 ## 3. Rent-to-pencil — today and at exit (the centerpiece)
 
@@ -171,7 +186,9 @@ Coherence map (all files interlock):
 - **Value ladder today ($/u):** Prelude $285K (2018) → Seasons $328K (2024) → replacement value ~$358K →
   CR award $382K (2024, Boise taxes) → dev-required exits $362–400K (2030).
 - **2030–31 exit ladder:** Hawkins exit $361.6K ≈ our Prelude exit $361.2K; Emblem exit $400.5K ≈ our
-  Seasons exit $400.6K; CR UW exit $442.8K. Same handful of numbers from five independent sources.
+  Seasons exit $400.6K; CR UW exit $442.8K. Same handful of numbers from five independent sources — but see
+  the exit-anatomy caveat in §2: the Seasons/Emblem match nets a −8.9% NOI discount against a −50bp cap
+  assumption; it is a coincidence of offsetting differences, not corroboration.
 - Going-in yield discipline is constant across our two deals (Y1 ~4.95–5.00%, exit 5.00%, 5-yr hold);
   Seasons pays +$43K/u (+15%) vs Prelude for 6-years-newer product and +19% higher $/SF rents.
 - Prelude validates the Meridian tax rate (0.4507% actual), the Idaho non-disclosure assessment treatment,
@@ -199,6 +216,11 @@ Coherence map (all files interlock):
 6. **Developer books flatter feasibility** (Hawkins taxes ~$1K/u light; OI 25–50% above stabilized actuals).
    Double-edged: true pencil rents are higher than our base calc (wider moat), AND some marketed pipeline
    may fail to raise equity (less supply).
+7. **Exit cap for aged product is the single largest exit exposure.** We exit 7-year-old Seasons at 5.00%
+   while the new-build book assumes 5.50% for brand-new product a year earlier — the $/unit price match hides
+   this (see §2 exit anatomy). Age-flat caps hold in today's prints, but a stabilized no-story asset at
+   year 7 competes against 2028–29 vintage on the exit block. 25bp ≈ 90bp of UIRR; the 5.25% case ($382K/u)
+   equals what 2-year-old Canyon Ridge fetches today and is the most defensible aged-product anchor.
 
 ## 8. Open items / next actions
 

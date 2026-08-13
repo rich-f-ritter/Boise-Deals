@@ -89,6 +89,19 @@
                    "Emblem's own 2031 trended rent $2,443 ($2.60/SF) is ~8% above Seasons exit-year rent"]
     }
   },
+  "exit_analysis": {
+    "note": "Revised 2026-08-13: the Seasons/Emblem exit price match is offsetting differences, not corroboration. Vintage discount lives in NOI; exposure is the cap-rate level.",
+    "seasons_exit": {"anoi_per_unit": 20071, "cap": 0.05, "per_unit": 400563, "per_sf": 429.58, "asset_age_at_exit": 7},
+    "emblem_exit": {"noi_per_unit": 22026, "cap": 0.055, "per_unit": 400467, "per_sf": 426.49, "asset_age_at_exit": 0},
+    "noi_discount_seasons_vs_new": -0.089, "rent_discount_at_exit": -0.079, "rent_discount_today": -0.089,
+    "cap_sensitivity": [
+      {"cap": 0.05, "per_unit": 400563, "uirr": 0.0865, "lirr": 0.1214},
+      {"cap": 0.0525, "per_unit": 382278, "uirr": 0.078, "lirr": 0.10},
+      {"cap": 0.055, "per_unit": 364904, "uirr": 0.069, "lirr": 0.08}
+    ],
+    "anchor": "5.25% case ($382K/u) = 2-year-old Canyon Ridge award today",
+    "price_to_replacement_cost_by_age_today": {"seasons_2yr": 1.08, "canyon_ridge_2yr": 1.25, "prelude_8yr": 0.94, "seasons_exit_7yr_vs_fwd_cost": 1.17}
+  },
   "land_supply_5mi": {
     "seasons": {"apartment_ready_acres": 1130, "parcels": 228, "mf_by_right_acres": 507, "within_2mi_acres": 309, "moat": "economic"},
     "canyon_ridge": {"apartment_ready_acres": 143, "parcels": 44, "within_2mi_acres": 40, "moat": "physical"}
