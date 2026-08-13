@@ -349,6 +349,64 @@ def coststack():
     return ''.join(out)+'</svg>'
 c8 = coststack()
 
+
+# --- Chart 9: Prelude actual vs UW vs Seasons UW rents ---
+def preludeseasons():
+    h=470; x0,x1,y0,y1=80,845,40,380
+    xmin,xmax=2025.9,2032.15
+    vmin,vmax=1500,2350
+    sx=lambda t:x0+(t-xmin)/(xmax-xmin)*(x1-x0)
+    sy=lambda v:y1-(v-vmin)/(vmax-vmin)*(y1-y0)
+    out=[svg_open(h)]
+    for gv in range(1500,2351,150):
+        gy=sy(gv)
+        out.append(f'<line x1="{x0}" y1="{gy:.1f}" x2="{x1}" y2="{gy:.1f}" class="grid"/>')
+        out.append(txt(x0-10,gy,f"${gv:,}","tick","end",dy=4))
+    for yr in range(2026,2033):
+        out.append(txt(sx(yr+0.5),y1+22,str(yr),"tick"))
+        out.append(f'<line x1="{sx(yr):.1f}" y1="{y1}" x2="{sx(yr):.1f}" y2="{y1+5}" class="axisline"/>')
+    out.append(f'<line x1="{x0}" y1="{y1}" x2="{x1}" y2="{y1}" class="axisline"/>')
+    steps=[(2026.62,2027.83,1885),(2027.83,2028.83,1960),(2028.83,2029.83,2038),(2029.83,2030.83,2110),(2030.83,2031.83,2184),(2031.83,2032.15,2249)]
+    pts=[]
+    for a,b,v in steps:
+        pts.append(f'{sx(a):.1f},{sy(v):.1f}'); pts.append(f'{sx(b):.1f},{sy(v):.1f}')
+    out.append('<polyline points="'+' '.join(pts)+'" class="line seasons"/>')
+    out.append(f'<circle cx="{sx(2026.62):.1f}" cy="{sy(1885):.1f}" r="6" class="dot c1" data-tip="Seasons starting market rent $1,885 = L5 executed new leases (8/4/26 RR) — held flat through Y1"/>')
+    out.append(txt(sx(2027.55),sy(1885)-12,"$1,885 — already executed, flat through Y1","itemsub"))
+    out.append(f'<circle cx="{sx(2026.62):.1f}" cy="{sy(1751):.1f}" r="6" class="dot c1 hollow" data-tip="Seasons in-place contract rent $1,751 (8/4/26 RR)"/>')
+    out.append(txt(sx(2026.62)+12,sy(1751)-10,"contract $1,751","itemsub","start"))
+    puw=[(2026.5,1668),(2027.5,1745),(2028.5,1808),(2029.5,1883),(2030.5,1952)]
+    out.append('<polyline points="'+' '.join(f'{sx(a):.1f},{sy(v):.1f}' for a,v in puw)+'" class="line pencil c2line"/>')
+    for a,v in puw:
+        out.append(f'<circle cx="{sx(a):.1f}" cy="{sy(v):.1f}" r="4" class="dot c2 hollow" data-tip="Prelude UW rent/occupied {int(a)}: ${v:,}"/>')
+    out.append(txt(sx(2030.2),sy(1952),"Prelude UW","seriesnote c2t","end",dy=36))
+    out.append(txt(sx(2030.2),sy(1952),"$1,952 by 2030","seriesval c2t","end",dy=52))
+    act=[1668,1670,1672,1675,1675,1682,1684]
+    apts=' '.join(f'{sx(2026+(m+0.5)/12):.1f},{sy(v):.1f}' for m,v in enumerate(act))
+    out.append(f'<polyline points="{apts}" class="line actual"/>')
+    out.append(f'<circle cx="{sx(2026.62):.1f}" cy="{sy(1680):.1f}" r="6" class="dot c2" data-tip="Prelude actual in-place base rent $1,680 (RR 8/13/26, 271 units) — vs UW Y1 $1,668: +0.7% ahead"/>')
+    out.append(txt(sx(2026.62)+10,sy(1680)+24,"actual in-place $1,680","itemsub","start"))
+    out.append(f'<circle cx="{sx(2026.21):.1f}" cy="{sy(1575):.1f}" r="7" class="dot c2 hollow" data-tip="Prelude new leases Jan-Apr 2026 (n=28): $1,575 — winter lease-up signed weak"/>')
+    out.append(txt(sx(2026.21)+12,sy(1575)+4,"Jan-Apr signings $1,575 (n=28)","itemsub","start"))
+    out.append(f'<circle cx="{sx(2026.54):.1f}" cy="{sy(1731):.1f}" r="7" class="dot c2" data-tip="Prelude new leases May-Aug 2026 (n=56): $1,731 — exactly the UW Y1 market rent ($1,730)"/>')
+    out.append(txt(sx(2026.54)+10,sy(1731)+18,"May-Aug signings $1,731","itemname","start"))
+    out.append(txt(sx(2026.54)+10,sy(1731)+31,"= UW market rent to the dollar","itemsub","start"))
+    out.append(f'<line x1="{sx(2027.35):.1f}" y1="{sy(1745)-4:.1f}" x2="{sx(2027.35):.1f}" y2="{sy(1885)+4:.1f}" class="gapline"/>')
+    out.append(txt(sx(2027.35)+8,(sy(1745)+sy(1885))/2,"+9%/unit · +19%/SF","gaplbl","start",dy=-16))
+    out.append(txt(sx(2027.35)+8,(sy(1745)+sy(1885))/2,"the 2024-vs-2018 quality spread","itemsub","start",dy=0))
+    out.append(f'<line x1="{sx(2030.9):.1f}" y1="{sy(1952)-4:.1f}" x2="{sx(2030.9):.1f}" y2="{sy(2110)+4:.1f}" class="gapline"/>')
+    out.append(txt(sx(2030.9)+8,(sy(1952)+sy(2110))/2,"+8%","gaplbl","start",dy=4))
+    out.append(txt(850,sy(2249),"Seasons UW asking","seriesnote c1t","start",dy=-4))
+    out.append(txt(850,sy(2249),"$2,249 in 2032","seriesval c1t","start",dy=12))
+    out.append(f'<line x1="{x0}" y1="{h-14}" x2="{x0+26}" y2="{h-14}" class="line seasons"/>')
+    out.append(txt(x0+32,h-10,"Seasons UW asking rent (steps = annual growth)","legendlbl","start"))
+    out.append(f'<line x1="{x0+368}" y1="{h-14}" x2="{x0+394}" y2="{h-14}" class="line pencil c2line"/>')
+    out.append(txt(x0+400,h-10,"Prelude UW rent/occupied","legendlbl","start"))
+    out.append(f'<line x1="{x0+588}" y1="{h-14}" x2="{x0+614}" y2="{h-14}" class="line actual"/>')
+    out.append(txt(x0+620,h-10,"Prelude actuals 2026","legendlbl","start"))
+    return ''.join(out)+'</svg>'
+c9 = preludeseasons()
+
 # ============================================================
 # PAGE
 # ============================================================
@@ -446,6 +504,9 @@ text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
 .line{fill:none;stroke-width:2.5;stroke-linejoin:round}
 .line.seasons{stroke:var(--c1)}
 .line.pencil{stroke:var(--ink2);stroke-dasharray:6 5;stroke-width:2}
+.line.pencil.c2line{stroke:var(--c2)}
+.line.actual{stroke:var(--c2);stroke-width:3.5}
+.c2t{fill:var(--c2)}
 .seriesnote{font-size:12.5px;fill:var(--ink2);font-weight:600}
 .seriesval{font-size:14px;fill:var(--ink);font-weight:700}
 .c1t{fill:var(--c1)} .c3t{fill:var(--c3)}
@@ -602,6 +663,20 @@ html = f"""<title>Seasons Pencil Test</title>
   costs</b> — which is why Hawkins' $257K is a floor that doesn't generalize, and Emblem's $305K is the institutional benchmark.</p>
   <div class="panel">{c8}</div>
   <p class="src">Emblem: Summary tab budget at Oct-27 GMP. Hawkins: S&amp;U (land at Oct-2024 purchase basis, no mark-to-market). Lines: Seasons bid; replacement value; Canyon Ridge award.</p>
+</section>
+
+<section>
+  <p class="secno">09 · Prelude cross-check</p>
+  <h2>Our rents: Prelude actual vs. plan, and where Seasons enters</h2>
+  <p class="take"><b>Prelude is signing new leases at its underwritten market rent to the dollar ($1,731 vs $1,730 UW), and
+  Seasons' $1,885 entry rent is likewise already-executed, not projected.</b> The two books are one story: same market,
+  ~9%/unit (+19%/SF) apart on product quality, both anchored to rents that exist today.</p>
+  <p class="note">Prelude actuals (7 months post-close): in-place $1,680 vs UW Y1 $1,668 (+0.7% ahead); winter signings were weak
+  ($1,575) but the May-Aug cohort recovered to plan — within-floor-plan cohort gains of +4% to +12%. Seasons' Y1 assumes ZERO
+  further asking growth (the +7.6% headline is the executed $1,885 annualizing against the trailing-year average); concession
+  burn-off is a separate, effective-rent lever. Caution transfers: Prelude concessions still run 5.7% of potential rent (2.2x UW).</p>
+  <div class="panel">{c9}</div>
+  <p class="src">Sources: Prelude accrual statement Aug-25 to Jul-26 + rent roll w/ lease charges 8/13/26; Prelude acquisition model (Unleveraged); Seasons TMG model (Assumptions, S&amp;A). Per-SF: Prelude 1,016 SF avg, Seasons 932 SF.</p>
 </section>
 
 <section>
