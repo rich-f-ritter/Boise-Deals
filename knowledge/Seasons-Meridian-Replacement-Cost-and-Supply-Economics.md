@@ -246,8 +246,13 @@ Coherence map (all files interlock):
   Seasons pays +$43K/u (+15%) vs Prelude for 6-years-newer product and +19% higher $/SF rents.
 - Prelude validates the Meridian tax rate (0.4507% actual), the Idaho non-disclosure assessment treatment,
   and market other-income levels (~$2.8K/u with garages).
-- Prelude rent-growth UW: 4.82% / 4.64% / 3.60% / 4.14% / 3.67% (Y1=2026). Seasons UW: 7.57% / 4.0 / 4.0 / 3.5 / 3.5
-  (Y1 elevated by concession burn-off 9.3%→2.9% + mark-to-market; L5 new leases already at $1,885).
+- Prelude rent-growth UW: 4.82% / 4.64% / 3.60% / 4.14% / 3.67% (Y1=2026). Seasons UW market-rent growth:
+  7.57% / 4.0 / 4.0 / 3.5 / 3.5. **The Y1 +7.57% is PURELY the asking/market-rent series** (S&A row "TMG — our
+  market-rent growth"): Y1 average $1,885 vs Y0 TTM HelloData average $1,752 — and the model assumes ZERO
+  asking-rent growth within Y1 (Y1 avg = Y1 ending = starting MR = $1,884.69, the L5 executed new-lease average
+  from the 8/4/26 RR; annual growth begins Y2). Concession burn-off is a SEPARATE lever: effective rent Y0
+  $1,589 → Y1 $1,830 = +15.1% as concessions drop 9.3% → 2.9% (CF concession line: 1.5%/1.0%/0.5%/0% of AGPR).
+  Do not conflate the two.
 
 ## 7. Critical risks & correlated assumptions (the honest list)
 
@@ -256,8 +261,12 @@ Coherence map (all files interlock):
    concentration post-Seasons. The pencil moat protects *relative rent position*, not absolute demand or cap rates.
 2. **The moat is self-limiting on the upside.** If rents beat UW while costs hold, the pencil gap closes early and
    the 3,200-unit proposed roster converts (24+ mo lag to delivery). Upside is real but truncated in Y4–Y6.
-3. **Seasons Y1 +7.57% is the assumption to stress** — 2x consensus Y1 (~3.7%), mechanically supported
-   (concession burn + executed L5 leases) but the single biggest UW divergence. Note HelloData Y0 mix-wtd
+3. **The Y1 revenue bridge to stress is concessions and asking-rent hold, not the +7.57% headline.** The
+   +7.57% market-rent line requires NO new asking growth — $1,885 is already executed (L5 leases); it simply
+   annualizes against the Y0 TTM average. The true Y1 forward bets are: (a) HOLDING $1,885 asking with no
+   give-back, (b) concessions burning 9.3% → ~1.5% of AGPR (the effective-rent lever, +15.1% Y1), (c) 94.5%
+   occupancy. Prelude actuals speak directly to these: summer-26 signings at UW market rent support (a);
+   concessions still 5.7% at Prelude support caution on (b). Note HelloData Y0 mix-wtd
    market rent was **−1.4%**; Prelude was UW'd at +4.82% for 2026 — **check Prelude actuals vs UW** as the
    live test of the recovery thesis already running in our own portfolio.
 4. **Merchant-exit comp risk at mid-hold:** Emblem is *scheduled* to sell 256 units (Jan-2030) 1–2 mi away.

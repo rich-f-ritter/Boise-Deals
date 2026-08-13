@@ -54,6 +54,25 @@
     "parking": 360,
     "revenue_share": 1077,
     "total": 2736
+   },
+   "rent_growth_uw_note": "ASKING/market-rent series only (S&A B39). Y1 +7.57% = Y1 avg $1,885 (= L5 executed leases, held flat all of Y1) vs Y0 TTM HelloData avg $1,752 \u2014 zero intra-Y1 asking growth; annual growth starts Y2. Concession burn-off is separate: effective rent +15.1% Y1 (concessions 9.3%->2.9%; CF line 1.5/1.0/0.5/0% of AGPR).",
+   "effective_rent_uw": {
+    "y0": 1589,
+    "y1": 1830,
+    "y1_growth": 0.1514,
+    "concession_pct_path_s_and_a": [
+     0.0931,
+     0.0292,
+     0.0195,
+     0.0098,
+     0.0
+    ],
+    "cf_concessions_pct_agpr": [
+     0.015,
+     0.01,
+     0.005,
+     0.0
+    ]
    }
   },
   "prelude_at_paramount": {
