@@ -38,6 +38,15 @@ for row in _ws.iter_rows(min_row=2,max_col=25,values_only=True):
         recs.append((str(row[iFP]),row[iOFF],float(row[iASK]),str(row[iU]),row[iSF]))
 _wb.close()
 
+# ---------- load Prelude HD unit-details records (lease-level export 8/13/2026) ----------
+import csv as _csv
+prel_recs=[]
+with open(U+'2d7290f1-hellodataunitdetails20260813.csv') as _f:
+    for r_ in _csv.DictReader(_f):
+        prel_recs.append((r_['Floorplan'], int(r_['SF']),
+                          datetime.datetime.fromisoformat(r_['Off Market Date']),
+                          float(r_['Last Asking Rent'])))
+
 months=[]
 y,m=2024,7
 while (y,m)<=(2026,7):
@@ -59,13 +68,16 @@ for fp,off,ask,u,sf in recs:
 NSEA=r-1
 put(ws,'H1',f'{len(recs)} lease records — Seasons model HD Dump (HDUnitLevel), pull 8/2026',NOTE)
 
-# ---------- HD_Prelude paste tab ----------
+# ---------- HD_Prelude data tab ----------
 ws=sheet('HD_Prelude',[2,22,10,14,14,16,4,60])
 put(ws,'B1','Floorplan (raw)',BOLD,fill=YEL); put(ws,'C1','SF',BOLD,fill=YEL); put(ws,'D1','Off Market Date',BOLD,fill=YEL); put(ws,'E1','Last Asking Rent',BOLD,fill=YEL)
 put(ws,'F1','Floorplan Mapped',BOLD)
-put(ws,'H1','PASTE the Prelude HelloData UNIT DETAILS export (lease-level) into columns B:E starting row 2 — floorplan, SF, off-market date, last asking rent. Column F maps by SF (787/1092/1172/1291). The T90_Monthly Prelude grid and Chart_Data populate automatically. The unit-TYPE table export (aggregates) cannot be used — it has no dates.',NOTE,wrap=True)
+put(ws,'H1',f'{len(prel_recs)} lease records — Prelude HelloData Unit Details export, pull 8/13/2026. Column F maps floor plan by SF (787/1092/1172/1291). Rows below the data are spare mapping formulas so a refreshed export can be pasted over columns B:E.',NOTE,wrap=True)
 ws.merge_cells('H1:H8')
-put(ws,'B2','example: A1- 1 Bedroom 1 Bath',NOTE); put(ws,'C2','787',NOTE); put(ws,'D2','01/15/26',NOTE); put(ws,'E2','1,450',NOTE)
+r=2
+for fp,sf,off,ask in prel_recs:
+    put(ws,f'B{r}',fp,BLUE); put(ws,f'C{r}',sf,BLUE,NUM); put(ws,f'D{r}',off,BLUE,D); put(ws,f'E{r}',ask,BLUE,M0)
+    r+=1
 for r in range(2,802):
     put(ws,f'F{r}',f'=IF($C{r}="","",IFERROR(INDEX({{"1x1-pp";"2x2a-pp";"2x2b-pp";"3x2-pp"}},MATCH($C{r},{{787;1092;1172;1291}},0)),""))',BLACK)
 
@@ -96,7 +108,7 @@ for j in range(NP):
     put(ws,f'{col}{r}',f'=SUMPRODUCT({col}7:{col}{r-1},$C7:$C{r-1})/SUM($C7:$C{r-1})',BOLD,M0)
 SEAW=r
 r+=2
-put(ws,f'B{r}','PRELUDE AT PARAMOUNT (populates when Unit Details pasted on HD_Prelude)',BOLD,fill=SUB)
+put(ws,f'B{r}','PRELUDE AT PARAMOUNT (HD Unit Details, pull 8/13/2026)',BOLD,fill=SUB)
 hdr(ws,r+1,['B','C','D'],['Floor plan','Units','Fallback (RR avg rent)'])
 r0=r+2; r=r0
 for p,u,cr in PRE:
@@ -114,7 +126,7 @@ for j in range(NP):
     col=get_column_letter(5+j)
     put(ws,f'{col}{r}',f'=SUMPRODUCT({col}{r0}:{col}{r-1},$C{r0}:$C{r-1})/SUM($C{r0}:$C{r-1})',BOLD,M0)
 PREW=r
-put(ws,f'B{r+1}','Data-status flag (0 = no Prelude unit details pasted yet):',NOTE)
+put(ws,f'B{r+1}','Data-status flag (count of Prelude lease records loaded):',NOTE)
 put(ws,f'D{r+1}','=COUNT(HD_Prelude!$E3:$E802)',BLACK,NUM)
 FLAG=f'T90_Monthly!$D${r+1}'
 
@@ -154,7 +166,7 @@ SL5=r
 # ---------- Chart_Data ----------
 ws=sheet('Chart_Data',[2,12,16,15,15,16,15,15,15,46])
 put(ws,'B2','Chart Data — monthly',TITLE)
-put(ws,'B3','Green = live formulas (T90_Monthly / L5 tabs). Blue = extracted (models/statements). Prelude T90 column stays blank until the Unit Details export is pasted on HD_Prelude.',NOTE,wrap=True)
+put(ws,'B3','Green = live formulas (T90_Monthly / L5 tabs). Blue = extracted (models/statements). Both T90 series computed from lease-level HelloData on HD_Seasons / HD_Prelude.',NOTE,wrap=True)
 hdr(ws,5,['B','C','D','E','F','G','H','I'],
     ['Date','Seasons T90 (mix-wtd)','Seasons UW asking','Seasons L5 / UW entry','Prelude T90 (mix-wtd)','Prelude UW rent/occ','Prelude actual in-place','Prelude L5 (8/13/26)'])
 uwS={datetime.datetime(2026,8,4):1885,datetime.datetime(2027,11,1):1960,datetime.datetime(2028,11,1):2038,datetime.datetime(2029,11,1):2110,datetime.datetime(2030,11,1):2184,datetime.datetime(2031,11,1):2249}
