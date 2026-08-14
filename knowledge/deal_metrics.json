@@ -212,9 +212,10 @@
      "2027": 1775.8,
      "2028": 1838.2,
      "2029": 1906.7,
-     "2030": 1976.5
+     "2030": 1976.5,
+     "2031": 2045.2
     },
-    "note": "UW MARKET rents (Cash Flow row 10 /280/12) - distinct from the rent-per-occupied-unit path ($1,668 Y1) previously charted."
+    "note": "UW MARKET rents per unit incl. value-add revenue (Trend Analysis row 13 = (Market Rent + VA Revenue)/280/12) - distinct from the rent-per-occupied-unit path ($1,668 Y1) previously charted. Y6 (2031) = $2,045.2."
    },
    "l5_new_leases": {
     "at_acquisition": {

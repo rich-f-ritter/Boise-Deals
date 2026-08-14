@@ -213,7 +213,7 @@ uwS={datetime.datetime(2026,11,30):1902.2,datetime.datetime(2027,2,28):1923.1,da
      datetime.datetime(2028,4,30):2010.6,datetime.datetime(2029,4,30):2091.0,datetime.datetime(2030,4,30):2164.2,datetime.datetime(2031,4,30):2240.0,datetime.datetime(2032,4,30):2307.2}
 # Prelude: Market Rent Summary row 11 (Q4-25 anchor + TMG Y1 quarters, Y1 avg $1,729.6); annual 2027+ from Cash Flow row 10 /280/12.
 uwP={datetime.datetime(2025,11,30):1693.0,datetime.datetime(2026,2,28):1712.3,datetime.datetime(2026,5,31):1732.2,datetime.datetime(2026,8,31):1745.5,datetime.datetime(2026,11,30):1728.5,
-     datetime.datetime(2027,7,1):1775.8,datetime.datetime(2028,7,1):1838.2,datetime.datetime(2029,7,1):1906.7,datetime.datetime(2030,7,1):1976.5}
+     datetime.datetime(2027,7,1):1775.8,datetime.datetime(2028,7,1):1838.2,datetime.datetime(2029,7,1):1906.7,datetime.datetime(2030,7,1):1976.5,datetime.datetime(2031,7,1):2045.2}
 act={datetime.datetime(2026,m,15):v for m,v in zip(range(1,8),[1668,1670,1672,1675,1675,1682,1684])}
 PL5ACQ=datetime.datetime(2025,12,3)  # acquisition-era L5: Market Rent Summary V11, RR 12/3/25
 alld=sorted(set(months)|set(uwS)|set(uwP)|set(act)|{datetime.datetime(2026,8,4),datetime.datetime(2026,8,13),PL5ACQ})
