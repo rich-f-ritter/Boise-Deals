@@ -30,6 +30,16 @@ land-use / supply-threat work.
 > $1,732.2 / $1,745.5 / $1,728.5, Y1 avg $1,729.6 — these are MARKET rents (CF row 10), distinct from the
 > $1,668 rent-per-occupied-unit path.
 
+> **SEASONS Y1 PATH REVISED AGAIN (charted workbook, analyzed 2026-08-14).** The live chart file carries a
+> deeper seasonal Y1 path: 4Q26 $1,875 → 1Q27 $1,855 → 2Q27 $1,935 → 3Q27 $1,995, **Y1 average $1,915**
+> (vs $1,933.28 in the note above). Annual growth unchanged (+4/4/3.5/3.5/3), so the ladder resets: Y2
+> $1,992, Y3 $2,071, Y4 $2,144, Y5 $2,219, **Y6 forward market rent $2,285** (was $2,307; originally
+> $2,249). Y1 avg is now **1.3% below** the 8/13/26 T90 asking of $1,939 and **1.6% above** the $1,884.69
+> L5 executed. Note the embedded winter drawdown (Aug-26 → 1Q27 = −4.3%) is roughly half the observed
+> −6.1% / −7.2% of the last two winters. `knowledge/exhibits/Rent_Chart_Data.xlsx` in this repo is still
+> the PRIOR ($1,933) build; takeaways drafted off the live file are in
+> `knowledge/exhibits/rent-chart-takeaways.md`.
+
 ## 1. The five capital stacks
 
 | | **Seasons (our bid)** | **Prelude (we own)** | **Canyon Ridge (award)** | **Emblem Meridian** | **The Judy (Hawkins)** |
