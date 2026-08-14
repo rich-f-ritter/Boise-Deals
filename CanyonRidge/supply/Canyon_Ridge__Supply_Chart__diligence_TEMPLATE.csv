@@ -1,0 +1,11 @@
+type,property,units,est_delivery,status,leasing_pace,notes,source
+pipeline,Vista Point,892,,,,(verify proposed),
+pipeline,Seasons on the Bench,300,Q3 2028,,,(verify proposed),
+pipeline,Kootenai & Federal Way (Hawkins),200,Q1 2029,,,(verify proposed),
+pipeline,1519 South Londoner Avenue,189,,,,(verify proposed),
+pipeline,3300 South Vista Avenue,183,,,,(verify proposed),
+pipeline,The Ranahan,138,,,,(verify proposed),
+pipeline,Station Village,86,,,,(verify proposed),
+pipeline,The Quarter at Harris Ranch,32,Q1 2027,,,(verify under construction),
+pipeline,737 ParkCenter,30,Q3 2027,,,(verify under construction),
+shadow,<latent site / rezoning / land sale>,,,,,potential future supply not in CoStar/RealPage,
