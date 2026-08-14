@@ -169,7 +169,7 @@
    "lon": -116.366272,
    "est_delivery": "Q2 2023",
    "occ": "96%",
-   "note": null
+   "note": " Built 2020-2023 inside the Pine 43 master plan; CoStar 240u vs RealPage 480u. Distinct from the proposed 270u CUP (#43)."
   },
   {
    "name": "Yellowstone Apartments",
@@ -436,15 +436,15 @@
    "note": null
   },
   {
-   "name": "Pine 43 Multifamily (Pine & Webb)",
+   "name": "Pine 43 Multifamily (H-2024-0071 CUP)",
    "units": 270,
    "bucket": "PROPOSED",
    "row": 43,
-   "lat": 43.616576,
-   "lon": -116.366272,
+   "lat": 43.611099,
+   "lon": -116.365834,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "270-unit CUP (two buildings, 6.28 ac C-G, height exception) inside the Pine 43 expansion approved 10/21/2025 \u2014 E Pine Ave between Locust Grove & Hickory. DISTINCT from the built Dovetail community (#15, 1350 N Webb Way) in the same master plan. Pin at the expansion annexation parcel \u2014 exact building site TBD from site plan."
   },
   {
    "name": "12548 West Overland Road",
