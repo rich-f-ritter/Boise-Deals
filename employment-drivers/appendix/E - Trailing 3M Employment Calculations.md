@@ -89,3 +89,17 @@
 6. **The labor force is contracting (−0.79%)** while unemployment stays low — a supply-constrained, not demand-collapsed, labor market; consistent with in-migration pausing.
 
 *Reproduction: `scratchpad/t3m_flat.py` logic — download the two BLS flat files, filter to the series IDs above, compute 3-month means, compare to the year-ago window. CES metro data are NSA and subject to annual benchmark revisions (material in this MSA — see Appendix A flags).*
+
+## Addendum (8/14/26): Fiscal-year (Jul–Jun) series for the Supply Chart
+
+For the supply chart's Q3→Q2 fiscal columns (−Y4…Y0):
+
+| FY ending June | Population growth (Placer) | People added | Blended avg weekly wage (QCEW Ada+Canyon) | Wage YoY |
+|---|---|---|---|---|
+| 2022 (−Y4) | +2.0% | +15,390 | $1,114 | +7.5% |
+| 2023 (−Y3) | +1.6% | +12,582 | $1,182 | +6.2% |
+| 2024 (−Y2) | +1.5% | +12,189 | $1,217 | +2.9% |
+| 2025 (−Y1) | +1.6% | +13,042 | $1,295 | +6.4% |
+| 2026 (Y0) | +2.2% | +18,769 | $1,286 (H1 only) | +5.1% matched-H1 basis* |
+
+*QCEW runs through Q4-2025; Y0 wage = Jul–Dec 2025 vs Jul–Dec 2024; full FY26 publishes ~Dec 2026. Wage series is Q4-bonus-lumpy (−Y2/−Y1 whipsaw is bonus timing); 5-yr CAGR ≈ +5.7%/yr. Population % computed on Placer adjusted-population base (853,634 at Jun-26). Quarterly wage detail: 2020Q3–2025Q4 blended values in session records; method = employment-weighted avg of county total-covered avg_wkly_wage.
