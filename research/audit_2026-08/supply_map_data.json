@@ -317,19 +317,19 @@
   {
    "name": "Vanguard Village",
    "units": 552,
-   "bucket": "UNDER CONSTRUCTION",
-   "row": 31,
+   "bucket": "PROPOSED",
+   "row": 33,
    "lat": 43.595464,
    "lon": -116.430197,
    "est_delivery": "Q1 2028",
    "occ": null,
-   "note": null
+   "note": "Moved from UC (Aug 2026): CoStar carries UC/Q1 2028 but no city permit found \u2014 verify. Developer: Endurance Holdings/Challenger (CBH org); ex-Vanguard Commons 432u."
   },
   {
    "name": "Centrepoint",
    "units": 213,
    "bucket": "UNDER CONSTRUCTION",
-   "row": 32,
+   "row": 31,
    "lat": 43.633131,
    "lon": -116.357788,
    "est_delivery": "Q1 2028",
@@ -483,7 +483,7 @@
    "name": "Outer Banks Apartments",
    "units": 516,
    "bucket": "PROPOSED",
-   "row": 33,
+   "row": 32,
    "lat": 43.6,
    "lon": -116.442,
    "est_delivery": "Q4 2027",

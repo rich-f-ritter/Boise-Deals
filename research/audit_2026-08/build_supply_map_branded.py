@@ -76,6 +76,31 @@ def main():
         '${HAS_SHADOW?`<div class="row"><span class="dot" style="background:#7C4DFF"></span>Shadow / latent supply</div>`:\'\'}',
         '${HAS_SHADOW?`<div class="row"><span class="dot" style="background:#7C4DFF"></span>Shadow / latent supply (' + str(n_shadow) + ')</div>'
         '<div class="row"><span class="dot" style="background:#6F6F70"></span>Documented dead — incl. the denied Seasons II site (' + str(n_dead) + ')</div>`:\'\'}')
+    # --- replace the flat marker loop with per-bucket toggleable layer groups
+    marker_block = re.search(r'const bounds = \[\];.*?map\.fitBounds\(bounds,\{padding:\[60,60\]\}\);', t, re.S)
+    toggle_js = """const bounds = [];
+const GROUPS = {};
+function iconFor(p){
+  if(p.num==='S') return L.divIcon({className:'', html:`<div class="pin sub">\\u2605</div>`, iconSize:[44,44], iconAnchor:[22,38]});
+  if(p.num==='\\u2022') return L.divIcon({className:'', html:`<div class="pin" style="background:${p.color};width:16px;height:16px;font-size:9px;opacity:.9;"></div>`, iconSize:[16,16], iconAnchor:[8,8]});
+  return L.divIcon({className:'', html:`<div class="pin" style="background:${p.color};width:25px;height:25px;font-size:12px;">${p.num}</div>`, iconSize:[25,25], iconAnchor:[13,13]});
+}
+PINS.forEach(p=>{
+  bounds.push([p.lat,p.lng]);
+  const m = L.marker([p.lat,p.lng],{icon:iconFor(p), zIndexOffset:p.num==='S'?1000:0}).bindPopup(popup(p));
+  const key = p.num==='S' ? '\\u2605 Subject' : p.bucket;
+  (GROUPS[key] = GROUPS[key] || L.layerGroup()).addLayer(m);
+});
+Object.values(GROUPS).forEach(g=>g.addTo(map));
+const overlays = {};
+Object.keys(GROUPS).forEach(k=>{
+  const col = (PINS.find(p=>(p.num==='S'?'\\u2605 Subject':p.bucket)===k)||{}).color || '#888';
+  overlays[`<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${col};margin-right:4px;"></span>${k}`] = GROUPS[k];
+});
+L.control.layers(null, overlays, {collapsed:false, position:'topleft'}).addTo(map);
+map.fitBounds(bounds,{padding:[60,60]});"""
+    t = t[:marker_block.start()] + toggle_js + t[marker_block.end():]
+
     n_deals = len(data['deals'])
     t = re.sub(r'<div class="sub">.*?</div>',
                f'<div class="sub">{n_deals + 1} competitive properties (2022&ndash;2029) · numbered to the Aug 14 2026 supply chart · purple = shadow watch · gray = documented dead · click any pin</div>',
