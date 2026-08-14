@@ -1,0 +1,60 @@
+# Appendix H — Diagnosing the Boise Slowdown: Local Causes (research stream, full sourced output)
+*Research stream 7. August 13, 2026. Evidence tags: [Well-evidenced] / [Suggestive] / [Speculative]. Feeds §4–5 of "The Boise Slowdown" research paper.*
+
+## Headline corroboration
+- **BLS Business Employment Dynamics, Idaho Q3 2025** (rel. 5/21/26): net **−6,800 private jobs** statewide (gross losses 56,370 > gains 49,570), reversing +4,574 prior quarter; gross job-loss rate 7.6% vs US 5.7%. Sector detail: L&H −2,680 net (worst); Ed & health −2,877 net (closing establishments = 4,818 gross losses); Construction −657; wholesale only net gainer. [Well-evidenced] https://www.bls.gov/regions/west/news-release/2026/businessemploymentdynamics_idaho_20260521.htm — *Note for the paper: statewide quarterly net change; not inconsistent with positive metro YoY in QCEW.*
+- **IDOL June 2026** (7/17/26): statewide nonfarm 886,500 (+800 m/m); UR 3.7%; labor force −1,913 m/m to 1,000,382; **LFPR 62.8% (Jan) → 61.8% (Jun)**. YoY declines: **Arts/Ent/Rec −9.3%; State Gov −7.4%; Federal Gov −5.0%; Admin/Support −2.5%; Information −2.2%; Accommodation & Food −1.9%**. [Well-evidenced] https://idahoatwork.com/2026/07/17/idahos-june-unemployment-rate-remains-at-3-7/
+- **SW Idaho regional (May 2026):** labor force 486,399, **−~3,000 YoY**; UR 3.6%. IDOL attributes part of the decline to **revised population modeling data** — measurement caveat. [Well-evidenced] https://lmi.idaho.gov/regional-info/news/around-southwestern-idaho-economic-activity-may-2026/
+
+## 1. Leisure & hospitality collapse
+- **Closures [Well-evidenced]:** BoDo trio Oct 2025 (P.F. Chang's — only Idaho location —, Kiichi, El Tejano); Wild Root, Blaze Pizza (Village), White Rabbit, Alia's (20 yrs), Lemon Tree, Giggy D's, Whale Tea; ~50 Boise-area businesses closed in 2025 (radio tally); 58 restaurant closures in 2024 (Statesman). BED −2,680 confirms closure-driven. https://boisedev.com/eats-newsletter/boisedev-eats-1-8-2026-2/ ; https://liteonline.com/businesses-closed-boise-2025/
+- **Tourism is a COUNTER-signal:** Boise Airport record **5.2M+ passengers 2025** (4th straight record); Jan 2026 ahead of Jan 2025. IDOL frames tourism as "adapting," 2–4% visitor growth forecast. New 296-room AC/Element hotel opened spring 2026. [Well-evidenced] https://www.iflyboise.com/press-room/media-center/2026/january/new-milestone-for-passenger-traffic-just-in-time-for-boi-100/
+- **Ski winter [Well-evidenced drag]:** Bogus Basin ~108" vs 250" average (~40%), ~2/3 terrain; Brundage 56% of average; Tamarack half of normal. Aligns with Arts/Ent/Rec −9.3%. https://www.lmtribune.com/outdoors/warm-weather-and-light-snow-how-an-unusual-winter-affected-idaho-ski-areas-b8744d83
+- Interpretation: consumer discretionary pullback + bad ski winter + cost pressure on low-margin operators; NOT a visitation decline. Jaialdi 2025 base effect hits Jul–Sep 2026 windows, not June.
+
+## 2. Education & health deceleration
+- **Blue Cross of Idaho −135 (~10%)** after losing the Medicaid dual-eligible contract (~26,000 enrollees) to UHC/Molina; separations Jun–Oct 2025. [Well-evidenced] https://boisedev.com/news/2025/03/06/blue-cross-announces-layoffs-after-losing-state-contract/
+- BED: Ed & health −2,877 net Q3 2025 with closures driving it — small practices, not big systems. [Well-evidenced]
+- **State policy:** 2026 Legislature passed **Medicaid expansion work requirements** (~80,000+ affected; effective Jan 1, 2027), disability-provider rate cuts (Jul 2027), other cuts. [Well-evidenced policy; suggestive as 2026 hiring channel] https://idahocapitalsun.com/2026/03/31/idaho-legislature-passes-bill-for-medicaid-expansion-work-requirements-by-2027/
+- **OBBBA/H.R.1:** ~$1T national Medicaid cuts from 2027; Madison Memorial projects −1.2% operating margin; Idaho awarded ~$186M/yr from the $50B Rural Health Transformation Program (Dec 2025) as partial offset. [Well-evidenced projections]
+- **St. Luke's / Saint Alphonsus:** no 2025–26 layoffs or formal freezes found; Fitch notes "ongoing cost containment." **Counter-signal: SW Idaho hospital job postings +44% YoY (2,388, Apr 2026), RNs top-posted (814).** Read: attrition management, not freeze. [Suggestive]
+
+## 3. Government decline — clearest causal chain
+- **State:** ~$4B cumulative income-tax cuts (incl. $450M+ in 2025); FY25 revenues below forecast all year; Feb 2026 collections **$89.5M below** forecast; Oct 2025 projected **unconstitutional $56.6M FY26 deficit**; response: holdbacks + **4% cuts to most agencies ($131.3M)** in the 2026 session; **state government employment −7.4% YoY (Jun 2026)**. [Well-evidenced] https://idahocapitalsun.com/2025/10/10/idaho-projected-to-end-fiscal-year-with-unconstitutional-56-6m-state-budget-deficit/ ; https://idahocapitalsun.com/2026/03/02/idaho-senate-narrowly-approves-4-budget-cuts-for-most-state-agencies-departments/
+- **Higher ed (Boise-concentrated):** BSU absorbed 3% cut + targeted $2M cut; $6.7M state funding cuts → 4.5% tuition hike, nine faculty hires delayed; **March 2026: BSU closes one college, merges two others** (College of Ed + School of Public Service, eff. 7/1/26). [Well-evidenced] https://boisedev.com/news/2026/03/04/under-interim-president-boise-state-to-cut-one-college-merge-two-others/
+- **Federal:** Idaho ~11,000–14,400 federal civilians, heaviest in SW region; **federal employment −5.0% YoY**; 2025 Forest Service layoffs; Interior ~2,000 layoffs Oct 2025 with **BLM −474 (~5%) concentrated in state offices incl. Idaho**; Apr 2026 Forest Service restructure warnings; Oct 1–Nov 12, 2025 shutdown furloughs. [Well-evidenced] https://www.govexec.com/workforce/2025/10/see-where-interior-planning-lay-2000-employees/408913/
+- **Local/schools:** all three Nov 2025 school bonds failed statewide; Kuna SD cut ~20 positions; **West Ada −421 students in 2025-26, −1,213 since 2022-23** (projects −233 and ~$2.5M less funding 2026-27); Boise SD projecting −650, attributed to lower birth rates and housing costs. City of Boise a counter-example (modest FY26 adds). [Well-evidenced] https://www.idahoednews.org/school-funding/some-districts-cut-others-hold-steady-as-new-fiscal-year-nears/
+
+## 4. Construction deceleration
+- **Micron/Exyte:** contract terminated eff. 9/2/25; Exyte WARN 200+ (construction mgmt, engineering, QA); Hoffman Construction took over; Micron never explained why (had given Exyte a supplier award in late 2024). Net site headcount change: NOT public. [Termination well-evidenced; net effect speculative] https://boisedev.com/news/2025/11/24/exyte-boise-micron/
+- **Permits:** Jan 2026 national SF permits −15.2% YoY, West −20.1%; City of Boise approved 682 MF + 590 SF units in 2025 (~2,000/yr need, far below boom); Ada County MF permits fell 3,332 (2022) → 2,543 (2023). County 2025-26 totals: GAP — pull COMPASS/Census BPS. https://www.bcaswi.org/single-family-permits-decline-sharply-to-start-2026/
+- **Counter-signals:** Micron $50B two-fab program accelerating (first fab equipment install nearing, DRAM output mid-2027, second fab late 2028); Meta Kuna (~1,200 construction jobs, opening late 2026); The Fields ~1,000 units; AC/Element delivered. Explains construction staying positive. [Well-evidenced]
+- **ICE at construction sites:** Eagle and Emmett actions Aug 4, 2026, multiple detentions. [Events well-evidenced; magnitude speculative] https://www.ktvb.com/article/news/local/ice-raids-construction-sites-in-eagle-emmett-attorney-reports-multiple-detentions/277-1cc58707-51b3-4df7-b63d-a3749af6b452
+
+## 5. Labor force contraction
+- Statewide LF fell every month through spring 2026 (Apr −2,350; May −1,203; Jun −1,913); LFPR 62.8→61.8. [Well-evidenced]
+- **Measurement caveat:** IDOL — part of the decline reflects BLS benchmark/population-model revisions ("Idaho receives benchmark adjustments for 2025 labor force statistics," 4/6/26). [Well-evidenced] https://idahoatwork.com/2026/04/06/idaho-receives-benchmark-adjustments-for-2025-labor-force-statistics/amp/
+- **Aging:** wages fell 61% → 56% of Idaho personal income 2010–2025 (retirement income growth). [Well-evidenced]
+- **Enforcement:** "unprecedented" ICE activity; **Wilder racetrack mass raid Oct 19, 2025** (~200 officers, ~400 detained for questioning; ACLU class action Feb 2026); Eagle/Emmett Aug 2026; Idaho Dairymen's: up to 70% of dairy workforce may be unauthorized; 2026 Legislature introduced 24+ immigration bills, passed none. Magnitudes unquantified. https://www.themarshallproject.org/2026/02/10/ice-idaho-raid-aclu-lawsuit
+
+## 6. In-migration slowdown
+- Census (Dec 2025): Idaho +1.4% (+28,861 to 2,029,733) Jul'24–Jul'25 — 2nd fastest nationally but slowing. Pew: Idaho relied on domestic migration (+131K over five years vs +24K international) — insulated relative to immigration-dependent states. [Well-evidenced]
+- Mover indices still positive: United Van Lines 2025 — Idaho 57.8% inbound; U-Haul top 10. Flows continue, smaller and older (family/retirement top reasons — population without labor force). [Well-evidenced]
+- School enrollment as young-family proxy: West Ada −1,213 since 2022-23; Boise SD −650 projected (birth rates + housing costs). [Well-evidenced]
+- EORAC economists (Jan 2026): high housing costs/rates "slowing the state's economic engine powered by its desirability as a destination." [Well-evidenced commentary]
+
+## 7. Local economist commentary
+- **Sam Wolkenhauer (IDOL), EORAC 1/14/26:** "Some labor market indicators show softening, but this is relative to an abnormally tight market in 2022 and 2023… Obvious signs of distress are not there." Forecast +21,000 Idaho jobs by Q1 2027 (+1.2%/yr): HC +7,250 (2.8%/yr), Construction +3,980 (2.9%/yr), L&H +1,450 (0.8%/yr), Information −120, Admin −520. Actuals running well below for L&H and government — usable forecast-vs-realization exhibit. https://www.labor.idaho.gov/wp-content/uploads/2026/04/Idaho-economic-outlook-2026.pdf
+- Wolkenhauer (Feb 2026): national economy shows "strain" while Idaho labor markets "perform really well"; **Coeur d'Alene, not Boise, now leads state job growth**. https://cdapress.com/news/2026/feb/18/coeur-dalene-leads-state-in-job-growth-as-us-economy-shows-strain/
+- **Robert Spendlove (Zions), 1/13/26:** Idaho ~5th for economic health; job growth still above US average; region "relatively strong and resilient." https://www.boisestatepublicradio.org/show/idaho-matters/2026-01-13/whats-next-idahos-economy-zions-bank-economist
+- State revenue forecasts repeatedly surprised low ($89.5M below through Feb 2026) — the state's own forecasts were too optimistic.
+- **Wages:** Idaho +4.7% to $29.41/hr in 2025, **3rd-fastest nationally**; median +3.2%. Supply-constrained signature. https://gov.idaho.gov/pressrelease/idaho-ranks-top-three-in-nation-for-wage-growth/
+
+## 8. Counter-signals (pause vs downturn)
+- Micron: $50B intact and accelerating on AI/HBM; **semiconductor postings +92% YoY (654)**; software developer postings +36%; IDOL projects 400–500-person semiconductor tech shortage.
+- **SW Idaho unique job postings +11% YoY (28,057, Apr 2026)**; hospital postings +44%; posting duration shortening — demand exists; labor supply binds.
+- Meta Kuna opens late 2026; record airport traffic; 13+ notable restaurant openings spring 2026 (Salt & Straw, First Watch, Cactus, Zao); Ada pending home sales highest since 2022 in spring 2026.
+- Local-observer verdict: IDOL and Zions both characterize 2025–26 as **normalization after an abnormally tight 2022–23**, not a downturn; UR 3.4–3.7%, no claims spike, wages 3rd-fastest. Sharpest verifiable contractions are policy-driven (state cuts, federal RIFs/shutdown, Medicaid contract) and weather-driven (ski season), plus discretionary churn in food service.
+
+## Evidence gaps
+1. Boise hotel occupancy/RevPAR 2025–26 (STR). 2. Ada–Canyon permit counts 2025–H1 2026 (COMPASS/Census BPS). 3. Micron site headcount pre/post Exyte→Hoffman. 4. Formal hospital hiring-policy statements. 5. Quantified enforcement employment effects.

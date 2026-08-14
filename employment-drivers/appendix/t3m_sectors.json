@@ -1,0 +1,92 @@
+{
+ "Total nonfarm": {
+  "latest": "2026-06",
+  "t3m_2026": 416.4,
+  "chg_jobs": 1733,
+  "yoy_pct": 0.42
+ },
+ "Mining/logging/construction": {
+  "latest": "2026-06",
+  "t3m_2026": 39.67,
+  "chg_jobs": 900,
+  "yoy_pct": 2.32
+ },
+ "Manufacturing": {
+  "latest": "2026-06",
+  "t3m_2026": 31.1,
+  "chg_jobs": -100,
+  "yoy_pct": -0.32
+ },
+ "Trade/transport/utilities": {
+  "latest": "2026-06",
+  "t3m_2026": 79.83,
+  "chg_jobs": 1333,
+  "yoy_pct": 1.7
+ },
+ "Information": {
+  "latest": "2026-06",
+  "t3m_2026": 4.3,
+  "chg_jobs": -200,
+  "yoy_pct": -4.44
+ },
+ "Financial activities": {
+  "latest": "2026-06",
+  "t3m_2026": 23.57,
+  "chg_jobs": 500,
+  "yoy_pct": 2.17
+ },
+ "Prof & business services": {
+  "latest": "2026-06",
+  "t3m_2026": 62.47,
+  "chg_jobs": 667,
+  "yoy_pct": 1.08
+ },
+ "Education & health": {
+  "latest": "2026-06",
+  "t3m_2026": 67.03,
+  "chg_jobs": 433,
+  "yoy_pct": 0.65
+ },
+ "Leisure & hospitality": {
+  "latest": "2026-06",
+  "t3m_2026": 40.5,
+  "chg_jobs": -1767,
+  "yoy_pct": -4.18
+ },
+ "Other services": {
+  "latest": "2026-06",
+  "t3m_2026": 14.53,
+  "chg_jobs": 367,
+  "yoy_pct": 2.59
+ },
+ "Government": {
+  "latest": "2026-06",
+  "t3m_2026": 53.4,
+  "chg_jobs": -400,
+  "yoy_pct": -0.74
+ },
+ "Salt Lake City MSA": {
+  "latest": "2026-06",
+  "t3m_2026": 855.77,
+  "chg_jobs": 17533,
+  "yoy_pct": 2.09
+ },
+ "Phoenix MSA": {
+  "latest": "2026-06",
+  "t3m_2026": 2473.5,
+  "chg_jobs": 22800,
+  "yoy_pct": 0.93
+ },
+ "Reno MSA": {
+  "latest": "2026-06",
+  "t3m_2026": 287.13,
+  "chg_jobs": 4600,
+  "yoy_pct": 1.63
+ },
+ "Spokane MSA": {
+  "latest": "2026-06",
+  "t3m_2026": 266.27,
+  "chg_jobs": -2267,
+  "yoy_pct": -0.84
+ }
+}

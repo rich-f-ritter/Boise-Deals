@@ -1,0 +1,463 @@
+Market,State,Inbound,Outbound,Net Migration,Population,Median HHI,Median Age,Migration Type
+"Los Angeles-Long Beach-Anaheim, CA Metro Area, California",,2671,1021,1650,13149209.78,96109.93391778112,38.5,In-State
+"Riverside-San Bernardino-Ontario, CA Metro Area, California",,1562,498,1064,4818042.47,90201.55829844167,35.9,In-State
+"San Francisco-Oakland-Fremont, CA Metro Area, California",,1091,262,829,4737853.68,136452.8123399521,40.3,In-State
+"San Diego-Chula Vista-Carlsbad, CA Metro Area, California",,1175,529,646,3413745.48,106578.7446291676,37.3,In-State
+"Chicago-Naperville-Elgin, IL-IN Metro Area, Illinois",,925,388,537,9416817.13,91338.52654148346,38.6,In-State
+"Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area, District of Columbia",,720,216,504,6613567.68,126732.11055060469,38,In-State
+"Albuquerque, NM Metro Area, New Mexico",,626,145,481,931792.2,70889.97199099392,39.8,In-State
+"Columbus, OH Metro Area, Ohio",,531,70,461,2246705.84,82475.73468490384,36.7,In-State
+"Sacramento-Roseville-Folsom, CA Metro Area, California",,1096,676,420,2499137,97100.87755842519,38.5,In-State
+"Portland-Vancouver-Hillsboro, OR-WA Metro Area, Washington",,794,406,388,2545101.15,97551.81177292684,39.3,In-State
+"San Jose-Sunnyvale-Santa Clara, CA Metro Area, California",,540,177,363,2072665.4,163631.30833796778,38,In-State
+"Oxnard-Thousand Oaks-Ventura, CA Metro Area, California",,465,134,331,837118.62,110870.51139119615,39.6,In-State
+"Seattle-Tacoma-Bellevue, WA Metro Area, Washington",,843,540,303,4254475.99,115281.53473842908,37.5,In-State
+"Bakersfield-Delano, CA Metro Area, California",,322,57,265,942690.17,70254.95081928253,32.7,In-State
+"Memphis, TN-MS-AR Metro Area, Tennessee",,420,156,264,1366696.84,66977.51422512475,36.8,In-State
+"Santa Rosa-Petaluma, CA Metro Area, California",,305,55,250,481943.39,105565.0825416097,42.9,In-State
+"Twin Falls, ID Metro Area, Idaho",,618,377,241,123238.56,68938.92406309984,35.8,Cross-State
+"Fresno, CA Metro Area, California",,361,122,239,1200290.23,74443.59262064322,33.7,In-State
+"Denver-Aurora-Centennial, CO Metro Area, Colorado",,1016,789,227,3104620.04,106104.44597864588,37.3,In-State
+"Virginia Beach-Chesapeake-Norfolk, VA-NC Metro Area, Virginia",,384,184,200,1815792.24,82964.55298081634,37.4,In-State
+"Idaho Falls, ID Metro Area, Idaho",,325,151,174,167654.2,80973.25987811227,33.5,Cross-State
+"Wichita, KS Metro Area, Kansas",,245,73,172,665896.64,70561.93233123407,36.7,In-State
+"Phoenix-Mesa-Chandler, AZ Metro Area, Arizona",,885,720,165,5492568.17,88871.75782666686,37.9,In-State
+"Tulsa, OK Metro Area, Oklahoma",,284,121,163,1047607.91,69899.98098502663,37.4,In-State
+"Cincinnati, OH-KY-IN Metro Area, Indiana",,332,171,161,2289008.33,81610.72046180579,38.2,In-State
+"Las Vegas-Henderson-North Las Vegas, NV Metro Area, Nevada",,431,274,157,2493359.4,76728.73803129318,38.5,In-State
+"Charlotte-Concord-Gastonia, NC-SC Metro Area, South Carolina",,213,58,155,2906013.66,83829.74209701296,37.9,In-State
+"Omaha, NE-IA Metro Area, Nebraska",,349,197,152,999745.64,85407.07232258223,36.6,In-State
+"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, Pennsylvania",,281,129,152,6299036.56,91570.91818068258,39.3,In-State
+"Edwards, CO Micro Area, Colorado",,146,0,146,54451.98,104737.79425525201,39.7,In-State
+"San Luis Obispo-Paso Robles, CA Metro Area, California",,206,61,145,329182.85,97610.23355197982,40.4,In-State
+"Iowa City, IA Metro Area, Iowa",,142,0,142,189032.94,75105.12012092253,32.1,In-State
+"Modesto, CA Metro Area, California",,264,123,141,559970.58,82208.25304249153,34.9,In-State
+"Champaign-Urbana, IL Metro Area, Illinois",,177,52,125,264794.57,66262.43286195837,32,In-State
+"Manhattan, KS Metro Area, Kansas",,143,30,113,141287.97,65913.824047828,27.3,In-State
+"Pueblo, CO Metro Area, Colorado",,140,27,113,171018.13,64867.222558190806,40.4,In-State
+"New York-Newark-Jersey City, NY-NJ Metro Area, New York",,154,44,110,19871736.93,99202.74847524318,39.5,In-State
+"Provo-Orem-Lehi, UT Metro Area, Utah",,311,202,109,784203.09,100972.54878206084,25.8,In-State
+"Visalia, CA Metro Area, California",,121,12,109,479508.78,71105.42871961038,32.1,In-State
+"Winchester, VA-WV Metro Area, Virginia",,107,0,107,145495.2,84365.39101423416,41.2,In-State
+"Daphne-Fairhope-Foley, AL Metro Area, Alabama",,103,0,103,244996.88,78200.66436750274,43.9,In-State
+"Greeley, CO Metro Area, Colorado",,180,84,96,366802.21,96839.82308894367,35.3,In-State
+"Merced, CA Metro Area, California",,110,15,95,294307.13,66042.28211973209,31.8,In-State
+"Sheridan, WY Micro Area, Wyoming",,94,0,94,32041.38,72120.33514364144,42.7,In-State
+"Augusta-Waterville, ME Micro Area, Maine",,91,0,91,124891.06,68834.70582426598,43.7,In-State
+"Dallas-Fort Worth-Arlington, TX Metro Area, Texas",,226,136,90,8452834.28,90882.67302641993,35.6,In-State
+"Stockton-Lodi, CA Metro Area, California",,244,154,90,805224.4,93025.68446393317,35.4,In-State
+"Laramie, WY Micro Area, Wyoming",,290,201,89,43434.15,61953.14909800763,28.6,In-State
+"Dover, DE Metro Area, Delaware",,87,0,87,194566.12,74532.53920559831,38.8,In-State
+"Greenwood, MS Micro Area, Mississippi",,87,0,87,37714.77,39587.57884441566,38.3,In-State
+"Wisconsin Rapids-Marshfield, WI Micro Area, Wisconsin",,85,0,85,72194.63,66854.52157014016,43.8,In-State
+"Rexburg, ID Micro Area, Idaho",,340,256,84,58402.85,63420.36953164114,22.4,Cross-State
+"Blacksburg-Christiansburg-Radford, VA Metro Area, Virginia",,82,0,82,189885.91,66318.96783616616,35.1,In-State
+"Davenport-Moline-Rock Island, IA-IL Metro Area, Illinois",,80,0,80,383042.46,72991.50142537229,40.4,In-State
+"Santa Maria-Santa Barbara, CA Metro Area, California",,140,61,79,487937.14,98308.9367478641,34.6,In-State
+"Bremerton-Silverdale-Port Orchard, WA Metro Area, Washington",,111,33,78,279458.92,104722.9097692997,40.2,In-State
+"Eureka-Arcata, CA Micro Area, California",,98,20,78,136845.32,61642.672404115314,39.9,In-State
+"Napa, CA Metro Area, California",,120,44,76,131934.16,112492.73047675817,42.9,In-State
+"Murrells Inlet, SC Micro Area, South Carolina",,75,0,75,64406.37,67902.6592787889,52.2,In-State
+"Salinas, CA Metro Area, California",,123,48,75,456542.03,97250.01589722846,35.5,In-State
+"Sioux City, IA-NE-SD Metro Area, Nebraska",,116,41,75,144515.22,75213.35445219437,36.2,In-State
+"Tampa-St. Petersburg-Clearwater, FL Metro Area, Florida",,297,223,74,3508528.22,74423.36649971723,42.2,In-State
+"Jackson, WY-ID Micro Area, Wyoming",,195,123,72,37592.3,117924.29549574832,40,In-State
+"Reno, NV Metro Area, Nevada",,171,99,72,564801.92,87733.9559602288,39.5,In-State
+"Cape Coral-Fort Myers, FL Metro Area, Florida",,71,0,71,898926.68,76111.04554563938,49,In-State
+"Houston-Pasadena-The Woodlands, TX Metro Area, Texas",,153,82,71,7966340.44,83126.4100549336,35.4,In-State
+"Port St. Lucie, FL Metro Area, Florida",,98,29,69,541066.39,74533.63595732159,47.6,In-State
+"Columbia, SC Metro Area, South Carolina",,210,142,68,888721.51,68626.76374682487,37.6,In-State
+"Rock Springs, WY Micro Area, Wyoming",,68,0,68,44105.67,75050.26473904448,37.9,In-State
+"Yakima, WA Metro Area, Washington",,102,34,68,258810.49,70536.73027994018,33.3,In-State
+"Marietta, OH Micro Area, Ohio",,67,0,67,59346.45,64178.34880465626,44,In-State
+"Salina, KS Micro Area, Kansas",,67,0,67,61467.25,66469.75599233765,40.2,In-State
+"Brattleboro, VT Micro Area, Vermont",,66,0,66,42354.4,72831.56033983045,47.3,In-State
+"Louisville/Jefferson County, KY-IN Metro Area, Kentucky",,222,157,65,1397759.79,73863.43856242945,39.4,In-State
+"Mountain Home, ID Micro Area, Idaho",,377,312,65,31954.41,66194.35706156203,33.1,Cross-State
+"Waterbury-Shelton, CT Metro Area, Connecticut",,65,0,65,452316.75,87671.66368681574,41.8,In-State
+"Lincoln, NE Metro Area, Nebraska",,63,0,63,352979.32,75050.71877141214,34.5,In-State
+"Bozeman, MT Metro Area, Montana",,92,31,61,124206.6,95089.43271860607,34.2,In-State
+"Elizabethtown, KY Metro Area, Kentucky",,60,0,60,129357.38,66972.18731042524,37.6,In-State
+"Coeur d'Alene, ID Metro Area, Idaho",,188,130,58,180033.66,82246.9396714897,40.9,Cross-State
+"Casper, WY Metro Area, Wyoming",,104,47,57,81321.89,72051.26197296394,38.4,In-State
+"Bloomington, IN Metro Area, Indiana",,111,55,56,183931.38,65611.71428060174,33.1,In-State
+"Bend, OR Metro Area, Oregon",,195,140,55,249444.45,90650.02704407729,43,In-State
+"Hartford-West Hartford-East Hartford, CT Metro Area, Connecticut",,55,0,55,1147059.01,95149.68401109631,40.8,In-State
+"Gaffney, SC Micro Area, South Carolina",,53,0,53,59849.68,50367.95719353728,40.4,In-State
+"Hilton Head Island-Bluffton-Port Royal, SC Metro Area, South Carolina",,52,0,52,242804.3,84617.79390744118,47.7,In-State
+"Spokane-Spokane Valley, WA Metro Area, Washington",,227,176,51,594793.88,77584.82776234884,39.1,In-State
+"Carlsbad-Artesia, NM Micro Area, New Mexico",,50,0,50,58325.83,77819.53298427878,36.2,In-State
+"Hagerstown-Martinsburg, MD-WV Metro Area, West Virginia",,86,36,50,306899.99,79453.94989494426,40.2,In-State
+"Lake Havasu City-Kingman, AZ Metro Area, Arizona",,85,36,49,235323.19,57937.94345839854,53.6,In-State
+"Salt Lake City-Murray, UT Metro Area, Utah",,270,221,49,1325902.25,98225.30405780263,33.9,In-State
+"Carroll, IA Micro Area, Iowa",,48,0,48,19212.95,71378.59531442578,41.1,In-State
+"Elko, NV Micro Area, Nevada",,89,41,48,57549.07,84352.3470546183,36.1,In-State
+"Elkhart-Goshen, IN Metro Area, Indiana",,46,0,46,211972.17,69750.47833892188,35.6,In-State
+"Olympia-Lacey-Tumwater, WA Metro Area, Washington",,80,35,45,303163.35,96312.53862501105,40,In-State
+"Truckee-Grass Valley, CA Micro Area, California",,59,14,45,96560.33,90457.251814352,50.1,In-State
+"Pullman, WA Micro Area, Washington",,76,32,44,59734.37,55146.58332210349,26.4,In-State
+"Burley, ID Micro Area, Idaho",,99,56,43,47857.99,70834.00972471233,33.7,Cross-State
+"Green Bay, WI Metro Area, Wisconsin",,42,0,42,334937.18,79874.89942007913,39.5,In-State
+"Milwaukee-Waukesha, WI Metro Area, Wisconsin",,200,158,42,1601543.79,78365.28091443398,38.7,In-State
+"Springfield, OH Metro Area, Ohio",,42,0,42,133990.08,63493.09542741063,41.2,In-State
+"Rockford, IL Metro Area, Illinois",,41,0,41,333408.07,68437.80425551215,39.6,In-State
+"Sandpoint, ID Micro Area, Idaho",,66,25,41,51139.95,67293.99688489285,48.1,Cross-State
+"Susanville, CA Micro Area, California",,41,0,41,27088.87,67790.62663176097,38.3,In-State
+"Crestview-Fort Walton Beach-Destin, FL Metro Area, Florida",,40,0,40,311927.11,83091.94343372932,39.3,In-State
+"Peoria, IL Metro Area, Illinois",,83,43,40,358131.54,72232.45072325093,40.1,In-State
+"Austin-Round Rock-San Marcos, TX Metro Area, Texas",,82,43,39,2569546.6,100501.66652525053,36,In-State
+"Hailey, ID Micro Area, Idaho",,117,78,39,32387.67,86802.97287393572,44,Cross-State
+"Blackfoot, ID Micro Area, Idaho",,70,32,38,50887.73,77597.00141996227,35,Cross-State
+"Huntsville, AL Metro Area, Alabama",,38,0,38,521763.13,85372.11502613504,38.8,In-State
+"Madison, WI Metro Area, Wisconsin",,38,0,38,700708.02,89041.22336358565,37,In-State
+"Salem, OR Metro Area, Oregon",,136,98,38,447549.77,79207.41916177643,37.5,In-State
+"Birmingham, AL Metro Area, Alabama",,64,27,37,1164319.65,71776.17399653934,38.9,In-State
+"Helena, MT Metro Area, Montana",,60,23,37,92112.87,79501.10885778576,42.6,In-State
+"Danville, IL Micro Area, Illinois",,36,0,36,71951.31,57283.18621717211,41.3,In-State
+"Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Minnesota",,108,72,36,3759013.86,99851.24589393004,38,In-State
+"Sumter, SC Metro Area, South Carolina",,36,0,36,109253.51,56802.95868801053,38,In-State
+"Waterloo-Cedar Falls, IA Metro Area, Iowa",,100,64,36,172581.01,70398.40889331143,36.8,In-State
+"Wenatchee-East Wenatchee, WA Metro Area, Washington",,36,0,36,125871.93,81997.51911291458,39.8,In-State
+"Athens, TN Micro Area, Tennessee",,35,0,35,68926.04,61136.14049404249,42.9,In-State
+"Klamath Falls, OR Micro Area, Oregon",,51,16,35,67326.45,58699.863130729274,41.3,In-State
+"Lexington-Fayette, KY Metro Area, Kentucky",,80,46,34,554493.92,72247.8862410212,36.7,In-State
+"Redding, CA Metro Area, California",,117,83,34,177235.93,72982.5418370852,41.7,In-State
+"Santa Cruz-Watsonville, CA Metro Area, California",,84,50,34,272064.46,111053.987331157,39.8,In-State
+"Tallahassee, FL Metro Area, Florida",,78,44,34,406942.94,65486.31738412533,34.8,In-State
+"Manitowoc, WI Micro Area, Wisconsin",,33,0,33,80457.62,70189.0656829021,45.1,In-State
+"Alamosa, CO Micro Area, Colorado",,32,0,32,28797.59,51089.326656222605,36.4,In-State
+"Charleston, WV Metro Area, West Virginia",,32,0,32,203773.15,60153.66312591906,44,In-State
+"La Crosse-Onalaska, WI-MN Metro Area, Wisconsin",,32,0,32,167410.13,73480.19118979006,39.3,In-State
+"Lewiston, ID-WA Metro Area, Washington",,90,58,32,63627.63,72359.50876519745,42.8,In-State
+"Rifle, CO Micro Area, Colorado",,32,0,32,80429.8,94178.62765270534,39.3,In-State
+"Grand Junction, CO Metro Area, Colorado",,81,50,31,159117,73544.3486268242,41.3,In-State
+"Kennewick-Richland, WA Metro Area, Washington",,156,125,31,318927.26,89066.72546357552,34.6,In-State
+"Paducah, KY-IL Metro Area, Kentucky",,88,57,31,98167.25,65173.39209877211,43.2,In-State
+"Pittsburg, KS Micro Area, Kansas",,31,0,31,38656.48,52477.65114497861,33.6,In-State
+"Tuscaloosa, AL Metro Area, Alabama",,31,0,31,255048.11,61482.98666372661,34,In-State
+"Greenwood, SC Micro Area, South Carolina",,30,0,30,95861.65,52892.35948529116,40.9,In-State
+"Salem, OH Micro Area, Ohio",,30,0,30,95810.17,58030.038175379166,44.6,In-State
+"Stevens Point-Plover, WI Micro Area, Wisconsin",,30,0,30,73947.92,76396.19963680775,38,In-State
+"Astoria, OR Micro Area, Oregon",,40,11,29,40680.14,71466.8627607898,46,In-State
+"Kokomo, IN Metro Area, Indiana",,29,0,29,83397.74,64338.858401036894,40.7,In-State
+"Tahlequah, OK Micro Area, Oklahoma",,29,0,29,50642.62,53917.17998440002,37.3,In-State
+"Tullahoma-Manchester, TN Micro Area, Tennessee",,29,0,29,65495.92,61634.53057355966,39.8,In-State
+"Bedford, IN Micro Area, Indiana",,28,0,28,44642.25,66716.4438468494,43.3,In-State
+"Crescent City, CA Micro Area, California",,72,44,28,27656.07,67788.31097598914,39.9,In-State
+"Lynchburg, VA Metro Area, Virginia",,59,31,28,265833.89,67941.43584431263,40,In-State
+"Missoula, MT Metro Area, Montana",,55,27,28,131246.57,74989.26910161694,37.5,In-State
+"Anniston-Oxford, AL Metro Area, Alabama",,27,0,27,112274.99,55108.33783818915,39.3,In-State
+"Columbus, NE Micro Area, Nebraska",,27,0,27,47709.48,75563.802749556,37.1,In-State
+"Tucson, AZ Metro Area, Arizona",,123,96,27,1108074.64,70370.69414854399,39.8,In-State
+"Ukiah, CA Micro Area, California",,46,19,27,88067.44,68618.19131515361,44.1,In-State
+"Flagstaff, AZ Metro Area, Arizona",,37,11,26,150990.32,73080.9144272491,32.8,In-State
+"Platteville, WI Micro Area, Wisconsin",,26,0,26,50230.59,67366.97833957383,36.8,In-State
+"St. Louis, MO-IL Metro Area, Illinois",,60,34,26,2816888.62,80546.2348474843,39.9,In-State
+"Weatherford, OK Micro Area, Oklahoma",,26,0,26,39532.18,61064.733672828814,35.1,In-State
+"Logan, UT-ID Metro Area, Utah",,97,72,25,158765.47,81340.97248337712,26.8,In-State
+"Gillette, WY Micro Area, Wyoming",,45,21,24,48455.65,91123.21142164296,36.3,In-State
+"Goldsboro, NC Metro Area, North Carolina",,28,4,24,128476.22,59781.17193040247,37.3,In-State
+"Killeen-Temple, TX Metro Area, Texas",,35,11,24,503768.67,69391.61269224845,32.8,In-State
+"Shawnee, OK Micro Area, Oklahoma",,24,0,24,74467.27,61519.77719834125,37.9,In-State
+"Urban Honolulu, HI Metro Area, Hawaii",,78,54,24,973143.89,106598.57058498438,39.8,In-State
+"Baker City, OR Micro Area, Oregon",,48,26,22,15460.38,61540.91016744179,47,In-State
+"Ozark, AL Micro Area, Alabama",,49,27,22,47643.8,55361.34360912946,37.7,In-State
+"Providence-Warwick, RI-MA Metro Area, Massachusetts",,67,45,22,1666130.28,87302.02754009773,40.7,In-State
+"Medford, OR Metro Area, Oregon",,78,57,21,217928.26,73734.99181827469,42.8,In-State
+"New Orleans-Metairie, LA Metro Area, Louisiana",,30,10,20,1013062.55,63034.36051018875,39.2,In-State
+"Vallejo, CA Metro Area, California",,114,94,20,460636.22,100398.71472041876,39.2,In-State
+"Bellingham, WA Metro Area, Washington",,52,33,19,248232.55,82153.89266261163,38.4,In-State
+"Brigham City, UT-ID Micro Area, Utah",,34,15,19,67050.98,83764.47416017769,33.7,In-State
+"Chico, CA Metro Area, California",,108,89,19,233402.25,68302.41844092823,36.2,In-State
+"Kansas City, MO-KS Metro Area, Missouri",,318,299,19,2242948.36,83959.76888095679,38,In-State
+"Syracuse, NY Metro Area, New York",,19,0,19,655136.36,75580.24425798774,40.1,In-State
+"Rochester, NY Metro Area, New York",,18,0,18,1056344.9,76401.88886024391,40.7,In-State
+"Niles, MI Metro Area, Michigan",,17,0,17,147725.04,65851.54892077648,42.7,In-State
+"Orlando-Kissimmee-Sanford, FL Metro Area, Florida",,220,203,17,3021513.78,78747.32685598376,38.5,In-State
+"Sonora, CA Micro Area, California",,30,13,17,56395.32,77597.19627268234,48.4,In-State
+"Springfield, MO Metro Area, Missouri",,20,3,17,485327.12,65636.05283663674,37.3,In-State
+"Baltimore-Columbia-Towson, MD Metro Area, Maryland",,30,14,16,2888297.3,99561.36291814121,39,In-State
+"Billings, MT Metro Area, Montana",,62,46,16,189164.06,77705.10742974051,39.9,In-State
+"Bishop, CA Micro Area, California",,16,0,16,18167.14,73703.84837840537,45.5,In-State
+"Bismarck, ND Metro Area, North Dakota",,16,0,16,134477.42,84987.81123897506,38.4,In-State
+"Great Falls, MT Metro Area, Montana",,26,10,16,82053.8,67044.59273094099,38.6,In-State
+"Oak Harbor, WA Micro Area, Washington",,35,19,16,84225.92,92129.53079890319,44.8,In-State
+"Pocatello, ID Metro Area, Idaho",,231,215,16,92822.61,67110.32903777885,35.2,Cross-State
+"Spearfish, SD Micro Area, South Dakota",,16,0,16,27148.07,72290.86025903079,44.8,In-State
+"Durango, CO Micro Area, Colorado",,49,34,15,57074.95,85776.1431289544,43.2,In-State
+"Homosassa Springs, FL Metro Area, Florida",,38,23,15,161557.48,56102.72278082794,56.9,In-State
+"La Grande, OR Micro Area, Oregon",,53,38,15,27614.41,65572.16508638384,40,In-State
+"Lubbock, TX Metro Area, Texas",,19,4,15,379895.79,63970.03701042049,32.4,In-State
+"Aberdeen, WA Micro Area, Washington",,14,0,14,71908.26,64415.565606956676,44.7,In-State
+"Alpena, MI Micro Area, Michigan",,14,0,14,29115.63,54138.51040498857,47.8,In-State
+"Little Rock-North Little Rock-Conway, AR Metro Area, Arkansas",,20,6,14,760845.72,67445.2941732531,37.6,In-State
+"Marquette, MI Micro Area, Michigan",,14,0,14,64006.62,65935.36803960026,39.3,In-State
+"Kiryas Joel-Poughkeepsie-Newburgh, NY Metro Area, New York",,13,0,13,711742.11,98428.45743204042,39.4,In-State
+"Reading, PA Metro Area, Pennsylvania",,13,0,13,441221.55,80403.78837496864,39.9,In-State
+"Asheville, NC Metro Area, North Carolina",,12,0,12,407812.53,71975.92587857986,44,In-State
+"Centralia, WA Micro Area, Washington",,17,5,12,88523.4,74810.36236896717,42.2,In-State
+"Gainesville, GA Metro Area, Georgia",,12,0,12,222895.59,80876.1496647657,38.4,In-State
+"Hilo-Kailua, HI Micro Area, Hawaii",,30,18,12,213130.08,79219.36184565118,44.3,In-State
+"Massena-Ogdensburg, NY Micro Area, New York",,12,0,12,106992.6,63379.654924683964,39.3,In-State
+"McAllen-Edinburg-Mission, TX Metro Area, Texas",,25,13,12,934640.64,54368.88093194877,30.5,In-State
+"Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area, Tennessee",,459,447,12,2122858.78,86108.3710518532,36.9,In-State
+"Port Angeles, WA Micro Area, Washington",,23,11,12,76828.25,70660.6714042868,52.1,In-State
+"Moses Lake, WA Micro Area, Washington",,11,0,11,104366.7,73034.11522194748,33.7,In-State
+"Walla Walla, WA Metro Area, Washington",,33,22,11,63763.87,74259.02800158662,38.5,In-State
+"Brookings, SD Micro Area, South Dakota",,10,0,10,38233.35,70803.15638058343,28,In-State
+"Charlottesville, VA Metro Area, Virginia",,55,45,10,230566.95,93384.71169551539,39.4,In-State
+"Kerrville, TX Micro Area, Texas",,10,0,10,52546.31,69798.38372127595,48.8,In-State
+"Othello, WA Micro Area, Washington",,10,0,10,22275.72,66281.8928988407,29.3,In-State
+"Red Bluff, CA Micro Area, California",,24,14,10,62498.95,64454.35488645638,40,In-State
+"Lake Charles, LA Metro Area, Louisiana",,9,0,9,233429.42,66829.24382948248,37.6,In-State
+"Longview-Kelso, WA Metro Area, Washington",,48,39,9,116220.8,76590.58800959864,41.5,In-State
+"Sulphur Springs, TX Micro Area, Texas",,9,0,9,40136.06,69823.89062154583,39.5,In-State
+"Beaumont-Port Arthur, TX Metro Area, Texas",,23,15,8,400662.14,65515.78100316318,37.7,In-State
+"Grants Pass, OR Metro Area, Oregon",,19,11,8,86407.64,60078.51521454136,47.3,In-State
+"Gulfport-Biloxi, MS Metro Area, Mississippi",,65,57,8,428591.83,63056.97074860001,39.8,In-State
+"Ketchikan, AK Micro Area, Alaska",,15,7,8,13084.98,93960.29329496712,41,In-State
+"Kingsland, GA Micro Area, Georgia",,8,0,8,57816.73,74291.75073965348,34.7,In-State
+"Nacogdoches, TX Micro Area, Texas",,8,0,8,67958.71,53422.10571445829,31.9,In-State
+"Wichita Falls, TX Metro Area, Texas",,12,4,8,159687.25,65673.35802129329,36.6,In-State
+"Akron, OH Metro Area, Ohio",,103,96,7,706558.15,72367.69581290128,41,In-State
+"Albany, OR Metro Area, Oregon",,26,19,7,131638.84,76347.77550029136,40.1,In-State
+"Forest City, NC Micro Area, North Carolina",,7,0,7,66088.09,51880.74647012705,45.3,In-State
+"Rochester, MN Metro Area, Minnesota",,7,0,7,230690.96,93144.48123052223,38.9,In-State
+"Shreveport-Bossier City, LA Metro Area, Louisiana",,13,6,7,389720.87,56278.78013127649,38.6,In-State
+"Albemarle, NC Micro Area, North Carolina",,6,0,6,65698.59,60752.61178607653,40.5,In-State
+"Binghamton, NY Metro Area, New York",,12,6,6,238423.04,65420.0799895896,40.3,In-State
+"Butte-Silver Bow, MT Micro Area, Montana",,6,0,6,34757.34,61299.42407216469,40.5,In-State
+"Durham-Chapel Hill, NC Metro Area, North Carolina",,6,0,6,642678.5,85128.30403301865,37.9,In-State
+"Fayetteville, NC Metro Area, North Carolina",,16,10,6,417346.66,62089.2650289148,32.3,In-State
+"Lufkin, TX Micro Area, Texas",,6,0,6,88404.59,61193.76458145234,37.8,In-State
+"St. Cloud, MN Metro Area, Minnesota",,6,0,6,212534.49,76583.80010868744,35.4,In-State
+"State College, PA Metro Area, Pennsylvania",,6,0,6,191854.52,74354.27067621371,34.2,In-State
+"Utica-Rome, NY Metro Area, New York",,6,0,6,289748.54,70250.48042252153,41.7,In-State
+"York-Hanover, PA Metro Area, Pennsylvania",,11,5,6,469202.17,85271.51253275147,41.1,In-State
+"Deltona-Daytona Beach-Ormond Beach, FL Metro Area, Florida",,78,73,5,736938.15,71584.91010314616,47.8,In-State
+"Greenville, NC Metro Area, North Carolina",,5,0,5,189241.79,57899.67597202444,33,In-State
+"Heber, UT Micro Area, Utah",,12,7,5,79514.39,126739.33814095214,39.2,In-State
+"Kapaa, HI Micro Area, Hawaii",,10,5,5,70894.38,96900.6564699857,43.1,In-State
+"Lexington Park, MD Metro Area, Maryland",,5,0,5,212415.3,126482.06595766511,38.6,In-State
+"Macon-Bibb County, GA Metro Area, Georgia",,5,0,5,231279.75,59565.29887270705,38.6,In-State
+"Pahrump, NV Micro Area, Nevada",,29,24,5,51663.12,60588.75429397553,52.5,In-State
+"Sioux Falls, SD-MN Metro Area, Minnesota",,8,3,5,301655.31,82757.87675655614,36.3,In-State
+"Vernal, UT Micro Area, Utah",,5,0,5,39394.61,73316.4441929188,33.2,In-State
+"Willmar, MN Micro Area, Minnesota",,5,0,5,48152.43,77135.91498777343,40,In-State
+"Brunswick-St. Simons, GA Metro Area, Georgia",,4,0,4,122481.29,66531.23901252735,43.6,In-State
+"Cape Girardeau, MO-IL Metro Area, Illinois",,4,0,4,97410.15,66030.89333530255,38,In-State
+"Cedar City, UT Micro Area, Utah",,9,5,4,61761.01,67557.62308308782,30.2,In-State
+"Chambersburg, PA Metro Area, Pennsylvania",,4,0,4,162660.12,77330.16779000775,42.1,In-State
+"College Station-Bryan, TX Metro Area, Texas",,4,0,4,311070.5,60230.66137042312,28.6,In-State
+"Corpus Christi, TX Metro Area, Texas",,8,4,4,459200.48,67752.44731223714,37.8,In-State
+"Dixon, IL Micro Area, Illinois",,34,30,4,33314.07,70914.10144802756,43.1,In-State
+"Douglas, GA Micro Area, Georgia",,4,0,4,52669.89,49103.578804406505,36,In-State
+"Fargo, ND-MN Metro Area, Minnesota",,4,0,4,266648.7,77063.1194121801,33,In-State
+"Hammond, LA Metro Area, Louisiana",,4,0,4,145404.94,57755.70583363326,35.9,In-State
+"Juneau, AK Micro Area, Alaska",,17,13,4,32703.41,102081.54830911406,40,In-State
+"Prescott Valley-Prescott, AZ Metro Area, Arizona",,49,45,4,259048.01,70192.25552576246,55.1,In-State
+"Sherman-Denison, TX Metro Area, Texas",,7,3,4,165745.58,72206.03734135866,39,In-State
+"Sparta, WI Micro Area, Wisconsin",,37,33,4,47815.2,68995.24842218391,39.7,In-State
+"Bonham, TX Micro Area, Texas",,3,0,3,40169.09,71409.58270105608,41,In-State
+"Eagle Pass, TX Metro Area, Texas",,3,0,3,58184.81,49610.238241131934,30.3,In-State
+"Fayetteville-Springdale-Rogers, AR Metro Area, Arkansas",,28,25,3,595750.48,82124.13373908581,34.7,In-State
+"Greensboro-High Point, NC Metro Area, North Carolina",,12,9,3,804528.12,65697.36949484069,38.9,In-State
+"Hermiston-Pendleton, OR Micro Area, Oregon",,71,68,3,90532.39,68970.24968204898,36.8,In-State
+"Russellville, AR Micro Area, Arkansas",,3,0,3,87293.25,57926.19223376096,37.4,In-State
+"El Centro, CA Metro Area, California",,15,13,2,180419.37,57712.299114815076,33.2,In-State
+"Jackson, MS Metro Area, Mississippi",,72,70,2,630381.63,61554.112808456885,38.4,In-State
+"Naples-Marco Island, FL Metro Area, Florida",,34,32,2,423517.01,90746.54563715361,53.3,In-State
+"Ontario, OR-ID Micro Area, Oregon",,799,797,2,59525,61686.12015152038,37.6,In-State
+"Port Townsend, WA Micro Area, Washington",,8,6,2,30127.58,73995.63618116749,59.8,In-State
+"Roseburg, OR Micro Area, Oregon",,32,30,2,109908.11,61912.21667018831,46.5,In-State
+"Searcy, AR Micro Area, Arkansas",,2,0,2,80478.39,56026.43063588274,38.8,In-State
+"Albany-Schenectady-Troy, NY Metro Area, New York",,7,6,1,915284.36,88558.10432364822,40.5,In-State
+"Anchorage, AK Metro Area, Alaska",,65,64,1,411838.25,100554.14985371089,35.6,In-State
+"Chattanooga, TN-GA Metro Area, Georgia",,81,80,1,586675.61,72275.1013066281,40.4,In-State
+"Fort Leonard Wood, MO Micro Area, Missouri",,9,8,1,57392.83,65977.31860141804,27.8,In-State
+"Fort Wayne, IN Metro Area, Indiana",,43,42,1,463130.85,71279.53595511834,36.8,In-State
+"Kahului-Wailuku, HI Metro Area, Hawaii",,16,15,1,165816.39,97653.50243036868,43.2,In-State
+"Seaford, DE Micro Area, Delaware",,52,51,1,274747.32,81936.46301670308,51.9,In-State
+"Shelton, WA Micro Area, Washington",,6,5,1,70508.73,83438.62962903362,44.7,In-State
+"Winnemucca, NV Micro Area, Nevada",,17,16,1,18298.29,80349.63988936516,37.7,In-State
+"Baton Rouge, LA Metro Area, Louisiana",,11,11,0,879006.5,69872.5251557243,36.2,In-State
+"Brookings, OR Micro Area, Oregon",,6,6,0,22048.15,62153.3529383715,57.7,In-State
+"Clearlake, CA Micro Area, California",,13,13,0,67801.66,60936.23148289034,44.1,In-State
+"Columbia, MO Metro Area, Missouri",,6,6,0,221503.65,72157.37373459004,33.5,In-State
+"Ellensburg, WA Micro Area, Washington",,6,6,0,54552.74,73957.22136321853,35.8,In-State
+"Greenville-Anderson-Greer, SC Metro Area, South Carolina",,95,95,0,992381.08,71036.95904043558,38.8,In-State
+"Jacksonville, NC Metro Area, North Carolina",,13,13,0,230254.47,68395.67096070567,27.7,In-State
+"Oshkosh-Neenah, WI Metro Area, Wisconsin",,35,35,0,172261.86,74920.72368990988,38.7,In-State
+"Paris, TX Micro Area, Texas",,3,3,0,64634.94,58596.03749942804,41.4,In-State
+"Raleigh-Cary, NC Metro Area, North Carolina",,9,9,0,1561092.81,100113.65923280428,37.6,In-State
+"Augusta-Richmond County, GA-SC Metro Area, South Carolina",,8,9,-1,647748.55,69433.58316245559,38.3,In-State
+"Crossville, TN Micro Area, Tennessee",,34,35,-1,64912.1,60349.91301480134,53.5,In-State
+"Dickinson, ND Micro Area, North Dakota",,13,14,-1,39667.39,86327.18570739467,35.3,In-State
+"Gardnerville Ranchos, NV-CA Micro Area, Nevada",,5,6,-1,48483.6,92844.90245269786,54.6,In-State
+"Hanford-Corcoran, CA Metro Area, California",,41,42,-1,159116.25,71136.00440203506,32.5,In-State
+"Joplin, MO-KS Metro Area, Kansas",,3,4,-1,209092.17,61781.03896041164,38.3,In-State
+"Kalispell, MT Micro Area, Montana",,22,23,-1,121145.2,73888.94871397763,42.2,In-State
+"Nogales, AZ Micro Area, Arizona",,5,6,-1,48259.88,53254.29548464639,37.9,In-State
+"Sandusky, OH Metro Area, Ohio",,42,43,-1,114817.17,73345.33562114683,47.1,In-State
+"Warner Robins, GA Metro Area, Georgia",,6,7,-1,194269.35,79666.79066692512,36.6,In-State
+"Jefferson, GA Micro Area, Georgia",,0,2,-2,81527.32,88650.70389302637,38.1,In-State
+"Athens, TX Micro Area, Texas",,0,3,-3,89154.01,65542.19055977426,43.8,In-State
+"Columbus, GA-AL Metro Area, Georgia",,5,8,-3,327424.23,59367.5729575585,36.5,In-State
+"Cornelia, GA Micro Area, Georgia",,0,3,-3,48286.12,68082.11423339183,39.4,In-State
+"Laredo, TX Metro Area, Texas",,0,3,-3,281889.6,63618.71612917015,30,In-State
+"Mineral Wells, TX Micro Area, Texas",,0,3,-3,31901.14,67382.75400486331,41.6,In-State
+"Moberly, MO Micro Area, Missouri",,0,3,-3,25138.48,53656.19799547808,40,In-State
+"Quincy, IL-MO Micro Area, Missouri",,0,3,-3,75069.83,65460.03855450416,41.1,In-State
+"St. Joseph, MO-KS Metro Area, Missouri",,0,3,-3,125290.75,65429.44462416459,39.9,In-State
+"Spartanburg, SC Metro Area, South Carolina",,89,92,-3,381872.41,64308.915616693506,38.2,In-State
+"Sterling, CO Micro Area, Colorado",,26,29,-3,22169.35,52522.68425691531,39.2,In-State
+"Williston, ND Micro Area, North Dakota",,3,6,-3,36851.74,84931.40900225034,31.8,In-State
+"Amarillo, TX Metro Area, Texas",,6,10,-4,279054.02,70229.14137251415,36.3,In-State
+"Carson City, NV Metro Area, Nevada",,6,10,-4,56089.12,71371.85071384526,42.4,In-State
+"Duluth, MN-WI Metro Area, Minnesota",,13,17,-4,281355.77,72231.9850165213,41.5,In-State
+"Fairbanks-College, AK Metro Area, Alaska",,22,26,-4,108805.85,89707.33986255992,32.5,In-State
+"Hickory-Lenoir-Morganton, NC Metro Area, North Carolina",,0,4,-4,371582.76,62620.26665713542,43.5,In-State
+"Lafayette, LA Metro Area, Louisiana",,0,4,-4,436301.27,61062.43213896159,37.3,In-State
+"Minot, ND Metro Area, North Dakota",,4,8,-4,81481.25,77966.54244102653,34.2,In-State
+"New Bern, NC Micro Area, North Carolina",,0,4,-4,131657.07,64057.71017178112,41,In-State
+"Odessa, TX Metro Area, Texas",,0,4,-4,178595.91,70908.18341811874,31.4,In-State
+"Price, UT Micro Area, Utah",,0,4,-4,20307.83,58645.02899845315,38.6,In-State
+"Rocky Mount, NC Metro Area, North Carolina",,0,4,-4,148726.03,59661.87824412354,41.6,In-State
+"Rolla, MO Micro Area, Missouri",,0,4,-4,45965.48,58563.15144087779,35.8,In-State
+"Slidell-Mandeville-Covington, LA Metro Area, Louisiana",,0,4,-4,261956.5,82066.80704958865,40.5,In-State
+"Sweetwater, TX Micro Area, Texas",,0,4,-4,15313.33,50938.445229520614,39.3,In-State
+"Tyler, TX Metro Area, Texas",,0,4,-4,256722.9,74135.47594111176,37.5,In-State
+"Waco, TX Metro Area, Texas",,0,4,-4,309243.4,66593.07855616324,35.1,In-State
+"Allentown-Bethlehem-Easton, PA-NJ Metro Area, Pennsylvania",,0,5,-5,873192.33,85097.82732171359,41.4,In-State
+"Brownsville-Harlingen, TX Metro Area, Texas",,3,8,-5,429526.37,52669.87718420883,32.7,In-State
+"Fallon, NV Micro Area, Nevada",,0,5,-5,27331.84,78997.0351805038,40.4,In-State
+"Gettysburg, PA Metro Area, Pennsylvania",,0,5,-5,102673.17,83653.75754578365,43.7,In-State
+"Indiana, PA Micro Area, Pennsylvania",,0,5,-5,83808.02,60208.0305163161,40,In-State
+"Lancaster, PA Metro Area, Pennsylvania",,0,5,-5,562726.21,87635.27705680722,39.4,In-State
+"Salisbury, MD Metro Area, Maryland",,0,5,-5,134440.54,73505.61237730141,36.6,In-State
+"Scranton--Wilkes-Barre, PA Metro Area, Pennsylvania",,0,5,-5,564314.11,65711.35730109822,42.1,In-State
+"Watertown-Fort Drum, NY Metro Area, New York",,0,5,-5,115480.34,66907.8412915628,33.7,In-State
+"Aberdeen, SD Micro Area, South Dakota",,0,6,-6,43334.22,70615.98370822627,38.3,In-State
+"Connersville, IN Micro Area, Indiana",,32,38,-6,23563.41,59418.61977299857,44,In-State
+"East Stroudsburg, PA Micro Area, Pennsylvania",,0,6,-6,177288.56,83636.56144432913,44.1,In-State
+"Houma-Bayou Cane-Thibodaux, LA Metro Area, Louisiana",,0,6,-6,205668.67,64373.25751516466,38.8,In-State
+"Jonesboro, AR Metro Area, Arkansas",,0,6,-6,136296.4,57475.28110150487,35.3,In-State
+"Longview, TX Metro Area, Texas",,10,16,-6,295774.27,67001.70134187758,38.1,In-State
+"Mount Vernon-Anacortes, WA Metro Area, Washington",,21,27,-6,135150.24,88887.2265272809,42.1,In-State
+"Sierra Vista-Douglas, AZ Metro Area, Arizona",,4,10,-6,131705.7,59727.98579747802,43,In-State
+"Wilmington, NC Metro Area, North Carolina",,0,6,-6,487407.58,76587.8080841498,45.4,In-State
+"Winston-Salem, NC Metro Area, North Carolina",,0,6,-6,695558.52,66662.74895946588,40.7,In-State
+"Faribault-Northfield, MN Micro Area, Minnesota",,4,11,-7,73574.24,82908.611899747,37.1,In-State
+"San Angelo, TX Metro Area, Texas",,0,7,-7,126948.79,68183.2516486076,36.1,In-State
+"Tifton, GA Micro Area, Georgia",,0,7,-7,49157.8,49818.92069510544,37.4,In-State
+"Abilene, TX Metro Area, Texas",,0,8,-8,182690.83,67598.96545603542,34.5,In-State
+"Buffalo-Cheektowaga, NY Metro Area, New York",,0,8,-8,1125050.23,72285.91387328062,40.9,In-State
+"Cody, WY Micro Area, Wyoming",,25,33,-8,33753.33,73221.2165847039,44.9,In-State
+"DuBois, PA Micro Area, Pennsylvania",,0,8,-8,78104.87,63194.12664740327,45.4,In-State
+"Ogden, UT Metro Area, Utah",,142,150,-8,678081.47,101376.05764329915,33,In-State
+"Worcester, MA Metro Area, Massachusetts",,0,8,-8,863932.43,95680.90592361185,40.2,In-State
+"Jamestown-Dunkirk, NY Micro Area, New York",,0,9,-9,123254.86,58402.53852838714,42.9,In-State
+"Lakeland-Winter Haven, FL Metro Area, Florida",,43,52,-9,877398.9,66901.12271703925,39.5,In-State
+"Savannah, GA Metro Area, Georgia",,7,16,-9,427915.21,77538.39103690711,36.9,In-State
+"Charleston-North Charleston, SC Metro Area, South Carolina",,256,266,-10,914799.46,85118.8770752649,38.2,In-State
+"Bay City, MI Metro Area, Michigan",,0,12,-12,102196.52,62105.49138709105,43.9,In-State
+"Hinesville, GA Metro Area, Georgia",,3,15,-12,92814.66,62501.013931548216,29.7,In-State
+"Cortland, NY Micro Area, New York",,0,13,-13,48506.8,69777.65799997968,37,In-State
+"Kingston, NY Metro Area, New York",,0,13,-13,171396.95,86963.63830557988,44.1,In-State
+"Midland, MI Metro Area, Michigan",,0,13,-13,84959.43,78496.59739838445,41.8,In-State
+"North Port-Bradenton-Sarasota, FL Metro Area, Florida",,199,212,-13,932574.74,81479.81749569408,53.6,In-State
+"Pittsburgh, PA Metro Area, Pennsylvania",,34,47,-13,2387393.5,75803.89004959162,42.8,In-State
+"Kalamazoo-Portage, MI Metro Area, Michigan",,0,14,-14,276318.07,72506.93409451036,35,In-State
+"Mount Pleasant, MI Micro Area, Michigan",,0,14,-14,75130.7,55505.44541466604,30.1,In-State
+"Newport, OR Micro Area, Oregon",,17,31,-14,49019.47,63695.11940453885,52.7,In-State
+"Warren, PA Micro Area, Pennsylvania",,0,14,-14,38769.32,60666.43921600508,47.1,In-State
+"El Paso, TX Metro Area, Texas",,4,19,-15,863959.74,59754.38557953606,33.6,In-State
+"Pottsville, PA Micro Area, Pennsylvania",,0,15,-15,144295.7,68266.65982570642,43.7,In-State
+"St. George, UT Metro Area, Utah",,39,54,-15,200567.14,80792.01549888612,39.1,In-State
+"Yuba City, CA Metro Area, California",,51,66,-15,192424.35,77946.21908392553,35.4,In-State
+"Fort Collins-Loveland, CO Metro Area, Colorado",,123,139,-16,378927.13,93803.93358466926,36.8,In-State
+"Gainesville, FL Metro Area, Florida",,22,38,-16,375039.27,61865.231326106994,34.5,In-State
+"Rapid City, SD Metro Area, South Dakota",,0,16,-16,160048.07,75257.72618219133,40.6,In-State
+"Traverse City, MI Metro Area, Michigan",,0,16,-16,149345.19,81647.52393345363,46.3,In-State
+"Panama City-Panama City Beach, FL Metro Area, Florida",,55,72,-17,231419.92,71467.63355954849,41.1,In-State
+"Show Low, AZ Micro Area, Arizona",,6,23,-17,116535.19,54344.84996326604,39.5,In-State
+"Corvallis, OR Metro Area, Oregon",,32,51,-19,106275.25,76898.56599788518,34.5,In-State
+"Lafayette-West Lafayette, IN Metro Area, Indiana",,84,103,-19,251676.39,62511.03748368167,30.8,In-State
+"Pensacola-Ferry Pass-Brent, FL Metro Area, Florida",,39,58,-19,533083.25,76166.9180035584,39,In-State
+"The Dalles, OR Micro Area, Oregon",,0,20,-20,23661.16,64104.27850494375,41,In-State
+"Cullman, AL Micro Area, Alabama",,0,21,-21,85306.76,62707.81630805973,40.8,In-State
+"North Platte, NE Micro Area, Nebraska",,0,21,-21,34542.33,66048.17382966286,42.5,In-State
+"Beatrice, NE Micro Area, Nebraska",,0,22,-22,21045.28,67355.22148528264,42.6,In-State
+"Mason City, IA Micro Area, Iowa",,54,77,-23,49541.13,69757.53667142501,44,In-State
+"Mayfield, KY Micro Area, Kentucky",,0,23,-23,38434.85,50876.54362319879,40.4,In-State
+"Fort Morgan, CO Micro Area, Colorado",,0,24,-24,31332.9,72624.05607158251,37.5,In-State
+"Oxford, MS Micro Area, Mississippi",,0,24,-24,68319.28,65820.21869485684,32.6,In-State
+"Albertville, AL Micro Area, Alabama",,0,25,-25,99343.48,64169.494170099155,38.5,In-State
+"Durant, OK Micro Area, Oklahoma",,0,25,-25,48469.37,57824.45453515547,37,In-State
+"Auburn-Opelika, AL Metro Area, Alabama",,0,26,-26,195417.99,64248.321935644664,34.1,In-State
+"Evanston, WY-UT Micro Area, Wyoming",,0,26,-26,23666.6,83848.3652115461,37.3,In-State
+"Clarksburg, WV Micro Area, West Virginia",,0,27,-27,89755.36,59929.36621879415,43,In-State
+"Coos Bay-North Bend, OR Micro Area, Oregon",,11,38,-27,61703.06,62031.02024509731,48.6,In-State
+"Jackson, TN Metro Area, Tennessee",,0,27,-27,181316.06,61295.456669375824,38.8,In-State
+"Kearney, NE Micro Area, Nebraska",,35,62,-27,57293.37,76086.59972168086,35.9,In-State
+"Saginaw, MI Metro Area, Michigan",,0,27,-27,189675.1,60675.34245408922,41.2,In-State
+"Sebastian-Vero Beach-West Vero Corridor, FL Metro Area, Florida",,0,27,-27,165802.89,73119.10785421947,55.3,In-State
+"Morgantown, WV Metro Area, West Virginia",,0,28,-28,147263.83,64555.05581665691,35.1,In-State
+"Atlanta-Sandy Springs-Roswell, GA Metro Area, Georgia",,43,73,-30,6425050.44,90201.4248459812,37.2,In-State
+"Eau Claire, WI Metro Area, Wisconsin",,0,31,-31,173814.11,74554.67367698332,38.2,In-State
+"Sterling, IL Micro Area, Illinois",,0,31,-31,53586.01,67250.1588608307,43,In-State
+"Kingsport-Bristol, TN-VA Metro Area, Tennessee",,0,32,-32,310836.16,58196.12522854084,45.7,In-State
+"Mobile, AL Metro Area, Alabama",,0,32,-32,413128.05,58959.56432730946,38.5,In-State
+"Huntington-Ashland, WV-KY-OH Metro Area, West Virginia",,0,34,-34,367512.86,59943.2862205161,41.9,In-State
+"Richmond, IN Micro Area, Indiana",,0,34,-34,63653.02,56058.0325896831,41,In-State
+"Wildwood-The Villages, FL Metro Area, Florida",,32,66,-34,157257.7,76563.0649411911,68.5,In-State
+"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Michigan",,0,35,-35,1181153.79,83369.24879790847,36.8,In-State
+"Greencastle, IN Micro Area, Indiana",,0,35,-35,38476.62,77278.01079789289,38.4,In-State
+"Myrtle Beach-Conway-North Myrtle Beach, SC Metro Area, South Carolina",,0,35,-35,414486.78,66768.14266260559,48.7,In-State
+"Cedar Rapids, IA Metro Area, Iowa",,0,39,-39,277959.31,78445.8007132691,39.7,In-State
+"Eugene-Springfield, OR Metro Area, Oregon",,77,116,-39,391767.67,71348.51788710387,40.3,In-State
+"Clarksdale, MS Micro Area, Mississippi",,0,42,-42,23202,37529.22883179954,35.9,In-State
+"Roanoke, VA Metro Area, Virginia",,0,42,-42,315383.38,69312.07549367427,42.8,In-State
+"Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Florida",,186,229,-43,6899257.01,76600.67761064172,41.8,In-State
+"Breckenridge, CO Micro Area, Colorado",,0,44,-44,41815.01,107114.74533796919,39.1,In-State
+"Lima, OH Metro Area, Ohio",,0,44,-44,104637.57,64736.04574987441,39.7,In-State
+"Montgomery, AL Metro Area, Alabama",,0,44,-44,379274.5,64417.01328862129,38,In-State
+"Palm Bay-Melbourne-Titusville, FL Metro Area, Florida",,95,139,-44,652969.7,79572.87067131819,46.7,In-State
+"Yuma, AZ Metro Area, Arizona",,71,115,-44,236319.05,63383.579277334036,36.1,In-State
+"Canton-Massillon, OH Metro Area, Ohio",,0,45,-45,396728.39,67782.23338665413,42.1,In-State
+"Silver City, NM Micro Area, New Mexico",,0,47,-47,26349.85,44960.60057670487,49.5,In-State
+"Las Cruces, NM Metro Area, New Mexico",,0,48,-48,229914.86,57292.2261454292,34.3,In-State
+"South Bend-Mishawaka, IN-MI Metro Area, Michigan",,0,50,-50,331542.04,67498.53092217259,37.9,In-State
+"Ann Arbor, MI Metro Area, Michigan",,19,70,-51,403614.3,88952.55889599392,35,In-State
+"Boston-Cambridge-Newton, MA-NH Metro Area, New Hampshire",,25,77,-52,5165775.82,116315.01453313328,39.3,In-State
+"Lawrence, KS Metro Area, Kansas",,0,52,-52,127093.25,70602.52432864235,31.6,In-State
+"Detroit-Warren-Dearborn, MI Metro Area, Michigan",,20,73,-53,4399449.7,76729.96131758142,40.3,In-State
+"Carbondale, IL Micro Area, Illinois",,0,55,-55,60500.4,48885.368454973606,32.4,In-State
+"Corbin, KY Micro Area, Kentucky",,0,56,-56,148430.75,46483.591371955205,39,In-State
+"Owensboro, KY Metro Area, Kentucky",,0,56,-56,111177.26,67773.80130105605,39,In-State
+"Cañon City, CO Micro Area, Colorado",,0,57,-57,47524.91,63777.6799707294,44.7,In-State
+"Ponca City, OK Micro Area, Oklahoma",,0,59,-59,43555.68,58650.39293603847,38.5,In-State
+"San Antonio-New Braunfels, TX Metro Area, Texas",,55,114,-59,2837499.78,76332.99800295764,35.9,In-State
+"Los Alamos, NM Micro Area, New Mexico",,0,61,-61,20370.34,146412.6915629196,39.3,In-State
+"Santa Fe, NM Metro Area, New Mexico",,0,65,-65,154540.87,79203.32835343546,48.7,In-State
+"Clarksville, TN-KY Metro Area, Kentucky",,75,141,-66,340230.01,69670.00511174639,32.1,In-State
+"Frankfort, KY Micro Area, Kentucky",,0,72,-72,74288.33,69884.29178959165,41.2,In-State
+"Indianapolis-Carmel-Greenwood, IN Metro Area, Indiana",,127,202,-75,2153109.97,80541.73284191979,36.9,In-State
+"Cheyenne, WY Metro Area, Wyoming",,96,174,-78,103036.86,80794.58399034315,38.5,In-State
+"Macomb, IL Micro Area, Illinois",,0,79,-79,30329.92,54355.86215268355,34.9,In-State
+"Boulder, CO Metro Area, Colorado",,0,82,-82,337057.87,104962.94362858492,37.7,In-State
+"Sevierville, TN Micro Area, Tennessee",,0,82,-82,99940.68,62889.48689810588,43.5,In-State
+"Knoxville, TN Metro Area, Tennessee",,56,139,-83,949227.63,72347.19841095801,40.6,In-State
+"Ocala, FL Metro Area, Florida",,22,108,-86,421439.15,61093.72154237765,47.9,In-State
+"Richmond, VA Metro Area, Virginia",,99,186,-87,1317624.4,87110.82128090857,38.8,In-State
+"Dayton-Kettering-Beavercreek, OH Metro Area, Ohio",,46,138,-92,823463.77,71768.2541131589,39.1,In-State
+"Jacksonville, FL Metro Area, Florida",,119,213,-94,1725082.9,80177.39162802133,39.3,In-State
+"Des Moines-West Des Moines, IA Metro Area, Iowa",,74,175,-101,744828.59,86660.5743887439,36.8,In-State
+"Concord, NH Micro Area, New Hampshire",,0,104,-104,154523.29,97114.88178266886,42.9,In-State
+"Lawton, OK Metro Area, Oklahoma",,0,124,-124,129414.07,60961.88925093357,34.4,In-State
+"Colorado Springs, CO Metro Area, Colorado",,256,389,-133,793730.53,90960.32514333575,35.5,In-State
+"Cleveland, OH Metro Area, Ohio",,367,514,-147,2147765.63,70718.05704057778,41.6,In-State
+"Norwich-New London-Willimantic, CT Metro Area, Connecticut",,0,151,-151,240701.29,87198.80157544013,41.1,In-State
+"Burlington-South Burlington, VT Metro Area, Vermont",,0,181,-181,231875.06,93505.03042900741,38.5,In-State
+"Moscow, ID Micro Area, Idaho",,216,431,-215,45121.18,65984.43343861318,30.6,Cross-State
+"Oklahoma City, OK Metro Area, Oklahoma",,156,390,-234,1475208.87,72191.94169777248,36,In-State
