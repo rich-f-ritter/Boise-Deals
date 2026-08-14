@@ -32,6 +32,24 @@ satellite + parcel footprint and override mis-geocodes (common for apartments on
 / master-planned land). Decide the analysis area with the user's intent: a radius (default 2 mi)
 or a hand-drawn polygon.
 
+**Phase A.5 — Subject master-plan & adjacency sweep (MANDATORY, before any parcel screen).**
+The single worst historical miss of this skill was a 351-unit *Phase II of the subject itself*
+on the parcel next door — invisible to the vacant screen (assessor-coded farm), invisible to
+name search (filed under the subdivision name, not the marketed brand). Before touching parcel
+data, answer in writing (→ decisions log):
+1. **Is the subject part of a phased plan?** Pull the subject's own subdivision/plat, development
+   agreement, and press/groundbreaking coverage. If the subject is "Phase 1" of anything, the
+   later phases are automatically threat candidates #1 — find where they sit and their
+   entitlement status.
+2. **Same-developer radius check.** Search the subject's developer and architect (portfolio
+   pages, trade press) for sibling projects within ~1 mi — "<Name> II", "<Name> Phase 2",
+   "expansion".
+3. **Touching-parcel inventory.** List every parcel sharing a boundary with (or within ~0.25 mi
+   of) the subject, with owner, assessor code, zoning, and any entitlement history — *regardless
+   of assessor land-use code*. Search entitlements by **address, parcel number, owner, and
+   subdivision name — never only by project brand name** (municipal files routinely use a
+   different name than marketing does).
+
 **Phase B — Discover data sources (reason + web).** Find the county assessor/CAD **parcel**
 layer and each municipal **zoning** layer; confirm fields; identify the **land-use code scheme**
 (varies by state/county) and get each zoning ordinance. See `references/finding-sources.md`.
@@ -108,6 +126,16 @@ the source and/or trim the radius. If a pull dies mid-way, just run `pull` again
 targeted research where it changes the call, and write `in/reasoned_ranking.json` +
 `Tables/decisions_log.md`. Full guidance + schemas: `references/threat-reasoning.md`.
 
+**The vacant screen has known blind spots — sweep them explicitly (MANDATORY):** the
+assessor "vacant" code misses (a) **ag-exempt / farm-coded land** (token improvements, near-zero
+assessed value — the canonical sell-and-develop pipeline in every growth corridor), (b)
+**large-lot homesteads** (one house on development-scale acreage), and (c) **already-entitled
+sites** that still carry their old use code. Individually reason over every farm/ag-exempt and
+large-lot parcel within ~1.5 mi of the subject (all of them, not a sample) and every parcel from
+the Phase A.5 touching-parcel inventory, and fold genuine threats into the ranking even though
+they never passed the mechanical vacant screen. See "Blind spots" in
+`references/threat-reasoning.md`.
+
 **Phase F — Finalize + deliver (deterministic).**
 ```
 python <skill>/scripts/run_all.py deliver --root .       # = finalize_topN, build_viewer, build_workbook
@@ -139,6 +167,13 @@ until `in/reasoned_ranking.json` exists). Resume past each with `pull` / `delive
   pulling; substitute any allowed-but-unreachable host (prefer county/state `*.arcgis.com` over
   a city's self-hosted server) and log the substitution in the decisions log.
 - **Land use and zoning are independent layers** — don't "correct" one from the other.
+- **The subject's own master plan comes first** — Phase A.5 (phased-plan check, same-developer
+  sweep, touching-parcel inventory) is a hard gate; its answers go in the decisions log before
+  any screen runs.
+- **Never trust the vacant code alone** — ag-exempt farms, large-lot homesteads, and entitled
+  parcels with stale codes must be swept by reasoning, not by PROPCODE/land-use code.
+- **Search entitlements by address / parcel / owner / subdivision, not brand name** — city
+  files and marketing names routinely differ.
 
 ## Files
 - `scripts/` — `config.py`, `geo.py`, `palette.py` (canonical vocab+colors), `arcgis.py`

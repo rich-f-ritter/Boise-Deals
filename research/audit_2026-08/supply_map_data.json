@@ -1,0 +1,651 @@
+{
+ "subject": {
+  "name": "Seasons at Meridian",
+  "lat": 43.591935,
+  "lon": -116.360877,
+  "note": "360 units \u00b7 Q3 2024 \u00b7 The Carlyle Group / Morgan Stonehill Phase 1"
+ },
+ "deals": [
+  {
+   "name": "The Lost Rapid Townhomes",
+   "units": 72,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 1,
+   "lat": 43.659094,
+   "lon": -116.440233,
+   "est_delivery": "Q1 2022",
+   "occ": "94%",
+   "note": null
+  },
+  {
+   "name": "South Ridge I",
+   "units": 476,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 2,
+   "lat": 43.585152,
+   "lon": -116.419713,
+   "est_delivery": "Q2 2022",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Meritage West",
+   "units": 83,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 3,
+   "lat": 43.638043,
+   "lon": -116.350125,
+   "est_delivery": "Q2 2022",
+   "occ": "99%",
+   "note": null
+  },
+  {
+   "name": "Ambleside Townhomes",
+   "units": 67,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 4,
+   "lat": 43.622189,
+   "lon": -116.324136,
+   "est_delivery": "Q2 2022",
+   "occ": "97%",
+   "note": null
+  },
+  {
+   "name": "Celebration Acres",
+   "units": 28,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 5,
+   "lat": 43.616346,
+   "lon": -116.318227,
+   "est_delivery": "Q2 2022",
+   "occ": "96%",
+   "note": null
+  },
+  {
+   "name": "Pine 43",
+   "units": 25,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 6,
+   "lat": 43.616281,
+   "lon": -116.368648,
+   "est_delivery": "Q2 2022",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Old Town Lofts",
+   "units": 102,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 7,
+   "lat": 43.610895,
+   "lon": -116.393141,
+   "est_delivery": "Q3 2022",
+   "occ": "99%",
+   "note": null
+  },
+  {
+   "name": "Lavender Village",
+   "units": 6,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 8,
+   "lat": 43.629232,
+   "lon": -116.301941,
+   "est_delivery": "Q3 2022",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "The Prospect",
+   "units": 91,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 9,
+   "lat": 43.593908,
+   "lon": -116.283469,
+   "est_delivery": "Q4 2022",
+   "occ": "99%",
+   "note": null
+  },
+  {
+   "name": "Etheridge Lane",
+   "units": 12,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 10,
+   "lat": 43.618055,
+   "lon": -116.279837,
+   "est_delivery": "Q4 2022",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Modern Craftsman Ten Mile",
+   "units": 135,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 11,
+   "lat": 43.611044,
+   "lon": -116.434643,
+   "est_delivery": "Q1 2023",
+   "occ": "95%",
+   "note": null
+  },
+  {
+   "name": "WaterWalk Boise \u2013 Meridian",
+   "units": 38,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 12,
+   "lat": 43.60589,
+   "lon": -116.357707,
+   "est_delivery": "Q1 2023",
+   "occ": "95%",
+   "note": null
+  },
+  {
+   "name": "Alante Homes at Hazelwood",
+   "units": 32,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 13,
+   "lat": 43.546181,
+   "lon": -116.320583,
+   "est_delivery": "Q1 2023",
+   "occ": "97%",
+   "note": null
+  },
+  {
+   "name": "Altair",
+   "units": 240,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 14,
+   "lat": 43.603702,
+   "lon": -116.427798,
+   "est_delivery": "Q2 2023",
+   "occ": "95%",
+   "note": null
+  },
+  {
+   "name": "Dovetail",
+   "units": 240,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 15,
+   "lat": 43.616576,
+   "lon": -116.366272,
+   "est_delivery": "Q2 2023",
+   "occ": "96%",
+   "note": null
+  },
+  {
+   "name": "Yellowstone Apartments",
+   "units": 216,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 16,
+   "lat": 43.612983,
+   "lon": -116.437337,
+   "est_delivery": "Q2 2023",
+   "occ": "76%",
+   "note": null
+  },
+  {
+   "name": "Telluride",
+   "units": 102,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 17,
+   "lat": 43.610392,
+   "lon": -116.294889,
+   "est_delivery": "Q2 2023",
+   "occ": "99%",
+   "note": null
+  },
+  {
+   "name": "Movado Village",
+   "units": 60,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 18,
+   "lat": 43.586379,
+   "lon": -116.339937,
+   "est_delivery": "Q1 2024",
+   "occ": "93%",
+   "note": null
+  },
+  {
+   "name": "Viera at Pinnacle",
+   "units": 56,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 19,
+   "lat": 43.546933,
+   "lon": -116.377212,
+   "est_delivery": "Q1 2024",
+   "occ": "100%",
+   "note": null
+  },
+  {
+   "name": "The Aren",
+   "units": 396,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 20,
+   "lat": 43.595101,
+   "lon": -116.3433,
+   "est_delivery": "Q2 2024",
+   "occ": "97%",
+   "note": null
+  },
+  {
+   "name": "Springtree Apartments",
+   "units": 42,
+   "bucket": "STABILIZED / STABILIZING",
+   "row": 22,
+   "lat": 43.603598,
+   "lon": -116.265483,
+   "est_delivery": "Q4 2024",
+   "occ": "95%",
+   "note": null
+  },
+  {
+   "name": "Village Apartments",
+   "units": 336,
+   "bucket": "LEASING UP",
+   "row": 23,
+   "lat": 43.629437,
+   "lon": -116.351198,
+   "est_delivery": "Q2 2024",
+   "occ": "80%",
+   "note": null
+  },
+  {
+   "name": "Wesley Apartments and Townhomes",
+   "units": 191,
+   "bucket": "LEASING UP",
+   "row": 24,
+   "lat": 43.633029,
+   "lon": -116.40258,
+   "est_delivery": "Q2 2024",
+   "occ": "28%",
+   "note": null
+  },
+  {
+   "name": "Shamrock Apartments",
+   "units": 48,
+   "bucket": "LEASING UP",
+   "row": 25,
+   "lat": 43.618881,
+   "lon": -116.324004,
+   "est_delivery": "Q2 2025",
+   "occ": "83%",
+   "note": null
+  },
+  {
+   "name": "Tauri Apartments",
+   "units": 156,
+   "bucket": "LEASING UP",
+   "row": 26,
+   "lat": 43.656416,
+   "lon": -116.339194,
+   "est_delivery": "Q2 2026",
+   "occ": "25%",
+   "note": null
+  },
+  {
+   "name": "Delano",
+   "units": 84,
+   "bucket": "LEASING UP",
+   "row": 27,
+   "lat": 43.639816,
+   "lon": -116.357276,
+   "est_delivery": "Q2 2026",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Dorado Station",
+   "units": 212,
+   "bucket": "UNDER CONSTRUCTION",
+   "row": 29,
+   "lat": 43.618237,
+   "lon": -116.269718,
+   "est_delivery": "Q3 2027",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Summertown (remaining phases)",
+   "units": 72,
+   "bucket": "UNDER CONSTRUCTION",
+   "row": 30,
+   "lat": 43.631618,
+   "lon": -116.403382,
+   "est_delivery": "Q3 2027",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Vanguard Village",
+   "units": 552,
+   "bucket": "UNDER CONSTRUCTION",
+   "row": 31,
+   "lat": 43.595464,
+   "lon": -116.430197,
+   "est_delivery": "Q1 2028",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Centrepoint",
+   "units": 213,
+   "bucket": "UNDER CONSTRUCTION",
+   "row": 32,
+   "lat": 43.633131,
+   "lon": -116.357788,
+   "est_delivery": "Q1 2028",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "The Judy (Maple Grove & Overland)",
+   "units": 162,
+   "bucket": "PROPOSED",
+   "row": 34,
+   "lat": 43.588109,
+   "lon": -116.292407,
+   "est_delivery": "Q1 2028",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Heritage Square (ex-Union 93)",
+   "units": 250,
+   "bucket": "PROPOSED",
+   "row": 35,
+   "lat": 43.609397,
+   "lon": -116.392749,
+   "est_delivery": "Q1 2029",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "The Cole Denton",
+   "units": 224,
+   "bucket": "PROPOSED",
+   "row": 36,
+   "lat": 43.609396,
+   "lon": -116.273614,
+   "est_delivery": "Q1 2029",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Rolling Hill (Assemble Management)",
+   "units": 200,
+   "bucket": "PROPOSED",
+   "row": 37,
+   "lat": 43.591263,
+   "lon": -116.340977,
+   "est_delivery": "Q1 2029",
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Record",
+   "units": 472,
+   "bucket": "PROPOSED",
+   "row": 38,
+   "lat": 43.621077,
+   "lon": -116.346402,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "The Gateway at Ten Mile",
+   "units": 390,
+   "bucket": "PROPOSED",
+   "row": 39,
+   "lat": 43.60573,
+   "lon": -116.431609,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Syringa Crossing",
+   "units": 302,
+   "bucket": "PROPOSED",
+   "row": 40,
+   "lat": 43.555905,
+   "lon": -116.395687,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Victory Flats",
+   "units": 301,
+   "bucket": "PROPOSED",
+   "row": 41,
+   "lat": 43.575095,
+   "lon": -116.284662,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "12565 West Fairview Avenue",
+   "units": 275,
+   "bucket": "PROPOSED",
+   "row": 42,
+   "lat": 43.617971,
+   "lon": -116.338672,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Pine 43 Multifamily (Pine & Webb)",
+   "units": 270,
+   "bucket": "PROPOSED",
+   "row": 43,
+   "lat": 43.616576,
+   "lon": -116.366272,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "12548 West Overland Road",
+   "units": 156,
+   "bucket": "PROPOSED",
+   "row": 44,
+   "lat": 43.590875,
+   "lon": -116.33807,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Ascent Overland",
+   "units": 138,
+   "bucket": "PROPOSED",
+   "row": 45,
+   "lat": 43.589544,
+   "lon": -116.320845,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Meridian OZ Apartments",
+   "units": 36,
+   "bucket": "PROPOSED",
+   "row": 46,
+   "lat": 43.604123,
+   "lon": -116.375901,
+   "est_delivery": null,
+   "occ": null,
+   "note": null
+  },
+  {
+   "name": "Outer Banks Apartments",
+   "units": 516,
+   "bucket": "PROPOSED",
+   "row": 33,
+   "lat": 43.6,
+   "lon": -116.442,
+   "est_delivery": "Q4 2027",
+   "occ": null,
+   "note": "Audit find Aug 2026 \u2014 Elk Ventures 516u CUP; groundbreaking expected 2026 (pin at SW Franklin & Ten Mile, approx within site)"
+  },
+  {
+   "name": "South Ridge II",
+   "units": 164,
+   "bucket": "UNDER CONSTRUCTION",
+   "row": 28,
+   "lat": 43.585152,
+   "lon": -116.419713,
+   "est_delivery": "Q2 2027",
+   "occ": null,
+   "note": "Phase II at same site as South Ridge I (1703 S Grand Fork Wy)"
+  }
+ ],
+ "shadow": [
+  {
+   "name": "Overland & Wells II / \"Seasons at Meridian II\" \u2014 DENIED",
+   "units": 345,
+   "bucket": "DEAD",
+   "lat": 43.59193,
+   "lon": -116.36274,
+   "note": "H-2022-0030 DENIED 10/25/2022 (findings 11/9/22). Owner WinCo Foods; lot-split Feb 2025; marketed as retail pads since Jan 2024. ~5% de-novo revival."
+  },
+  {
+   "name": "Pine 43 VI residential (same MDA as #43)",
+   "units": 604,
+   "bucket": "SHADOW",
+   "lat": 43.6166,
+   "lon": -116.3663,
+   "note": "H-2024-0071 approved 10/21/25: up to 604 vertically-integrated units + 30 TH beyond the 270u CUP."
+  },
+  {
+   "name": "The District at Ten Mile",
+   "units": 1800,
+   "bucket": "SHADOW",
+   "lat": 43.5945,
+   "lon": -116.4455,
+   "note": "222-ac master plan broke ground May 2026; ~1,800 res units incl. up to 400 TH. Pin approx (NW quadrant I-84 & Ten Mile)."
+  },
+  {
+   "name": "Modern Craftsman Franklin (verify)",
+   "units": 122,
+   "bucket": "SHADOW",
+   "lat": 43.6003,
+   "lon": -116.459,
+   "note": "Baron BTR filed 2023; status unverified. Pin approx (Franklin & Black Cat)."
+  },
+  {
+   "name": "Kleiner Trust field",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.624,
+   "lon": -116.3585,
+   "note": "71.8 ac C-G held by Kleiner family trust; no applications; long-term optionality only."
+  },
+  {
+   "name": "Emblem Meridian (Quarterra)",
+   "units": 250,
+   "bucket": "SHADOW",
+   "lat": 43.57895,
+   "lon": -116.35283,
+   "note": "Formal early plans filed June 2026 \u2014 250u on ~13 ac; nearest live MF application to subject."
+  },
+  {
+   "name": "Tanner Creek apartments (phased)",
+   "units": 280,
+   "bucket": "SHADOW",
+   "lat": 43.59551,
+   "lon": -116.39987,
+   "note": "Approved phased plan: 280 apartments + SF/TH + Hawkins commercial; CBH building."
+  },
+  {
+   "name": "Graycliff Estates R-40 block",
+   "units": 224,
+   "bucket": "SHADOW",
+   "lat": 43.5681,
+   "lon": -116.40334,
+   "note": "224 planned MF units in executing SF master plan; confirmed unbuilt, no 2026 activity."
+  },
+  {
+   "name": "Touchmark Meadow Lake Village expansion",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.60171,
+   "lon": -116.34763,
+   "note": "~64 undeveloped ac; 2025 DA-mod/rezone/PUD in progress; age-restricted orientation."
+  },
+  {
+   "name": "Ten Mile Crossing residual HDR",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.58695,
+   "lon": -116.42233,
+   "note": "Brighton residual R-15/R-8 parcels; partially built."
+  },
+  {
+   "name": "Brighton Apex R-15 (Lake Hazel)",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.54775,
+   "lon": -116.38563,
+   "note": "15.1-ac R-15 inside approved Apex/Pinnacle master plan."
+  },
+  {
+   "name": "1780 E Overland (idle C-G farm)",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.591111,
+   "lon": -116.373272,
+   "note": "5.4 ac ag-exempt C-G, no application; nearest convertible dirt after the WinCo denial."
+  },
+  {
+   "name": "1450 E Franklin (idle C-G farm)",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.60595,
+   "lon": -116.375601,
+   "note": "12.8 ac ag-exempt C-G; was listed, now delisted; no application."
+  },
+  {
+   "name": "Latitude Forty Three (for-sale SF \u2014 benign)",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.597323,
+   "lon": -116.361344,
+   "note": "79 detached for-sale homes + C-N pad (H-2024-0059); council decision pending (ITD TIA). NOT multifamily."
+  },
+  {
+   "name": "Grandview Communities (pre-app)",
+   "units": 130,
+   "bucket": "SHADOW",
+   "lat": 43.535,
+   "lon": -116.416,
+   "note": "~510 homes incl ~130 apts; July 2025 pre-app; no H-file. Pin approx (Lake Hazel & Linder NE)."
+  },
+  {
+   "name": "Discovery project (dormant pre-app)",
+   "units": 200,
+   "bucket": "SHADOW",
+   "lat": 43.536,
+   "lon": -116.361,
+   "note": "Apr 2024 pre-app, dormant. Pin approx (Lake Hazel & Locust Grove)."
+  },
+  {
+   "name": "709 N Cole Rd (city land trust)",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.611,
+   "lon": -116.272,
+   "note": "City of Boise affordable-housing land banking; 2029+ speculative. Pin approx."
+  },
+  {
+   "name": "Murio Farms MF phases",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.568,
+   "lon": -116.283,
+   "note": "3,500-home master plan; apartments in later phases (15-20 yr). Pin approx."
+  }
+ ]
+}
