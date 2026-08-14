@@ -21,6 +21,11 @@ executed new leases per floor plan off the rent roll. Drafted 2026-08-14.
 - **Prelude is the live proof of the same thesis in our own portfolio.** Executed new leases went
   **$1,717.50 at closing (12/3/25) → $1,810.62 (8/13/26), +5.4% in eight months** — already **2.0% above
   the model's 2027 market rent** and 2.7% ahead of the Q3-26 UW point.
+- **Why T90 asking ($1,939) sits above L5 executed ($1,885).** The L5 takes the five most recent leases
+  *per floor plan*, so on slow-turning plans it reaches well past 90 days — S1, B1 and both C1s (**75 of
+  360 units**) have to go back **155–180 days**, into 1Q-26 pricing, to find five. Hold the window
+  constant and that reach explains only ~$15 of the $55 gap; the other ~$40 is advertised asking vs.
+  signed contract rent. The two marks **bracket** the $1,915 Y1 UW rather than contradict it.
 - **What to watch: the winter.** The UW carries Seasons down only **4.3%** from today's peak to 1Q27
   ($1,855). Each of the last two winters ran **−6% to −7%** (Aug → 1Q), which off today's $1,939 implies
   **$1,800–$1,820**. Same test at Prelude: it must average **~$1,783 Aug–Dec** to make its CY-26 UW
@@ -51,6 +56,29 @@ effective lines move together and the +10.0% off the March trough is real rent, 
 At Seasons, executed new leases run ~2.8% below the HelloData asking series — so the $1,885 L5 marker is
 the conservative anchor and the $1,915 Y1 UW sits between the two observable marks, not above both.
 
+**3a. Decomposing the $54.68 Seasons gap (T90 $1,939.36 vs L5 $1,884.69).** Two effects, not one, and the
+smaller one is the stale-lease reach:
+
+| Step | Mix-wtd rent | Delta |
+|---|---|---|
+| T90 asking, HelloData, 90-day window | $1,939 | — |
+| Last-5 per plan, **same** HelloData asking source | $1,924 | **−$15** — window/date reach |
+| Model L5, rent-roll **executed contract rent** | $1,885 | **−$39** — asking vs. signed |
+
+The window effect is concentrated in the small, slow-turning plans. Days back to find five leases:
+B2 and B3a 31 days, A1 47, A2 54, B3b 103 — but **C1a/C1b 155 days (3/11/26), S1 174 (2/20/26), B1 180
+(2/14/26)**. Those four plans are 75 units carrying rents set when the property's T90 was ~$1,700, i.e.
+~12% below today. Every month those plans turn, the L5 marker mechanically catches up to the T90 line
+with no market movement at all.
+
+The residual ~$39 (−2.0%) is a definitional spread: HelloData's *last asking rent* is the advertised list
+price for the unit, while the rent roll's L5 is the signed contract rent net of unit-level pricing. It is
+not a universal constant — **at Prelude the same decomposition runs the other way**: T90 $1,793 → HD
+last-5 $1,809 (the fast-turning 2BRs reach back only 23–63 days, so the last five sit *above* the 90-day
+average in a rising market) → executed L5 $1,811, i.e. essentially **no** asking-to-signed spread there.
+Read the sign of the T90-vs-L5 gap as information about turnover speed and pricing discipline at each
+property, not as a rule.
+
 **4. Prelude entered 2026 behind its UW and is exiting it ahead.** CY-26 asking has averaged $1,692
 Jan–Jul vs the $1,730 UW year-average (−2.2%), because the model didn't underwrite the Feb–Mar dip. But
 the current spot is 2.7% *above* the Q3-26 UW point, and the trajectory — not the year-average — is what
@@ -78,3 +106,6 @@ Seasons lease file shows none.
   single month can move $20–30.
 - Seasons' pre-2026 asking is lease-up pricing from a 2024 delivery; comparisons to that period measure a
   lease-up-to-stabilized transition, not pure market rent growth.
+- The §3a decomposition is an **approximation**: the model's L5 is keyed to rent-roll *move-in* date while
+  the HelloData last-5 is keyed to *off-market* date, so the two "last five" sets are near-identical
+  cohorts but not the same leases. The split of the gap is directionally right, not exact to the dollar.
