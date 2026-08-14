@@ -55,7 +55,7 @@
     "revenue_share": 1077,
     "total": 2736
    },
-   "rent_growth_uw_note": "ASKING/market-rent series only (S&A B39). Annual UW market rents are YEAR AVERAGES, not day-one spot rents (CF Monthly holds each year's average flat; Y1 avg = $1,884.69 all 12 months, steps to $1,960.07 in month 13). Y1 +7.57% = Y1 avg $1,885 (= L5 executed leases 8/4/26) vs Y0 TTM HelloData avg $1,752. Implied spot path under smooth 4%/yr growth: ~$1,848 at close (Nov-26) -> ~$1,922 (Oct-27), averaging $1,885 = today's executed spot at mid-Y1. Plot annual UW rents at UW-year midpoints (Y1 midpoint ~Apr-27). Concession burn-off separate: effective rent +15.1% Y1 (concessions 9.3%->2.9%; CF line 1.5/1.0/0.5/0% of AGPR).",
+   "rent_growth_uw_note": "ASKING/market-rent series only (S&A B39). Annual UW market rents are YEAR AVERAGES, not day-one spot rents (CF Monthly holds each year's average flat; Y1 avg = $1,884.69 all 12 months, steps to $1,960.07 in month 13). Y1 +7.57% = Y1 avg $1,885 (= L5 executed leases 8/4/26) vs Y0 TTM HelloData avg $1,752. Implied spot path under smooth 4%/yr growth: ~$1,848 at close (Nov-26) -> ~$1,922 (Oct-27), averaging $1,885 = today's executed spot at mid-Y1. Plot annual UW rents at UW-year midpoints (Y1 midpoint ~Apr-27). Concession burn-off separate: effective rent +15.1% Y1 (concessions 9.3%->2.9%; CF line 1.5/1.0/0.5/0% of AGPR). [MODEL REFRESH 8/14/26: Y1 basis changed to quarterly asking path avg $1,933.28 (+10.3% vs Y0 TTM) - see model_update_2026_08_14. The $1,885 figures describe the prior version.]",
    "effective_rent_uw": {
     "y0": 1589,
     "y1": 1830,
@@ -74,7 +74,26 @@
      0.0
     ]
    },
-   "hd_t90_effective_note": "Model CF(Annual) hidden rows 321-340 = same T90 machinery on HDUnitLevel[Last Effective Rent], same contract-rent fallback. Seasons effective T90 8/13/26 = $1,939 = asking (concessions zero on recent leases); trough Nov-25 $1,420 (-15.5% vs asking) during lease-up concession waves. Model T3 effective $1,855.8 ties to replication $1,858.3 (Jun-30-26 window)."
+   "hd_t90_effective_note": "Model CF(Annual) hidden rows 321-340 = same T90 machinery on HDUnitLevel[Last Effective Rent], same contract-rent fallback. Seasons effective T90 8/13/26 = $1,939 = asking (concessions zero on recent leases); trough Nov-25 $1,420 (-15.5% vs asking) during lease-up concession waves. Model T3 effective $1,855.8 ties to replication $1,858.3 (Jun-30-26 window).",
+   "model_update_2026_08_14": {
+    "summary": "Updated v3 model (received 8/14/26) rebuilt the Y1 market-rent basis: was L5-executed $1,884.69 held flat; now a quarterly seasonal ASKING path on Rent & Occ Data row 5 (4Q26 $1,902.2, 1Q27 $1,923.1, 2Q27 $1,946.2, 3Q27 $1,961.7) averaging $1,933.28. Y1 growth vs Y0 TTM HD $1,752.1 is now +10.3% (was +7.57%). Same annual growth thereafter (+4/4/3.5/3.5/3), so the whole path shifts +2.6%: Y2 $2,010.6, Y3 $2,091.0, Y4 $2,164.2, Y5 $2,240.0, Y6 (exit fwd yr) $2,307.2 (was $2,249). HD Dump (535 recs thru 8/10/26), L5 ($1,884.69), and price unchanged.",
+    "y1_market_rent_mo": 1933.28,
+    "y1_quarterly": {
+     "4Q26": 1902.2,
+     "1Q27": 1923.1,
+     "2Q27": 1946.2,
+     "3Q27": 1961.7
+    },
+    "annual_path": {
+     "Y1": 1933.3,
+     "Y2": 2010.6,
+     "Y3": 2091.0,
+     "Y4": 2164.2,
+     "Y5": 2240.0,
+     "Y6": 2307.2
+    },
+    "impact_note": "Pencil-gap and exit tables computed on the $1,885/$2,249 basis predate this refresh and are ~2.6% conservative vs the new path. NOI/returns impact not yet re-extracted."
+   }
   },
   "prelude_at_paramount": {
    "role": "owned",
@@ -180,6 +199,22 @@
      "actual_7mo_ann": 6019
     },
     "taxes_accruing_per_unit": 1191
+   },
+   "uw_market_rent_quarterly": {
+    "source": "Market Rent Summary row 11 (weighted avg); TMG Y1 = calendar 2026",
+    "Q4_25_anchor": 1693.0,
+    "Q1_26": 1712.3,
+    "Q2_26": 1732.2,
+    "Q3_26": 1745.5,
+    "Q4_26": 1728.5,
+    "y1_avg": 1729.6,
+    "annual_market_rent": {
+     "2027": 1775.8,
+     "2028": 1838.2,
+     "2029": 1906.7,
+     "2030": 1976.5
+    },
+    "note": "UW MARKET rents (Cash Flow row 10 /280/12) - distinct from the rent-per-occupied-unit path ($1,668 Y1) previously charted."
    }
   },
   "canyon_ridge": {

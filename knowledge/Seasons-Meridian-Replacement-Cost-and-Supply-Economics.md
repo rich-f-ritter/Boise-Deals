@@ -19,6 +19,17 @@ land-use / supply-threat work.
 
 ---
 
+> **MODEL REFRESH (v3 updated file, analyzed 2026-08-14).** The Seasons model was rebuilt around a quarterly
+> seasonal Y1 asking path (Rent & Occ Data row 5): 4Q26 $1,902.2 → 1Q27 $1,923.1 → 2Q27 $1,946.2 → 3Q27
+> $1,961.7, **Y1 average $1,933.28** (was $1,884.69 = L5 held flat). Y1 growth vs Y0 TTM HD $1,752.1 is now
+> **+10.3%** (was +7.57%). Annual growth unchanged (+4/4/3.5/3.5/3), so every year shifts +2.6%: Y6 forward
+> market rent at exit is now **$2,307.2** (was $2,249). HD Dump, L5 executed ($1,884.69), and bid price are
+> unchanged. Rent/pencil tables below citing $1,885 / $2,249 reflect the PRIOR version and are ~2.6%
+> conservative against the refreshed path; returns/NOI impact not yet re-extracted. Prelude quarterly UW
+> market rents (Market Rent Summary row 11, TMG Y1 = calendar 2026): Q4-25 $1,693.0 anchor → $1,712.3 /
+> $1,732.2 / $1,745.5 / $1,728.5, Y1 avg $1,729.6 — these are MARKET rents (CF row 10), distinct from the
+> $1,668 rent-per-occupied-unit path.
+
 ## 1. The five capital stacks
 
 | | **Seasons (our bid)** | **Prelude (we own)** | **Canyon Ridge (award)** | **Emblem Meridian** | **The Judy (Hawkins)** |
