@@ -60,6 +60,7 @@ since Jan 2024. Dead as MF (~5% revival, earliest ~2030). Full record:
 - Modern Craftsman Franklin (122 BTR): post-2023 status unverified.
 - Verify The 10 (559u, abandoned) footprint vs Outer Banks (#33) / Gateway (#39) split at Franklin & Ten Mile.
 - Apex Zenith (Brighton, Lake Hazel & Meridian) + Victory & Ten Mile 142-ac pre-app: new watch items from Aug 2026 sweep.
+- Vanguard Village (552u, #31): CoStar UC flag unconfirmed by city permits — verify construction status (developer: Endurance/Challenger = CBH org).
 - Owner pulls needed (manual assessor lookups): 1780 E Overland (R7100270310),
   1450 E Franklin (S1107449996), 104 W Cherry Ln (S1201449707), 785 S Locust Grove
   ($0-assessed exempt assemblage), S Standing Timber Way (S1130234045).
