@@ -12,7 +12,9 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
 - `SeasonsMeridian/Seasons at Meridian - Supply Chart.xlsx` + `... - Supply Map.html`
   (46-row roster incl. Outer Banks #33; Diligence tab carries the full audit)
 - `research/audit_2026-08/` — the August 2026 audit: findings memos, parcel diligence,
-  supply-map builder + data, Seasons II denial record
+  supply-map builders + data, Seasons II denial record, **552-cluster vacant-site verdicts**
+  (`vacant_sites_verdicts.json`, also a workbook sheet) and the **shot-down MF register**
+  (`graveyard_register.md`: 15 killed projects, ~2,100 units died in-ring 2024-25)
 
 ## THE SEASONS II LESSON (read before touching any analysis here)
 In July 2026 the analysis missed the subject's own marketed Phase II
@@ -56,6 +58,8 @@ since Jan 2024. Dead as MF (~5% revival, earliest ~2030). Full record:
 - Latitude Forty Three (H-2024-0059, 0.3 mi): final council vote pending (ITD TIA).
 - Records (Brighton 472u): CUP validity/expiry unverified — confirm with Meridian planning.
 - Modern Craftsman Franklin (122 BTR): post-2023 status unverified.
+- Verify The 10 (559u, abandoned) footprint vs Outer Banks (#33) / Gateway (#39) split at Franklin & Ten Mile.
+- Apex Zenith (Brighton, Lake Hazel & Meridian) + Victory & Ten Mile 142-ac pre-app: new watch items from Aug 2026 sweep.
 - Owner pulls needed (manual assessor lookups): 1780 E Overland (R7100270310),
   1450 E Franklin (S1107449996), 104 W Cherry Ln (S1201449707), 785 S Locust Grove
   ($0-assessed exempt assemblage), S Standing Timber Way (S1130234045).

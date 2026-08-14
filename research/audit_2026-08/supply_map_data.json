@@ -649,6 +649,102 @@
    "lat": 43.568,
    "lon": -116.283,
    "note": "3,500-home master plan; apartments in later phases (15-20 yr). Pin approx."
+  },
+  {
+   "name": "Andorra Senior Living / Magic View senior attempts \u2014 DEAD",
+   "units": 164,
+   "bucket": "DEAD",
+   "lat": 43.59806,
+   "lon": -116.36424,
+   "note": "H-2019-0127 senior annexation expired (DA never signed 2020); 2021 assisted-living DENIED. Site now in the for-sale Latitude 43 plat."
+  },
+  {
+   "name": "Cobalt Point \u2014 WITHDRAWN",
+   "units": 264,
+   "bucket": "DEAD",
+   "lat": 43.5885,
+   "lon": -116.3452,
+   "note": "CUP H-2022-0042 withdrawn Dec 2022, never re-filed; 11.95-ac C-G still vacant (entitled-once dirt, Low-Watch). Pin approx."
+  },
+  {
+   "name": "Fairview Apartments \u2014 WITHDRAWN",
+   "units": 150,
+   "bucket": "DEAD",
+   "lat": 43.6199,
+   "lon": -116.3785,
+   "note": "H-2023-0001 withdrawn Jun 2023; site re-tenanted as RV dealership Apr 2024. Pin approx."
+  },
+  {
+   "name": "The 10 at Meridian \u2014 ABANDONED",
+   "units": 559,
+   "bucket": "DEAD",
+   "lat": 43.6008,
+   "lon": -116.4438,
+   "note": "Elk Ventures 2021 plan never proceeded; superseded by Gateway (#39) / Outer Banks (#33). Verify footprint split. Pin approx."
+  },
+  {
+   "name": "Madison Town Square \u2014 WITHDRAWN",
+   "units": 251,
+   "bucket": "DEAD",
+   "lat": 43.6155,
+   "lon": -116.2839,
+   "note": "Old Sears site pulled Jun 2024; site for sale. Pin approx."
+  },
+  {
+   "name": "Bridge at Village at Meridian \u2014 ABANDONED",
+   "units": 549,
+   "bucket": "DEAD",
+   "lat": 43.6217,
+   "lon": -116.352,
+   "note": "CenterCal dropped 549 apartments Aug 2024 \"for lack of demand\"; retail-only rebuild. Pin approx."
+  },
+  {
+   "name": "Lake Hazel & Five Mile \u2014 DENIED 2x",
+   "units": 128,
+   "bucket": "DEAD",
+   "lat": 43.5353,
+   "lon": -116.303,
+   "note": "County denied 128u (2022) and 118u (2024); 2025 commercial-only. Pin approx."
+  },
+  {
+   "name": "Centrepoint Devco affordable \u2014 WITHDRAWN",
+   "units": 239,
+   "bucket": "DEAD",
+   "lat": 43.6331,
+   "lon": -116.3578,
+   "note": "H-2024-0019 killed 2025; superseded by 213u market-rate approval (#32)."
+  },
+  {
+   "name": "Newkirk \u2014 CONVERTED",
+   "units": 216,
+   "bucket": "DEAD",
+   "lat": 43.6009,
+   "lon": -116.456,
+   "note": "Approved 216 apartments converted to 95 for-sale homes (H-2024-0043, Feb 2025). Pin approx."
+  },
+  {
+   "name": "The Hummingbird \u2014 EXPIRED",
+   "units": 170,
+   "bucket": "DEAD",
+   "lat": 43.6046,
+   "lon": -116.2723,
+   "note": "Approval lapsed spring 2025; aquarium expansion planned. Pin approx."
+  },
+  {
+   "name": "Apex Zenith (Brighton) \u2014 watch",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.5352,
+   "lon": -116.394,
+   "note": "DA approved Jan 2025 references MF units; Costco phase building. Southern edge. Pin approx."
+  },
+  {
+   "name": "Victory & Ten Mile pre-app (~142 ac) \u2014 watch",
+   "units": null,
+   "bucket": "SHADOW",
+   "lat": 43.5752,
+   "lon": -116.427,
+   "note": "Oct 2025 concept with possible attached/MF product; no formal file. Pin approx."
   }
  ]
 }
