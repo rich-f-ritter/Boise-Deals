@@ -215,6 +215,19 @@
      "2030": 1976.5
     },
     "note": "UW MARKET rents (Cash Flow row 10 /280/12) - distinct from the rent-per-occupied-unit path ($1,668 Y1) previously charted."
+   },
+   "l5_new_leases": {
+    "at_acquisition": {
+     "value": 1717.5,
+     "as_of": "2025-12-03",
+     "source": "Market Rent Summary 'L5 New' weighted avg (V11); per-plan 1459/1799/1823/2083"
+    },
+    "current": {
+     "value": 1810.62,
+     "as_of": "2026-08-13",
+     "source": "RR w/ lease charges, Seasons L5 methodology"
+    },
+    "growth_pct": 0.0542
    }
   },
   "canyon_ridge": {

@@ -187,16 +187,17 @@ ws=sheet('Chart_Data',[2,12,16,17,15,15,16,15,15,15,46])
 put(ws,'B2','Chart Data — monthly',TITLE)
 put(ws,'B3','Green = live formulas (T90_Monthly / L5 tabs). Blue = extracted (models/statements). Both T90 series computed from lease-level HelloData on HD_Seasons / HD_Prelude.',NOTE,wrap=True)
 hdr(ws,5,['B','C','D','E','F','G','H','I','J'],
-    ['Date','Seasons T90 asking (mix-wtd)','Seasons T90 effective (mix-wtd)','Seasons UW market rent','Seasons L5 executed (8/4/26)','Prelude T90 (mix-wtd)','Prelude UW market rent','Prelude actual in-place','Prelude L5 (8/13/26)'])
+    ['Date','Seasons T90 asking (mix-wtd)','Seasons T90 effective (mix-wtd)','Seasons UW market rent','Seasons L5 executed (8/4/26)','Prelude T90 (mix-wtd)','Prelude UW market rent','Prelude actual in-place','Prelude L5 (acq 12/3/25 + 8/13/26)'])
 # UW market rents: QUARTERLY averages at mid-quarter through Y1, ANNUAL averages at UW-year midpoints beyond.
 # Seasons: Rent & Occ Data row 5 (updated model, Y1 avg $1,933.28); annual Y2+ from CF(Annual) row 4.
-uwS={datetime.datetime(2026,11,15):1902.2,datetime.datetime(2027,2,15):1923.1,datetime.datetime(2027,5,15):1946.2,datetime.datetime(2027,8,15):1961.7,
+uwS={datetime.datetime(2026,11,30):1902.2,datetime.datetime(2027,2,28):1923.1,datetime.datetime(2027,5,31):1946.2,datetime.datetime(2027,8,31):1961.7,
      datetime.datetime(2028,4,30):2010.6,datetime.datetime(2029,4,30):2091.0,datetime.datetime(2030,4,30):2164.2,datetime.datetime(2031,4,30):2240.0,datetime.datetime(2032,4,30):2307.2}
 # Prelude: Market Rent Summary row 11 (Q4-25 anchor + TMG Y1 quarters, Y1 avg $1,729.6); annual 2027+ from Cash Flow row 10 /280/12.
-uwP={datetime.datetime(2025,11,15):1693.0,datetime.datetime(2026,2,15):1712.3,datetime.datetime(2026,5,15):1732.2,datetime.datetime(2026,8,15):1745.5,datetime.datetime(2026,11,15):1728.5,
+uwP={datetime.datetime(2025,11,30):1693.0,datetime.datetime(2026,2,28):1712.3,datetime.datetime(2026,5,31):1732.2,datetime.datetime(2026,8,31):1745.5,datetime.datetime(2026,11,30):1728.5,
      datetime.datetime(2027,7,1):1775.8,datetime.datetime(2028,7,1):1838.2,datetime.datetime(2029,7,1):1906.7,datetime.datetime(2030,7,1):1976.5}
 act={datetime.datetime(2026,m,15):v for m,v in zip(range(1,8),[1668,1670,1672,1675,1675,1682,1684])}
-alld=sorted(set(months)|set(uwS)|set(uwP)|set(act)|{datetime.datetime(2026,8,4),datetime.datetime(2026,8,13)})
+PL5ACQ=datetime.datetime(2025,12,3)  # acquisition-era L5: Market Rent Summary V11, RR 12/3/25
+alld=sorted(set(months)|set(uwS)|set(uwP)|set(act)|{datetime.datetime(2026,8,4),datetime.datetime(2026,8,13),PL5ACQ})
 r=6
 for dt in alld:
     put(ws,f'B{r}',dt,BLACK,D)
@@ -210,8 +211,9 @@ for dt in alld:
     if dt in act: put(ws,f'I{r}',act[dt],BLUE,M0)
     if dt==datetime.datetime(2026,8,4): put(ws,f'F{r}',f'=L5_New_Leases!D{SL5}',GREEN,M0)
     if dt==datetime.datetime(2026,8,13): put(ws,f'J{r}',f'=L5_New_Leases!D{PL5}',GREEN,M0)
+    if dt==PL5ACQ: put(ws,f'J{r}',1717.5,BLUE,M0)
     r+=1
-put(ws,f'B{r+1}','UW market rents are period AVERAGES: quarterly (calendar quarters, plotted mid-quarter) through Y1, annual (plotted at UW-year midpoints) beyond. Seasons = updated model Rent & Occ Data row 5: TMG Y1 = 4Q26-3Q27 avg $1,933.28, then +4/4/3.5/3.5/3%. Prelude = Market Rent Summary row 11 (Q4-25 anchor + TMG Y1 calendar-2026 quarters, avg $1,729.6), then CF Market Rent /280/12. Seasons L5 marker 8/4/26 = executed new-lease spot. Actuals: potential rent net LTL /280 from accrual statement.',NOTE,wrap=True)
+put(ws,f'B{r+1}','UW market rents are period AVERAGES: quarterly (calendar quarters, plotted mid-quarter) through Y1, annual (plotted at UW-year midpoints) beyond. Seasons = updated model Rent & Occ Data row 5: TMG Y1 = 4Q26-3Q27 avg $1,933.28, then +4/4/3.5/3.5/3%. Prelude = Market Rent Summary row 11 (Q4-25 anchor + TMG Y1 calendar-2026 quarters, avg $1,729.6), then CF Market Rent /280/12. Seasons L5 marker 8/4/26 = executed new-lease spot. Prelude L5 markers: $1,717.5 at acquisition (Market Rent Summary "L5 New" wtd avg, RR 12/3/25) and $1,810.62 current (RR 8/13/26). Actuals: potential rent net LTL /280 from accrual statement.',NOTE,wrap=True)
 ws.merge_cells(f'B{r+1}:K{r+2}')
 
 del wb['Sheet']
