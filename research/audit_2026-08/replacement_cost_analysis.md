@@ -229,13 +229,66 @@ Emblem is a *middle-income-targeted* product; Seasons is *resort-style*. Replica
 |---|---|---|
 | Subject's actual 2022 development cost | $284,658 | $102.5M |
 | **Replacement cost today** | **$322,530** | **$116.1M** |
-| TMG purchase price (2027 reassessment proxy) | $321,222 | $115.6M |
+| **TMG purchase price** | **$327,778** | **$118.0M** |
 | TMG total basis (price + closing + capex) | $333,614 | $120.1M |
+| *(whisper price)* | *$347,222* | *$125.0M* |
 
-**We are acquiring at ~replacement cost (−0.4%); total basis is +3.4% above it.** That is a
-materially different statement than v2's "$306k/unit replacement vs $285k actual" — the subject
-is not being bought at a discount to replacement, it is being bought *at* it, and the protection
-comes from the fact that **no merchant developer can start here until market rents rise ~22%**.
+**We are acquiring at ~+1.6% vs replacement cost; total basis is +3.4% above it.**
+*(Correction: an earlier draft used $115.64M as the price — that is the post-sale **assessed**
+value, i.e. 98% of the $118.0M actually being paid.)* The subject is not being bought at a
+discount to replacement, it is being bought slightly **through** it — and the protection comes
+entirely from the fact that **no merchant developer can start here until market rents rise ~25%**.
+
+---
+
+# F. THE SALE-TRIGGERED TAX STEP-UP — the structural transfer, and we are living it
+
+Idaho reassesses to **~98% of sale price** on transfer. That single rule means a merchant
+developer's exit proforma is **structurally optimistic**, because it capitalizes an NOI carrying
+the *development-era* assessment while the buyer inherits a stepped-up bill.
+
+## F1. The worked example is our own deal
+| | |
+|---|---|
+| Purchase price | **$118,000,000** ($327,778/unit) |
+| Assessed BEFORE sale | $92,993,300 — only **79%** of what we are paying |
+| Assessed AFTER sale (98% of price) | $115,640,000 |
+| Taxes, T12 (the seller's load) | $384,244 ($1,067/unit) |
+| Taxes, post-reassessment | $510,754 ($1,419/unit) |
+| **Step-up we absorb** | **$126,510/yr (+33%, $351/unit)** |
+
+That $126,510 comes **straight out of our NOI** and therefore our cap rate:
+- Capitalized at our 5.01% Y1 cap = **$2,526,511 of value ($7,018/unit)**
+- Y1 NOI is $6,013,812; un-stepped it would be $6,140,322
+- **Going-in yield on basis: 5.007% actual vs 5.113% un-stepped — 11 bp we hand to the seller**
+
+The seller capitalized an NOI carrying the old tax load. We pay for the step-up in perpetuity.
+
+## F2. The same arithmetic destroys part of Emblem's exit
+Emblem's $102.5M exit at a 5.50% cap implies **$5,637,500** of NOI — carrying Emblem's terminal
+tax of $423,134. A buyer is reassessed to 98% of whatever they pay, so the honest price solves a
+circularity (price → assessment → tax → NOI → price):
+
+| | |
+|---|---|
+| Buyer's price at a **true** 5.50% cap | **$101,693,890** ($397,242/unit) |
+| Buyer's assessed value | $99,660,012 |
+| Buyer's taxes | $467,470 (vs Emblem's $423,134) |
+| **Emblem's exit is overstated by** | **$806,110 ($3,149/unit, 0.8%)** |
+
+If Emblem holds out for $102.5M, the buyer's real going-in cap is **5.453%, not 5.50%**.
+
+## F3. What it does to feasibility
+- Development margin: **+31.5% stated → +30.4% buyer-adjusted**
+- $806,110 of profit erased = **2.3% of the $35.1M equity check**
+- Restoring it needs $44,336 more NOI = **+$14.11/unit/mo** of market rent (2026 dollars) —
+  stacked on top of the ancillary and tax-lag normalizations
+
+**The general rule for every deal in the supply chart:** in Idaho, roughly **0.8–1.0% of a
+developer's exit value (≈2–3% of the equity check) transfers to the buyer at closing** via
+reassessment. Developer exit assumptions in this market should be haircut accordingly — and our
+own underwriting already models the mirror image, which is why Seasons' taxes jump 33% on day one
+and stay there.
 
 **Caveats:** the amenity and land premiums in section D are analyst estimates, not bid documents;
 the normalized ancillary stack is judgment calibrated to one comparable (the subject's own

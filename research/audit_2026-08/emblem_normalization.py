@@ -57,7 +57,8 @@ SEASONS = {
     'opex_t12': 2_018_751, 'taxes_t12': 384_244, 'insurance_t12': 117_993,
     'noi_t12': 4_725_317, 'expense_ratio_t12': 0.2993,
     # TMG Taxes tab + One Pager
-    'assessed_2026': 92_993_300, 'reassessed_2027': 115_640_000,   # ~= purchase price
+    'assessed_2026': 92_993_300, 'reassessed_2027': 115_640_000,   # = 98% of price
+    'purchase_price': 118_000_000,
     'tax_rate_uw': 0.0045, 'total_basis': 120_100_902,
     'actual_cost_2022': 102_476_923,   # $66.61M loan / 0.65 — ties to reported "$100M-plus"
 }
@@ -234,12 +235,12 @@ def main():
     rows = [
         ("Subject's ACTUAL 2022 development cost", s['actual_cost_2022'] / s['units'], s['actual_cost_2022']),
         ('Replacement cost today (this model)', total, total * s['units']),
-        ('TMG purchase price (2027 reassessment proxy)', s['reassessed_2027'] / s['units'], s['reassessed_2027']),
+        ('TMG purchase price', s['purchase_price'] / s['units'], s['purchase_price']),
         ('TMG total basis (price + closing + capex)', s['total_basis'] / s['units'], s['total_basis']),
     ]
     for lab, ppu, tot in rows:
         print(f"    {lab:<46} ${ppu:>9,.0f}/u   ${tot:>13,.0f}")
-    print(f"\n    -> We are acquiring at ~{s['reassessed_2027']/s['units']/total-1:+.1%} vs replacement cost; "
+    print(f"\n    -> We are acquiring at ~{s['purchase_price']/s['units']/total-1:+.1%} vs replacement cost; "
           f"total basis is {s['total_basis']/s['units']/total-1:+.1%} vs replacement.")
 
     out = {
@@ -258,7 +259,7 @@ def main():
         'yoc_target': round(yoc_target, 4), 'yoc_normalized': round(yoc_norm, 4),
         'seasons_replacement_cost_per_unit': round(total),
         'seasons_replacement_cost_total': round(total * s['units']),
-        'basis_vs_replacement': round(s['reassessed_2027'] / s['units'] / total - 1, 4),
+        'basis_vs_replacement': round(s['purchase_price'] / s['units'] / total - 1, 4),
     }
     (HERE / 'emblem_normalization.json').write_text(json.dumps(out, indent=1))
 
