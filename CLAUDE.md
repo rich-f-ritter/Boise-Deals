@@ -14,7 +14,11 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
 - `research/audit_2026-08/` — the August 2026 audit: findings memos, parcel diligence,
   supply-map builders + data, Seasons II denial record, **552-cluster vacant-site verdicts**
   (`vacant_sites_verdicts.json`, also a workbook sheet) and the **shot-down MF register**
-  (`graveyard_register.md`: 15 killed projects, ~2,100 units died in-ring 2024-25)
+  (`graveyard_register.md`: 15 killed projects, ~2,100 units died in-ring 2024-25), plus
+  **replacement-cost work** from Yardi construction-loan data
+  (`replacement_cost_analysis.md` + `construction_loan_cost_analysis.py`): all-in cost/unit
+  +151% 2014-2024 (9.6% CAGR) at 65% LTC; ring construction lending ~zero since 2023;
+  subject's own basis ~$285k/unit (12/2022 loan) = today's replacement cost
 
 ## THE SEASONS II LESSON (read before touching any analysis here)
 In July 2026 the analysis missed the subject's own marketed Phase II
