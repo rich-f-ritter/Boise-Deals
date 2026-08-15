@@ -4,9 +4,10 @@
 
 > **v3 headline changes:** (1) Emblem's proforma carries **~$351/unit/mo of ancillary income —
 > +83% vs what the subject actually collects**; normalized, the market rent new supply really
-> needs is **~$2,203/unit/mo, not the $2,069 advertised**, i.e. **+22.6% above the subject's
-> market rent**, not the ~10% v2 implied. (2) Emblem's **taxes are NOT aggressive** — its 0.45%
-> rate matches TMG's own Seasons underwriting; that earlier suspicion was wrong. (3) Replicating
+> needs is **~$2,224/unit/mo, not the $2,069 advertised**, i.e. **+23.8% above the subject's
+> market rent**, not the ~10% v2 implied. (2) Emblem's tax **rate** is fine (0.45%, matches TMG's
+> own), but its assessed-value **ramp** lags actual construction by ~$212k across lease-up, and the
+> sale-triggered reassessment it never bears costs a buyer $47,891/yr ≈ $871k of exit value. (3) Replicating
 > *Seasons specifically* costs **~$322,530/unit (~$116.1M)**, above the raw Emblem number, because
 > of the subject's amenity package and superior land. Detail: `emblem_normalization.py`.
 
@@ -151,29 +152,60 @@ because it also books **$350.59/unit/month of ancillary income**. The subject co
 The normalized figure ($215.50) is still a **12% premium to the subject**, which new construction
 earns through better submetering and real garages. It is simply not +83%.
 
-## B. Expenses — Emblem is conservative, and taxes are fine
-My v2 suspicion that Emblem understated taxes was **wrong**. Emblem underwrites a **0.45%** rate
-on market value; **TMG's own Seasons model uses the identical 0.45%** (Taxes tab), and Emblem's
-$1,324/unit stabilized tax is *above* the subject's $1,445/unit post-reassessment run-rate on a
-per-unit basis relative to size. Insurance ($481/u vs subject $328/u) and total opex
-($8,281/u vs subject $5,608/u, +48%) are both **conservative**. All of the optimism sits in revenue.
+## B. Expenses — Emblem is conservative, and the tax RATE is fine
+My v2 suspicion that Emblem understated the tax **rate** was **wrong**. Emblem underwrites
+**0.45%** on market value; **TMG's own Seasons model uses the identical 0.45%** (Taxes tab), and
+the subject's actual effective rate is 0.41% ($384,244 on $92.99M assessed). Insurance ($481/u vs
+subject $328/u) and total opex ($8,281/u vs subject $5,608/u, **+48%**) are both **conservative**.
+
+## B2. Taxes — testing the assessed VALUE, not just the rate
+Three separate tests; the assessed value is light in **timing**, not in level:
+
+**(a) Construction-completion lag — $211,898 deferred.** The tax study assumes the assessor
+recognizes **27%** of improvements for tax year 2029 when the construction curve says **~47%**
+is actually built, and **73%** for 2030 when **~99%** is built:
+
+| Tax yr | Assumed complete | Actually built | Assumed improvement value | Tax understated |
+|---|---|---|---|---|
+| 2029 | 27% | ~47% | $14,797,000 | **$97,025** |
+| 2030 | 73% | ~99% | $51,731,000 | **$114,872** |
+| | | | | **$211,898** |
+
+This lands squarely in the lease-up years, where merchant-developer IRR is most sensitive.
+
+**(b) Stabilized assessed value — light vs its own exit, but consistent with Idaho practice.**
+$89,670,000 = **$350,273/unit** — 115% of its own cost but only **87% of its own $400,391/unit
+exit value**. Before calling that aggressive: **the subject sits at 80% of market while unsold**
+($258,315/u assessed vs a $321,222/u price). So 87% on a no-sale hold is normal for Idaho.
+**Not the smoking gun.**
+
+**(c) The real exposure — the sale-triggered step-up Emblem never bears.** Idaho reassesses to
+~98% of sale price (TMG models exactly this for the subject). On a $102.5M exit the **buyer's**
+assessed value steps to $100,450,000 (**$392,383/u**) and taxes to **$471,025 ($1,840/u)** versus
+Emblem's terminal **$423,134 ($1,653/u)** — **$47,891/yr the buyer eats, worth $870,745 of value
+at a 5.50% cap ($3,401/unit)**. Emblem's exit is overstated by roughly that much.
+
+**(d) Sanity check:** Emblem's stabilized $1,653/unit still exceeds the subject's $1,413/unit
+post-reassessment run-rate. **The per-unit level is fine; the aggression is in the timing.**
 
 ## C. What market rent does new supply REALLY need?
 
 Holding Emblem's own 6.80% yield-on-cost target and normalizing only the ancillary stack:
 
-- Ancillary shortfall: **$464,242/year** → NOI falls to $4,882,470 → **YoC drops to 6.26%**
-- To hold 6.80%, base market rent must rise **$151/unit/mo (2030 $)**
-- **Required market rent today: ~$2,203/unit/mo ($2.35/SF)** vs the $2,069 advertised (**+6.5% understated**)
+- Ancillary shortfall: **$464,242/year**
+- Tax normalization (assessor keeps pace with construction): **$67,719/year**
+- → NOI falls to $4,814,751 → **YoC drops to 6.18%**
+- To hold 6.80%, base market rent must rise **$175/unit/mo (2030 $)**
+- **Required market rent today: ~$2,224/unit/mo ($2.37/SF)** vs the $2,069 advertised (**+7.5% understated**)
 
 | Compared to the subject's **market** rent (HelloData, per the TMG model) | Gap new supply must clear |
 |---|---|
-| T12 (6/30/26) $1,752 | **+25.7%** |
-| T6 annualized $1,796 | **+22.6%** |
-| YE2026 $1,818 | **+21.2%** |
+| T12 (6/30/26) $1,752 | **+27.0%** |
+| T6 annualized $1,796 | **+23.8%** |
+| YE2026 $1,818 | **+22.3%** |
 
-**So the feasibility gap is ~21–26%, not the ~10% v2 reported.** New market-rate supply in this
-submarket needs roughly **$2,200/unit/mo of market rent** — about $400/unit/mo above where the
+**So the feasibility gap is ~22–27%, not the ~10% v2 reported.** New market-rate supply in this
+submarket needs roughly **$2,225/unit/mo of market rent** — about $430/unit/mo above where the
 subject's market rents sit — before a merchant developer earns a normal return. That is the
 moat, quantified correctly, and it is far deeper than v2 suggested.
 

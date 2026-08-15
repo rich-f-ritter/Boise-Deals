@@ -47,16 +47,16 @@
  "seasons_ancillary_t12": 191.93,
  "seasons_ancillary_t6": 213.32,
  "normalized_ancillary_2026": 215.5,
- "required_market_rent_2026": 2203,
+ "required_market_rent_2026": 2224,
  "emblem_advertised_rent_2026": 2068.81,
- "understatement_pct": 0.0647,
+ "understatement_pct": 0.0751,
  "gap_vs_subject": {
-  "t12": 0.2572,
-  "t6": 0.2264,
-  "ye2026": 0.2116
+  "t12": 0.2695,
+  "t6": 0.2384,
+  "ye2026": 0.2234
  },
  "yoc_target": 0.068,
- "yoc_normalized": 0.0626,
+ "yoc_normalized": 0.0618,
  "seasons_replacement_cost_per_unit": 322530,
  "seasons_replacement_cost_total": 116110721,
  "basis_vs_replacement": -0.0041

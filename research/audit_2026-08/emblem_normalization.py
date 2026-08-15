@@ -31,6 +31,16 @@ EMBLEM = {
     'y2030': {'base_rent': 7_174_539, 'recurring': 1_034_405, 'other': 170_391,
               'ltl': -185_781, 'vacancy': -639_489, 'concessions': -131_083,
               'egi': 7_422_981, 'opex': 2_119_931, 'noi': 5_303_051},
+    'exit_value': 102_500_000, 'exit_cap': 0.0550,
+    # Tax Study Input tab: (tax_year, assumed % complete, ACTUAL cumulative construction %, assumed improvement value)
+    'tax_study': {
+        'improvement_value_complete': 78_038_600,
+        'ramp': [(2029, 0.27, 0.4659, 14_797_000), (2030, 0.73, 0.9900, 51_731_000)],
+        'assessed_stabilized': 89_670_000, 'taxes_stabilized': 423_134,
+        'direct_assessments': 19_000, 'sale_reassessment_pct': 0.98,
+        # normalized stabilized-year tax if the assessor kept pace with construction
+        'normalized_stab_year_delta': 67_719,
+    },
     'opex_2030_detail': {'taxes': 338_975, 'insurance': 123_184, 'personnel': 448_377,
                          'utilities': 349_208, 'contracts': 241_564, 'admin': 119_228,
                          'marketing': 100_864, 'r_and_m': 123_659, 'mgmt_fee': 222_689,
@@ -114,6 +124,45 @@ def main():
     print("  VERDICT: the expense side is defensible-to-conservative. The aggression is all on")
     print("           the revenue side, and it is concentrated in ancillary income.")
 
+    # ---------------------------------------------------------------- 2b. assessed VALUE, not just rate
+    print("\n" + "=" * 78)
+    print("2b. TAXES — testing the ASSESSED VALUE (the rate checks out; does the value?)")
+    print("=" * 78)
+    tx = e['tax_study']
+    full_imp = tx['improvement_value_complete']
+    print("  (a) Construction-completion lag — assessor assumed to recognize less than is built:")
+    lag_total = 0
+    for ty, assumed_pct, actual_pct, assumed_imp in tx['ramp']:
+        if actual_pct <= assumed_pct:
+            continue
+        should = full_imp * actual_pct
+        extra = (should - assumed_imp) * s['tax_rate_uw']
+        lag_total += extra
+        print(f"      tax yr {ty}: assumes {assumed_pct:.0%} complete (${assumed_imp:,}) but "
+              f"~{actual_pct:.0%} is actually built (${should:,.0f}) -> tax understated ${extra:,.0f}")
+    print(f"      TOTAL deferred across construction/lease-up: ${lag_total:,.0f}")
+
+    stab_assessed = tx['assessed_stabilized']
+    print(f"\n  (b) Stabilized assessed value ${stab_assessed:,} = ${stab_assessed/u:,.0f}/unit")
+    print(f"      = {stab_assessed/e['total_cost']:.0%} of its own cost, "
+          f"{stab_assessed/e['exit_value']:.0%} of its own exit value (${e['exit_value']/u:,.0f}/u)")
+    print(f"      BENCHMARK: the subject sits at {s['assessed_2026']/s['reassessed_2027']:.0%} of market "
+          f"while UNSOLD (${s['assessed_2026']/s['units']:,.0f}/u assessed vs ${s['reassessed_2027']/s['units']:,.0f}/u price)")
+    print("      -> 87% of value on a no-sale hold is CONSISTENT with Idaho practice. Not the smoking gun.")
+
+    buyer_assessed = e['exit_value'] * tx['sale_reassessment_pct']
+    buyer_tax = buyer_assessed * s['tax_rate_uw'] + tx['direct_assessments']
+    step_up = buyer_tax - tx['taxes_stabilized']
+    print(f"\n  (c) THE REAL EXPOSURE — the sale-triggered step-up Emblem never bears:")
+    print(f"      Idaho reassesses to ~{tx['sale_reassessment_pct']:.0%} of sale price (TMG models exactly this for the subject).")
+    print(f"      Buyer's post-sale assessed: ${buyer_assessed:,.0f} = ${buyer_assessed/u:,.0f}/u -> tax ${buyer_tax:,.0f} (${buyer_tax/u:,.0f}/u)")
+    print(f"      Emblem's terminal assumption:                             tax ${tx['taxes_stabilized']:,} (${tx['taxes_stabilized']/u:,.0f}/u)")
+    print(f"      Delta the BUYER eats: ${step_up:,.0f}/yr -> at a {e['exit_cap']:.2%} cap that is "
+          f"${step_up/e['exit_cap']:,.0f} of value (${step_up/e['exit_cap']/u:,.0f}/unit)")
+    print(f"\n  (d) Sanity check: Emblem stabilized tax ${tx['taxes_stabilized']/u:,.0f}/unit is still ABOVE the")
+    print(f"      subject's post-reassessment run-rate of ${s['reassessed_2027']*0.0044/s['units']:,.0f}/unit. Per-unit burden is fine;")
+    print("      the aggression is in TIMING (the lag), not the level.")
+
     # ---------------------------------------------------------------- 3. solve required market rent
     print("\n" + "=" * 78)
     print("3. WHAT MARKET RENT DOES NEW SUPPLY REALLY NEED?")
@@ -128,9 +177,10 @@ def main():
     emblem_anc_2030 = (y['recurring'] + y['other']) / u / 12
     anc_shortfall_annual = (emblem_anc_2030 - normalized_anc_2030) * u * 12
 
-    noi_norm = y['noi'] - anc_shortfall_annual * egi_ratio
+    tax_norm_delta = e['tax_study']['normalized_stab_year_delta']
+    noi_norm = y['noi'] - anc_shortfall_annual * egi_ratio - tax_norm_delta
     yoc_norm = noi_norm / e['total_cost']
-    extra_rent_annual = anc_shortfall_annual            # gross revenue needed to restore NOI
+    extra_rent_annual = anc_shortfall_annual + tax_norm_delta / egi_ratio  # gross revenue to restore NOI
     extra_rent_pu_mo_2030 = extra_rent_annual / u / 12
     base_2030 = y['base_rent'] / u / 12
     required_2030 = base_2030 + extra_rent_pu_mo_2030
@@ -140,6 +190,7 @@ def main():
     print(f"  Emblem stabilized (2030): NOI ${y['noi']:,} on ${e['total_cost']:,} = {yoc_target:.2%} YoC")
     print(f"  Ancillary, normalized:    ${normalized_anc_2030:,.2f}/u/mo vs Emblem ${emblem_anc_2030:,.2f}"
           f"  -> revenue shortfall ${anc_shortfall_annual:,.0f}/yr")
+    print(f"  Tax normalization (assessor keeps pace w/ construction): -${tax_norm_delta:,.0f}/yr")
     print(f"  NOI at normalized ancillary: ${noi_norm:,.0f}  ->  YoC falls to {yoc_norm:.2%}")
     print(f"\n  To hold {yoc_target:.2%} YoC, base market rent must rise "
           f"${extra_rent_pu_mo_2030:,.0f}/u/mo (2030 $)")
