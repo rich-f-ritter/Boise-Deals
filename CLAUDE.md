@@ -6,23 +6,35 @@ Land-use / supply-threat analyses for Treasure Valley multifamily deals
 `CanyonRidge/`) produced by the `land-use-analysis` skill (skill source is
 versioned in `land-use-analysis/` at the repo root — that copy is authoritative).
 
-## Current deliverables (rev. Aug 14, 2026 — post blind-spot audit)
+## Current deliverables (rev. Aug 15, 2026 — post blind-spot audit + 46-agent deep dive)
 - `SeasonsMeridian/Seasons at Meridian - Land Use Analysis.xlsx` + `... - Land Use Viewer.html`
-  (fresh 92,790-parcel pull; vacant screen = PROPCODE **L + F**; 19-site reasoned ranking)
+  (fresh 92,790-parcel pull; vacant screen = PROPCODE **L + F**; 19-site reasoned ranking;
+  `All Vacant Verdicts` sheet = all 552 clusters)
 - `SeasonsMeridian/Seasons at Meridian - Supply Chart.xlsx` + `... - Supply Map.html`
-  (46-row roster incl. Outer Banks #33; Diligence tab carries the full audit)
+  (47-row roster: 22 stabilized / 5 leasing / **5 UC incl. Outer Banks #32** / 15 proposed;
+  **P(deliver by YE2031) column** on the Competitive Analysis; Diligence tab carries the full
+  audit + the shot-down register; map has per-bucket toggle layers)
 - `research/audit_2026-08/` — the August 2026 audit: findings memos, parcel diligence,
   supply-map builders + data, Seasons II denial record, **552-cluster vacant-site verdicts**
   (`vacant_sites_verdicts.json`, also a workbook sheet) and the **shot-down MF register**
   (`graveyard_register.md`: 15 killed projects, ~2,100 units died in-ring 2024-25), plus
   **replacement-cost work** (`replacement_cost_analysis.md` **v3** + `replacement_cost_model.py`
   + `emblem_normalization.py`, anchored on the Emblem Meridian proforma & TMG Seasons model in
-  `in/`): Seasons replacement cost **~$322.5k/unit (~$116.1M)**; TMG purchase price $321.2k/u =
-  **at replacement (-0.4%)**, total basis $333.6k/u (+3.4%). Emblem's proforma carries
-  **+83% more ancillary income than the subject actually collects**; normalized, new supply needs
-  **~$2,203/u/mo market rent = +22.6% above the subject's** (NOT ~10%). Emblem's 0.45% tax rate
-  matches TMG's own — taxes are NOT an issue. Costs doubled 2014-2021 then plateaued; the
-  financing break is **65%->55% LTC = equity/unit +38%**. Ring construction lending ~zero since 2023.
+  `in/`): Seasons replacement cost **~$322.5k/unit (~$116.1M)**; TMG purchase price is
+  **$118.0M = $327,778/u (+1.6% vs replacement)** — NOTE $115.64M is the post-sale ASSESSED
+  value (98% of price), not the price; total basis $333.6k/u (+3.4%). Emblem's proforma carries
+  **+83% more ancillary income than the subject actually collects** ($350.59 vs $191.94/u/mo);
+  normalized, new supply needs **~$2,224/u/mo market rent = +23.8% above the subject's $1,796**
+  (NOT ~10%). Emblem's tax RATE (0.45%) matches TMG's own, but its assessed-value ramp lags
+  construction by ~$212k across lease-up. Costs doubled 2014-2021 then plateaued (~+1.7%/yr);
+  the financing break is **65%->55% LTC = equity/unit +38%** ($99.6k -> $137.0k).
+  Ring construction lending ~zero since 2023.
+- **Idaho sale-triggered tax step-up** (`tax_stepup_analysis.py`): Idaho reassesses to ~98% of
+  sale price. OUR OWN deal is the worked example — Seasons' taxes go $384,244 -> $510,754
+  (**+$126,510/yr, +33%**) = $2.53M of value at our 5.01% Y1 cap and **11bp of going-in yield**.
+  Applied to a developer's exit, ~0.8-1.0% of exit value (~2-3% of the equity check) transfers
+  to the buyer; Emblem's $102.5M exit solves to $101.69M for a buyer at a true 5.50% cap.
+  **Rule: haircut every merchant-developer exit in this market for reassessment.**
 
 ## THE SEASONS II LESSON (read before touching any analysis here)
 In July 2026 the analysis missed the subject's own marketed Phase II
