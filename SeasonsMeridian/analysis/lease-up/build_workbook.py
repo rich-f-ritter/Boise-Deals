@@ -160,17 +160,42 @@ block('CORPORATE BLOCK LEASE — READ BEFORE USING AUG 2026 NUMBERS', [
     ('Coleman Environmental Engineering', 1, '#,##0', 'B307 — the other corporate lease'),
 ], )
 
+def conc_stats(rows):
+    """Pooled over leases, not averaged across monthly percentages — a mean of monthly
+    rates weights a 2-lease month the same as a 40-lease month. Frequency's denominator
+    is leases whose effective rent is computable; depth is the average discount among
+    CONCEDING leases only, so it reads as 'how deep when given', not spread over
+    everyone."""
+    have = rows[rows.new_gross.notna() & rows.new_eff.notna()]
+    conc = have[have.new_eff < have.new_gross - 0.01]
+    depth = (1 - conc.new_eff / conc.new_gross)
+    return dict(n=len(have), k=len(conc), freq=len(conc) / len(have) if len(have) else None,
+                depth=depth.mean() if len(conc) else None,
+                dollars=conc.new_conc_total.dropna().mean(),
+                term=conc.term_mo.dropna().mean())
+
+
+c_init = conc_stats(e_new[e_new.generation == 'First lease-up lease'])
+c_2026 = conc_stats(e_rel_a)
+c_ren = conc_stats(e_ren)
+
 block('THE CONCESSION STORY', [
     ('Renewal gross vs effective spread', ren_e - ren_g, '+0.0%;-0.0%',
      'Nearly all renewal economics come from concession burn-off, not rate'),
-    ('Initial-lease concession frequency', prox.new_conc_freq.mean(), '0%',
-     'Lease-up period — essentially every initial lease carried a concession'),
-    ('Initial-lease concession depth', prox.new_conc_depth.mean(), '0.0%',
-     'Avg discount among conceding leases (HelloData asking vs effective)'),
-    ('2026 new-lease concession frequency', act.new_conc_freq.mean(), '0%',
-     'Yardi concession dollars — concessions are being withdrawn as the asset stabilizes'),
-    ('2026 renewal concession frequency', act.renewal_conc_freq.mean(), '0%',
-     'Renewals are written essentially concession-free'),
+    ('Initial-lease concession FREQUENCY', c_init['freq'], '0.0%',
+     f"{c_init['k']} of {c_init['n']} initial leases carried a concession "
+     f"(denominator = leases with a computable effective rent)"),
+    ('Initial-lease concession DEPTH', c_init['depth'], '0.0%',
+     f"Avg discount among the {c_init['k']} CONCEDING leases only — "
+     f"${c_init['dollars']:,.0f} over {c_init['term']:.1f} mo. Spread over all "
+     f"{c_init['n']} it would read {c_init['depth'] * c_init['freq']:.1%}"),
+    ('2026 new-lease concession FREQUENCY', c_2026['freq'], '0.0%',
+     f"{c_2026['k']} of {c_2026['n']} — concessions withdrawn as the asset stabilizes"),
+    ('2026 new-lease concession DEPTH', c_2026['depth'], '0.0%',
+     f"Avg among the {c_2026['k']} conceding — ${c_2026['dollars']:,.0f} over "
+     f"{c_2026['term']:.1f} mo"),
+    ('2026 renewal concession FREQUENCY', c_ren['freq'], '0.0%',
+     f"{c_ren['k']} of {c_ren['n']} — renewals are written essentially concession-free"),
 ])
 
 ws.cell(row=r, column=1, value='Sources: Yardi rent rolls (1/1, 7/07, 7/19, 8/04/2026) · Concession Burn Off '
@@ -190,6 +215,12 @@ COLS = [
     ('new_leases_signed', 'NEW LEASES\nSIGNED', 10, '#,##0'),
     ('  of which first lease-up lease', 'of which:\n1st-gen', 9, '#,##0'),
     ('  of which re-lease (turned unit)', 'of which:\nre-lease', 9, '#,##0'),
+    ('units_leased_to_date', 'UNITS LEASED\nto date (cum.)', 12, '#,##0'),
+    ('leased_to_date_pct', 'LEASED\nto date %', 10, '0.0%'),
+    ('units_occupied_eom', 'UNITS\nOCCUPIED', 10, '#,##0'),
+    ('units_vacant_eom', 'UNITS\nVACANT', 9, '#,##0'),
+    ('physical_occupancy_eom', 'PHYSICAL\nOCCUPANCY', 11, '0.0%'),
+    ('occupancy_basis', 'Occupancy basis', 30, '@'),
     ('new_lease_mixwtd_gross', 'New lease\nmix-wtd gross $', 12, '#,##0'),
     ('new_lease_mixwtd_eff', 'New lease\nmix-wtd eff $', 12, '#,##0'),
     ('leases_expired', 'LEASES\nEXPIRED', 10, '#,##0'),
@@ -223,12 +254,20 @@ ws['A2'] = ('Amber rows are HelloData proxy: leases signed = listings going off-
             'that window and are left BLANK — never zero. Renewals are only partly observable (the burn-off '
             'sees residents still in place at 7/30/26), so those months carry a survivor floor "≥ n" instead '
             'of a count. Aug 2026 is a partial month — the roll is as-of 8/4.')
-ws['A2'].font = Font(size=9, italic=True, color='BF8F00')
-ws['A2'].alignment = Alignment(wrap_text=True, vertical='top')
-ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=12)
+ws['A3'] = ('OCCUPANCY: "Units leased to date" is cumulative first-generation leases — fully observable in '
+            'every month, and the true absorption curve. "Physical occupancy" starts 1/1/2026 because before '
+            'that the data shows move-ins but no move-outs; any earlier curve would trace imputed lease terms '
+            '(58% of pre-roll tenancies have no term recorded) rather than the property. It is derived from '
+            'tenancy coverage and ties EXACTLY to the rent rolls at 1/1/26 (314) and 8/4/26 (346); at 7/7 and '
+            '7/19 it runs 2-3 units high because two July leases were posted to Yardi retroactively.')
+for _c in ('A2', 'A3'):
+    ws[_c].font = Font(size=9, italic=True, color='BF8F00')
+    ws[_c].alignment = Alignment(wrap_text=True, vertical='top')
+    ws.merge_cells(start_row=int(_c[1]), start_column=1, end_row=int(_c[1]), end_column=14)
 ws.row_dimensions[2].height = 26
+ws.row_dimensions[3].height = 26
 
-HROW = 4
+HROW = 5
 for i, (_, label, w, _f) in enumerate(COLS, start=1):
     ws.cell(row=HROW, column=i, value=label)
     ws.column_dimensions[get_column_letter(i)].width = w
@@ -277,8 +316,16 @@ tot = {
     'newlease_new_gross': e_rel_a.new_gross.mean(), 'newlease_gross_pct_avg': rel_g,
     'newlease_prior_eff': e_rel_a.prior_eff.mean(), 'newlease_new_eff': e_rel_a.new_eff.mean(),
     'newlease_eff_pct_avg': rel_e,
-    'new_conc_freq': act.new_conc_freq.mean(), 'new_conc_depth': act.new_conc_depth.mean(),
+    # pooled over leases, matching the Summary tab — not a mean of monthly rates
+    'new_conc_freq': c_2026['freq'], 'new_conc_depth': c_2026['depth'],
     'move_outs': act.move_outs.sum(),
+    # occupancy is a level, not a flow: the total row carries the latest reading
+    'units_leased_to_date': act.units_leased_to_date.dropna().iloc[-1],
+    'leased_to_date_pct': act.leased_to_date_pct.dropna().iloc[-1],
+    'units_occupied_eom': act.units_occupied_eom.dropna().iloc[-1],
+    'units_vacant_eom': act.units_vacant_eom.dropna().iloc[-1],
+    'physical_occupancy_eom': act.physical_occupancy_eom.dropna().iloc[-1],
+    'occupancy_basis': 'Latest — as of 8/4/2026',
 }
 for i, (key, _lbl, _w, fmt) in enumerate(COLS, start=1):
     cell = ws.cell(row=rw, column=i)
@@ -301,7 +348,8 @@ for line in [
     'happened to lease mostly 1-beds does not read as a rent decline.',
     'Concession frequency = share of new leases with any concession. Depth = average discount among ONLY '
     'those leases. Blended averages are not shown — they mix conceding and non-conceding leases.',
-    'Corporate leases (Coleman Environmental B307, Murata Machinery H203) are excluded from all rent statistics.',
+    'Corporate leases are excluded from all rent statistics. Two are in place (Coleman Environmental B307, '
+    'Murata Machinery B106); Murata holds seven MORE units committed for Aug 2026, not yet in this ledger.',
 ]:
     ws.cell(row=rw, column=1, value='• ' + line).font = SMALL
     ws.cell(row=rw, column=1).alignment = Alignment(wrap_text=True, vertical='top')

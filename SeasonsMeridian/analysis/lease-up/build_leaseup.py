@@ -40,6 +40,7 @@ MIN_TENANCY_DAYS = 120             # shortest lease term seen in the burn-off is
                                    # closer listing episodes are one lease-up, not a turn
 ACTUAL_START = date(2026, 1, 1)    # Yardi-actual window begins at the 1/1/26 roll
 CUTOFF = date(2026, 8, 4)          # measurement date = latest rent roll
+TOTAL_UNITS = 360
 
 ROLLS = [('2026-01-01', 'rent-rolls/RentRoll_AsOf_2026-01-01_BACKDATED-see-notes.xlsx'),
          ('2026-07-07', 'rent-rolls/RentRoll_AsOf_2026-07-07.xlsx'),
@@ -153,6 +154,11 @@ def add_months(dt, n):
     day = min(dt.day, [31, 29 if y % 4 == 0 and (y % 100 or y % 400 == 0) else 28,
                        31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m])
     return date(y, m + 1, day)
+
+
+def month_end(mo):
+    y, m = int(mo[:4]), int(mo[5:7])
+    return date(y + (m == 12), 1 if m == 12 else m + 1, 1) - timedelta(days=1)
 
 
 def effective(gross, conc_total, term):
@@ -615,6 +621,66 @@ def main():
     unit_mix = dict(unit_mix)
     print(f'unit mix (canonical plan codes, 8/4/26 roll): {unit_mix} = {sum(unit_mix.values())} units')
 
+    # ==================================================================
+    # OCCUPANCY
+    # ==================================================================
+    # Built as tenancy-interval coverage, not as a running sum of move-ins less
+    # move-outs: a flow accumulator compounds every missed event, while coverage
+    # is re-derived independently at each month-end and can be checked against the
+    # rent rolls. A tenancy runs from move-in to whichever end date is known first —
+    # a recorded move-out, or (for tenants who left before any roll existed) the
+    # date the unit came back on market. Failing both, it runs to the next move-in
+    # in that unit, which cannot overstate occupancy because the unit is occupied
+    # by someone throughout.
+    roll_dates = [date(*map(int, t.split('-'))) for t, _ in ROLLS]
+    FIRST_ROLL = roll_dates[0]
+    spans = defaultdict(list)
+    for m in res.values():
+        if m['future'] or not m['movein']:
+            continue
+        end = m['moveout']
+        if end is None:
+            # A resident on one roll and gone from a later one has moved out, even
+            # when no move-out date was ever written. Without this the tenancy runs
+            # forever and occupancy drifts high.
+            later = [rd for rd, (t, _) in zip(roll_dates, ROLLS)
+                     if rd > m['movein'] and t not in m['seen']]
+            if later:
+                end = later[0]
+        spans[m['unit']].append([m['movein'], end, 'roll'])
+    for e in events:
+        if e['event'] == 'New Lease' and e['basis'].startswith('PROXY (HelloData,'):
+            spans[e['unit']].append([e['signed'], None, 'hd', e.get('term_mo')])
+    for u, lst in spans.items():
+        lst.sort(key=lambda x: x[0])
+        eps = hd_by_unit.get(u, [])
+        for i, sp in enumerate(lst):
+            if sp[1] is None and sp[2] == 'hd':
+                # Same MIN_TENANCY_DAYS test used to classify re-leases: a unit that
+                # re-lists a few weeks after going off-market never turned over, so
+                # that re-listing must not be read as the tenant moving out.
+                nxt = [x['on'] for x in eps
+                       if x['on'] and (x['on'] - sp[0]).days >= MIN_TENANCY_DAYS]
+                # Every listing-only tenant is gone by the first roll (that is what
+                # makes them listing-only), so the span must close by then. Expiring
+                # them on their own lease term rather than all at once on the roll
+                # date is what keeps the curve from stepping off a cliff at 1/1/26.
+                term_end = sp[0] + timedelta(days=round((sp[3] or 12) * 30.44))
+                sp[1] = min([d for d in (nxt[0] if nxt else None, term_end, FIRST_ROLL) if d])
+            if sp[1] is None and i + 1 < len(lst):
+                sp[1] = lst[i + 1][0]
+
+    def occupied_on(d):
+        return sum(1 for lst in spans.values() for s in lst
+                   if s[0] <= d and (s[1] is None or s[1] > d))
+
+    ANCHORS = {date(2026, 1, 1): 314, date(2026, 7, 7): 341,
+               date(2026, 7, 19): 338, date(2026, 8, 4): 346}
+    print('\noccupancy check vs rent rolls (derived / actual):')
+    for d, actual in sorted(ANCHORS.items()):
+        got = occupied_on(d)
+        print(f'  {d}  derived {got:3}  actual {actual:3}  diff {got - actual:+d}')
+
     months = sorted({e['month'] for e in events if e['month']})
     monthly = []
     for mo in months:
@@ -648,10 +714,34 @@ def main():
         exp_mtm = sum(1 for e in exp if e.get('outcome') == 'MTM holdover')
         denom = exp_ren + exp_out + exp_mtm
 
+        # the final month is partial — report it at the measurement date, not month-end
+        eom = min(month_end(mo), CUTOFF)
+        in_range = month_end(mo) <= CUTOFF or mo == mkey(CUTOFF)
+        # Physical occupancy is only reported where it is observable. Pre-2026 the data
+        # shows move-ins but no move-outs, so a curve there would be driven by imputed
+        # lease terms (58% of listing-only tenancies have no term at all) rather than by
+        # the property. Absorption below is observable throughout and carries that story.
+        occ_n = occupied_on(eom) if (in_range and mo >= mkey(FIRST_ROLL)) else None
+        # only claim a rent roll when the reported date IS the roll date; a roll merely
+        # falling somewhere inside the month does not make the month-end figure exact
+        roll_in_month = next((t for t, _ in ROLLS if t == eom.isoformat()), None)
+        leased_cum = sum(1 for e in events
+                         if e['event'] == 'New Lease'
+                         and e['generation'] == 'First lease-up lease'
+                         and e['month'] <= mo)
+
         monthly.append({
             'month': mo,
             'basis': 'ACTUAL (Yardi)' if all(b.startswith('ACTUAL') for b in bases) else
                      ('PROXY (pre-2026)' if all(b.startswith('PROXY') for b in bases) else 'MIXED'),
+            'units_leased_to_date': leased_cum if in_range else None,
+            'leased_to_date_pct': (leased_cum / TOTAL_UNITS) if in_range else None,
+            'units_occupied_eom': occ_n,
+            'units_vacant_eom': (TOTAL_UNITS - occ_n) if occ_n is not None else None,
+            'physical_occupancy_eom': (occ_n / TOTAL_UNITS) if occ_n is not None else None,
+            'occupancy_basis': ('Rent roll ' + roll_in_month + ' (exact)' if roll_in_month else
+                                ('Derived — tenancy coverage' if occ_n is not None else
+                                 'Not derivable — no pre-2026 move-out data')),
             'new_leases_signed': len(new),
             '  of which first lease-up lease': sum(1 for e in new if e['generation'] == 'First lease-up lease'),
             '  of which re-lease (turned unit)': len(rel),
