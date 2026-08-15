@@ -323,7 +323,7 @@
    "lon": -116.430197,
    "est_delivery": "Q1 2028",
    "occ": null,
-   "note": "Moved from UC (Aug 2026): CoStar carries UC/Q1 2028 but no city permit found \u2014 verify. Developer: Endurance Holdings/Challenger (CBH org); ex-Vanguard Commons 432u."
+   "note": "P(deliver by YE2031) 12%. Moved from UC (Aug 2026): CoStar carries UC/Q1 2028 but no city permit found \u2014 verify. Developer: Endurance Holdings/Challenger (CBH org); ex-Vanguard Commons 432u."
   },
   {
    "name": "Centrepoint",
@@ -345,7 +345,7 @@
    "lon": -116.292407,
    "est_delivery": "Q1 2028",
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 25%. "
   },
   {
    "name": "Heritage Square (ex-Union 93)",
@@ -356,7 +356,7 @@
    "lon": -116.392749,
    "est_delivery": "Q1 2029",
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 38%. "
   },
   {
    "name": "The Cole Denton",
@@ -367,7 +367,7 @@
    "lon": -116.273614,
    "est_delivery": "Q1 2029",
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 15%. "
   },
   {
    "name": "Rolling Hill (Assemble Management)",
@@ -378,7 +378,7 @@
    "lon": -116.340977,
    "est_delivery": "Q1 2029",
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 32%. "
   },
   {
    "name": "Record",
@@ -389,7 +389,7 @@
    "lon": -116.346402,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 20%. "
   },
   {
    "name": "The Gateway at Ten Mile",
@@ -400,7 +400,7 @@
    "lon": -116.431609,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 15%. "
   },
   {
    "name": "Syringa Crossing",
@@ -411,7 +411,7 @@
    "lon": -116.395687,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 12%. "
   },
   {
    "name": "Victory Flats",
@@ -422,7 +422,7 @@
    "lon": -116.284662,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 20%. "
   },
   {
    "name": "12565 West Fairview Avenue",
@@ -433,7 +433,7 @@
    "lon": -116.338672,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 25%. "
   },
   {
    "name": "Pine 43 Multifamily (H-2024-0071 CUP)",
@@ -444,7 +444,7 @@
    "lon": -116.365834,
    "est_delivery": null,
    "occ": null,
-   "note": "270-unit CUP (two buildings, 6.28 ac C-G, height exception) inside the Pine 43 expansion approved 10/21/2025 \u2014 E Pine Ave between Locust Grove & Hickory. DISTINCT from the built Dovetail community (#15, 1350 N Webb Way) in the same master plan. Pin at the expansion annexation parcel \u2014 exact building site TBD from site plan."
+   "note": "P(deliver by YE2031) 30%. 270-unit CUP (two buildings, 6.28 ac C-G, height exception) inside the Pine 43 expansion approved 10/21/2025 \u2014 E Pine Ave between Locust Grove & Hickory. DISTINCT from the built Dovetail community (#15, 1350 N Webb Way) in the same master plan. Pin at the expansion annexation parcel \u2014 exact building site TBD from site plan."
   },
   {
    "name": "12548 West Overland Road",
@@ -455,7 +455,7 @@
    "lon": -116.33807,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 12%. "
   },
   {
    "name": "Ascent Overland",
@@ -466,7 +466,7 @@
    "lon": -116.320845,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 22%. "
   },
   {
    "name": "Meridian OZ Apartments",
@@ -477,18 +477,18 @@
    "lon": -116.375901,
    "est_delivery": null,
    "occ": null,
-   "note": null
+   "note": "P(deliver by YE2031) 30%. "
   },
   {
    "name": "Outer Banks Apartments",
    "units": 516,
-   "bucket": "PROPOSED",
+   "bucket": "UNDER CONSTRUCTION",
    "row": 32,
    "lat": 43.6,
    "lon": -116.442,
    "est_delivery": "Q4 2027",
    "occ": null,
-   "note": "Audit find Aug 2026 \u2014 Elk Ventures 516u CUP; groundbreaking expected 2026 (pin at SW Franklin & Ten Mile, approx within site)"
+   "note": "P(deliver by YE2031) 80% \u2014 ONLY PERMITTED DEAL IN THE RING. 3 vertical MF permits issued 6/17/2026 (Bldgs A/B/C); GC Perryman. First units Q4 2027-Q2 2028."
   },
   {
    "name": "South Ridge II",
@@ -510,7 +510,7 @@
    "lon": -116.35283,
    "est_delivery": "TBD",
    "occ": null,
-   "note": "Promoted Aug 2026: formal early plans filed June 2026 \u2014 250u (apts+TH) on ~13 ac R-15, ex-Artisan Victory Market site; nearest live MF application to subject."
+   "note": "P(deliver by YE2031) 20%. Promoted Aug 2026: formal early plans filed June 2026 \u2014 250u (apts+TH) on ~13 ac R-15, ex-Artisan Victory Market site; nearest live MF application to subject."
   }
  ],
  "shadow": [

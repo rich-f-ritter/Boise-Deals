@@ -61,14 +61,32 @@ since Jan 2024. Dead as MF (~5% revival, earliest ~2030). Full record:
   are glyph-encoded (unextractable text) — use agenda HTML + news instead.
 - boisedev.com 403s direct fetches — use search snippets / yahoo syndication / idahopress.
 
-## Open follow-ups (as of Aug 14, 2026)
-- Syringa Crossing: P&Z re-heard 8/6/2026 — pull the result (302u CUP at stake).
+## Aug 15, 2026 — 46-agent pipeline + graveyard deep dive (`pipeline_likelihood_report.md`,
+## `graveyard_report.md`, raw per-deal research in `raw/`)
+- **Pipeline: 4,494 proposed units -> 1,221 probability-weighted (27%) by YE2031.** Only ONE deal
+  (Outer Banks #32) has a building permit and it carries 34% of the weighted total. 2027-29 is a
+  supply vacuum (~120 wtd units/yr = 4-12% of the 2022-24 run-rate); 2030 is scenario-dependent.
+- **Double-count RESOLVED:** "The 10" (559u) and Outer Banks (516u) are one lineage — The 10 was
+  downsized to Outer Banks before the 12/14/2021 approval. Gateway (390u, GFI Meridian Investments
+  — NOT "TGI Corp") is genuinely separate. Carry Outer Banks + Gateway; The 10 at zero.
+- **Vanguard Village: CoStar's UC flag is WRONG** — bleed-over from the $50.7M Life Time club
+  (C-NEW-2026-0003) in the same plat. Parcel raw/unplatted, zero permits, CUP likely lapsed ~Jul 2024.
+- **Outer Banks upgraded to UNDER CONSTRUCTION**: permits C-MULTI-2025-0023/-0024 + a third
+  issued 6/17/2026; GC Perryman. Current entitlement is H-2024-0026 (2021 CUP lapsed ~Dec 2023).
+- **Entitlement clocks are the near-term risk:** The Judy ~9/10/26, Meridian OZ ~10/17/26,
+  Gateway ~11/19/26 all expire within 90 days with no extension found; Record and 12548 W
+  Overland already lapsed; Victory Flats is on a SECOND extension request.
+- **Graveyard: 20 counted dead projects, ~4,365 units killed 2015-2026**, ~2,731 units with no
+  successor entitlement. Same-site repeat kills: Lake Hazel & Five Mile (2x), Magic View (3x),
+  1475 E Franklin (3x), Civic Block (2x), Tanner Creek (2x).
+
+## Open follow-ups (as of Aug 15, 2026)
+- Syringa Crossing: P&Z re-heard 8/6/2026 — outcome still unpublished (302u CUP at stake).
 - Latitude Forty Three (H-2024-0059, 0.3 mi): final council vote pending (ITD TIA).
-- Records (Brighton 472u): CUP validity/expiry unverified — confirm with Meridian planning.
-- Modern Craftsman Franklin (122 BTR): post-2023 status unverified.
-- Verify The 10 (559u, abandoned) footprint vs Outer Banks (#33) / Gateway (#39) split at Franklin & Ten Mile.
-- Apex Zenith (Brighton, Lake Hazel & Meridian) + Victory & Ten Mile 142-ac pre-app: new watch items from Aug 2026 sweep.
-- Vanguard Village (552u, #31): CoStar UC flag unconfirmed by city permits — verify construction status (developer: Endurance/Challenger = CBH org).
+- Cloverdale Crossing (PLN25-00471, 12535 W Overland): no unit count pulled — add or document exclusion.
+- Foxcroft Sub (Trilogy, Ten Mile & Pine, 216 apts approved 2021, phased last): status entirely unverified.
+- Modern Craftsman Franklin (122 BTR): post-2023 status unverified; same sponsor (Baron) is exiting the Eagle Rd site.
+- Emblem: Quarterra does NOT own the land — Baron Properties still marketing it. Watch for a closing.
 - Owner pulls needed (manual assessor lookups): 1780 E Overland (R7100270310),
   1450 E Franklin (S1107449996), 104 W Cherry Ln (S1201449707), 785 S Locust Grove
   ($0-assessed exempt assemblage), S Standing Timber Way (S1130234045).
