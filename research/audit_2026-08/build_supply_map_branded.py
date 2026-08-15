@@ -103,10 +103,11 @@ map.fitBounds(bounds,{padding:[60,60]});"""
 
     n_deals = len(data['deals'])
     t = re.sub(r'<div class="sub">.*?</div>',
-               f'<div class="sub">{n_deals + 1} competitive properties (2022&ndash;2029) · numbered to the Aug 14 2026 supply chart · purple = shadow watch · gray = documented dead · click any pin</div>',
+               f'<div class="sub">{n_deals + 1} competitive properties · <b>numbering restarts at 1 within each colour/bucket</b>, matching the supply chart · purple = shadow watch · gray = documented dead · click any pin</div>',
                t, count=1, flags=re.S)
     t = re.sub(r'<footer>.*?</footer>',
-               '<footer>Companion to <b>Seasons at Meridian - Supply Chart.xlsx</b> (rev. Aug 14 2026, blind-spot audit). '
+               '<footer>Companion to <b>Seasons at Meridian - Supply Chart.xlsx</b> (rev. Aug 15 2026). '
+               'Pin numbers restart at 1 in each bucket — read the colour first, then the number. Proposed deals are ordered most-likely first. '
                'Positions: CoStar lat/lon where available, else Ada County parcel centroids; shadow/dead pins at named sites or intersections (approx where noted). '
                'Distance is straight-line from the subject.</footer>', t, count=1, flags=re.S)
     Path(a.out).write_text(t)
