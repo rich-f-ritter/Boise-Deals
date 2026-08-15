@@ -36,6 +36,8 @@ DOCS = '../../documents'
 RENEWAL_GAP_DAYS = 45              # lease start > move-in + gap => renewal
 CORPORATE = {'Coleman Environmental Engineering', 'Murata Machinery Inc'}
 HD_TO_MOVEIN_LAG = 15              # median days: off-market -> move-in (validated in DATA_NOTES)
+MIN_TENANCY_DAYS = 120             # shortest lease term seen in the burn-off is 4 months;
+                                   # closer listing episodes are one lease-up, not a turn
 ACTUAL_START = date(2026, 1, 1)    # Yardi-actual window begins at the 1/1/26 roll
 CUTOFF = date(2026, 8, 4)          # measurement date = latest rent roll
 
@@ -302,13 +304,21 @@ def main():
         return best
 
     def hd_prior_episode(unit, signed):
-        """Latest HelloData episode for a unit strictly before this lease was signed.
+        """Latest HelloData episode evidencing a REAL prior tenancy in this unit.
 
-        Departed tenants who left before 1/1/2026 appear on no rent roll, so this
-        is the only way to know a 2026 lease was a re-lease rather than a
+        Departed tenants who left before 1/1/2026 appear on no rent roll, so a prior
+        listing is the only way to know a later lease was a re-lease rather than a
         first-generation lease-up lease.
+
+        The gap threshold matters. During lease-up a unit is often listed, drops off
+        market briefly (a fallen-through application, or the scraper losing it), then
+        re-lists at the SAME price and leases — one lease, two episodes. Treating that
+        as a turn invents re-leases and a spurious 0.0% trade-out. A genuine intervening
+        tenancy needs at least the shortest lease term the burn-off shows (4 months),
+        so episodes closer than MIN_TENANCY_DAYS are treated as the same lease-up.
         """
-        prev = [e for e in hd_by_unit.get(unit, []) if e['off'] < signed - timedelta(days=30)]
+        prev = [e for e in hd_by_unit.get(unit, [])
+                if e['off'] < signed - timedelta(days=MIN_TENANCY_DAYS)]
         return prev[-1] if prev else None
 
     def hd_effective(e):
@@ -327,37 +337,78 @@ def main():
     # The ACTUAL layer is built first (below) so the PROXY layer can defer to it at
     # the seam: a unit listed in late Dec 2025 whose Yardi lease starts in Jan 2026 is
     # ONE lease, and the Yardi record is the better one.
-    actual_leases = defaultdict(list)
-    for m in res.values():
-        if m['future']:
+    # New leases are counted on MOVE-IN DATE (per RFR). The 1/1/26 roll carries real
+    # move-in dates back to 8/21/2024, so the pre-2026 window is built resident-first
+    # and falls back to HelloData only for tenants who had already left by then.
+    residents_all = [m for m in res.values() if not m['future'] and m['movein']]
+
+    def initial_gross(m, hde):
+        """A resident's ORIGINAL lease rent. For anyone who renewed before the first
+        rent roll, the roll already carries the renewed rent, so the listing is the
+        only surviving record of what they originally signed at."""
+        if m['renewed'] and m['leasestart'] and m['leasestart'] < ACTUAL_START:
+            return (hde['ask'] if hde else None), 'HelloData ask (renewed before 1/1/26 roll)'
+        if m['first_rent']:
+            return m['first_rent'], 'Rent roll contract rent'
+        return (hde['ask'] if hde else None), 'HelloData ask (no roll rent)'
+
+    # ---------- PROXY window: Jun 2024 - Dec 2025 -------------------------
+    matched_eps = set()
+    for m in residents_all:
+        mi = m['movein']
+        if mi >= ACTUAL_START:
             continue
-        s = m['leasestart'] if (m['leasestart'] and not m['renewed']) else m['movein']
-        if s and ACTUAL_START <= s <= CUTOFF:
-            actual_leases[m['unit']].append(s)
+        hde = hd_episode(m['unit'], mi)
+        if hde:
+            matched_eps.add((m['unit'], hde['off']))
+        hd_prev = hd_prior_episode(m['unit'], mi)
+        ig, ig_src = initial_gross(m, hde)
+        term = (hde['term'] if hde else None) or (m['term'] if not m['renewed'] else None)
+        _, conc = hd_effective(hde)
+        row = {'basis': 'PROXY (HelloData-era, real move-in date)', 'month': mkey(mi),
+               'event': 'New Lease', 'unit': m['unit'], 'unit_type': m['type'], 'sf': m['sf'],
+               'resident_id': m['res'], 'name': m['name'],
+               'corporate': 'Y' if m['corporate'] else '',
+               'signed': mi, 'movein_est': mi,
+               'generation': 'Re-lease' if hd_prev else 'First lease-up lease',
+               'term_mo': term, 'new_gross': ig,
+               'new_conc_total': conc, 'new_eff': effective(ig, conc, term),
+               'date_basis': 'Rent roll move-in date (exact)',
+               'source': f'Rent roll roster + {ig_src}'}
+        if hd_prev:
+            peff, pconc = hd_effective(hd_prev)
+            row.update({'prior_gross': hd_prev['ask'], 'prior_eff': peff,
+                        'prior_term_mo': hd_prev['term'], 'prior_conc_total': pconc,
+                        'prior_moveout': hd_prev['off'],
+                        'prior_basis': 'PROXY — prior listing asking rent (no roll covers that tenant)'})
+        row['to_gross_pct'] = pct(row.get('prior_gross'), row.get('new_gross'))
+        row['to_eff_pct'] = pct(row.get('prior_eff'), row.get('new_eff'))
+        events.append(row)
 
-    def superseded_by_actual(unit, off):
-        """True if this listing episode is the same lease as a Yardi-recorded one."""
-        return any(-30 <= (s - off).days <= 90 for s in actual_leases.get(unit, []))
-
-    # ---------- PROXY window: Jun 2024 - Dec 2025 (HelloData only) -------
+    # Episodes with no surviving resident: the tenant moved in AND out before any rent
+    # roll was cut, so only the listing remains. Move-in is estimated from off-market.
     for u, eps in hd_by_unit.items():
         for e in eps:
-            signed = e['off']
-            if signed >= ACTUAL_START or superseded_by_actual(u, signed):
+            if e['off'] >= ACTUAL_START or (u, e['off']) in matched_eps:
+                continue
+            mi_est = e['off'] + timedelta(days=HD_TO_MOVEIN_LAG)
+            if mi_est >= ACTUAL_START:
                 continue
             prev = e['prev']
-            row = {'basis': 'PROXY (HelloData)', 'month': mkey(signed), 'event': 'New Lease',
-                   'unit': u, 'unit_type': e['fp'], 'sf': e['sf'],
-                   'signed': signed, 'movein_est': signed + timedelta(days=HD_TO_MOVEIN_LAG),
+            row = {'basis': 'PROXY (HelloData, estimated move-in)', 'month': mkey(mi_est),
+                   'event': 'New Lease', 'unit': u, 'unit_type': e['fp'], 'sf': e['sf'],
+                   'signed': mi_est, 'movein_est': mi_est,
                    'generation': 'First lease-up lease' if prev is None else 'Re-lease',
                    'term_mo': e['term'], 'new_gross': e['ask'], 'new_eff': e['eff'],
-                   'days_vacant': e['dvac'], 'days_on_market': e['dom'],
-                   'source': 'HelloData off-market date = new lease signed'}
+                   'days_on_market': e['dom'],
+                   'date_basis': f'ESTIMATED — off-market + {HD_TO_MOVEIN_LAG}d (median lag)',
+                   'source': 'HelloData episode; tenant left before any rent roll'}
             if prev is not None:
                 row.update({'prior_gross': prev['ask'], 'prior_eff': prev['eff'],
+                            'prior_moveout': prev['off'],
+                            'prior_basis': 'PROXY — prior listing asking rent',
                             'to_gross_pct': pct(prev['ask'], e['ask']),
-                            'to_eff_pct': pct(prev['eff'], e['eff']),
-                            'source': 'HelloData asking->asking (prior tenant contract rent unavailable)'})
+                            'to_eff_pct': pct(prev['eff'], e['eff'])})
             events.append(row)
 
     # ---------- ACTUAL window: Jan 2026 - Aug 2026 (Yardi) ---------------
@@ -365,7 +416,7 @@ def main():
     for m in res.values():
         if m['future']:
             continue
-        start = m['leasestart'] if (m['leasestart'] and not m['renewed']) else m['movein']
+        start = m['movein']            # new leases counted on move-in date (per RFR)
         if start is None or start < ACTUAL_START or start > CUTOFF:
             continue
         # find the outgoing tenant of this unit for the trade-out baseline
@@ -392,7 +443,8 @@ def main():
                'term_mo': term, 'new_gross': m['last_rent'],
                'new_conc_total': abs(conc) if conc is not None else None,
                'new_eff': effective(m['last_rent'], conc, term),
-               'source': 'Rent roll + burn-off lease start'}
+               'date_basis': 'Rent roll move-in date (exact)',
+               'source': 'Rent roll + burn-off'}
         # prior-rent baseline, best source first
         if prior and prior['last_rent']:
             pterm, pconc = prior['term'], prior['conc']
@@ -506,6 +558,36 @@ def main():
                            'outcome': 'Not yet due',
                            'source': 'Rent roll lease expiration (current lease)'})
 
+    # One tenancy can appear under two resident ids (Yardi reassigned the id on J108),
+    # which would otherwise count the same lease twice.
+    # Collapse new-lease rows that describe the SAME lease: an identical unit+move-in
+    # (Yardi reassigned a resident id on J108), or two listing episodes closer together
+    # than the shortest possible tenancy (one lease-up split by the scraper). Keeping
+    # the later row keeps the episode that actually leased.
+    new_rows = sorted((e for e in events if e['event'] == 'New Lease'),
+                      key=lambda e: (e['unit'], e['signed']))
+    keep, n_dupes = [], 0
+    for e in new_rows:
+        if keep and keep[-1]['unit'] == e['unit'] and \
+                (e['signed'] - keep[-1]['signed']).days < MIN_TENANCY_DAYS:
+            n_dupes += 1
+            keep[-1] = e if e['basis'].startswith('ACTUAL') or \
+                not keep[-1]['basis'].startswith('ACTUAL') else keep[-1]
+            continue
+        keep.append(e)
+    # generation follows the surviving sequence, so it cannot contradict the counts
+    per_unit = defaultdict(int)
+    for e in keep:
+        per_unit[e['unit']] += 1
+        e['generation'] = 'First lease-up lease' if per_unit[e['unit']] == 1 else 'Re-lease'
+        if e['generation'] == 'First lease-up lease':
+            for k in ('prior_gross', 'prior_eff', 'to_gross_pct', 'to_eff_pct',
+                      'prior_basis', 'prior_moveout', 'prior_conc_total', 'prior_term_mo'):
+                e.pop(k, None)
+    events = [e for e in events if e['event'] != 'New Lease'] + keep
+    print(f'collapsed {n_dupes} duplicate new-lease row(s) '
+          f'(same unit within {MIN_TENANCY_DAYS}d = one lease)')
+
     # ==================================================================
     # MONTHLY ROLL-UP
     # ==================================================================
@@ -568,8 +650,8 @@ def main():
 
         monthly.append({
             'month': mo,
-            'basis': 'PROXY (HelloData)' if bases == ['PROXY (HelloData)'] else
-                     ('ACTUAL (Yardi)' if all('ACTUAL' in b for b in bases) else 'MIXED'),
+            'basis': 'ACTUAL (Yardi)' if all(b.startswith('ACTUAL') for b in bases) else
+                     ('PROXY (pre-2026)' if all(b.startswith('PROXY') for b in bases) else 'MIXED'),
             'new_leases_signed': len(new),
             '  of which first lease-up lease': sum(1 for e in new if e['generation'] == 'First lease-up lease'),
             '  of which re-lease (turned unit)': len(rel),

@@ -89,15 +89,18 @@ def block(title, rows, note=''):
 
 
 block('LEASE-UP VELOCITY', [
-    ('First listing on market', 'Jun 2024', '@', 'HelloData — earliest tracked listing'),
-    ('First move-in', 'Aug 21, 2024', '@', 'Rent roll'),
+    ('First listing on market', 'Jun 1, 2024', '@', 'HelloData — earliest tracked listing'),
+    ('First move-in (estimated)', 'Jul 2024', '@',
+     'Two units off-market late Jun 2024; move-in estimated at +15d — those tenants left before any roll'),
+    ('First move-in (exact)', 'Aug 21, 2024', '@', 'H210 — earliest move-in on a rent roll'),
     ('Total units', 360, '#,##0', 'A1 120 · A2 45 · B1 30 · B2 75 · B3 45 · C1 30 · S1 15'),
     ('New leases signed, all periods', int(mo[mo.month <= CUTOFF].new_leases_signed.sum()), '#,##0',
      'Includes both first-generation lease-up leases and re-leases of turned units'),
     ('  first-generation (initial lease-up)', int(e_new[e_new.generation == 'First lease-up lease'].shape[0]), '#,##0',
-     'One per unit; 339 of 360 units observed leasing for the first time'),
+     'Exactly one per unit — all 360 units resolve to a first lease-up lease'),
     ('  re-leases of a turned unit', int(len(e_rel)), '#,##0', 'These are the leases that carry a trade-out'),
-    ('Months to substantially fill', 20, '#,##0', 'Aug 2024 first move-in → Apr 2026 last first-generation lease'),
+    ('Months to lease all 360 units', 21, '#,##0',
+     'Jul 2024 first move-in → 4/24/2026 last first-generation lease'),
     ('Occupancy 1/1/2026 → 8/4/2026', '314 → 346 of 360', '@', '87% → 96%'),
 ])
 
@@ -147,6 +150,14 @@ block('RECONCILIATION TO THE FIRST-TURN ANALYSIS', [
      '64 ÷ 154 — cohort-scoped, and includes expirations that fell in late 2025'),
     ('Renewals, all periods (this workbook)', len(e_ren), '#,##0',
      'The 11 additional renewals are dated Aug–Dec 2025, before this workbook\'s actual window'),
+], )
+
+block('CORPORATE BLOCK LEASE — READ BEFORE USING AUG 2026 NUMBERS', [
+    ('Murata Machinery Inc units', 8, '#,##0',
+     'B106 in place (MI 8/2/26) + 7 committed for Aug 2026: A103, A303, F106, F108, H203, I203, J108'),
+    ('Share of the property', 8 / 360, '0.0%',
+     'A single corporate user took 2.2% of the units in one month'),
+    ('Coleman Environmental Engineering', 1, '#,##0', 'B307 — the other corporate lease'),
 ], )
 
 block('THE CONCESSION STORY', [
@@ -377,8 +388,11 @@ notes = [
     ('T', '• The renewal trade-out report covers 5/10/2026 – 7/9/2026 only (23 renewals). Both T12s begin '
           'Jun 2025, missing the first ten months of lease-up.'),
     ('H', 'Conventions'),
-    ('T', 'New leases are counted on lease-start date (move-in as fallback; HelloData off-market date in the '
-          'proxy window). Renewals are counted separately and are not included in "new leases signed".'),
+    ('T', 'New leases are counted on MOVE-IN DATE. The 1/1/2026 roll carries real move-in dates back to '
+          '8/21/2024, so 314 of the 400 pre-2026 leases are dated exactly; the remaining 86 belong to tenants '
+          'who moved in and out before any rent roll was cut, and are dated from their listing\'s off-market '
+          'date + 15 days (the validated median lag). Those rows are marked ESTIMATED in Date Basis.'),
+    ('T', 'Renewals are counted separately and are never included in "new leases signed".'),
     ('T', 'Renewal trade-out = same resident, contract rent → contract rent. New-lease trade-out = same unit, '
           'prior tenant\'s LAST contract rent → new tenant\'s contract rent.'),
     ('T', 'Effective rent = gross − (total concession ÷ lease term months). This is the Yardi convention used '
@@ -390,7 +404,10 @@ notes = [
     ('T', 'Concessions are reported as frequency (share of leases with any concession) and depth (average '
           'discount among only those leases), never as a blended average.'),
     ('T', 'Corporate leases excluded from rent statistics: Coleman Environmental Engineering (B307) and '
-          'Murata Machinery Inc (H203, move-in 8/30/2026).'),
+          'Murata Machinery Inc, which holds EIGHT units — B106 in place (move-in 8/2/26) plus A103, A303, '
+          'F106, F108, H203, I203 and J108 committed for August 2026. That is 2.2% of the property to one '
+          'user, landing right at the measurement date: the seven future leases are excluded here but will '
+          'inflate Aug/Sep 2026 absorption in any later cut. Treat recent leasing velocity accordingly.'),
     ('H', 'Validation performed'),
     ('T', '✓ All 23 renewals in the 5/10–7/9/2026 report are present, and prior/new gross and effective rents '
           'tie to the report\'s portfolio totals to the cent ($1,762.91 → $1,793.26 gross; $1,639.44 → '
@@ -399,7 +416,8 @@ notes = [
           'post-dates their move-in.'),
     ('T', '✓ Net leasing in the actual window (139 new leases − 105 move-outs = +34) reconciles to the observed '
           'occupancy change (314 → 346 = +32); the residual is leases signed for Aug/Sep move-ins.'),
-    ('T', '✓ Exactly one first-generation lease per unit; 351 distinct units leased against a 360-unit property.'),
+    ('T', '✓ Exactly one first-generation lease per unit, and all 360 units resolve — the ledger accounts for '
+          'every unit in the property.'),
     ('H', 'Known limits'),
     ('T', 'Renewals before 1/1/2026 are survivor-biased: only residents still in place on 7/30/2026 are visible, '
           'so early-period renewal counts are floors.'),
