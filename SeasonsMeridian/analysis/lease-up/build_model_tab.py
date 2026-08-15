@@ -67,7 +67,7 @@ ws.title = SHEET
 ws['B2'] = 'Lease-Up Bridge — what happened at the property, and how it becomes Year 1 & Year 2'
 ws['B2'].font = Font(bold=True, size=14, color=NAVY)
 ws['B3'] = ('Drop this sheet into the model, then Calculate (Ctrl+Alt+F9). Blue cells are live formulas '
-            'against HDUnitLevel, T12 Dump, RRA, tblRentRoll and Cash Flow (Annual). Grey cells are static '
+            'against HD Dump, T12 Dump, RRA, RR Dump and Cash Flow (Annual). Grey cells are static '
             'reconstructed history — the model has no equivalent source for them.')
 ws['B3'].font = SM
 ws['B4'] = ('Market & effective rent use the SAME T90 window and mix-weighting as Cash Flow (Annual) rows '
@@ -87,7 +87,7 @@ ws.cell(row=MIXR, column=2, value='UNIT MIX (live from tblRentRoll — drives th
 for i, p in enumerate(PLANS):
     ws.cell(row=MIXR + 1, column=3 + i, value=p).font = Font(size=8, bold=True)
     c = ws.cell(row=MIXR + 2, column=3 + i,
-                value=f'=COUNTIFS(tblRentRoll[Floor Plan],{get_column_letter(3+i)}{MIXR+1})')
+                value=f"=COUNTIFS('RR Dump'!$B$2:$B$361,{get_column_letter(3+i)}{MIXR+1})")
     c.font = Font(size=9)
     c.number_format = '#,##0'
 ws.cell(row=MIXR + 2, column=2, value='units').font = SM
@@ -132,17 +132,20 @@ for i, me in enumerate(MONTHS):
     ws.cell(row=r, column=3, value=('Projected' if proj else 'Actual'))
 
     # ---- per-plan T90 helpers: same COUNTIFS-guard pattern as the model ----
-    for j, p in enumerate(PLANS):
-        for blk, fld in ((HELP0, 'Last Asking Rent'), (HELP0 + 10, 'Last Effective Rent')):
+    # Plain ranges, not structured table refs: a structured ref is invalidated the
+    # moment this workbook is opened outside the model, and the damage is permanent.
+    HDPLAN = "'HD Dump'!$U$2:$U$538"
+    HDOFF = "'HD Dump'!$R$2:$R$538"
+    for j, p_ in enumerate(PLANS):
+        for blk, col in ((HELP0, 'M'), (HELP0 + 10, 'O')):
             cl = get_column_letter(blk + j)
             prev = f'{cl}{r-1}' if i else '""'
+            plan_ref = f'{get_column_letter(3+j)}${MIXR+1}'
+            fld = f"'HD Dump'!${col}$2:${col}$538"
+            win = f'{HDOFF},">="&$B{r}-{T90},{HDOFF},"<="&$B{r}'
             ws.cell(row=r, column=blk + j, value=(
-                f'=IF(COUNTIFS(HDUnitLevel[Floorplan Mapped],{get_column_letter(3+j)}${MIXR+1},'
-                f'HDUnitLevel[Off Market Date],">="&$B{r}-{T90},'
-                f'HDUnitLevel[Off Market Date],"<="&$B{r})>0,'
-                f'AVERAGEIFS(HDUnitLevel[{fld}],HDUnitLevel[Floorplan Mapped],{get_column_letter(3+j)}${MIXR+1},'
-                f'HDUnitLevel[Off Market Date],">="&$B{r}-{T90},'
-                f'HDUnitLevel[Off Market Date],"<="&$B{r}),{prev})')
+                f'=IF(COUNTIFS({HDPLAN},{plan_ref},{win})>0,'
+                f'AVERAGEIFS({fld},{HDPLAN},{plan_ref},{win}),{prev})')
             ).number_format = '#,##0'
 
     hm = f'{get_column_letter(HELP0)}{r}:{get_column_letter(HELP0+8)}{r}'
