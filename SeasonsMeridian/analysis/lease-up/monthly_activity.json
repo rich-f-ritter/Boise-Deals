@@ -1,0 +1,158 @@
+{
+"2024-07": {
+"new": 2,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2024-08": {
+"new": 7,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2024-09": {
+"new": 47,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2024-10": {
+"new": 19,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2024-11": {
+"new": 13,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2024-12": {
+"new": 9,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-01": {
+"new": 28,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-02": {
+"new": 14,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-03": {
+"new": 29,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-04": {
+"new": 27,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-05": {
+"new": 26,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-06": {
+"new": 22,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-07": {
+"new": 38,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-08": {
+"new": 27,
+"ren": 1.0,
+"out": null,
+"ren_inc": 0.014336917562723928
+},
+"2025-09": {
+"new": 12,
+"ren": null,
+"out": null,
+"ren_inc": null
+},
+"2025-10": {
+"new": 32,
+"ren": 2.0,
+"out": null,
+"ren_inc": 0.009025270758122761
+},
+"2025-11": {
+"new": 21,
+"ren": 3.0,
+"out": null,
+"ren_inc": -0.018112305854241357
+},
+"2025-12": {
+"new": 23,
+"ren": 4.0,
+"out": null,
+"ren_inc": 0.010344020203033821
+},
+"2026-01": {
+"new": 6,
+"ren": 3.0,
+"out": 8,
+"ren_inc": 0.0
+},
+"2026-02": {
+"new": 26,
+"ren": 3.0,
+"out": 12,
+"ren_inc": 0.026945676134116914
+},
+"2026-03": {
+"new": 29,
+"ren": 6.0,
+"out": 14,
+"ren_inc": 0.0021701388888888764
+},
+"2026-04": {
+"new": 17,
+"ren": 9.0,
+"out": 11,
+"ren_inc": 0.0179975358002076
+},
+"2026-05": {
+"new": 10,
+"ren": 10.0,
+"out": 12,
+"ren_inc": 0.021226191785281845
+},
+"2026-06": {
+"new": 18,
+"ren": 13.0,
+"out": 17,
+"ren_inc": 0.016657864238216673
+},
+"2026-07": {
+"new": 30,
+"ren": 10.0,
+"out": 27,
+"ren_inc": 0.024516941988143005
+},
+"2026-08": {
+"new": 3,
+"ren": null,
+"out": 4,
+"ren_inc": null
+}
+}
