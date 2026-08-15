@@ -11,9 +11,12 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
   (fresh 92,790-parcel pull; vacant screen = PROPCODE **L + F**; 19-site reasoned ranking;
   `All Vacant Verdicts` sheet = all 552 clusters)
 - `SeasonsMeridian/Seasons at Meridian - Supply Chart.xlsx` + `... - Supply Map.html`
-  (47-row roster: 22 stabilized / 5 leasing / **5 UC incl. Outer Banks #32** / 15 proposed;
-  **P(deliver by YE2031) column** on the Competitive Analysis; Diligence tab carries the full
-  audit + the shot-down register; map has per-bucket toggle layers)
+  (47-row roster: 22 stabilized / 5 leasing / 5 UC / 15 proposed. **Numbering restarts at 1
+  within each bucket — colour is the differentiator**, and PROPOSED is sorted most-likely-first
+  by the P(deliver by YE2031) column. Owner/developer on every row; NOTES carry the IC
+  conclusion only, with all evidence, file numbers, timelines and sources on the Diligence tab
+  and source reconciliation on the Reconciliation Log. Map mirrors the same numbering/colours
+  and has per-bucket toggle layers.)
 - `research/audit_2026-08/` — the August 2026 audit: findings memos, parcel diligence,
   supply-map builders + data, Seasons II denial record, **552-cluster vacant-site verdicts**
   (`vacant_sites_verdicts.json`, also a workbook sheet) and the **shot-down MF register**
@@ -76,7 +79,8 @@ since Jan 2024. Dead as MF (~5% revival, earliest ~2030). Full record:
 ## Aug 15, 2026 — 46-agent pipeline + graveyard deep dive (`pipeline_likelihood_report.md`,
 ## `graveyard_report.md`, raw per-deal research in `raw/`)
 - **Pipeline: 4,494 proposed units -> 1,221 probability-weighted (27%) by YE2031.** Only ONE deal
-  (Outer Banks #32) has a building permit and it carries 34% of the weighted total. 2027-29 is a
+  (Outer Banks, 516u = 364 apts + 126 flats + 26 TH) has a building permit — and only 3 of its
+  ~50 buildings are permitted; it carries 34% of the weighted total. 2027-29 is a
   supply vacuum (~120 wtd units/yr = 4-12% of the 2022-24 run-rate); 2030 is scenario-dependent.
 - **Double-count RESOLVED:** "The 10" (559u) and Outer Banks (516u) are one lineage — The 10 was
   downsized to Outer Banks before the 12/14/2021 approval. Gateway (390u, GFI Meridian Investments
@@ -91,6 +95,15 @@ since Jan 2024. Dead as MF (~5% revival, earliest ~2030). Full record:
 - **Graveyard: 20 counted dead projects, ~4,365 units killed 2015-2026**, ~2,731 units with no
   successor entitlement. Same-site repeat kills: Lake Hazel & Five Mile (2x), Magic View (3x),
   1475 E Franklin (3x), Civic Block (2x), Tanner Creek (2x).
+
+### Proposed pipeline, most-likely first (P = probability of delivering by YE2031)
+1 Heritage Square 250u 38% (Pacific Cos + Ahlquist) · 2 Rolling Hill 200u 32% (Assemble) ·
+3 Pine 43 MF 270u 30% (DRB) · 4 Meridian OZ 36u 30% (sold 8/7/26) · 5 12565 W Fairview 275u 25%
+(sponsor UNVERIFIED) · 6 The Judy 162u 25% (Hawkins) · 7 Ascent Overland 138u 22% (MVRK, under
+contract) · 8 Record 472u 20% (Brighton, LAPSED) · 9 Victory Flats 301u 20% (Welltower) ·
+10 Emblem 250u 20% (Quarterra — does NOT own the land) · 11 Gateway 390u 15% (GFI Meridian) ·
+12 Cole Denton 224u 15% (Kal Pacific) · 13 Vanguard 552u 12% (Endurance/Challenger) ·
+14 Syringa 302u 12% (Hawkins) · 15 12548 W Overland 156u 12% (Hook Family Trust, LAPSED)
 
 ## Open follow-ups (as of Aug 15, 2026)
 - Syringa Crossing: P&Z re-heard 8/6/2026 — outcome still unpublished (302u CUP at stake).
