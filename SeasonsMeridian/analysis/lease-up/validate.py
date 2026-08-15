@@ -76,3 +76,41 @@ print(f'   effective rent computable: renewals {rr.new_eff.notna().sum()}/{len(r
       f'new leases {nl.new_eff.notna().sum()}/{tot_nl}')
 miss = nl[nl.new_eff.isna() & (nl.signed >= '2026-01-01')]
 print(f'   2026 new leases missing effective rent: {len(miss)} (no term or concession data)')
+
+print('\n' + '=' * 72)
+print('6. T12 CROSS-CHECKS')
+import t12 as t12mod
+T = t12mod.load()
+m = pd.read_csv('monthly.csv')
+
+# The two statements overlap; overlapping months must agree or the later file is
+# silently overwriting real differences.
+import openpyxl
+from datetime import datetime
+def one(fn):
+    wb = openpyxl.load_workbook(f'../../documents/t12/{fn}', read_only=True, data_only=True)
+    rs = list(wb['Report1'].iter_rows(values_only=True)); wb.close()
+    hdr = [datetime.strptime(str(c), '%b %Y').strftime('%Y-%m') for c in rs[4][2:14]]
+    return {h: r[2 + i] for r in rs if str(r[0] or '').startswith('4499')
+            for i, h in enumerate(hdr)}
+a, b = one('T12_Jun2025-May2026.xlsx'), one('T12_Jul2025-Jun2026.xlsx')
+ov = set(a) & set(b)
+bad = [k for k in ov if abs((a[k] or 0) - (b[k] or 0)) > 1]
+print(f'   {ok(not bad)}  the two T12s agree on all {len(ov)} overlapping months'
+      + (f' -- disagree: {bad}' if bad else ''))
+
+# Physical occupancy from the GL vs from the rent rolls: two unrelated derivations.
+j = m.dropna(subset=['t12_physical_occupancy_avg', 'physical_occupancy_eom'])
+worst = (j.t12_physical_occupancy_avg - j.physical_occupancy_eom).abs().max()
+print(f'   {ok(worst < 0.03)}  T12 and rent-roll occupancy agree within 3 pts '
+      f'(worst {worst:.1%}, n={len(j)} overlapping months)')
+
+# Vacancy loss must fall as the ledger says units filled.
+occ = T[max(T)]['physical_occupancy_avg']
+print(f'   {ok(0.90 < occ < 1.0)}  latest T12 physical occupancy is sane at {occ:.1%}')
+
+# The bridge has to foot: market - LTL = gross potential.
+bad = [k for k, v in T.items()
+       if abs((v['market_rent'] + v['loss_to_lease']) - v['gross_potential']) > 1]
+print(f'   {ok(not bad)}  market rent less loss-to-lease foots to gross potential every month'
+      + (f' -- fails in {bad}' if bad else ''))

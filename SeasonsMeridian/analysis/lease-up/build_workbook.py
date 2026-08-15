@@ -152,6 +152,41 @@ block('RECONCILIATION TO THE FIRST-TURN ANALYSIS', [
      'The 11 additional renewals are dated Aug–Dec 2025, before this workbook\'s actual window'),
 ], )
 
+import t12 as t12mod
+T = t12mod.load()
+t_first, t_last = min(T), max(T)
+conc_total = sum(abs(v['concessions']) for v in T.values())
+conc_rr = sum(abs(T[k]['concessions']) for k in list(T)[-3:]) / 3 * 12
+gap_a = T[t_first]['physical_occupancy_avg'] - T[t_first]['economic_occupancy']
+gap_b = T[t_last]['physical_occupancy_avg'] - T[t_last]['economic_occupancy']
+
+block('HOW CONCESSIONS ACTUALLY HIT THE T12', [
+    ('Concession burn window (median)', 2.5, '0.0',
+     'Months from lease start to concession end date, per the burn-off report itself'),
+    ('Lease term (median)', 12, '#,##0',
+     'Concessions are NOT amortized over the term in the GL — they are credited over ~2.5 months'),
+    ('Longest burn window observed', 4.4, '0.0', 'n=144 leases with a concession and an end date'),
+    ('Concessions booked, %s to %s' % (t_first, t_last), conc_total, '$#,##0',
+     'GL account 4460 — the actual dollars that hit revenue'),
+    ('Run-rate, last 3 months annualized', conc_rr, '$#,##0', 'Apr-Jun 2026 x 4'),
+    ('STILL TO BURN OFF at 7/30/2026', 4289, '$#,##0',
+     'Only 4 leases carry unburned concession — the in-place rent roll is essentially clean'),
+], )
+
+block('WHERE THE REVENUE GAP WENT (T12, %s vs %s)' % (t_first, t_last), [
+    ('Vacancy loss, % of market rent', -0.419, '+0.0%;-0.0%', '45.6% → 3.7% — the lease-up filling up'),
+    ('Concessions, % of market rent', -0.054, '+0.0%;-0.0%', '7.6% → 2.2% — concessions withdrawn'),
+    ('Loss to lease, % of market rent', 0.066, '+0.0%;-0.0%',
+     '4.3% → 10.9% — WIDENED. Market rents were pushed up while in-place rents lagged'),
+    ('Physical occupancy', T[t_last]['physical_occupancy_avg'] - T[t_first]['physical_occupancy_avg'],
+     '+0.0%;-0.0%', f"{T[t_first]['physical_occupancy_avg']:.1%} → {T[t_last]['physical_occupancy_avg']:.1%}"),
+    ('Economic occupancy', T[t_last]['economic_occupancy'] - T[t_first]['economic_occupancy'],
+     '+0.0%;-0.0%', f"{T[t_first]['economic_occupancy']:.1%} → {T[t_last]['economic_occupancy']:.1%}"),
+    ('Physical-to-economic gap', gap_b - gap_a, '+0.0%;-0.0%',
+     f'{gap_a:.1%} → {gap_b:.1%}. The gap did NOT close: concession relief was offset by '
+     f'loss to lease, so the upside migrated rather than arrived'),
+], )
+
 block('CORPORATE BLOCK LEASE — READ BEFORE USING AUG 2026 NUMBERS', [
     ('Murata Machinery Inc units', 8, '#,##0',
      'B106 in place (MI 8/2/26) + 7 committed for Aug 2026: A103, A303, F106, F108, H203, I203, J108'),
@@ -219,8 +254,13 @@ COLS = [
     ('leased_to_date_pct', 'LEASED\nto date %', 10, '0.0%'),
     ('units_occupied_eom', 'UNITS\nOCCUPIED', 10, '#,##0'),
     ('units_vacant_eom', 'UNITS\nVACANT', 9, '#,##0'),
-    ('physical_occupancy_eom', 'PHYSICAL\nOCCUPANCY', 11, '0.0%'),
-    ('occupancy_basis', 'Occupancy basis', 30, '@'),
+    ('physical_occupancy_eom', 'OCCUPANCY\nrent roll, EOM', 12, '0.0%'),
+    ('t12_physical_occupancy_avg', 'OCCUPANCY\nT12, mo. avg', 12, '0.0%'),
+    ('t12_economic_occupancy', 'ECONOMIC\nOCCUPANCY (T12)', 13, '0.0%'),
+    ('t12_concessions', 'CONCESSIONS\n$ (GL 4460)', 12, '#,##0;(#,##0)'),
+    ('t12_concession_pct_gpr', 'CONC.\n% of GPR', 9, '0.0%'),
+    ('t12_loss_to_lease_pct', 'LOSS TO LEASE\n% of market', 12, '0.0%'),
+    ('occupancy_basis', 'Rent-roll occupancy basis', 28, '@'),
     ('new_lease_mixwtd_gross', 'New lease\nmix-wtd gross $', 12, '#,##0'),
     ('new_lease_mixwtd_eff', 'New lease\nmix-wtd eff $', 12, '#,##0'),
     ('leases_expired', 'LEASES\nEXPIRED', 10, '#,##0'),
@@ -254,12 +294,13 @@ ws['A2'] = ('Amber rows are HelloData proxy: leases signed = listings going off-
             'that window and are left BLANK — never zero. Renewals are only partly observable (the burn-off '
             'sees residents still in place at 7/30/26), so those months carry a survivor floor "≥ n" instead '
             'of a count. Aug 2026 is a partial month — the roll is as-of 8/4.')
-ws['A3'] = ('OCCUPANCY: "Units leased to date" is cumulative first-generation leases — fully observable in '
-            'every month, and the true absorption curve. "Physical occupancy" starts 1/1/2026 because before '
-            'that the data shows move-ins but no move-outs; any earlier curve would trace imputed lease terms '
-            '(58% of pre-roll tenancies have no term recorded) rather than the property. It is derived from '
-            'tenancy coverage and ties EXACTLY to the rent rolls at 1/1/26 (314) and 8/4/26 (346); at 7/7 and '
-            '7/19 it runs 2-3 units high because two July leases were posted to Yardi retroactively.')
+ws['A3'] = ('OCCUPANCY — two independent measures, deliberately not blended. "Rent roll, EOM" counts occupied '
+            'units at month end (ties EXACTLY to the rolls at 1/1/26 = 314 and 8/4/26 = 346). "T12, mo. avg" is '
+            '1 - vacancy loss / market rent, time-weighted across the month, and is the ONLY source of occupancy '
+            'before 2026. Across the six overlapping months the two agree within 2.1 pts with no directional '
+            'bias. ECONOMIC occupancy is net residential rent over market rent — the gap to physical occupancy '
+            'is concessions + loss to lease + bad debt. Jul 2024 - May 2025 predates both T12s: absorption '
+            '(cumulative first-generation leases) is the observable series there.')
 for _c in ('A2', 'A3'):
     ws[_c].font = Font(size=9, italic=True, color='BF8F00')
     ws[_c].alignment = Alignment(wrap_text=True, vertical='top')
@@ -358,7 +399,87 @@ for line in [
     rw += 1
 
 # ======================================================================
-# 3. LEASE EVENTS (audit trail)
+# 3. T12 REVENUE BRIDGE
+# ======================================================================
+ws = wb.create_sheet('T12 Revenue Bridge')
+widths(ws, {'A': 11, **{get_column_letter(i): 13 for i in range(2, 13)}})
+ws['A1'] = 'T12 Residential Revenue Bridge — market rent down to collected'
+ws['A1'].font = Font(bold=True, size=13, color=NAVY)
+ws['A2'] = ('From the two supplied operating statements (Jun 2025-May 2026 and Jul 2025-Jun 2026); they '
+            'overlap and agree exactly, so the later file wins. This is GL truth — the only source of '
+            'occupancy before 2026, and the only place the concession dollars can be seen as booked. '
+            'Credits are shown as booked (negative).')
+ws['A2'].font = Font(size=9, italic=True, color='595959')
+ws['A2'].alignment = Alignment(wrap_text=True, vertical='top')
+ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=12)
+ws.row_dimensions[2].height = 28
+
+TCOLS = [('month', 'Month', '@'), ('market_rent', 'Market\nRent', '#,##0'),
+         ('loss_to_lease', 'Loss to\nLease', '#,##0;(#,##0)'),
+         ('gross_potential', 'GROSS\nPOTENTIAL', '#,##0'),
+         ('vacancy_loss', 'Vacancy\nLoss', '#,##0;(#,##0)'),
+         ('concessions', 'Concessions\n(4460)', '#,##0;(#,##0)'),
+         ('employee_discounts', 'Employee\nDiscounts', '#,##0;(#,##0)'),
+         ('write_offs', 'Write\nOffs', '#,##0;(#,##0)'),
+         ('net_residential_rent', 'NET RESID.\nRENT', '#,##0'),
+         ('physical_occupancy_avg', 'PHYSICAL\nOCC (avg)', '0.0%'),
+         ('economic_occupancy', 'ECONOMIC\nOCC', '0.0%'),
+         ('concession_pct_gpr', 'CONC.\n% GPR', '0.0%')]
+HR = 4
+for i, (_, lbl, _f) in enumerate(TCOLS, start=1):
+    ws.cell(row=HR, column=i, value=lbl)
+style_header(ws, HR, len(TCOLS))
+rw = HR + 1
+for mo_, d_ in T.items():
+    for i, (k, _l, fmt) in enumerate(TCOLS, start=1):
+        c = ws.cell(row=rw, column=i, value=(mo_ if k == 'month' else d_.get(k)))
+        c.number_format = fmt
+        c.border = BOX
+        c.alignment = Alignment(horizontal='center')
+        c.font = Font(size=10)
+    rw += 1
+for i, (k, _l, fmt) in enumerate(TCOLS, start=1):
+    c = ws.cell(row=rw, column=i)
+    if k == 'month':
+        c.value = 'TOTAL'
+    elif k in ('physical_occupancy_avg', 'economic_occupancy', 'concession_pct_gpr'):
+        c.value = T[max(T)][k]           # a rate: show the latest, not a sum
+    else:
+        c.value = sum(v.get(k, 0) for v in T.values())
+    c.number_format, c.font, c.fill, c.border = fmt, BOLD, TOTAL_FILL, BOX
+    c.alignment = Alignment(horizontal='center')
+rw += 2
+for txt in [
+    '• PHYSICAL OCCUPANCY = 1 - vacancy loss / market rent. Vacancy loss is booked at market rent for each '
+    'vacant day, so this is a time-weighted month average — not the same statistic as the rent-roll count at '
+    'month end. Across the six overlapping months the two agree within 2.1 pts, in both directions.',
+    '• ECONOMIC OCCUPANCY = net residential rent / market rent. The gap to physical occupancy is what '
+    'concessions, loss to lease and bad debt take out of a fully-occupied building.',
+    '• CONCESSIONS ARE NOT AMORTIZED OVER THE LEASE TERM IN THE GL. The burn-off report gives each lease a '
+    'concession END DATE, and the median gap from lease start to that date is 2.5 months against a median '
+    '12-month term; the longest observed is 4.4 months. So a concession lands as a large credit in the first '
+    'two or three months of a lease and then stops.',
+    '• That timing is why effective rent in this workbook (gross less concession amortized over the full term, '
+    'the convention the Yardi renewal report uses) does not tie month-for-month to GL 4460. Same total dollars, '
+    'different periods. The amortized figure is the right one for underwriting a lease; the GL timing is the '
+    'right one for reading a trailing statement.',
+    '• Rebuilding GL 4460 from the burn-off recovers 65% of the dollars. The shortfall is departed residents — '
+    'the burn-off lists current residents only, so tenants who left before it was run take their concessions '
+    'with them. Months with heavy in-place lease-up (Jul-Sep 2025) reconstruct at 70-118%.',
+    '• Only $4,289 of concession remains unburned across 4 leases as of 7/30/2026. The concession drag visible '
+    'in this T12 is almost entirely historical, NOT a forward liability on the in-place rent roll.',
+    '• Loss to lease widened from 4.3% to 10.9% of market rent over the same period that concessions fell from '
+    '7.6% to 2.2%. The physical-to-economic gap therefore did not close. Underwriting the concession burn-off '
+    'as pure upside would double-count relief that loss to lease has already absorbed.',
+]:
+    ws.cell(row=rw, column=1, value=txt).font = SMALL
+    ws.cell(row=rw, column=1).alignment = Alignment(wrap_text=True, vertical='top')
+    ws.merge_cells(start_row=rw, start_column=1, end_row=rw, end_column=12)
+    ws.row_dimensions[rw].height = 30
+    rw += 1
+
+# ======================================================================
+# 4. LEASE EVENTS (audit trail)
 # ======================================================================
 ws = wb.create_sheet('Lease Events')
 ev_out = ev[ev.month <= CUTOFF].copy()

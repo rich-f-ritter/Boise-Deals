@@ -28,6 +28,7 @@ Output: events.csv, monthly.csv + a validation report to stdout.
 """
 import csv
 import openpyxl
+import t12 as t12mod
 import pandas as pd
 from datetime import datetime, date, timedelta
 from collections import defaultdict
@@ -681,6 +682,9 @@ def main():
         got = occupied_on(d)
         print(f'  {d}  derived {got:3}  actual {actual:3}  diff {got - actual:+d}')
 
+    T12 = t12mod.load()
+    print(f'T12 loaded: {min(T12)} -> {max(T12)} ({len(T12)} months)')
+
     months = sorted({e['month'] for e in events if e['month']})
     monthly = []
     for mo in months:
@@ -717,11 +721,12 @@ def main():
         # the final month is partial — report it at the measurement date, not month-end
         eom = min(month_end(mo), CUTOFF)
         in_range = month_end(mo) <= CUTOFF or mo == mkey(CUTOFF)
-        # Physical occupancy is only reported where it is observable. Pre-2026 the data
-        # shows move-ins but no move-outs, so a curve there would be driven by imputed
-        # lease terms (58% of listing-only tenancies have no term at all) rather than by
-        # the property. Absorption below is observable throughout and carries that story.
+        # Two occupancy statistics, kept separate because they are not the same measure.
+        # The rent-roll figure counts occupied units at month end; the T12 figure is
+        # time-weighted across the month (vacancy loss is booked per vacant day). The
+        # T12 is also the ONLY source of occupancy before 2026.
         occ_n = occupied_on(eom) if (in_range and mo >= mkey(FIRST_ROLL)) else None
+        t = T12.get(mo, {})
         # only claim a rent roll when the reported date IS the roll date; a roll merely
         # falling somewhere inside the month does not make the month-end figure exact
         roll_in_month = next((t for t, _ in ROLLS if t == eom.isoformat()), None)
@@ -741,7 +746,16 @@ def main():
             'physical_occupancy_eom': (occ_n / TOTAL_UNITS) if occ_n is not None else None,
             'occupancy_basis': ('Rent roll ' + roll_in_month + ' (exact)' if roll_in_month else
                                 ('Derived — tenancy coverage' if occ_n is not None else
-                                 'Not derivable — no pre-2026 move-out data')),
+                                 'No rent roll covers this month')),
+            't12_physical_occupancy_avg': t.get('physical_occupancy_avg'),
+            't12_economic_occupancy': t.get('economic_occupancy'),
+            't12_market_rent': t.get('market_rent'),
+            't12_gross_potential': t.get('gross_potential'),
+            't12_vacancy_loss': t.get('vacancy_loss'),
+            't12_concessions': t.get('concessions'),
+            't12_concession_pct_gpr': t.get('concession_pct_gpr'),
+            't12_loss_to_lease_pct': t.get('ltl_pct_market'),
+            't12_net_residential_rent': t.get('net_residential_rent'),
             'new_leases_signed': len(new),
             '  of which first lease-up lease': sum(1 for e in new if e['generation'] == 'First lease-up lease'),
             '  of which re-lease (turned unit)': len(rel),
