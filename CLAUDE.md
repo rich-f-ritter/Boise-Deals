@@ -15,12 +15,14 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
   supply-map builders + data, Seasons II denial record, **552-cluster vacant-site verdicts**
   (`vacant_sites_verdicts.json`, also a workbook sheet) and the **shot-down MF register**
   (`graveyard_register.md`: 15 killed projects, ~2,100 units died in-ring 2024-25), plus
-  **replacement-cost work** (`replacement_cost_analysis.md` v2 + `replacement_cost_model.py`,
-  anchored on the Emblem Meridian proforma in `in/`): Seasons replacement cost
-  **~$306k/unit (~$110M)** vs its 2022 basis $284,658/u (+7.5%). Costs doubled 2014-2021
-  then PLATEAUED (~+1.7%/yr); the break is **leverage 65%->55% LTC = equity/unit +38%**
-  ($99.6k -> $137.0k) and a new build needing ~10% more rent than the subject earns.
-  Ring construction lending ~zero since 2023.
+  **replacement-cost work** (`replacement_cost_analysis.md` **v3** + `replacement_cost_model.py`
+  + `emblem_normalization.py`, anchored on the Emblem Meridian proforma & TMG Seasons model in
+  `in/`): Seasons replacement cost **~$322.5k/unit (~$116.1M)**; TMG purchase price $321.2k/u =
+  **at replacement (-0.4%)**, total basis $333.6k/u (+3.4%). Emblem's proforma carries
+  **+83% more ancillary income than the subject actually collects**; normalized, new supply needs
+  **~$2,203/u/mo market rent = +22.6% above the subject's** (NOT ~10%). Emblem's 0.45% tax rate
+  matches TMG's own — taxes are NOT an issue. Costs doubled 2014-2021 then plateaued; the
+  financing break is **65%->55% LTC = equity/unit +38%**. Ring construction lending ~zero since 2023.
 
 ## THE SEASONS II LESSON (read before touching any analysis here)
 In July 2026 the analysis missed the subject's own marketed Phase II

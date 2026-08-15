@@ -1,0 +1,63 @@
+{
+ "ancillary_normalization": [
+  {
+   "item": "Garage / covered parking",
+   "emblem": 86.72,
+   "seasons": 25.87,
+   "normalized": 45.0,
+   "why": "Emblem charges 536 spaces (2.09/unit) at $41.42 \u2014 i.e. nearly every stall is paid. Suburban Meridian garden competes against free surface parking; defensible is detached/tuck-under garages at ~$100/mo with ~45% penetration."
+  },
+  {
+   "item": "RUBS / utility billback",
+   "emblem": 95.79,
+   "seasons": 45.61,
+   "normalized": 65.0,
+   "why": "$95.79 is ~100% recovery of a ~$114/unit utility load. New construction with full submetering can beat the subject, but 100% recovery is not achievable; 55-70% is market."
+  },
+  {
+   "item": "Managed WiFi (bulk internet)",
+   "emblem": 108.0,
+   "seasons": 0.0,
+   "normalized": 45.0,
+   "why": "Gross bulk-internet charge carries an offsetting ISP cost sitting in utilities (Emblem utilities run $114/u/mo vs the subject $66). Only the net margin is comparable; the subject books its cable/internet economics inside Revenue Share."
+  },
+  {
+   "item": "Pet fees",
+   "emblem": 10.5,
+   "seasons": 0.0,
+   "normalized": 10.5,
+   "why": "Market; the subject books pet income inside Other Income."
+  },
+  {
+   "item": "Other income (fees, admin, storage)",
+   "emblem": 49.58,
+   "seasons": 50.95,
+   "normalized": 50.0,
+   "why": "In line with the subject already."
+  },
+  {
+   "item": "\u2014 subject Revenue Share (cable/internet/etc.)",
+   "emblem": 0.0,
+   "seasons": 69.5,
+   "normalized": 0.0,
+   "why": "Shown for completeness: the subject's Revenue Share is the analogue of Emblem's WiFi line, already reflected in the normalized WiFi figure."
+  }
+ ],
+ "emblem_ancillary_2026": 350.59,
+ "seasons_ancillary_t12": 191.93,
+ "seasons_ancillary_t6": 213.32,
+ "normalized_ancillary_2026": 215.5,
+ "required_market_rent_2026": 2203,
+ "emblem_advertised_rent_2026": 2068.81,
+ "understatement_pct": 0.0647,
+ "gap_vs_subject": {
+  "t12": 0.2572,
+  "t6": 0.2264,
+  "ye2026": 0.2116
+ },
+ "yoc_target": 0.068,
+ "yoc_normalized": 0.0626,
+ "seasons_replacement_cost_per_unit": 322530,
+ "seasons_replacement_cost_total": 116110721,
+ "basis_vs_replacement": -0.0041
+}

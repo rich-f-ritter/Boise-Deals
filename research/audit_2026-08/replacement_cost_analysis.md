@@ -1,5 +1,14 @@
 # Replacement Cost & Development Feasibility — Seasons at Meridian
-### v2, Aug 2026 — rebuilt on the Emblem Meridian proforma. Supersedes the v1 flat-65%-LTC read.
+### v3, Aug 2026 — Emblem proforma VETTED and normalized; replacement cost revised up.
+### (v2 took Emblem at face value. v1 used a flat 65% LTC. Both superseded.)
+
+> **v3 headline changes:** (1) Emblem's proforma carries **~$351/unit/mo of ancillary income —
+> +83% vs what the subject actually collects**; normalized, the market rent new supply really
+> needs is **~$2,203/unit/mo, not the $2,069 advertised**, i.e. **+22.6% above the subject's
+> market rent**, not the ~10% v2 implied. (2) Emblem's **taxes are NOT aggressive** — its 0.45%
+> rate matches TMG's own Seasons underwriting; that earlier suspicion was wrong. (3) Replicating
+> *Seasons specifically* costs **~$322,530/unit (~$116.1M)**, above the raw Emblem number, because
+> of the subject's amenity package and superior land. Detail: `emblem_normalization.py`.
 
 **Sources:** (1) Yardi construction-loan export — 118 loans / 84 properties, Boise MSA,
 2012–2026; (2) **Emblem Meridian equity book + merchant model** (Quarterra, 256u
@@ -118,3 +127,85 @@ Emblem's own equity book corroborates independently: Meridian had **zero deliver
 senior debt and may omit mezzanine/preferred; the 2023–25 core-submarket sample is thin
 (n=4 before product screening), so the Emblem anchor — not the tape — carries the
 "today" conclusion; opex/vacancy load in the required-rent math is assumed, not from the model.
+
+---
+
+# v3 ADDENDUM — Vetting the Emblem underwriting
+
+## A. The ancillary-income problem (the whole story)
+
+Emblem's proforma advertises a $2,069/unit market rent. It clears its 6.80% yield on cost only
+because it also books **$350.59/unit/month of ancillary income**. The subject collects
+**$191.94/unit/month (T12)** — Emblem is **+83%**.
+
+| $/unit/month | Emblem | Seasons actual | Normalized | Why |
+|---|---|---|---|---|
+| Garage / covered parking | 86.72 | 25.87 | **45.00** | Emblem charges 536 spaces (2.09/unit) at $41.42 — nearly every stall paid. Suburban Meridian garden competes with free surface parking; defensible = garages ~$100/mo at ~45% penetration |
+| RUBS / utility billback | 95.79 | 45.61 | **65.00** | $95.79 ≈ 100% recovery of a ~$114/u utility load; market recovery is 55–70% |
+| Managed WiFi (bulk internet) | 108.00 | — | **45.00** | Gross charge has an offsetting ISP cost inside utilities (Emblem utilities $114/u/mo vs subject $66); only net margin is comparable |
+| Pet fees | 10.50 | — | **10.50** | market |
+| Other income | 49.58 | 50.95 | **50.00** | in line |
+| *(subject Revenue Share — the WiFi analogue)* | — | 69.50 | — | already reflected above |
+| **TOTAL** | **350.59** | **191.94** | **215.50** | |
+
+The normalized figure ($215.50) is still a **12% premium to the subject**, which new construction
+earns through better submetering and real garages. It is simply not +83%.
+
+## B. Expenses — Emblem is conservative, and taxes are fine
+My v2 suspicion that Emblem understated taxes was **wrong**. Emblem underwrites a **0.45%** rate
+on market value; **TMG's own Seasons model uses the identical 0.45%** (Taxes tab), and Emblem's
+$1,324/unit stabilized tax is *above* the subject's $1,445/unit post-reassessment run-rate on a
+per-unit basis relative to size. Insurance ($481/u vs subject $328/u) and total opex
+($8,281/u vs subject $5,608/u, +48%) are both **conservative**. All of the optimism sits in revenue.
+
+## C. What market rent does new supply REALLY need?
+
+Holding Emblem's own 6.80% yield-on-cost target and normalizing only the ancillary stack:
+
+- Ancillary shortfall: **$464,242/year** → NOI falls to $4,882,470 → **YoC drops to 6.26%**
+- To hold 6.80%, base market rent must rise **$151/unit/mo (2030 $)**
+- **Required market rent today: ~$2,203/unit/mo ($2.35/SF)** vs the $2,069 advertised (**+6.5% understated**)
+
+| Compared to the subject's **market** rent (HelloData, per the TMG model) | Gap new supply must clear |
+|---|---|
+| T12 (6/30/26) $1,752 | **+25.7%** |
+| T6 annualized $1,796 | **+22.6%** |
+| YE2026 $1,818 | **+21.2%** |
+
+**So the feasibility gap is ~21–26%, not the ~10% v2 reported.** New market-rate supply in this
+submarket needs roughly **$2,200/unit/mo of market rent** — about $400/unit/mo above where the
+subject's market rents sit — before a merchant developer earns a normal return. That is the
+moat, quantified correctly, and it is far deeper than v2 suggested.
+
+## D. Seasons replacement cost — the case for MORE than the raw Emblem number
+
+Emblem is a *middle-income-targeted* product; Seasons is *resort-style*. Replicating the subject:
+
+| | $/unit |
+|---|---|
+| Emblem all-in cost (base) | 304,530 |
+| + Amenity/spec premium — subject has a 10,000 SF clubhouse + 30,000+ SF community space (golf simulator, resort pool, dog parks) vs Emblem's 7,300 SF clubhouse; ~55 extra SF/unit at $250–300/SF | +14,000 |
+| + Land premium — Eagle/Overland node with I-84 frontage and Village/Topgolf adjacency vs Emblem's Eagle/Victory site; the touching WinCo parcel is being marketed for **retail** ground lease, which prices above MF land | +6,000 |
+| − Density/scale efficiency — 360 units at 23/acre vs Emblem 256 at ~20/acre | −2,000 |
+| **SEASONS REPLICA COST TODAY** | **$322,530** |
+
+**≈ $116.1M for 360 units; sensible range $315k–$330k/unit ($113M–$119M).**
+
+## E. Basis vs replacement — the punchline
+
+| | $/unit | Total |
+|---|---|---|
+| Subject's actual 2022 development cost | $284,658 | $102.5M |
+| **Replacement cost today** | **$322,530** | **$116.1M** |
+| TMG purchase price (2027 reassessment proxy) | $321,222 | $115.6M |
+| TMG total basis (price + closing + capex) | $333,614 | $120.1M |
+
+**We are acquiring at ~replacement cost (−0.4%); total basis is +3.4% above it.** That is a
+materially different statement than v2's "$306k/unit replacement vs $285k actual" — the subject
+is not being bought at a discount to replacement, it is being bought *at* it, and the protection
+comes from the fact that **no merchant developer can start here until market rents rise ~22%**.
+
+**Caveats:** the amenity and land premiums in section D are analyst estimates, not bid documents;
+the normalized ancillary stack is judgment calibrated to one comparable (the subject's own
+actuals); Emblem's 6.80% YoC is its 2030 figure (the book advertises 6.65%), and using 6.65%
+would lower the required rent by roughly $40/unit/mo.
