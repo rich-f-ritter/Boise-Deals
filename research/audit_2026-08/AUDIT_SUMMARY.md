@@ -53,3 +53,38 @@ inert; nearest live risk = idle C-G farms at 1780 E Overland & 1450 E Franklin (
 5. Verify "still alive" both directions: the scariest-looking find here (a 351-unit
    phase next door) turned out to be a documented denial — research the outcome, not
    just the application.
+
+---
+
+# AUGUST 15 ADDENDUM — deep-dive phase (46-agent workflow + cost/feasibility work)
+
+## New deliverables in this folder
+| File | What it is |
+|---|---|
+| `pipeline_likelihood_report.md` | All 16 proposed deals: probability of delivering by YE2031, most-likely quarter, tiers, expected delivery curve, 16 chart corrections, missing deals, open questions |
+| `graveyard_report.md` | 20 dead projects / ~4,365 units killed 2015-2026: census, year-by-year timeline, causes, eras, executive summary on why development is harder today, "so what" for underwriting |
+| `replacement_cost_analysis.md` (**v3**) | Replacement cost + the Emblem vetting/normalization + the tax step-up |
+| `construction_loan_cost_analysis.py` / `.json` | Yardi 118-loan tape → all-in cost by vintage at a given LTC |
+| `replacement_cost_model.py` / `.json` | Seasons-comparable cohort, time-varying LTC, replacement cost |
+| `emblem_normalization.py` / `.json` | Ancillary + expense + assessed-value normalization; solves required market rent |
+| `tax_stepup_analysis.py` / `.json` | Idaho sale-triggered reassessment: our own step-up and the developer-exit haircut |
+| `raw/` | Full per-deal, per-project and sweep research output (~520k chars) |
+| `in/` | Source files: Yardi loan tape, Emblem equity book + merchant model, TMG Seasons model v3 |
+
+## The four numbers that matter
+1. **Pipeline: 4,494 proposed → 1,221 probability-weighted units (27%) by YE2031.** Only one deal
+   (Outer Banks) has a permit; 2027-29 averages ~120 weighted units/yr vs a 2022-24 run-rate of
+   1,000-3,000.
+2. **Replacement cost ~$322,530/unit (~$116.1M)** vs a $118.0M purchase price — we buy at **+1.6%**.
+3. **New supply needs ~$2,224/u/mo market rent — +23.8% above the subject's $1,796.** That gap,
+   not cost inflation, is the moat.
+4. **Graveyard: ~4,365 units killed, ~2,731 with no successor entitlement.**
+
+## Method corrections logged (so they are not repeated)
+- Flat-LTC cost modeling is wrong post-2022 — leverage fell 65% → 55% (Emblem is the anchor).
+- Product mix must be screened before taking any median (v1's "$249k 2025 median" was n=2 townhomes).
+- A developer's advertised rent is not the required rent — normalize ancillary income first.
+- Purchase price ≠ assessed value: Idaho assesses at 98% of price, so the assessed figure in a
+  tax tab is 2% below the real price.
+- Structured-output schemas at depth caused a 44/46 agent failure in the first workflow attempt;
+  plain-text agent returns succeeded 46/46. Prefer text + a synthesis pass.

@@ -1,0 +1,318 @@
+[
+ {
+  "name": "Centrepoint \u2014 Devco affordable/workforce-housing redesign (filed as H-2024-0019; marketed \"Centrepoint\")",
+  "location": "SW corner N Eagle Rd & W Ustick Rd \u2014 3100 N Centrepoint Way / 3030 N Cajun Ln, Meridian ID (~4.9-5.0 mi from subject, near the ring edge)",
+  "lat": 43.6636,
+  "lng": -116.3555,
+  "units": 239,
+  "year": "2024 (denial recommendation) / 2025 (killed)",
+  "file_no": "H-2024-0019",
+  "outcome": "withdrawn",
+  "reason": "Meridian P&Z recommended DENIAL of Devco's deed-restricted affordable redesign (down from an ~2022 market-rate mixed-use plan of ~365 units on the same site). City Council overrode P&Z 3-1 and approved it with modifications on 12/10/2024 (Council Member Liz Strader dissenting) \u2014 five flat-roofed buildings, 1-3 stories. On 5/27/2025 Devco cancelled the affordable version outright, publicly citing loss of competitive LIHTC tax credits and loss of key HUD program eligibility that made the financing \"unsustainable.\"",
+  "revival_risk": "Low + the LIHTC/HUD financing window that killed this specific affordable product is unlikely to reopen soon; NOTE the site itself is not dead \u2014 land reverted to the prior ~2022-approved market-rate plan (213 units), which is already the live roster entry in this project's Supply Chart (permits issuing 2026). This entry documents only the killed affordable-housing product, a gap not previously captured in repo files.",
+  "note": "This is a genuinely new find, not in the existing register: the repo's Supply Chart tracks the live 213-unit market-rate Centrepoint (Dec 2025 approval), but nowhere documents the P&Z-denial-recommendation + Council-override + 2025 developer-withdrawal chain that killed the interim affordable-housing design at the same address. Worth noting for underwriting: Meridian lost a below-market-rent product at this corner (net-neutral to slightly negative for competitive market-rate supply at the subject, since the site converts entirely into market-rate units instead of a mixed affordable/market pipeline).",
+  "sources": [
+   "Idaho Statesman, \"Affordable apartments axed in Meridian,\" ~May 27, 2025 (content via search-engine snippet; idahostatesman.com blocks direct fetch, per known CLAUDE.md limitation)",
+   "BoiseDev/Idaho Press coverage of the Meridian City Council 12/10/2024 vote on H-2024-0019 (content via search-engine snippet; boisedev.com 403s direct fetch)",
+   "research/audit_2026-08/ring_sweep_findings.md (repo \u2014 confirms only the live 213u successor; cross-checked against it)"
+  ]
+ },
+ {
+  "name": "Rolling Hill \u2014 original 154-unit apartment iteration (Overland Rd & S. Rolling Hill Dr)",
+  "location": "NE of S. Rolling Hill Dr & E Overland Rd, Meridian ID \u2014 same Overland corridor as the subject, well under 1 mi",
+  "lat": null,
+  "lng": null,
+  "units": 154,
+  "year": "2024",
+  "file_no": null,
+  "outcome": "denied",
+  "reason": "A single-family homeowner whose parcel sat in the middle of the project footprint (fronting Overland Rd) refused to sell, leaving an un-annexed county enclave gap the city would not accept \u2014 application denied.",
+  "revival_risk": "Not applicable \u2014 this specific 154-unit design is dead, but the SITE IS NOT: a revised, larger vertically-integrated design (184 units + commercial, later increased to 200 units, filed as H-2025-0040) drew a second unanimous P&Z denial recommendation on 3/5/2026, but City Council approved it 5-1 on/around 4/28-5/20/2026. That 200-unit approval is already the roster's live \"Rolling Hill\" entry per research/audit_2026-08/ring_sweep_findings.md.",
+  "note": "Matches the task's known-register anchor (\"Rolling Hill's 2024 denial, later approved 2026\") \u2014 this entry supplies the detail that register didn't have: the original unit count (154), the specific denial cause (single holdout landowner), and the second-iteration file number (H-2025-0040) that also drew a P&Z denial recommendation before Council approval. Only the 154-unit design belongs in a graveyard; the site itself is live competitive supply.",
+  "sources": [
+   "boisedev.com/news/2026/04/02/meridian-recommends-denial-for-development-that-would-bring-184-homes-commercial-to-busy-section-of-overland-rd/ (fetch blocked 403; content via search-engine snippet)",
+   "aol.com/news/apartments-tipping-point-changing-meridian-100000019.html (Idaho Statesman syndication, partially fetched directly)",
+   "research/audit_2026-08/ring_sweep_findings.md (repo \u2014 confirms 200u May 2026 council approval)"
+  ]
+ },
+ {
+  "name": "Overland & Wells II (filed H-2022-0030) / \"Seasons at Meridian II\" (marketed)",
+  "location": "2600 E Overland Rd, Meridian ID \u2014 parcel touches the subject (2700 E Overland Rd) directly",
+  "lat": null,
+  "lng": null,
+  "units": 351,
+  "year": "2022",
+  "file_no": "H-2022-0030",
+  "outcome": "denied",
+  "reason": "P&Z recommended denial 3-1 (8/4/2022) on traffic concerns and that the original entitlement was for retail space; City Council DENIED both the MDA and CUP requests 10/25/2022 (continued from 9/6), Findings of Fact/Conclusions of Law for Denial adopted 11/9/2022 \u2014 citing loss of employment/job-creating land, failing roadway segments and turning movements at Overland/Eagle, over-concentration of multifamily next to the existing 360-unit Phase 1, and the applicant's failure to show the modification was superior to the existing Development Agreement.",
+  "revival_risk": "Low (~5%) + MDA denials are not subject to judicial review (Brown v. City of Meridian) and no CUP was ever issued, so there is no extension clock; owner WinCo Foods lot-split the parcel Feb 2025 and has marketed it since Jan 2024 as retail ground-lease pads via Colliers \u2014 earliest plausible de novo MF revival is ~2030.",
+  "note": "Confirmed against the known register \u2014 this is the site that triggered the whole Aug 2026 audit (the analysis originally missed the subject's own marketed Phase II because the parcel was assessor-coded ag-exempt farm and filed under a subdivision name). No new information found beyond what the repo already documents in full.",
+  "sources": [
+   "research/audit_2026-08/seasons_II_overland_wells_II_status.md (repo, known register \u2014 primary-source-researched)"
+  ]
+ },
+ {
+  "name": "Latitude Forty Three \u2014 assisted-living plan (2019 senior-living plan, then 2021 assisted-living plan, both denied/dead)",
+  "location": "~675/715/955 S Wells St, Meridian ID (~0.3 mi from subject)",
+  "lat": null,
+  "lng": null,
+  "units": null,
+  "year": "2021",
+  "file_no": null,
+  "outcome": "denied",
+  "reason": "Not detailed in available records; the register documents only that the 2019 senior-living and 2021 assisted-living plans on this ~15.97-ac plat both died before the site was re-filed as a for-sale subdivision.",
+  "revival_risk": "Low + the parcel is now under a different, actively-processing entitlement (H-2024-0059: 79 detached for-sale homes + 1 C-N pad, P&Z recommended approval 6-0 on 4/3/2025, Council hearing continued repeatedly through 4/7/2026 with an ITD traffic study pending) that extinguishes the enclave's multifamily/senior-living potential regardless of final outcome.",
+  "note": "Matches the task's known-register anchor exactly (\"Latitude 43 site's 2021 assisted-living denial\"). I could not independently verify a unit count or the stated denial reason beyond what's already in the repo's close_in_parcels_diligence.md \u2014 flagging unit count and reason as unverified rather than guessing, per instructions.",
+  "sources": [
+   "research/audit_2026-08/close_in_parcels_diligence.md (repo, known register)"
+  ]
+ },
+ {
+  "name": "Syringa Crossing (filed H-2025-0007, applicant Hawkins)",
+  "location": "5385 S Meridian Rd, Meridian ID (~3.0 mi from subject)",
+  "lat": null,
+  "lng": null,
+  "units": 302,
+  "year": "2026",
+  "file_no": "H-2025-0007",
+  "outcome": "denied",
+  "reason": "Not verified in this research pass \u2014 the known register records only that Meridian P&Z recommended denial of the 302-unit MF CUP (15.23 ac R-40, part of a larger ~400-home master plan) on 4/2/2026, and that Council remanded rather than finalizing the denial.",
+  "revival_risk": "Medium-High + this is NOT a closed case: Council remanded the P&Z denial recommendation and the project was re-heard 8/6/2026; per CLAUDE.md this is an open follow-up with the outcome still unpublished as of Aug 14, 2026. Do not treat as dead \u2014 treat as live/pending.",
+  "note": "Matches the task's known-register anchor exactly (\"Syringa Crossing P&Z denial rec 4/2/2026, remanded, still live\"). This is explicitly flagged in CLAUDE.md as an open follow-up (\"Syringa Crossing: P&Z re-heard 8/6/2026 \u2014 pull the result (302u CUP at stake)\") \u2014 I was not able to find the 8/6/2026 rehearing outcome via the search paths available to me (WebSearch quota was exhausted before I started; meetings.municode.com required a sign-in I could not complete; boisedev.com/idahostatesman.com blocked direct fetch). This remains the team's single highest-priority unresolved item.",
+  "sources": [
+   "research/audit_2026-08/close_in_parcels_diligence.md (repo, known register)",
+   "research/audit_2026-08/ring_sweep_findings.md (repo, known register)"
+  ]
+ },
+ {
+  "name": "Unnamed apartment rezone (filed as \"houses\"/subdivision in first 2022 attempt, refiled as apartments in 2024) \u2014 no confirmed marketed brand found; team's working label \"Lake Hazel & Five Mile MF\"",
+  "location": "Unincorporated Ada County, \"Southwest Boise\" area \u2014 reported at/near Lake Hazel Rd & Five Mile Rd per the team's known register (task brief). BoiseDev's own text describes it only as \"an empty commercial lot just outside of Southwest Boise\" / \"a commercial lot ... in Southwest Boise\" \u2014 I could not independently pull the parcel address, APN, or precise intersection this session (see verification note below). Straight-line distance from subject estimated ~5 mi based on the SW Boise/SWACA area's general footprint (Cole Rd east / Five Mile-Maple Grove west / I-84 north / Lake Hazel-Kuna Rd south) \u2014 close to the 5.2 mi cutoff; NOT independently confirmed with coordinates.",
+  "units": 118,
+  "year": "2024",
+  "file_no": null,
+  "outcome": "converted",
+  "reason": "Neighborhood opposition to density (\"hearing opposition towards high density\" per BoiseDev headline). The Ada County Board of County Commissioners denied the site for residential use TWICE: first a for-sale housing/subdivision proposal (~128u per team register, denial reported ~2022, article not independently located this session), then on Wed 5/22/2024 they \"voted for a second time\" to turn down an apartment proposal (~118u per team register) on the same parcel. After the second residential denial, the owner pivoted to a commercial-only proposal, which the Ada County Planning & Zoning Commission unanimously approved on Thu 10/9-10/2025 (article dated 10/10/2025, byline dated 10/13/2025).",
+  "revival_risk": "Low \u2014 the parcel's entitlement path is now commercial (approved Oct 2025), and Ada County separately rolled back allowing multifamily as a use in commercial zones in its zoning-code rewrite (per BoiseDev 4/11/2025, \"Ada County rolls back multi-family housing in commercial zones ... after public input\"), which would make a third MF attempt on this specific parcel harder going forward, not easier.",
+  "sources": [
+   "https://boisedev.com/news/2024/05/22/southwest-boise-commercial/ (\"'Hearing opposition towards high density': Ada commission turns down apartments after denying houses\", 5/22-23/2024)",
+   "https://boisedev.com/news/2025/10/10/southwest-commercial-approval/ (\"Ada County twice turned down housing on SW Boise lot. Now, a commercial project got the green light\", 10/10-13/2025)",
+   "https://boisedev.com/news/2025/04/11/ada-zoning-changes/ (\"Ada County rolls back multi-family housing in commercial zones, lawn watering rules and more after public input\", 4/11-17/2025) \u2014 regulatory context for revival risk"
+  ],
+  "note": "This matches the pattern the task brief flagged as the 'known' Lake Hazel & Five Mile MF rezone (denied 2022 128u, denied 2024 118u). I corroborated the SEQUENCE and FINAL OUTCOME independently via BoiseDev (two Ada Co. Commission denials \u2014 houses then apartments \u2014 followed by an Oct 2025 unanimous P&Z approval of a commercial-only replacement), but could NOT independently re-verify the exact unit counts, parcel address/APN, file numbers, or precise Lake-Hazel/Five-Mile intersection this session: BoiseDev's individual article pages, RSS/AMP endpoints, and archive.org/archive.ph mirrors all returned Cloudflare bot-challenges or connection resets to direct fetch (only the site's live WordPress ?s= search-results page was fetchable, which yields only a ~30-word excerpt per article, not full text), and this session's WebSearch tool budget was already exhausted (200/200) before I could run a general web search. Treat the unit figures/location as carried over from the team's prior register rather than freshly confirmed; flag for a human or another session with fresh search budget to pull the full BoiseDev articles or the Ada County BOCC hearing minutes/findings directly (Ada Co. uses NovusAgenda-style meeting portals) to nail down the exact parcel, file numbers (RZ-2022-xxxx / RZ-2024-xxxx style), and applicant/owner name.",
+  "lat": null,
+  "lng": null
+ },
+ {
+  "name": "Cobalt Point Apartments (CUP H-2022-0042)",
+  "location": "Near S Cobalt Point Way & E Copper Point Dr, Meridian (Silverstone/Eagle Rd & Overland Rd corridor)",
+  "lat": 43.592,
+  "lng": -116.345,
+  "units": 264,
+  "year": "2022",
+  "file_no": "H-2022-0042",
+  "outcome": "withdrawn",
+  "reason": "Not stated in sources found this session \u2014 CUP application (filed by The Land Group) went to a P&Z public hearing Aug 25, 2022 but no hearing decision or denial record was located; known register states CUP withdrawn Dec 2022, which this research did not independently re-confirm beyond the filing itself.",
+  "revival_risk": "Low-Med \u2014 no reapplication found on this parcel since the 2022 withdrawal; site remains in an active MF corridor near Silverstone/Eagle & Overland.",
+  "note": "Per known register (ring_sweep_findings.md / audit context): 264-unit CUP filed by The Land Group June 2022 near Eagle Rd & Overland Rd (Silverstone area, ~0.9-1 mi from subject), withdrawn Dec 2022. This session independently corroborated the filing (BoiseDev 6/13/22 article, Nextdoor P&Z hearing notice for H-2022-0042, Aug 25 2022) but could not find independent confirmation of the withdrawal itself \u2014 recommend a direct Meridian agenda check if certainty is required.",
+  "sources": [
+   "https://boisedev.com/news/2022/06/13/cobalt-point-meridian/",
+   "https://nextdoor.com/agency-post/id/meridian/meridian-mayors-office/planning-and-zoning-commission-public-hearing-notice-for-cobalt-point-apartments-cup-h-2022-0042-237291458/",
+   "known register: research/audit_2026-08/ring_sweep_findings.md"
+  ]
+ },
+ {
+  "name": "Fairview Apartments (H-2023-0001), 1005 E Fairview Ave",
+  "location": "1005 E Fairview Ave, Meridian, ID (C-G zoning, 8.25 ac)",
+  "lat": null,
+  "lng": null,
+  "units": 150,
+  "year": "2023",
+  "file_no": "H-2023-0001",
+  "outcome": "withdrawn",
+  "reason": "Not stated in sources found this session. Known register: withdrawn June 2023 (not independently re-confirmed beyond the filing).",
+  "revival_risk": "Med \u2014 8.25-ac C-G parcel on Fairview Ave near the Eagle Rd corridor is well positioned for MF re-filing; no reapplication found yet.",
+  "note": "Application by Pivot North Architecture for 150 market-rate units (1BR-3BR, 797-1,872 SF) on 8.25 ac at 1005 E Fairview Ave, filed as H-2023-0001. Confirmed via BoiseDev (1/11/2023) and a COMPASS Idaho application PDF; the withdrawal itself (per known register, June 2023) was not independently re-verified this session \u2014 owner/applicant identity beyond the architect is unconfirmed.",
+  "sources": [
+   "https://boisedev.com/news/2023/01/11/fairview-apartments-meridian/",
+   "https://compassidaho.org/wp-content/uploads/FairviewApartments_Application.pdf",
+   "known register: research/audit_2026-08/ring_sweep_findings.md"
+  ]
+ },
+ {
+  "name": "The 10 at Meridian (Elk Ventures)",
+  "location": "75 S Ten Mile Rd / SW corner Franklin Rd & Ten Mile Rd, Meridian, ID (~3.3 mi from subject)",
+  "lat": null,
+  "lng": null,
+  "units": 559,
+  "year": "2024",
+  "file_no": null,
+  "outcome": "abandoned",
+  "reason": "Original ~40-acre, 559-unit apartment/townhome/147,650-SF-commercial mixed-use plan (filed 2021, approved ~2021-22 per Idaho Statesman) was never built; the same developer, Elk Ventures, subsequently re-filed the same SW Franklin/Ten Mile corner as the smaller \"Outer Banks Apartments\" CUP in 2024 (516 units: 364 apts + 126 flats + 26 TH on 19.34 ac), which is now the live, near-under-construction project on this site (already rostered in the Supply Chart; groundbreaking expected 2026 per BoiseDev 2026 outlook coverage).",
+  "revival_risk": "N/A \u2014 already superseded/revived in reduced form as Outer Banks Apartments (516u), which is the live successor on this exact parcel; do not double-count both.",
+  "note": "The 10 (559 apartments+townhomes, 147,650 SF commercial) was Elk Ventures' original 2021 plan for the SW corner of Franklin & Ten Mile. It never broke ground; Elk Ventures replaced it with the smaller Outer Banks CUP (516u) on the same corner circa 2024, which is the entry that belongs in the live supply roster. Confirmed via BoiseDev project page/article and an Idaho Statesman article (\"500+ apartments OK'd\").",
+  "sources": [
+   "https://boisedev.com/news/2021/04/20/the-10-meridian/",
+   "https://boisedev.com/project/the-10/",
+   "https://www.idahostatesman.com/news/local/community/west-ada/article252779478.html",
+   "known register: research/audit_2026-08/ring_sweep_findings.md (Outer Banks entry)"
+  ]
+ },
+ {
+  "name": "Union 93 (downtown Meridian skeleton building) -> Heritage Square",
+  "location": "SE corner Main St & Broadway Ave, downtown Meridian, ID (~2.1 mi from subject)",
+  "lat": 43.613,
+  "lng": -116.392,
+  "units": null,
+  "year": "2025",
+  "file_no": null,
+  "outcome": "foreclosed",
+  "reason": "Construction by original developer Galena Partners stalled and the partially-built structure sat \"half-built, fenced off and unfinished\" for roughly four years before the site went to an Ada County Sheriff's foreclosure auction.",
+  "revival_risk": "Low as originally designed / Materializing under new ownership \u2014 Tommy Ahlquist and The Pacific Companies bought the foreclosed site at auction (fall 2025) and are pursuing a new mixed-use \"Heritage Square\" plan: ~120,000 SF office, ~32,000 SF retail, ~250 residential units, a hotel, groundbreaking targeted Q1 2027, completion 2029.",
+  "note": "Downtown Meridian's long-stalled \"Union 93\" apartment/mixed-use shell went to foreclosure and was purchased at sheriff's auction in fall 2025 by Ahlquist/Pacific Companies, who plan to demolish or repurpose the structure into the Heritage Square mixed-use project (~250 units, office, retail, hotel). Original Union 93 unit count not found in sources reviewed this session.",
+  "sources": [
+   "https://www.idahopress.com/news/local/heritage-square-downtown-meridian-former-union-93-site/article_9bd2420a-c9be-437d-9465-039fbdcb2b63.html",
+   "known register: research/audit_2026-08 context (Union 93 foreclosed Oct 2025)"
+  ]
+ },
+ {
+  "name": "Madison Town Square",
+  "location": "Meridian, ID (exact address unconfirmed this session)",
+  "lat": null,
+  "lng": null,
+  "units": 251,
+  "year": "2024",
+  "file_no": null,
+  "outcome": "withdrawn",
+  "reason": "Unconfirmed this session \u2014 no independent source located beyond the known register entry (\"pulled Jun 2024\").",
+  "revival_risk": "Unknown/Med (default) \u2014 insufficient independent data this session to assess.",
+  "note": "Could not independently corroborate this project (name, address, developer, or the June 2024 pull date) via BoiseDev, Idaho Press, or general web search this session \u2014 search access was constrained (session WebSearch budget exhausted; Bing/Google/DuckDuckGo returned bot-degraded or blocked results for this query). Reporting per known register only; recommend a direct Meridian P&Z/council agenda search (meetings.municode.com, cc=MERIDIANID) to verify file number, address, and outcome before relying on this entry.",
+  "sources": [
+   "known register (task-provided): Madison Town Square 251u, pulled Jun 2024 \u2014 not independently re-verified this session"
+  ]
+ },
+ {
+  "name": "Newkirk (216u apartments) -> converted to 95 for-sale homes (H-2024-0043)",
+  "location": "Meridian, ID (parcel per known register)",
+  "lat": null,
+  "lng": null,
+  "units": 216,
+  "year": "2025",
+  "file_no": "H-2024-0043",
+  "outcome": "converted",
+  "reason": "Developer pivoted the entitlement from a 216-unit rental multifamily concept to a 95-unit for-sale detached-home subdivision, filed/approved as H-2024-0043 (Feb 2025).",
+  "revival_risk": "Low \u2014 site is now built/building as for-sale product; reverting to rental MF would require a new entitlement.",
+  "note": "Already confirmed dead-as-rental in the repo's prior audit (research/audit_2026-08/ring_sweep_findings.md, \"Confirmed dead / correctly excluded\" list): the 216-unit rental concept was converted to 95 for-sale homes under H-2024-0043 (Feb 2025). Included here per the assignment's instruction to exclude for-sale-only products EXCEPT where they replaced a rental project \u2014 this one qualifies for inclusion on that basis. No new independent sourcing added this session beyond the existing repo finding.",
+  "sources": [
+   "known register: research/audit_2026-08/ring_sweep_findings.md"
+  ]
+ },
+ {
+  "name": "The Bridge at Village at Meridian (apartment expansion)",
+  "location": "The Village at Meridian, along E Longwing Ln toward N Eagle Rd, Meridian, ID (~1.9 mi from subject)",
+  "lat": 43.617,
+  "lng": -116.345,
+  "units": 549,
+  "year": "2024",
+  "file_no": null,
+  "outcome": "abandoned",
+  "reason": "Owner/developer CenterCal Properties dropped the apartment component of the long-planned expansion; known register (close_in_parcels_diligence.md) attributes this to \"lack of demand.\" The expansion concept grew from an initially reported ~420 apartment units (2022) up to 549 units in a later large-scale filing named \"The Bridge\" (for a six-story skybridge over E Longwing Ln) before being scrapped in favor of a retail-only expansion in Aug 2024.",
+  "revival_risk": "Low \u2014 CenterCal has publicly walked away from the apartment component; the site is proceeding as retail-only. No signs of a residential re-filing.",
+  "note": "CenterCal has planned an expansion of the Village at Meridian along E Longwing Ln toward Eagle Rd since at least 2020; an April 2022 Idaho Press/BoiseDev (Don Day) article quotes CenterCal's regional director describing ~420 planned apartment units atop street-level retail/entertainment, under the working name \"The Bridge.\" Per the known register, the plan grew to 549 units before being scrapped Aug 2024 in favor of a retail-only expansion.",
+  "sources": [
+   "https://www.idahopress.com/community/money/you-asked-what-s-the-status-of-the-village-at-meridian-expansion-and-what-s/article_a7d705e2-d11d-5a82-8cff-2bf31d0fe881.html",
+   "known register: research/audit_2026-08/ring_sweep_findings.md and close_in_parcels_diligence.md"
+  ]
+ },
+ {
+  "name": "Records Apartments (Brighton Development Inc.), H-2022-0008",
+  "location": "NE corner N Records Way & E Fairview Ave, Meridian, ID (~2.1 mi from subject)",
+  "lat": null,
+  "lng": null,
+  "units": 472,
+  "year": null,
+  "file_no": "H-2022-0008",
+  "outcome": "abandoned",
+  "reason": "NOT A CONFIRMED KILL \u2014 flagging explicitly. No denial, withdrawal, or expiration was found. Brighton Development's own site (brighton.co) still actively markets the project as \"coming soon,\" and a CORE Architecture project page shows a detailed 4-building design (units 136+132+65+72). This looks like an entitled project that has simply gone quiet for 4+ years (financing/market-timing), not a dead one.",
+  "revival_risk": "High \u2014 still an active Brighton entitlement (CUP H-2022-0008, ~10 ac, 472 units: 84 studio/208 1BR/168 2BR) actively marketed by the developer as forthcoming; CUP validity/expiry unverified (open follow-up in CLAUDE.md).",
+  "note": "Do NOT count this as a graveyard project without further diligence \u2014 evidence points to \"dormant but still alive,\" not dead. Confirmed via BoiseDev (2/22/2022), Brighton's own site, CORE Architecture's project page, a COMPASS Idaho application PDF (hearing date March 17, 2022), and Idaho Statesman coverage. Matches the parcel already flagged \"Watch-High\" in close_in_parcels_diligence.md (1730 N Records Way, S1104347006).",
+  "sources": [
+   "https://boisedev.com/news/2022/02/22/records-apartments-meridian/",
+   "https://www.brighton.co/brighton-place/records-way-the-village-at-meridian/",
+   "https://corearch.com/project/records-apartments/",
+   "https://compassidaho.org/wp-content/uploads/RecordsApartments_ApplicationRequest.pdf",
+   "https://www.idahostatesman.com/news/business/article261613137.html",
+   "known register: research/audit_2026-08/close_in_parcels_diligence.md"
+  ]
+ },
+ {
+  "name": "Meridian Opportunity Zone apartments, 1475 E Franklin Rd",
+  "location": "1475 E Franklin Rd, Meridian, ID 83642 (2.39 ac, R-40) (~1.2 mi from subject)",
+  "lat": null,
+  "lng": null,
+  "units": 36,
+  "year": null,
+  "file_no": null,
+  "outcome": "abandoned",
+  "reason": "NOT formally dead \u2014 the owner never built but also never let the entitlement lapse: the parcel is fully entitled (R-40, 2-year CUP with extension options for 36 three-story apartment units, 73 parking spaces, Opportunity Zone tax benefits) and is currently listed FOR SALE rather than being built out, per active real-estate listings (LandSearch, HomeASAP).",
+  "revival_risk": "Med-High \u2014 shovel-ready entitlement (CUP with extension options) actively marketed for sale; a buyer could revive it quickly. Neighboring 36u OZ site context already flagged \"stalled/for sale \u2014 weak near-term MF economics\" in close_in_parcels_diligence.md.",
+  "note": "This is the entitled-but-unbuilt 36-unit OZ site referenced in close_in_parcels_diligence.md (near 1450 E Franklin Rd, S1107449996). Confirmed via two active listings describing full R-40 entitlement with an extendable 2-year CUP for 36 units. Owner identity unverified (per CLAUDE.md's stated limitation on Ada assessor owner lookups).",
+  "sources": [
+   "https://www.landsearch.com/properties/1475-e-franklin-rd-meridian-id-83642/4530467",
+   "https://homeasap.com/listing/Lk8luI8c30M1?address=1475%20E%20Franklin%20Rd%20%20+Meridian+ID+83642",
+   "known register: research/audit_2026-08/close_in_parcels_diligence.md"
+  ]
+ },
+ {
+  "name": "The Hummingbird",
+  "location": "Meridian, ID (site now slated for an aquarium expansion, per known register)",
+  "lat": null,
+  "lng": null,
+  "units": 170,
+  "year": "2025",
+  "file_no": null,
+  "outcome": "expired",
+  "reason": "Approval expired spring 2025 without construction starting; per the known register the site is now planned for an aquarium expansion instead of the apartment use.",
+  "revival_risk": "Low \u2014 site has been re-purposed toward a non-residential (aquarium) use per the known register.",
+  "note": "Already confirmed dead in the repo's prior audit (ring_sweep_findings.md, \"Confirmed dead / correctly excluded\" list): 170-unit approval expired spring 2025; aquarium expansion planned on the site. This session could not independently locate additional primary-source coverage (web search for \"The Hummingbird\" collided heavily with an unrelated Boise sober-living nonprofit of the same name) \u2014 reporting per known register.",
+  "sources": [
+   "known register: research/audit_2026-08/ring_sweep_findings.md"
+  ]
+ },
+ {
+  "name": "Andorra Senior Living (aka Andorra Senior Communities) \u2014 site now platted as Latitude Forty Three Sub",
+  "location": "715 & 955 S. Wells St. and 971 E. Wells Circle, Meridian (SW corner of E. Magic View Dr. & S. Wells St.)",
+  "lat": 43.5980601,
+  "lng": -116.3642366,
+  "units": 164,
+  "year": "2019-2020 (killed by inaction; DA never signed)",
+  "file_no": "H-2019-0127",
+  "outcome": "expired",
+  "reason": "Annexation with a conceptual senior (55+) living plan \u2014 88-unit, 3-story independent-living apartment building plus 76 single-family/duplex cottages on 16.99 ac (TN-R), by Sawtooth Development Group, LLC (agent: Andorra Development Co.), heard by Meridian P&Z March 5, 2020. Applicant withdrew the companion Comprehensive Plan amendment Dec 19, 2019. Per a 2026 Meridian Community Development Report reviewing this same parcel for the current Latitude 43 application: the annexation was approved in principle but the required development agreement was never executed, so the property was never actually annexed \u2014 the entitlement lapsed without any legal action being taken against it.",
+  "revival_risk": "Low \u2014 the same 15.97-ac assemblage is now mid-process (H-2024-0059, Rodney Evans+Partners / Pacific Lifestyle Homes) for 79 detached FOR-SALE homes + 1 C-N pad; council has continued that application repeatedly (latest continuance Apr 7 2026, pending an ITD traffic study) rather than denying it, so the site is trending toward a for-sale outcome that would foreclose MF for a generation regardless of the dead 2019 rental/senior plan.",
+  "note": "This is the site the assignment's brief specifically points to (\"2019 senior-living annexation at Magic View, DA never signed\"). It already carries one line in the known register (research/audit_2026-08/close_in_parcels_diligence.md, \"Latitude Forty Three Sub\" row: \"Prior senior-living (2019)...plans dead\") \u2014 this entry supplies the full primary-source record (file number, unit mix, applicant, exact killing mechanism) behind that line. A second attempt on the same land \u2014 an assisted-living project \u2014 was denied in 2021 (per the same register row); that 2021 event is outside this sweep's pre-2020 window and is not independently re-verified here.",
+  "sources": [
+   "https://compassidaho.org/wp-content/uploads/Andorra_Application.pdf (H-2019-0127 transmittal + full application, Sawtooth Development Group)",
+   "Meridian Community Development Report (2026 staff report re-reviewing the parcel for Latitude 43): mccmeetingspublic.blob.core.usgovcloudapi.net/meridianid-meet-e858d3e82e4f47c9b0d858a22193c8c4/ITEM-Attachment-001-27ef27da0c6041eca27ca9f7d547e53e.pdf",
+   "/home/user/Boise-Deals/research/audit_2026-08/close_in_parcels_diligence.md (known register \u2014 Latitude Forty Three Sub row)"
+  ]
+ },
+ {
+  "name": "Tanner Creek (Schulz/Shultz Development) \u2014 original MF component; site now built out as Tanner Creek SF community",
+  "location": "675 W. Waltman Ln, Northwest Meridian (west of N. Meridian Rd, between Waltman Ln and I-84)",
+  "lat": 43.5969825,
+  "lng": -116.4023898,
+  "units": 272,
+  "year": "2018",
+  "file_no": null,
+  "outcome": "denied",
+  "reason": "Original mixed proposal (~38 ac) paired 127 single-family homesites with 272 multifamily apartment units plus a commercial component. At the August 2018 City Council hearing roughly ten neighbors testified against the plan, citing traffic; the full application was denied by Meridian City Council on September 4, 2018. A revised, apartment-reduced resubmission followed the standard BoiseDev-reported city guidance (cut unit count, add a commercial component consistent with the Comp Plan).",
+  "revival_risk": "Low \u2014 moot: the site is fully built out today as the CBH Homes \"Tanner Creek\" single-family community; the 272-unit MF component was permanently dropped from every subsequent iteration, so there is no vacant land left on this parcel for MF to revive on.",
+  "note": "Included per the assignment's for-sale exception (a for-sale SF subdivision that replaced a denied rental component) \u2014 not because the land is still vacant (it is not), but because the denial durably determined what got built here: zero apartment units, all single-family. At ~2.1 mi from the subject this closes out the Waltman Ln corner as a non-threat with documented cause.",
+  "sources": [
+   "https://boisedev.com/news/2018/09/18/tanner-creek-meridian-shulz-development/ (BoiseDev, Sept 18 2018 \u2014 denial account, ~10 neighbors testified on traffic)",
+   "https://www.weknowboise.com/tanner-creek.php (127 SF + 272 MF original proposal; Sept 4 2018 denial; 37.87 ac)",
+   "https://www.idahostatesman.com/news/local/community/west-ada/article226945354.html (Mar 15 2019, \"Foes fight Meridian plans for apartments\" \u2014 corroborates the ~240-unit August 2018 hearing turnout)",
+   "cbhhomes.com/communities/meridian/tanner-creek/ (current build-out as CBH Homes single-family community)"
+  ]
+ }
+]
