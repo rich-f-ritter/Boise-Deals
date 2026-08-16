@@ -13,13 +13,14 @@
 - **Y1 revenue requires no new asking growth.** Today's T90 asking ($1,939) already exceeds the first two UW quarters ($1,875/$1,855); Y1 avg $1,915 sits between the executed L5 ($1,885) and market. Concessions: **0 of the last 49 leases**, vs 67 of 67 a year ago. Lease-up is finished (63.7% → 96.1% occupied in 13 months).
 - **Embedded loss-to-lease is a mechanical tailwind.** Contract $1,751 vs market $1,885 (−7.1%); burning it drives ~5.3% AGPR CAGR Y1–Y4 on only 4.0% market-rent growth.
 - **The playbook is live-tested in our own portfolio.** Prelude (bought 12/25 at the market bottom, rocky takeover included): CY-26 landing within ~1% of UW, economic vacancy 11% → 6.1%, L5 +5.4% since close and **already above the CY-27 UW line**; trade-outs +6.5–6.6% at both assets vs the 3.5–4.0% carried in the UW.
-- **The metro's #1 in-migration ZIP, at the I-84/Eagle Rd hard corner.** ZIP 83642 absorbed +2,417 net
-  movers (2.4× the metro rate) in a metro that added +9,196 jobs (+2.4% YoY, QCEW tax records) and a
-  record +18.8K people. The interchange — freeway spine meets the valley's busiest commercial corridor —
-  puts one ramp between the tenant base and the entire employment map (downtown Boise, the St. Luke's /
-  Saint Alphonsus Meridian medical cluster, Micron at 11 mi), which is why the rent roll spans 366
-  employers with none over 4.0% (Micron-direct 2.0%), median rent coverage runs 3.89×, and a >$2,000/mo
-  own-vs-rent gap holds the 51% under-30 base in rentals.
+- **Leading in-migration ZIP in the metro; site at the I-84/Eagle Rd interchange.** ZIP 83642 recorded
+  the metro's highest net in-migration over the trailing year (+2,417, 2.4× the metro rate), within an
+  MSA that added 9,196 jobs (+2.4% YoY, QCEW) and 18.8K residents. The interchange location provides
+  direct freeway access to the metro's principal employment nodes — downtown Boise, the St. Luke's /
+  Saint Alphonsus Meridian medical cluster, and Micron (11 mi) — supporting a diversified tenant base:
+  366 distinct employers with none above 4.0% of residents (Micron-direct 2.0%), median income-to-rent
+  coverage of 3.89×, and a >$2,000/mo ownership-cost premium that favors continued rentership among the
+  51% of residents under age 30.
 - **Financing de-risks the hold.** 5-yr fixed at 5.40% (bought down), full-term IO, no floating exposure, no cap to repurchase; 62.9% LTV against a 3-month open window at exit.
 
 ## Considerations
