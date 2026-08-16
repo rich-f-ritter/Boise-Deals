@@ -57,6 +57,15 @@ Tanner Creek 280, Emblem 250, Overland/Assemble 200, and more).
 - **`*/Tables/*.csv`** — the underlying tables (developable inventory, supply summary, FLU summary,
   crosswalks, decisions log).
 
+## Underwriting knowledge base (`knowledge/`)
+
+- **`knowledge/Seasons-Meridian-Replacement-Cost-and-Supply-Economics.md`** — full cross-deal analysis
+  (2026-08-13): Seasons bid vs. replacement cost / replacement value, rent-to-pencil today **and at exit**,
+  pro forma normalization (Meridian ~0.45% vs Boise ~0.92% taxes; garage/wifi other-income differences),
+  the Emblem (Quarterra) & Hawkins ("The Judy") development equity books, the Canyon Ridge award, and how our
+  Prelude at Paramount acquisition anchors the market coherence map. Includes risk register and open items.
+- **`knowledge/deal_metrics.json`** — machine-readable key metrics for all five deals + pencil-rent analysis.
+
 ## How it was built (`land-use-analysis/`)
 
 A config-driven pipeline over public GIS, with the locale-specific knowledge and the ownership/intent
