@@ -18,9 +18,14 @@ mismanaged ownership transition — and Seasons is underwritten with that same t
 - **Prelude is this underwriting, already run, on an asset we bought at the bottom of this chart.** In
   December 2025, with L5 new move-ins averaging $1,718/mo, we underwrote a CY-26 average market rent of
   **$1,730** — quarterly, **$1,712 / $1,732 / $1,746 / $1,728**.
-- **We missed Q1 and Q2 by ~$43/mo (−2.5%), and it was a transition problem, not a market problem.** We
-  took over at high-80s occupancy with a prior on-site manager who had signed no new leases through our
-  entire DD — so Q1 was spent leasing from a standing start. Economic vacancy ran **11% Jan–Apr**.
+- **We ran ~$43/mo (−2.5%) light in Q1 and Q2, for two different reasons — and only one of them is
+  operational.** **Q1 (−$32) was timing:** we underwrote the recovery beginning the quarter we closed, and
+  the submarket inflected about a quarter later. The Seasons line — an asset we neither owned nor managed
+  — bottoms in the same **Dec-25–Feb-26** window we bought in, and was still flat (+0.5% QoQ) through Q1.
+- **Q2 (−$54) is where the transition shows.** Prelude's T90 fell **3.9% in March while Seasons rose
+  2.6%** over the same weeks — a divergence that is ours, not the market's. We took over at high-80s
+  occupancy from an on-site manager who had signed no new leases through our entire DD; economic vacancy
+  ran **11% Jan–Apr**.
 - **The hole closed inside of three quarters, on both rate and occupancy.** Prelude's T90 is **$1,793
   today, $47 above the Q3 UW**; economic vacancy is down to **6.1% (T3)**; and the **L5 of $1,811 is $35
   above our Y2 (CY-27) UW market rent of $1,776** — we are signing today above what we underwrote for
@@ -117,6 +122,18 @@ property, not as a rule.
 | Q2-26 | $1,732 | $1,678 | **−$54** |
 | Q3-26 QTD | $1,746 | $1,780 (spot $1,793) | **+$35 (spot +$47)** |
 | Q4-26 | $1,729 | — | needs ~$1,783 Aug–Dec avg to hold the CY-26 line |
+
+**Attributing the miss (timing vs. transition).** The UW ramped ~1.1% / 1.2% / 0.8% per quarter off the
+Dec-25 anchor of $1,693 — i.e. it had the recovery starting immediately at close. It didn't. Seasons, the
+control property on this chart (different owner, different manager, different submarket pocket), posted
+its **series minimum in Dec-25** and was still flat through Q1-26 (Q4-25 $1,691 → Q1-26 $1,700, +0.5%).
+That is the Q1 gap: a curve-shape difference, not an operating failure. Q2 separates cleanly from it —
+**Prelude −3.9% in March against Seasons +2.6%** in the same weeks, with Prelude's 1Q-26 trough ($1,629,
+Mar-26) landing two months *after* the market's. A property tracking the submarket does not fall 6.5
+points relative to it in one month; that month is the transition. Resist putting a precise percentage
+split on the two causes — Seasons' Q2 surge carries its own concession burn-off, so it is a good level
+benchmark and a poor growth-rate benchmark. Q1 = timing, Q2 = transition, stated qualitatively, is what
+the data supports.
 
 Q1+Q2 average miss = **−$43/mo, −2.5%**. Full-year CY-26 lands **$1,716–$1,734** across a reasonable
 Aug–Dec range ($1,750–$1,793), i.e. **within ~1% of the $1,730 UW** despite the two-quarter hole. In-place
