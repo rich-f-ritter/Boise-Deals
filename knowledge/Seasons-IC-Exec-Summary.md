@@ -25,7 +25,8 @@
   residents under age 30.
 - **Tenant base is aligned with the metro's growth sectors, without single-employer dependence.** Per the
   seller's July 2026 demographics report (613 residents) and screened application data: median household
-  income $80–89K, median income-to-rent coverage 3.89×, median age 27.5, 50% dual-earner households. The
+  income $89.3K (screened; ~44% above the $61.9K Meridian renter median), covering the $1,915 Y1 UW rent
+  3.89× at the median; median age 27.5, 50% dual-earner households. The
   rent roll spans 366 distinct employers; the largest — St. Luke's, at 19 residents — represents 4.0% of
   the base, followed by Saint Alphonsus (13), Micron (10; 2.0% direct), Amazon (7), and a mix of
   government, education, and retail employers at ≤4 residents each. Healthcare and construction account
