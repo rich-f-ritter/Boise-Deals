@@ -39,6 +39,11 @@ land-use / supply-threat work.
 > −6.1% / −7.2% of the last two winters. `knowledge/exhibits/Rent_Chart_Data.xlsx` in this repo is still
 > the PRIOR ($1,933) build; takeaways drafted off the live file are in
 > `knowledge/exhibits/rent-chart-takeaways.md`.
+>
+> **SUPERSEDED AGAIN by the IC slide-4 ladder (2026-08-14):** Y4 growth moved 3.5% → 4.0%, so the path is
+> **+4.0/4.0/4.0/3.5** → Y2 $1,992, Y3 $2,071, Y4 **$2,154**, Y5 **$2,230**, implied **Y6 ~$2,297** at +3%.
+> Y1 avg $1,915 unchanged. §3 pencil-gap tables (keyed to $1,885/$2,249) are now ~2–4% conservative
+> against this path; the sign of every conclusion there is unaffected.
 
 ## 1. The five capital stacks
 
