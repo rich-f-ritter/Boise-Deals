@@ -44,6 +44,18 @@ land-use / supply-threat work.
 > **+4.0/4.0/4.0/3.5** → Y2 $1,992, Y3 $2,071, Y4 **$2,154**, Y5 **$2,230**, implied **Y6 ~$2,297** at +3%.
 > Y1 avg $1,915 unchanged. §3 pencil-gap tables (keyed to $1,885/$2,249) are now ~2–4% conservative
 > against this path; the sign of every conclusion there is unaffected.
+>
+> **DEAL-STRUCTURE REFRESH (v3 model re-extracted 2026-08-16; first-round bids due 8/19/26).** The live
+> model now carries a **$122.0M recommended bid** ($338.9K/u, $363.44/SF; whisper $125M) on a **4-year
+> hold** — acq 10/31/2026, **exit 10/31/2030** @ 5.00% = $144.68M ($401.9K/u; F12 ANOI $7.253M). Returns:
+> UIRR 8.75% / LIRR 11.91% / Investor 9.42% (1.37x / 1.53x / 1.39x). Y1 cap 4.76%, T3 TMG-adj 4.53%.
+> Debt: $76.74M, 62.9% LTV, 5.40% fixed (bought down), full-term IO; DSCR on TMG NOI 1.11x T3 / 1.17x Y1
+> (sized on CBRE lender NOI $6.157M). Taxes reassess at **98%** of price (not 95%). Emblem Meridian 250u
+> (1.0 mi, plans filed Jun-26) now appears in the latest supply roster but **Bear scenario only** —
+> §5/§8 open item partially resolved. Sections above citing $118M / 5-yr hold / Oct-2031 exit /
+> UIRR 8.65% / LIRR 12.14% reflect the prior version. The 2030 exit now coincides with Emblem's scheduled
+> Jan-2030 merchant sale (§7.4 risk sharpened). Full extraction + strengths/considerations:
+> `knowledge/Seasons-IC-Exec-Summary.md`.
 
 ## 1. The five capital stacks
 
