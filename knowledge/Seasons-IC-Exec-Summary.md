@@ -17,9 +17,10 @@
   the metro's highest net in-migration over the trailing year (+2,417, or +3.5% — 2.4× the metro rate),
   within an MSA that added 9,196 jobs (+2.4% YoY, QCEW) and 18.8K residents (+2.2%, the strongest year of
   the five-year panel). The location pairs employment at the doorstep with access to the rest: the site
-  fronts the Eagle Rd commercial corridor and adjoins Meridian's own employment base — the St. Luke's /
-  Saint Alphonsus medical cluster, ICOM, and the West Ada School District — while the I-84 interchange
-  places the remainder of the metro's employment nodes (downtown Boise, Micron at 11 mi) within a direct
+  fronts the Eagle Rd commercial corridor and sits within Meridian's own employment base — St. Luke's
+  (19 residents; 4.0% of the employed tenant base), Saint Alphonsus (13; ~2.7%), ICOM (4; ~0.8%), and the
+  West Ada School District (4; ~0.8%) — while the I-84 interchange places the remainder of the metro's
+  employment nodes, including downtown Boise and Micron (10 residents; 2.0%) at 11 mi, within a direct
   freeway commute. A >$2,000/mo ownership-cost premium favors continued rentership among the 51% of
   residents under age 30.
 - **Tenant base is aligned with the metro's growth sectors, without single-employer dependence.** Per the
