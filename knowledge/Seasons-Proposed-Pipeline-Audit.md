@@ -51,6 +51,37 @@ Forward supply decode: Y4 520 = Pine 43 + Emblem; Y5 802 = Heritage + Vanguard; 
 Denton; hold-period (Y1–Y4) supply 236 + 375 + 716 + 520 = 1,847u vs forecast absorption 2,248u; market
 occupancy forecast 97.0%, subject held at 94.5%.
 
+## Slide takeaway copy (drafted 2026-08-16)
+
+**Slide 9 (5-Mi Supply & Demand), following the existing "forward supply includes proposed" bullet:**
+
+- The market has already cleared a larger supply wave than anything forecast: ~5,700 units delivered over
+  the five years ending mid-2024 (peak 1,575/yr) drove 5-mi occupancy to an 86.1% trough — while
+  absorption remained positive in every year, including the worst (+44 units) — and occupancy recovered
+  to 93.9% as deliveries fell to 240, the lowest of the seven years tracked
+- Even with proposed projects included, forecast supply runs below forecast demand: ~1,850 units across
+  the 4-year hold vs. 2,248 units of forecast absorption (~400-unit shortfall); market occupancy is
+  projected at 97.0% while the subject is carried at 94.5% throughout
+- The growth-vs-consensus gap is almost entirely Year 1, which is already executed: TMG's 4.6% average
+  exceeds the 3.5% consensus on the strength of Y1's +9.3% mark-to-market (current T90 $1,939 exceeds the
+  first two UW quarters); from Y2 forward TMG averages 3.7% vs. a 3.5% consensus and falls below
+  consensus in Y5–Y6 (3.5%/3.0% vs. 3.7%/3.7%)
+
+**Exec summary slide (p.3 Opportunity section), abbreviated:**
+
+- Supply is cyclically low and structurally constrained: the 5-mi market absorbed ~5,700 units over the
+  five years ending mid-2024 (occupancy trough 86.1%) and has recovered to 93.9% on current-year
+  deliveries of 240, the lowest of the seven years tracked; of ~3,980 proposed units within 5 mi, none
+  are under construction (one site graded) and only two projects (470 units) hold entitlements with
+  remaining term — development yields ~6.0–6.3% on cost at today's rents, below institutional thresholds
+  — yet the underwriting schedules ~1,850 units to deliver during the 4-year hold against 2,248 units of
+  forecast absorption, and carries the subject at 94.5% vs. a 97.0% market forecast
+
+**Verification notes:** ex-Y1 TMG growth averages 3.7% vs consensus 3.5% (Y2–Y4 above by 40–70bp; Y5–Y6
+BELOW consensus — 3.5/3.0 vs 3.7/3.7); absorption positive in all seven historical years (min +44,
+Q3'22–Q2'23) — the 86% occupancy trough was a supply event, not a demand event; 5,712 = five-year supply
+sum; 1,847/2,248 = Y1–Y4 supply/absorption.
+
 ## Watch list (next 90 days)
 
 - **~9/10/26** — The Judy CUP expiry (or extension filing): the only site with dirt moved.
