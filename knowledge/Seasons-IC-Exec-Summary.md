@@ -31,7 +31,10 @@
   government, education, and retail employers at ≤4 residents each. Healthcare and construction account
   for 19.3% and 13.0% of employed residents against 45% and 23% of metro job growth, with screened
   household incomes in those cohorts of ~$101K — the tenant base is drawn from the sectors driving the
-  metro's employment expansion.
+  metro's employment expansion. The base is also strengthening as pricing normalizes: households that
+  moved in during 2026 screen at a median income of **$96.6K, +11.8% above the standing pre-2026 base
+  ($86.4K)**, with 49% above $100K (vs. 39%) — maintaining 4.2× coverage even against the $1,915 Y1 UW
+  rent (n=94 of 275 income-reporting households; screened at move-in, like-for-like across cohorts).
 - **Financing de-risks the hold.** 5-yr fixed at 5.40% (bought down), full-term IO, no floating exposure, no cap to repurchase; 62.9% LTV against a 3-month open window at exit.
 
 ## Considerations
