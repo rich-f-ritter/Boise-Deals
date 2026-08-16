@@ -8,7 +8,19 @@
 
 - **Below replacement value, with the claim calibrated to survive IC.** ~$339K/u for 2024 product that costs ~$305K/u to build today but **$355–400K/u to build-and-exit** (two sponsors' own books); −8% vs Emblem's untrended stabilized value; **~23% below the jurisdiction-adjusted Canyon Ridge award** ($427.6K/u Meridian-equivalent). *Never say "below replacement cost" — we are ~8% above it, and anyone holding the dev books can check.*
 - **The supply moat is economic, and it's shut.** At Seasons rent levels, new construction yields ~6.0% untrended vs 5.25–5.5% exit caps — no development margin. Our UW rents sit **11–14% below the 6.5% feasibility pencil** (normalized) and never cross even the 6.0% line during the hold. Two independent sponsors triangulate the same $214–216/NRSF hard cost.
-- **Near-term supply is thin and dev capital is expensive.** Only 661u UC in 5 mi (448 Y1 / 213 Y2, zero after); Meridian pipeline down ~50% from 2023, zero 2025 deliveries; sponsors need 9–10% prefs and 20%+ LP IRRs at a true ~6.0–6.3% ROC — some marketed pipeline won't raise.
+- **Deliveries at a seven-year low; the proposed pipeline is structurally impaired; supply assumptions
+  exceed the entitlement record.** The 5-mi market absorbed ~5,700 units over the five years ending
+  mid-2024 (peak 1,575/yr); occupancy troughed at 86.1% and has recovered to 93.9%, with Y0 deliveries of
+  240 units the lowest of the seven years tracked. Of ~3,980 proposed units within 5 mi, none are under
+  construction and two projects (470u) hold entitlements with remaining term, each with unresolved
+  impediments; the remaining 88% is lapsed (1,481u), on CUPs expiring by mid-November (588u), under a
+  denial recommendation (302u), unentitled or without an application (including Emblem, which lacks site
+  control), unverified, or held by exiting sponsors (Ascent Overland, sold after 469 days on market) —
+  consistent with the feasibility analysis: development yields ~6.0–6.3% on cost at current rents against
+  20%+ LP equity hurdles, with subject rents 11–14% below feasibility thresholds. The base case
+  nonetheless incorporates ~2,300 units of this roster as scheduled deliveries (unentitled and lapsed
+  projects included), placing ~1,850 units within the 4-year hold against 2,248 units of forecast
+  absorption, and carries subject occupancy at 94.5% against a 97.0% market forecast.
 - **Structural Meridian tax advantage, verified at the county.** 0.45% effective levy vs Boise 0.92% (school district driven) ≈ $2,088/u/yr ≈ **~$42K/unit of value** at a 5% cap. Model taxes are conservatively set (98% reassessment step-up vs the 95% convention).
 - **Y1 revenue requires no new asking growth.** Today's T90 asking ($1,939) already exceeds the first two UW quarters ($1,875/$1,855); Y1 avg $1,915 sits between the executed L5 ($1,885) and market. Concessions: **0 of the last 49 leases**, vs 67 of 67 a year ago. Lease-up is finished (63.7% → 96.1% occupied in 13 months).
 - **Embedded loss-to-lease is a mechanical tailwind.** Contract $1,751 vs market $1,885 (−7.1%); burning it drives ~5.3% AGPR CAGR Y1–Y4 on only 4.0% market-rent growth.
