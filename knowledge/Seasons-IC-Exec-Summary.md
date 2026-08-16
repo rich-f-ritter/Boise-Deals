@@ -16,9 +16,11 @@
 - **Leading in-migration ZIP in the metro; site at the I-84/Eagle Rd interchange.** ZIP 83642 recorded
   the metro's highest net in-migration over the trailing year (+2,417, or +3.5% — 2.4× the metro rate),
   within an MSA that added 9,196 jobs (+2.4% YoY, QCEW) and 18.8K residents (+2.2%, the strongest year of
-  the five-year panel). The interchange location provides direct freeway access to the metro's principal
-  employment nodes — downtown Boise, the St. Luke's / Saint Alphonsus Meridian medical cluster, and
-  Micron (11 mi) — and a >$2,000/mo ownership-cost premium favors continued rentership among the 51% of
+  the five-year panel). The location pairs employment at the doorstep with access to the rest: the site
+  fronts the Eagle Rd commercial corridor and adjoins Meridian's own employment base — the St. Luke's /
+  Saint Alphonsus medical cluster, ICOM, and the West Ada School District — while the I-84 interchange
+  places the remainder of the metro's employment nodes (downtown Boise, Micron at 11 mi) within a direct
+  freeway commute. A >$2,000/mo ownership-cost premium favors continued rentership among the 51% of
   residents under age 30.
 - **Tenant base is aligned with the metro's growth sectors, without single-employer dependence.** Per the
   seller's July 2026 demographics report (613 residents) and screened application data: median household
