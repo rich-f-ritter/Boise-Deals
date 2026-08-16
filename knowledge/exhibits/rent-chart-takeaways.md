@@ -12,27 +12,38 @@ annual thereafter). Drafted 2026-08-14 off `Rent_Chart_Data.xlsx` + slide 4's UW
 
 ## SLIDE 3 — box copy
 
-- **What you're looking at.** Solid lines are *actual* trailing-90-day, mix-weighted market rents built
-  from lease-level HelloData; dashed lines are *our underwritten* market rents; diamonds are the last-5
-  executed new leases off each rent roll. Seasons in blue, Prelude in orange.
-- **Both assets have round-tripped a full cycle and sit at new highs.** Seasons bottomed at $1,677
-  (Dec-25) and is **$1,939 today — +15.7% off the trough, +7.2% YoY**. Prelude bottomed at $1,629 (Mar-26)
-  and is **$1,793 — +10.0% off the trough, +3.9% YoY**. The 2025 trough is seasonal softness plus the tail
-  of Seasons' lease-up, not a rent-level reset.
-- **The underwriting hands off *below* today's market.** The Seasons dashed line starts at the last actual
-  ($1,939, 8/13/26); the **Y1 average of $1,915 (4Q26–3Q27) is 1.3% below today's spot** and only 1.6%
-  above the $1,885 L5. Y1 asks for no new asking growth — only that we hold what is already signed.
-- **Why the diamonds sit below the lines.** L5 takes the five most recent leases *per floor plan*, so on
-  slow-turning plans it reaches well past 90 days — S1, B1 and both C1s (**75 of 360 units**) reach back
-  **155–180 days**, into 1Q-26 pricing. Holding the window constant, that reach is only ~$15 of the $55
-  gap; the other ~$40 is advertised asking vs. signed contract rent. **The two marks bracket the $1,915
-  Y1 UW rather than contradict it.**
-- **Prelude's two diamonds are the live proof in our own portfolio.** Executed new leases went **$1,718 at
-  closing (12/3/25) → $1,811 today, +5.4% in eight months** — already 2.0% above the model's 2027 market
-  rent, with the current T90 running 2.7% ahead of the Q3-26 UW point.
-- **The watch item is the winter.** The UW carries Seasons down only **4.3%** from today's peak to 1Q27
-  ($1,855); each of the last two winters ran **−6% to −7%** (Aug → 1Q), which off today's level implies
-  **$1,800–$1,820**.
+*The argument: Prelude is a live, already-run test of this exact underwriting — including a badly
+mismanaged ownership transition — and Seasons is underwritten with that same transition drag built in.*
+
+- **Prelude is this underwriting, already run, on an asset we bought at the bottom of this chart.** In
+  December 2025, with L5 new move-ins averaging $1,718/mo, we underwrote a CY-26 average market rent of
+  **$1,730** — quarterly, **$1,712 / $1,732 / $1,746 / $1,728**.
+- **We missed Q1 and Q2 by ~$43/mo (−2.5%), and it was a transition problem, not a market problem.** We
+  took over at high-80s occupancy with a prior on-site manager who had signed no new leases through our
+  entire DD — so Q1 was spent leasing from a standing start. Economic vacancy ran **11% Jan–Apr**.
+- **The hole closed inside of three quarters, on both rate and occupancy.** Prelude's T90 is **$1,793
+  today, $47 above the Q3 UW**; economic vacancy is down to **6.1% (T3)**; and the **L5 of $1,811 is $35
+  above our Y2 (CY-27) UW market rent of $1,776** — we are signing today above what we underwrote for
+  *next* year. Even carrying the two-quarter hole, CY-26 lands within ~1% of the $1,730 we underwrote.
+- **Seasons is underwritten with that same rocky transition built in — not the clean case.** From today's
+  **$1,939** the UW takes rents *down* to **$1,875 / $1,855 / $1,935** — three consecutive quarters below
+  today's market, troughing **4.3% under the current mark** — and holds Y1 occupancy at **94.5% vs. 96.1%
+  on the current rent roll**.
+- **So Prelude's experience is the Seasons base case, not the downside.** Repeat the Prelude miss exactly
+  — 2.5% light for two quarters — and the Seasons Y1 average still lands at **~$1,891, above the $1,885 of
+  new leases already executed at the property today** (~$103K of Y1 revenue, 1.3% of AGPR).
+
+**Optional lead-in bullet if the box has room** (useful if anyone at the table hasn't seen T90 vs. L5
+before): *Solid lines are actual trailing-90-day, mix-weighted market rents from lease-level HelloData;
+dashed lines are our underwritten market rents; diamonds are last-5 executed new leases off the rent
+roll.*
+
+**Two bullets held in reserve** — real, but they dilute the transition argument if the box is tight:
+
+- Both assets have round-tripped a full cycle and sit at new highs: Seasons $1,677 (Dec-25) → **$1,939**,
+  +15.7%; Prelude $1,629 (Mar-26) → **$1,793**, +10.0%.
+- The L5 diamonds sit below the T90 lines because L5 reaches back past 90 days on slow-turning plans (see
+  §3) — the two marks **bracket** the $1,915 Y1 UW rather than contradict it.
 
 ## SLIDE 4 — box copy
 
@@ -98,11 +109,28 @@ last-5 $1,809 (the fast-turning 2BRs reach back only 23–63 days, so in a risin
 the sign of the T90-vs-L5 gap as information about turnover speed and pricing discipline at each
 property, not as a rule.
 
-**4. Prelude entered 2026 behind its UW and is exiting ahead.** CY-26 asking averaged $1,692 Jan–Jul vs
-the $1,730 UW year-average (−2.2%) because the model didn't underwrite the Feb–Mar dip. Current spot is
-2.7% *above* the Q3-26 UW point, and it needs ~$1,783 Aug–Dec to make the CY-26 average — it is at $1,793
-today. Shape difference, not level miss. (In-place rent separately tracks +0.7% ahead of the $1,668 UW
-rent-per-occupied-unit path.)
+**4. Prelude entered 2026 behind its UW and is exiting ahead — the numbers behind the slide-3 story.**
+
+| Quarter | UW market rent | Actual T90 | Variance |
+|---|---|---|---|
+| Q1-26 | $1,712 | $1,680 | **−$32** |
+| Q2-26 | $1,732 | $1,678 | **−$54** |
+| Q3-26 QTD | $1,746 | $1,780 (spot $1,793) | **+$35 (spot +$47)** |
+| Q4-26 | $1,729 | — | needs ~$1,783 Aug–Dec avg to hold the CY-26 line |
+
+Q1+Q2 average miss = **−$43/mo, −2.5%**. Full-year CY-26 lands **$1,716–$1,734** across a reasonable
+Aug–Dec range ($1,750–$1,793), i.e. **within ~1% of the $1,730 UW** despite the two-quarter hole. In-place
+rent separately tracks +0.7% ahead of the $1,668 UW rent-per-occupied-unit path, and economic vacancy went
+11% (Jan–Apr) → 6.1% (T3) — the transition cost showed up in rate *and* occupancy, and recovered in both.
+
+**4a. The Seasons parallel, stated precisely.** The Seasons UW quarters sit **−3.3% / −4.3% / −0.2% /
++2.9%** against today's $1,939, so the model does not clear today's market until 3Q-27; Y1 occupancy of
+94.5% is 160bp below the 8/4/26 rent roll's 96.1%. Applying Prelude's realized miss (−2.5% for two
+quarters) to the Seasons Y1 average gives **$1,891** — $24/mo, ~$103K of Y1 revenue on 360 units, 1.3% of
+the $8.27M Y1 AGPR — and still above today's $1,885 executed L5. **Caveat to keep honest:** the −4.3%
+trough is also roughly what plain seasonality would do (the last two winters ran −6% to −7% Aug → 1Q), so
+the rent path is fairly described as *seasonality plus a modest transition allowance*, not a transition
+allowance on top of a flat path. The occupancy haircut is the cleaner piece of the transition argument.
 
 **5. Read-through to the Seasons Y1 revenue bridge.** Per the deal knowledge base the Y1 bet is
 (a) averaging today's executed asking across Nov-26–Oct-27, (b) concessions burning to ~1.5–3.0% of AGPR,
