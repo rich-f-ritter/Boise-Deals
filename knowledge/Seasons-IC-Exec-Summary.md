@@ -14,13 +14,21 @@
 - **Embedded loss-to-lease is a mechanical tailwind.** Contract $1,751 vs market $1,885 (−7.1%); burning it drives ~5.3% AGPR CAGR Y1–Y4 on only 4.0% market-rent growth.
 - **The playbook is live-tested in our own portfolio.** Prelude (bought 12/25 at the market bottom, rocky takeover included): CY-26 landing within ~1% of UW, economic vacancy 11% → 6.1%, L5 +5.4% since close and **already above the CY-27 UW line**; trade-outs +6.5–6.6% at both assets vs the 3.5–4.0% carried in the UW.
 - **Leading in-migration ZIP in the metro; site at the I-84/Eagle Rd interchange.** ZIP 83642 recorded
-  the metro's highest net in-migration over the trailing year (+2,417, 2.4× the metro rate), within an
-  MSA that added 9,196 jobs (+2.4% YoY, QCEW) and 18.8K residents. The interchange location provides
-  direct freeway access to the metro's principal employment nodes — downtown Boise, the St. Luke's /
-  Saint Alphonsus Meridian medical cluster, and Micron (11 mi) — supporting a diversified tenant base:
-  366 distinct employers with none above 4.0% of residents (Micron-direct 2.0%), median income-to-rent
-  coverage of 3.89×, and a >$2,000/mo ownership-cost premium that favors continued rentership among the
-  51% of residents under age 30.
+  the metro's highest net in-migration over the trailing year (+2,417, or +3.5% — 2.4× the metro rate),
+  within an MSA that added 9,196 jobs (+2.4% YoY, QCEW) and 18.8K residents (+2.2%, the strongest year of
+  the five-year panel). The interchange location provides direct freeway access to the metro's principal
+  employment nodes — downtown Boise, the St. Luke's / Saint Alphonsus Meridian medical cluster, and
+  Micron (11 mi) — and a >$2,000/mo ownership-cost premium favors continued rentership among the 51% of
+  residents under age 30.
+- **Tenant base is aligned with the metro's growth sectors, without single-employer dependence.** Per the
+  seller's July 2026 demographics report (613 residents) and screened application data: median household
+  income $80–89K, median income-to-rent coverage 3.89×, median age 27.5, 50% dual-earner households. The
+  rent roll spans 366 distinct employers; the largest — St. Luke's, at 19 residents — represents 4.0% of
+  the base, followed by Saint Alphonsus (13), Micron (10; 2.0% direct), Amazon (7), and a mix of
+  government, education, and retail employers at ≤4 residents each. Healthcare and construction account
+  for 19.3% and 13.0% of employed residents against 45% and 23% of metro job growth, with screened
+  household incomes in those cohorts of ~$101K — the tenant base is drawn from the sectors driving the
+  metro's employment expansion.
 - **Financing de-risks the hold.** 5-yr fixed at 5.40% (bought down), full-term IO, no floating exposure, no cap to repurchase; 62.9% LTV against a 3-month open window at exit.
 
 ## Considerations
