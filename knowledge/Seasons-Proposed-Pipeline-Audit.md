@@ -74,16 +74,20 @@ occupancy forecast 97.0%, subject held at 94.5%.
   years tracked (~6,200 units) has effectively matched deliveries (~6,400), and occupancy has recovered
   to 93.9% as current-year deliveries fell to 240, the lowest of the seven years; of ~3,980 proposed
   units within 5 mi, none are under construction (one site graded) and only two projects (470 units) hold
-  entitlements with remaining term — new development requires market rents of ~$1,990–$2,120/mo
+  entitlements with remaining term — merchant-grade development requires market rents of ~$1,990–$2,120/mo
   ($2.12–$2.26/SF) to reach a 6.0–6.5% untrended yield on cost, 4–11% above the subject's $1,915 Y1 UW
-  rent, and ~$2.30–$2.35/SF for product matched to the subject's garden format — yet the underwriting
-  schedules ~1,850 units to deliver during the 4-year hold against 2,248 units of forecast absorption,
-  and carries the subject at 94.5% vs. a 97.0% market forecast
-  *(Correction 2026-08-16: earlier draft said "absorbed ~5,700" — 5,712 is DELIVERIES for the five wave
-  years; absorption over those years was 4,498 (hence the trough); seven-year absorption 6,227 vs
-  deliveries 6,402. Pencil rents: v2 normalized workbook — $1,991/mo = $2.12/SF at 6.0% YoC, $2,122/mo =
-  $2.26/SF at 6.5%, normalized taxes & OI; +4.0%/+10.8% vs $1,915; product-matched garden pencil
-  ~$2.30–2.35/SF at 6.5%.)*
+  rent, and replicating the subject's quality of product (~$328K/u vs. ~$305K merchant-grade) pushes the
+  requirement to ~$2,120–$2,260/mo ($2.27–$2.42/SF), 11–18% above — yet the underwriting schedules
+  ~1,850 units to deliver during the 4-year hold against 2,248 units of forecast absorption, and carries
+  the subject at 94.5% vs. a 97.0% market forecast
+  *(Correction trail 2026-08-16: (1) "absorbed ~5,700" → 5,712 is DELIVERIES for the five wave years;
+  absorption over those years 4,498 (hence the trough); seven-year absorption 6,227 vs deliveries 6,402.
+  (2) Pencil rents, merchant basis: v2 normalized workbook — $1,991/mo = $2.12/SF at 6.0% YoC, $2,122/mo
+  = $2.26/SF at 6.5%, normalized taxes & OI. (3) Quality-replication basis: +$23.5K/u cost premium
+  (`Seasons-Replication-Cost-Reconstruction.md`) through the same pencil formula → $2,116 at 6.0% /
+  $2,257 at 6.5% = $2.27–$2.42/SF, +10.5%/+17.9% vs $1,915. The earlier "$2.30–2.35/SF product-matched"
+  clause (an OI adjustment, different convention) was dropped from the bullet to avoid stacking
+  conventions; it remains in the master doc §3.)*
 
 **Verification notes:** ex-Y1 TMG growth averages 3.7% vs consensus 3.5% (Y2–Y4 above by 40–70bp; Y5–Y6
 BELOW consensus — 3.5/3.0 vs 3.7/3.7); absorption positive in all seven historical years (min +44,
