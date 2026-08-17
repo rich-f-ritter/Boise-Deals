@@ -79,6 +79,24 @@ longer draft below):**
   sits 0.5–7% below the merchant pencil (~$2,240–$2,390) and 6–12% below like-quality replication
   (~$2,380–$2,540) — development does not pencil at any point during the hold
 
+**Exec summary slide — companion quality-of-product bullet (final on slide, 2026-08-16):**
+
+- Newest-vintage, top-of-market product acquired at approximately its replication cost: Seasons is a
+  2024-delivered, 360-unit institutional garden asset with a finish and amenity package above
+  merchant-grade — wood floors and fireplaces in select units, clubhouse and pool, and property-wide
+  managed wifi monetized at $1,077/unit/yr — that would cost ~$328K/unit to replicate today (an ~11%
+  hard-cost premium over merchant product); at ~$339K/unit, the purchase price is ~1.03x replication cost
+  for an asset already built, already stabilized (96.1% occupied following a 13-month lease-up), and
+  commanding an ~8% rent premium over 2018-vintage product — new-build economics without entitlement,
+  construction, or lease-up risk, at rents 11–18% below what a like-quality developer would require
+
+*(Quality-bullet provenance: finishes from v3 model rent-roll unit descriptions; wifi $1,077/u/yr from
+Assumptions other-income block; ~$328K replication and ~11% hard-cost premium from
+`Seasons-Replication-Cost-Reconstruction.md` (reconstruction — original analysis unrecovered); 1.03x =
+$338.9K bid ÷ $328K; 96.1% from 8/4/26 RR; 13-month lease-up 63.7% Jul-25 → 96.3% Jun-26 per Lease-Up
+Bridge; ~8% premium = Seasons T90 $1,939 vs Prelude $1,793, 8/13/26; 11–18% = quality pencil
+$2,116–$2,257 vs $1,915 Y1 UW rent.)*
+
 *(Exit-pencil math — both exit comparisons are at the 6.5% YoC hurdle: merchant $2,122 × 1.03⁴ = $2,388
 vs Y5 fwd rent $2,230 = −6.6%; quality $2,257 × 1.03⁴ = $2,540 = −12.2%. At the 6.0% marginal floor,
 merchant escalates to $2,241 = −0.5% — parity only in the final hold year, and only for merchant-grade;
