@@ -71,8 +71,9 @@ floor plans, +$500–600/mo premiums, effectively always 100% leased. **[VERIFY 
 |---|---|---|
 | Electrical | **Aluminum SER feeder conductors (#2 AWG, upgraded to #1 for voltage drop) to 200A unit load centers; copper branch wiring** | Code-legal and common, but flag for insurance questionnaires; [VERIFY] termination torque/antioxidant at panels during walk |
 | Plumbing | **UV-Shield PEXa (PEX) with CPVC** | [VERIFY] manifold locations, CPVC use points (water heater connections?), any recall exposure |
-| Water heating | Individual in-unit water heaters ×360 | Presumably electric tank [VERIFY]; sets up a rolling capex schedule ~yr 10–12 |
-| HVAC | Carrier split-system heating + AC (per unit) | 360 condensers [VERIFY] locations (grade vs roof), tonnage, refrigerant (R-410A vs R-454B — 2024 build likely 410A) |
+| Water heating | Individual in-unit **electric** water heaters ×360 (broker email 8/17: "All electric") | Rolling capex schedule ~yr 10–12 |
+| HVAC | Carrier split-system heating + AC (per unit); **all-electric** per broker 8/17 — i.e., heat-pump splits or electric resistance backup [VERIFY which] | 360 condensers [VERIFY] locations (grade vs roof), tonnage, refrigerant (R-410A vs R-454B — 2024 build likely 410A) |
+| Gas service | **None to units — property is all-electric** (broker email 8/17) [VERIFY any gas at clubhouse/pool/BBQ] | Simplifies metering; supports the 100% RUBS structure |
 | Fire | **Fully sprinklered — NFPA 13R (2019 ed.)** | 13R (residential) not full 13 — normal for 3-story R-2; [VERIFY] attic protection given mixed TPO/shingle roof, monitoring vendor |
 | Smart home | Smart home tech + Wi-Fi smart locks in all units | Drives $1,023/unit/yr amenity-fee income (with valet trash + pest); [VERIFY] platform (SmartRent et al.), contract terms, thermostat integration |
 | Connectivity | Bulk cable/internet expense $364/unit/yr | [VERIFY] provider contract, fiber-to-unit vs coax, term/revenue share |
@@ -116,24 +117,33 @@ Why it still needs verification:
 - Possible nuance: some garden builders run 8' on floors 1–2 and 9'/vaulted on floor 3. The "way the
   buildings lay out" comment suggests the 15–16' units are top-floor vault conditions.
 
-**Photogrammetric verification (8/17/2026):** measured from the OM's own photography, using
-code-fixed dimensions as scale references.
-- *Balcony-rail method* (OM p.20 exterior, 3-story balcony stack): the top rails on floors 2 and 3
-  each sit exactly 42" above their decks, so rail-top-to-rail-top = floor-to-floor. Pixel spans:
-  rail-3 = 72 px/42", rail-2 = 90 px/42" (perspective gradient), rail-to-rail = ~200 px. Integrating
-  the projective scale across the span gives **floor-to-floor ≈ 108–109"** — i.e., **8'0" ceiling +
-  ~12–13" floor assembly**. A 9' plate would require ~121–122", far outside the measurement band (±5").
-- *Door method* (same photo, ground floor): the 6'8" entry door spans 206 px → 2.58 px/in; walkway to
-  the entry-recess soffit measures ~233 px ≈ **90.5"** — consistent only with an ~8' ground-floor plate.
-- *Interior photos*: upper cabinets run flush to the ceiling (36" base + 18" splash + 42" uppers = 96"
-  exactly), and only ~12" of wall shows above the 80" patio-door head. Both are 8'-plate signatures;
-  at 9' you'd see an ~12" cabinet reveal and ~2' above door heads.
+**STATUS 8/17/2026 pm: CBRE now contradicts its own OM — treat as UNRESOLVED, verify on site.**
+Matt Naumann (CBRE), by email 8/17 12:03pm, replying to Rich's direct question: **"No, 9 ft minimum.
+A few are 16ft. All electric."** That is the listing broker flatly contradicting the "Ceiling Height 8'"
+line in CBRE's own OM Building Detail table. Both numbers are CBRE's; they cannot both be right.
 
-**Verdict: 8'0" typical plates on all three floors, confirmed to ±2" by measurement — the OM table is
-accurate, not a typo.** The design compensates with glazing: window heads are set high (~7'4") with
-stacked/corner window walls, which is why units photograph brighter and taller than an 8' plate suggests.
-Remaining items: laser-confirm on the tour (formality), get the penthouse unit schedule (which
-buildings/stacks carry the 15–16' vaults), and confirm no floor-3 vault conditions elsewhere.
+Evidence on each side:
+- *For 8':* the OM spec table (a statement against marketing interest — an OM would not understate
+  ceilings, so the table likely traces to real construction documents); the "high ceilings *select
+  units" footnote; interior photos showing uppers meeting the ceiling with small reveals.
+- *For 9':* the broker's direct written answer; 9' is standard 2024 Class-A practice; the comp set
+  (The Aren, Dovetail) is presumably 9'.
+- *Photogrammetry (OM p.20 exterior, balcony-rail method):* rail-top-to-rail-top = floor-to-floor =
+  ~200 px; scaling off the 42" guardrails gives a central estimate of **F2F ≈ 109" → 8' plates**.
+  HOWEVER, the deck surfaces behind the fascia are occluded, and if the true deck lines sit ~4" above
+  the assumed fascia-top edges, the same arithmetic yields F2F ≈ 119" → 9' plates. The method's honest
+  error band (±10–12%) **spans both answers** — it leans 8' but cannot rule out 9'.
+
+**Close-out (definitive, cheap):** (1) laser-measure floors 1/2/3 on the construction-manager site
+visit already being scheduled; (2) put the question to CBRE in writing as an OM discrepancy —
+"your OM Building Detail says 8'0", your 8/17 email says 9' minimum; please confirm plate heights
+from the architectural set" — and request the NG+P wall sections; (3) get the penthouse unit schedule
+(which stacks carry the 15–16' units). Until then, do not cite either number in IC materials without
+the caveat.
+
+If 9' confirms, the product-deficiency concern in this section evaporates and the like-quality
+replication-rent premium argument strengthens; if 8' confirms, the OM's own spec table was the honest
+document and the shell is economy-spec behind premium finishes.
 
 ## 8. Cost context for the construction team
 
