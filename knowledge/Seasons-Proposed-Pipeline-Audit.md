@@ -67,7 +67,22 @@ occupancy forecast 97.0%, subject held at 94.5%.
   first two UW quarters); from Y2 forward TMG averages 3.7% vs. a 3.5% consensus and falls below
   consensus in Y5–Y6 (3.5%/3.0% vs. 3.7%/3.7%)
 
-**Exec summary slide (p.3 Opportunity section), abbreviated:**
+**Exec summary slide (p.3 Opportunity section), FINAL condensed version (2026-08-16, supersedes the
+longer draft below):**
+
+- Supply is cyclically low and structurally constrained: current-year deliveries (240 units) are the
+  lowest of the seven years tracked, and of ~3,980 proposed units within 5 mi, none are under
+  construction and only two projects (470 units) hold current entitlements — new development requires
+  ~$1,990–$2,120/mo ($2.12–$2.26/SF) to reach a 6.0–6.5% untrended yield-on-cost vs. our $1,915 Y1 UW
+  rent, and ~$2,260 ($2.42/SF) to replicate the subject's quality of product; escalating costs at 3%/yr,
+  our forward market rent at sale ($2,230 in 2030) still sits ~7% below the merchant pencil (~$2,390) and
+  ~12% below like-quality replication (~$2,540) — development does not pencil at any point during the hold
+
+*(Exit-pencil math: merchant 6.5% $2,122 × 1.03⁴ = $2,388 vs Y5 fwd rent $2,230 = −6.6%; quality $2,257
+× 1.03⁴ = $2,540 = −12.2%; merchant 6.0% escalates to $2,241 = −0.5% — does not clear even the lowest
+bar. Y5 $2,230 = buyer's first-year market rent at the Oct-2030 base-case exit.)*
+
+**Exec summary slide — earlier longer draft (superseded):**
 
 - Supply is cyclically low and structurally constrained: the 5-mi market delivered ~5,700 units over the
   five years ending mid-2024, driving occupancy to an 86.1% trough — but absorption across the full seven
