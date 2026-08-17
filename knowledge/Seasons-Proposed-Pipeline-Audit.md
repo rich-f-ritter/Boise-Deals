@@ -82,10 +82,11 @@ longer draft below):**
 **Exec summary slide — companion quality-of-product bullet (final on slide, 2026-08-16):**
 
 - Newest-vintage, top-of-market product acquired at approximately its replication cost: Seasons is a
-  2024-delivered, 360-unit institutional garden asset with a finish and amenity package above
-  merchant-grade — wood floors and fireplaces in select units, clubhouse and pool, and property-wide
-  managed wifi monetized at $1,077/unit/yr — that would cost ~$328K/unit to replicate today (an ~11%
-  hard-cost premium over merchant product); at ~$339K/unit, the purchase price is ~1.03x replication cost
+  2024-delivered, 360-unit institutional garden asset with a finish and amenity package exceeding
+  standard new-build spec — wood floors and fireplaces in select units, clubhouse and pool, and
+  property-wide managed wifi monetized at $1,077/unit/yr — that would cost ~$328K/unit to replicate today
+  (an ~11% hard-cost premium over the ~$305K standard build); at ~$339K/unit, the purchase price is
+  ~1.03x replication cost
   for an asset already built, already stabilized (96.1% occupied following a 13-month lease-up), and
   commanding an ~8% rent premium over 2018-vintage product — new-build economics without entitlement,
   construction, or lease-up risk, at rents 11–18% below what a like-quality developer would require
