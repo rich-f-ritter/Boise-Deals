@@ -72,12 +72,12 @@ longer draft below):**
 
 - Supply is cyclically low and structurally constrained: current-year deliveries (240 units) are the
   lowest of the seven years tracked, and of ~3,980 proposed units within 5 mi, none are under
-  construction and only two projects (470 units) hold current entitlements — new development requires
-  ~$1,990–$2,120/mo ($2.12–$2.26/SF) to reach a 6.0–6.5% untrended yield-on-cost vs. our $1,915 Y1 UW
-  rent, and ~$2,260 ($2.42/SF) to replicate the subject's quality of product; escalating costs at 3%/yr,
-  our forward market rent at sale ($2,230 in 2030) still sits ~7% below the 6.5% merchant pencil
-  (~$2,390) and ~12% below like-quality replication (~$2,540) — development does not pencil at any point
-  during the hold
+  construction and only two projects (470 units) hold current entitlements — at a 6.0–6.5% untrended
+  yield-on-cost, new development requires market rents of ~$1,990–$2,120/mo ($2.12–$2.26/SF) for
+  merchant-grade product vs. our $1,915 Y1 UW rent, and ~$2,120–$2,260 ($2.27–$2.42/SF) to replicate the
+  subject's quality; escalating costs at 3%/yr, our forward market rent at sale ($2,230 in 2030) still
+  sits 0.5–7% below the merchant pencil (~$2,240–$2,390) and 6–12% below like-quality replication
+  (~$2,380–$2,540) — development does not pencil at any point during the hold
 
 *(Exit-pencil math — both exit comparisons are at the 6.5% YoC hurdle: merchant $2,122 × 1.03⁴ = $2,388
 vs Y5 fwd rent $2,230 = −6.6%; quality $2,257 × 1.03⁴ = $2,540 = −12.2%. At the 6.0% marginal floor,
