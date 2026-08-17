@@ -75,12 +75,16 @@ longer draft below):**
   construction and only two projects (470 units) hold current entitlements — new development requires
   ~$1,990–$2,120/mo ($2.12–$2.26/SF) to reach a 6.0–6.5% untrended yield-on-cost vs. our $1,915 Y1 UW
   rent, and ~$2,260 ($2.42/SF) to replicate the subject's quality of product; escalating costs at 3%/yr,
-  our forward market rent at sale ($2,230 in 2030) still sits ~7% below the merchant pencil (~$2,390) and
-  ~12% below like-quality replication (~$2,540) — development does not pencil at any point during the hold
+  our forward market rent at sale ($2,230 in 2030) still sits ~7% below the 6.5% merchant pencil
+  (~$2,390) and ~12% below like-quality replication (~$2,540) — development does not pencil at any point
+  during the hold
 
-*(Exit-pencil math: merchant 6.5% $2,122 × 1.03⁴ = $2,388 vs Y5 fwd rent $2,230 = −6.6%; quality $2,257
-× 1.03⁴ = $2,540 = −12.2%; merchant 6.0% escalates to $2,241 = −0.5% — does not clear even the lowest
-bar. Y5 $2,230 = buyer's first-year market rent at the Oct-2030 base-case exit.)*
+*(Exit-pencil math — both exit comparisons are at the 6.5% YoC hurdle: merchant $2,122 × 1.03⁴ = $2,388
+vs Y5 fwd rent $2,230 = −6.6%; quality $2,257 × 1.03⁴ = $2,540 = −12.2%. At the 6.0% marginal floor,
+merchant escalates to $2,241 = −0.5% — parity only in the final hold year, and only for merchant-grade;
+like-quality at 6.0% escalates to $2,382 = −6.4%. 6.5% is the institutional hurdle: normalized exit caps
+5.00–5.25% + required 125–175bp dev spread; observed normalized spreads ~75–105bp. Y5 $2,230 = buyer's
+first-year market rent at the Oct-2030 base-case exit.)*
 
 **Exec summary slide — earlier longer draft (superseded):**
 
