@@ -1,46 +1,56 @@
-# Seasons at Meridian — Replication-Cost Reconstruction (~$328K/u)
+# Seasons at Meridian — Replication-Cost Reconstruction (~$328K/u, quality-of-product basis)
 
-**Status: RECONSTRUCTION, 2026-08-16 — not the original analysis.** Prior work (recalled as landing near
-~$328K/unit to replicate Seasons specifically) is not in this repo and appears to have been chat-only in
-an earlier session; it predates the CLAUDE.md knowledge-capture protocol. This file rebuilds the estimate
-from captured components so the number has a defensible basis until/unless the original is recovered.
-Note the numeric proximity to the $118M bid per unit ($327.8K) — confirm the recalled figure is the
-replication cost, not the bid, before quoting history.
+**Status: RECONSTRUCTION, 2026-08-16 — not the original analysis.** Prior work landed near **~$328K/unit
+to replicate Seasons specifically**, with the delta vs. the generic Meridian benchmark attributed to
+**quality of product** (per RR recollection, 2026-08-16 session). The original is not in this repo — it
+predates the CLAUDE.md knowledge-capture protocol. This file rebuilds the arithmetic from captured
+components so the figure has a defensible basis until the original is recovered.
+(An earlier draft of this file guessed the delta was land — superseded same day by the quality-of-product
+attribution. Note also the numeric proximity to the $118M bid per unit, $327.8K — coincidental.)
 
-## Build-up (per unit, 360u garden, 932.46 SF avg, 335,685 NRSF)
+## The arithmetic
 
-| Component | Emblem basis | Seasons replication | Basis for difference |
-|---|---|---|---|
-| Hard cost incl. contingency | $213.2K ($54.58M/256; $227/NRSF on 939 SF) | **~$218K** | $227/NRSF × 932.46 SF = $211.7K, escalated 3%/yr to a mid-2027 start |
-| A&E + dev fee + soft costs + P&F | $48.1K ($12.31M/256) | **~$48K** | Same jurisdiction; Meridian P&F ~$17.4K/u inside |
-| Land & acquisition | $35.5K ($9.09M; $649K/ac × 13.63 ac, 18.8 u/ac corridor site) | **~$50–56K** | Hard-corner I-84/Eagle Rd interchange land is retail-priced — placeholder ~$900K–1.0M/ac at ~18 u/ac garden density. **The one input needing real comps.** |
-| Financing costs (in TDC) | $7.7K ($1.98M/256) | ~$8K | Same convention |
-| **All-in TDC** | **$304.5K** | **~$325–330K/u** | |
+| | $/unit | Basis |
+|---|---|---|
+| Emblem all-in TDC (merchant-grade benchmark) | $304.5K | $77.96M / 256u; hard $227/NRSF incl. contingency ($216 GMP escalated) |
+| **Quality premium to replicate Seasons** | **+$23.5K** | ≈ **+$25/NRSF** on 932 SF — hard cost $227 → **~$252/NRSF (+11%)** |
+| **Seasons replication cost** | **~$328K/u** | |
 
-**Reconstruction lands at ~$328K/u ± the land assumption.** The delta vs. the Emblem benchmark is almost
-entirely land: a like-for-like Seasons cannot be built at Emblem's corridor land basis.
+The claim: the $214–216/NRSF GMP triangulation prices *merchant-grade* product (Emblem BTR / Judy). Seasons
+is a higher-spec 2024 institutional build — evidence in the deal file: unit finishes (wood floors,
+fireplaces in select homes per the rent-roll unit descriptions in the v3 model), full amenity package
+(clubhouse/pool, property-wide managed-wifi infrastructure monetized at $1,077/u/yr — an install the
+merchant books do not carry), and the finish level implied by Seasons' rent premium over same-vintage
+merchant product. Replicating *that* asset runs ~+11% on hard cost ≈ **~$252/NRSF hard / ~$328K/u all-in**.
 
-## Why this matters (framing implications)
+## Framing implications
 
-- At $122M ($338.9K/u), the bid is ~**1.03–1.05x** Seasons-specific replication cost — vs 1.11x the
-  generic Emblem benchmark ($304.5K). Materially friendlier framing, and it is location-honest: the
-  banned "below replacement cost" claim stays banned, but "at approximately replication cost for this
-  site" may be defensible once land is evidenced.
-- Consistency check: knowledge base carries "Seasons at 1.08x replacement cost" (vs $305K at the $118M
-  bid) and replacement *value* ~$355–400K/u. This reconstruction sits between: cost to build *this asset
-  on this corner* > generic Meridian garden cost, < replacement value.
+1. **Basis:** at $122M ($338.9K/u) the bid is **~1.03x the cost of replicating this quality of product**,
+   vs 1.11x the merchant-grade benchmark. The "below replacement cost" ban stands (we are above both),
+   but "approximately at replication cost for like-quality product" is defensible once the premium is
+   evidenced. At the prior $118M basis ($327.8K/u), the bid was ~1.00x — at parity with like-quality
+   replication cost.
+2. **Moat sharpener:** the pencil rents ($1,991–$2,122/mo at 6.0–6.5% YoC) are computed on the *merchant*
+   cost basis. A developer building to **Seasons' quality** carries ~$328K/u and needs
+   **~8% higher rents still** to hit the same yield — i.e., the true like-for-like competitor pencil is
+   further out of the money than the headline gap. (Compounds with, and is distinct from, the
+   product-matched OI adjustment that puts the Seasons-like pencil at ~$2.30–2.35/SF.)
 
 ## Open items to harden
 
-- [ ] Land comps for the I-84/Eagle interchange quadrants ($/ac, 2025–26 prints) — replaces the placeholder.
-- [ ] Confirm Seasons site acreage (Ada County parcel) → actual units/acre for the land line.
-- [ ] Amenity/clubhouse scope differential vs Emblem BTR (Seasons has wifi infrastructure, pool, clubhouse;
-  Emblem has attached garages in hard cost) — sign ambiguous, likely small.
-- [ ] Recover the original analysis if any artifact exists (slide, workbook, email) and reconcile.
+- [ ] Recover the original analysis if any artifact exists (slide, workbook, email) and reconcile — the
+  specific quality line items (finish schedule, amenity build-out, wifi infrastructure cost) were
+  presumably itemized there.
+- [ ] Evidence the +$25/NRSF premium independently: e.g., GC finish-level pricing tiers, Aren (0.62 mi,
+  2024, 396u) cost data if obtainable, or the wifi-infrastructure install cost implied by the $1,077/u/yr
+  revenue share.
+- [ ] Secondary: Seasons' I-84/Eagle hard-corner land basis vs Emblem's $649K/ac corridor site — additive
+  to the quality premium if the corner carries a land premium (kept out of the ~$328K to stay faithful to
+  the recalled quality-of-product basis).
 - [ ] If hardened: add as `7_Seasons_Replication` tab in `Boise_Deals_Normalized_Underwriting_v2.xlsx`
   (extend `build_wb2.py`).
 
-**Provenance:** Emblem components from `knowledge/exhibits/build_wb2.py` cost build-up (Summary D25 /
-3_Dev_Feasibility): land $9,092,960; hard incl. contingency $54,579,077; A&E $1,500,605; dev fee
-$2,658,062; financing $1,982,846; TDC $77,959,624 / 256u. Seasons NRSF/mix from v3 model Assumptions.
-Escalation 3%/yr per both dev models.
+**Provenance:** Emblem components from `knowledge/exhibits/build_wb2.py` (land $9,092,960; hard incl.
+contingency $54,579,077; A&E $1,500,605; dev fee $2,658,062; financing $1,982,846; TDC $77,959,624 /
+256u). Seasons NRSF 335,685 / 932.46 SF avg and unit-finish descriptions from the v3 model. Wifi revenue
+share $1,077/u/yr from Assumptions other-income block. Escalation 3%/yr per both dev models.
