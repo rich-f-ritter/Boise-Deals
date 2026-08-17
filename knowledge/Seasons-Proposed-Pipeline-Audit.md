@@ -73,9 +73,13 @@ occupancy forecast 97.0%, subject held at 94.5%.
   five years ending mid-2024 (occupancy trough 86.1%) and has recovered to 93.9% on current-year
   deliveries of 240, the lowest of the seven years tracked; of ~3,980 proposed units within 5 mi, none
   are under construction (one site graded) and only two projects (470 units) hold entitlements with
-  remaining term — development yields ~6.0–6.3% on cost at today's rents, below institutional thresholds
-  — yet the underwriting schedules ~1,850 units to deliver during the 4-year hold against 2,248 units of
-  forecast absorption, and carries the subject at 94.5% vs. a 97.0% market forecast
+  remaining term — new development requires market rents of ~$1,990–$2,120/mo ($2.12–$2.26/SF) to reach
+  a 6.0–6.5% untrended yield on cost, 4–11% above the subject's $1,915 Y1 UW rent — yet the underwriting
+  schedules ~1,850 units to deliver during the 4-year hold against 2,248 units of forecast absorption,
+  and carries the subject at 94.5% vs. a 97.0% market forecast
+  *(Pencil rents: v2 normalized workbook — $1,991/mo = $2.12/SF at 6.0% YoC, $2,122/mo = $2.26/SF at
+  6.5%, at normalized taxes & other income; +4.0%/+10.8% vs $1,915. Product-matched Seasons-like garden
+  pencil runs higher, ~$2.30–2.35/SF at 6.5% — the quoted range is the conservative convention.)*
 
 **Verification notes:** ex-Y1 TMG growth averages 3.7% vs consensus 3.5% (Y2–Y4 above by 40–70bp; Y5–Y6
 BELOW consensus — 3.5/3.0 vs 3.7/3.7); absorption positive in all seven historical years (min +44,
