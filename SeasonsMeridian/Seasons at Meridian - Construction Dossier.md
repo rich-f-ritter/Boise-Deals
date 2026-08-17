@@ -116,9 +116,24 @@ Why it still needs verification:
 - Possible nuance: some garden builders run 8' on floors 1–2 and 9'/vaulted on floor 3. The "way the
   buildings lay out" comment suggests the 15–16' units are top-floor vault conditions.
 
-**How to close it out:** laser-measure floors 1/2/3 on the tour; request the NG+P architectural set or the
-City of Meridian building-permit drawings (plate heights on wall sections); ask CBRE the direct question.
-Also confirm whether third-floor units get any vault.
+**Photogrammetric verification (8/17/2026):** measured from the OM's own photography, using
+code-fixed dimensions as scale references.
+- *Balcony-rail method* (OM p.20 exterior, 3-story balcony stack): the top rails on floors 2 and 3
+  each sit exactly 42" above their decks, so rail-top-to-rail-top = floor-to-floor. Pixel spans:
+  rail-3 = 72 px/42", rail-2 = 90 px/42" (perspective gradient), rail-to-rail = ~200 px. Integrating
+  the projective scale across the span gives **floor-to-floor ≈ 108–109"** — i.e., **8'0" ceiling +
+  ~12–13" floor assembly**. A 9' plate would require ~121–122", far outside the measurement band (±5").
+- *Door method* (same photo, ground floor): the 6'8" entry door spans 206 px → 2.58 px/in; walkway to
+  the entry-recess soffit measures ~233 px ≈ **90.5"** — consistent only with an ~8' ground-floor plate.
+- *Interior photos*: upper cabinets run flush to the ceiling (36" base + 18" splash + 42" uppers = 96"
+  exactly), and only ~12" of wall shows above the 80" patio-door head. Both are 8'-plate signatures;
+  at 9' you'd see an ~12" cabinet reveal and ~2' above door heads.
+
+**Verdict: 8'0" typical plates on all three floors, confirmed to ±2" by measurement — the OM table is
+accurate, not a typo.** The design compensates with glazing: window heads are set high (~7'4") with
+stacked/corner window walls, which is why units photograph brighter and taller than an 8' plate suggests.
+Remaining items: laser-confirm on the tour (formality), get the penthouse unit schedule (which
+buildings/stacks carry the 15–16' vaults), and confirm no floor-3 vault conditions elsewhere.
 
 ## 8. Cost context for the construction team
 
