@@ -48,7 +48,7 @@ widths(ws, {'A': 62, 'B': 15, 'C': 15, 'D': 58})
 r = 1
 ws['A1'] = 'Seasons at Meridian — Lease-Up Analysis'
 ws['A1'].font = Font(bold=True, size=15, color=NAVY)
-ws['A2'] = ('Month-by-month leasing history from the start of lease-up (Jun 2024) through 8/4/2026: '
+ws['A2'] = ('Month-by-month leasing history from the start of lease-up (Jun 2024) through 8/18/2026: '
             'new leases signed, expirations, renewals and renewal increases, and new-lease trade-outs '
             '— gross and effective.')
 ws['A2'].font = SMALL
@@ -64,8 +64,12 @@ r = 5
 
 act = mo[(mo.month >= ACTUAL_FROM) & (mo.month <= CUTOFF)]
 prox = mo[mo.month < ACTUAL_FROM]
-e_ren = ev[ev.event == 'Renewal']
-e_new = ev[ev.event == 'New Lease']
+# _all frames carry COUNTS (corporate included); the plain frames feed RENT
+# statistics and exclude corporate leases, matching the Monthly tab convention
+e_new_all = ev[ev.event == 'New Lease']
+e_rel_all = e_new_all[e_new_all.generation == 'Re-lease']
+e_ren = ev[(ev.event == 'Renewal') & ev.corporate.isna()]
+e_new = e_new_all[e_new_all.corporate.isna()]
 e_rel = e_new[e_new.generation == 'Re-lease']
 e_rel_a = e_rel[e_rel.month >= ACTUAL_FROM]
 
@@ -96,12 +100,13 @@ block('LEASE-UP VELOCITY', [
     ('Total units', 360, '#,##0', 'A1 120 · A2 45 · B1 30 · B2 75 · B3 45 · C1 30 · S1 15'),
     ('New leases signed, all periods', int(mo[mo.month <= CUTOFF].new_leases_signed.sum()), '#,##0',
      'Includes both first-generation lease-up leases and re-leases of turned units'),
-    ('  first-generation (initial lease-up)', int(e_new[e_new.generation == 'First lease-up lease'].shape[0]), '#,##0',
+    ('  first-generation (initial lease-up)', int(e_new_all[e_new_all.generation == 'First lease-up lease'].shape[0]), '#,##0',
      'Exactly one per unit — all 360 units resolve to a first lease-up lease'),
-    ('  re-leases of a turned unit', int(len(e_rel)), '#,##0', 'These are the leases that carry a trade-out'),
+    ('  re-leases of a turned unit', int(len(e_rel_all)), '#,##0',
+     'Rent statistics below exclude the 12 corporate re-leases; counts here include them'),
     ('Months to lease all 360 units', 21, '#,##0',
      'Jul 2024 first move-in → 4/24/2026 last first-generation lease'),
-    ('Occupancy 1/1/2026 → 8/4/2026', '314 → 346 of 360', '@', '87% → 96%'),
+    ('Occupancy 1/1/2026 → 8/18/2026', '314 → 350 of 360', '@', '87% → 97%'),
 ])
 
 ren_g = (e_ren.new_gross.mean() / e_ren.prior_gross.mean() - 1)
@@ -168,16 +173,24 @@ block('HOW CONCESSIONS ACTUALLY HIT THE T12', [
     ('Longest burn window observed', 4.4, '0.0', 'n=144 leases with a concession and an end date'),
     ('Concessions booked, %s to %s' % (t_first, t_last), conc_total, '$#,##0',
      'GL account 4460 — the actual dollars that hit revenue'),
-    ('Run-rate, last 3 months annualized', conc_rr, '$#,##0', 'Apr-Jun 2026 x 4'),
+    ('Run-rate, last 3 months annualized', conc_rr, '$#,##0',
+     '%s x 4 — Jul 2026 booked only $3,830 (0.6%% of GPR)' % ' - '.join(list(T)[-3:])),
     ('STILL TO BURN OFF at 7/30/2026', 4289, '$#,##0',
      'Only 4 leases carry unburned concession — the in-place rent roll is essentially clean'),
 ], )
 
+def _pmk(mo_, k):
+    return abs(T[mo_][k]) / T[mo_]['market_rent']
+_vl = (_pmk(t_last, 'vacancy_loss'), _pmk(t_first, 'vacancy_loss'))
+_cc = (_pmk(t_last, 'concessions'), _pmk(t_first, 'concessions'))
+_ll = (_pmk(t_last, 'loss_to_lease'), _pmk(t_first, 'loss_to_lease'))
 block('WHERE THE REVENUE GAP WENT (T12, %s vs %s)' % (t_first, t_last), [
-    ('Vacancy loss, % of market rent', -0.419, '+0.0%;-0.0%', '45.6% → 3.7% — the lease-up filling up'),
-    ('Concessions, % of market rent', -0.054, '+0.0%;-0.0%', '7.6% → 2.2% — concessions withdrawn'),
-    ('Loss to lease, % of market rent', 0.066, '+0.0%;-0.0%',
-     '4.3% → 10.9% — WIDENED. Market rents were pushed up while in-place rents lagged'),
+    ('Vacancy loss, % of market rent', _vl[0] - _vl[1], '+0.0%;-0.0%',
+     f'{_vl[1]:.1%} → {_vl[0]:.1%} — the lease-up filling up'),
+    ('Concessions, % of market rent', _cc[0] - _cc[1], '+0.0%;-0.0%',
+     f'{_cc[1]:.1%} → {_cc[0]:.1%} — concessions withdrawn'),
+    ('Loss to lease, % of market rent', _ll[0] - _ll[1], '+0.0%;-0.0%',
+     f'{_ll[1]:.1%} → {_ll[0]:.1%} — WIDENED. Market rents were pushed up while in-place rents lagged'),
     ('Physical occupancy', T[t_last]['physical_occupancy_avg'] - T[t_first]['physical_occupancy_avg'],
      '+0.0%;-0.0%', f"{T[t_first]['physical_occupancy_avg']:.1%} → {T[t_last]['physical_occupancy_avg']:.1%}"),
     ('Economic occupancy', T[t_last]['economic_occupancy'] - T[t_first]['economic_occupancy'],
@@ -189,10 +202,16 @@ block('WHERE THE REVENUE GAP WENT (T12, %s vs %s)' % (t_first, t_last), [
 
 block('CORPORATE BLOCK LEASE — READ BEFORE USING AUG 2026 NUMBERS', [
     ('Murata Machinery Inc units', 8, '#,##0',
-     'B106 in place (MI 8/2/26) + 7 committed for Aug 2026: A103, A303, F106, F108, H203, I203, J108'),
-    ('Share of the property', 8 / 360, '0.0%',
-     'A single corporate user took 2.2% of the units in one month'),
-    ('Coleman Environmental Engineering', 1, '#,##0', 'B307 — the other corporate lease'),
+     '4 IN PLACE (A103, B106, F108, I203) + 4 future (A303, F106, J108, H111). H203 was dropped '
+     'and H111 substituted (MI 10/7/26) — the block is being actively re-shuffled'),
+    ('Paragon Corporate Housing units', 7, '#,##0',
+     'B105, B112, D311, E106, E111, F202, I204 — six signed in Jul 2026 alone at +2% to +23% '
+     'trade-outs. Excluded from all rent statistics as of this version'),
+
+    ('Corporate departures', 2, '#,##0',
+     'Coleman (B307) and Wolff Corporate Housing (H111) BOTH move out 9/30/2026'),
+    ('Total corporate exposure', 16 / 360, '0.0%',
+     '16 units tied to 4 corporate users — flag for Aug-Oct 2026 absorption and turnover'),
 ], )
 
 def conc_stats(rows):
@@ -233,9 +252,9 @@ block('THE CONCESSION STORY', [
      f"{c_ren['k']} of {c_ren['n']} — renewals are written essentially concession-free"),
 ])
 
-ws.cell(row=r, column=1, value='Sources: Yardi rent rolls (1/1, 7/07, 7/19, 8/04/2026) · Concession Burn Off '
+ws.cell(row=r, column=1, value='Sources: Yardi rent rolls (1/1, 7/07, 7/19, 8/04, 8/18/2026) · Concession Burn Off '
         '(6/21, 7/30/2026) · Renewal Trade-Out report (5/10–7/9/2026) · HelloData Unit Details (8/14/2026) · '
-        'T12 (Jun 2025–Jun 2026). Measurement date 8/4/2026.').font = SMALL
+        'T12 (Jun 2025–Jul 2026). Measurement date 8/18/2026.').font = SMALL
 ws.cell(row=r, column=1).alignment = Alignment(wrap_text=True, vertical='top')
 ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=4)
 ws.row_dimensions[r].height = 28
@@ -293,9 +312,9 @@ ws['A2'] = ('Amber rows are HelloData proxy: leases signed = listings going off-
             'asking→asking, not contract→contract. Expirations and move-outs cannot be observed at all in '
             'that window and are left BLANK — never zero. Renewals are only partly observable (the burn-off '
             'sees residents still in place at 7/30/26), so those months carry a survivor floor "≥ n" instead '
-            'of a count. Aug 2026 is a partial month — the roll is as-of 8/4.')
+            'of a count. Aug 2026 is a partial month — the roll is as-of 8/18.')
 ws['A3'] = ('OCCUPANCY — two independent measures, deliberately not blended. "Rent roll, EOM" counts occupied '
-            'units at month end (ties EXACTLY to the rolls at 1/1/26 = 314 and 8/4/26 = 346). "T12, mo. avg" is '
+            'units at month end (ties EXACTLY to the rolls at 1/1/26 = 314, 8/4/26 = 346 and 8/18/26 = 350). "T12, mo. avg" is '
             '1 - vacancy loss / market rent, time-weighted across the month, and is the ONLY source of occupancy '
             'before 2026. Across the six overlapping months the two agree within 2.1 pts with no directional '
             'bias. ECONOMIC occupancy is net residential rent over market rent — the gap to physical occupancy '
@@ -366,7 +385,7 @@ tot = {
     'units_occupied_eom': act.units_occupied_eom.dropna().iloc[-1],
     'units_vacant_eom': act.units_vacant_eom.dropna().iloc[-1],
     'physical_occupancy_eom': act.physical_occupancy_eom.dropna().iloc[-1],
-    'occupancy_basis': 'Latest — as of 8/4/2026',
+    'occupancy_basis': 'Latest — as of 8/18/2026',
 }
 for i, (key, _lbl, _w, fmt) in enumerate(COLS, start=1):
     cell = ws.cell(row=rw, column=i)
@@ -385,12 +404,12 @@ for line in [
     'New-lease trade-out is measured against the PRIOR TENANT\'S LAST CONTRACT RENT in the same unit. '
     'For 2026 re-leases whose prior tenant departed before 1/1/2026 the baseline falls back to that unit\'s '
     'prior listing rent — flagged per row on the Lease Events tab.',
-    'Rent levels are mix-weighted to the property\'s actual unit mix from the 8/4/26 roll, so a month that '
+    'Rent levels are mix-weighted to the property\'s actual unit mix from the 8/18/26 roll, so a month that '
     'happened to lease mostly 1-beds does not read as a rent decline.',
     'Concession frequency = share of new leases with any concession. Depth = average discount among ONLY '
     'those leases. Blended averages are not shown — they mix conceding and non-conceding leases.',
-    'Corporate leases are excluded from all rent statistics. Two are in place (Coleman Environmental B307, '
-    'Murata Machinery B106); Murata holds seven MORE units committed for Aug 2026, not yet in this ledger.',
+    'Corporate leases are excluded from all rent statistics: Murata Machinery (8 units, 4 in place), '
+    'Paragon Corporate Housing (7 units), Wolff (H111) and Coleman (B307) — 16 units across 4 users.',
 ]:
     ws.cell(row=rw, column=1, value='• ' + line).font = SMALL
     ws.cell(row=rw, column=1).alignment = Alignment(wrap_text=True, vertical='top')
@@ -405,7 +424,7 @@ ws = wb.create_sheet('T12 Revenue Bridge')
 widths(ws, {'A': 11, **{get_column_letter(i): 13 for i in range(2, 13)}})
 ws['A1'] = 'T12 Residential Revenue Bridge — market rent down to collected'
 ws['A1'].font = Font(bold=True, size=13, color=NAVY)
-ws['A2'] = ('From the two supplied operating statements (Jun 2025-May 2026 and Jul 2025-Jun 2026); they '
+ws['A2'] = ('From the three supplied operating statements (Jun 2025-May 2026, Jul 2025-Jun 2026, Aug 2025-Jul 2026); they '
             'overlap and agree exactly, so the later file wins. This is GL truth — the only source of '
             'occupancy before 2026, and the only place the concession dollars can be seen as booked. '
             'Credits are shown as booked (negative).')
@@ -506,10 +525,10 @@ ws.auto_filter.ref = f'A1:{get_column_letter(len(hdrs))}{ws.max_row}'
 # ======================================================================
 ws = wb.create_sheet('Expiration Schedule')
 fwd = mo[mo.month > CUTOFF][['month', 'scheduled_expirations_ahead', 'notices_scheduled_moveout']]
-ws['A1'] = 'Forward Expiration Schedule (leases in place at 8/4/2026)'
+ws['A1'] = 'Forward Expiration Schedule (leases in place at 8/18/2026)'
 ws['A1'].font = Font(bold=True, size=13, color=NAVY)
 ws['A2'] = ('The second turn. Each resident\'s currently scheduled lease expiration, plus notices already '
-            'given for move-outs dated after the 8/4/26 roll.')
+            'given for move-outs dated after the 8/18/26 roll.')
 ws['A2'].font = SMALL
 ws.append([])
 ws.append(['Month', 'Scheduled expirations', 'Notices given (scheduled move-out)'])
@@ -536,7 +555,7 @@ ws = wb.create_sheet('Sources & Method')
 widths(ws, {'A': 118})
 notes = [
     ('H', 'Seasons at Meridian — Lease-Up Analysis: sources, conventions and limits'),
-    ('T', 'Measurement date 8/4/2026 (latest rent roll). 360 units. Lease-up began Jun 2024 (first listing); '
+    ('T', 'Measurement date 8/18/2026 (latest rent roll). 360 units. Lease-up began Jun 2024 (first listing); '
           'first move-in 8/21/2024.'),
     ('H', 'The two data bases'),
     ('T', 'ACTUAL (Jan 2026 – Aug 2026): Yardi rent rolls, concession burn-off, renewal trade-out report. '
@@ -568,15 +587,17 @@ notes = [
           'by the 3ps renewal trade-out report, so these figures tie to the seller\'s own report exactly.'),
     ('T', 'Retention = renewals ÷ leases that reached expiration in the month. MTM holdovers sit in the '
           'denominator as non-renewals until they either sign or leave.'),
-    ('T', 'Rent levels are mix-weighted to the actual unit mix from the 8/4/26 roll (A1 120 · A2 45 · B1 30 · '
+    ('T', 'Rent levels are mix-weighted to the actual unit mix from the 8/18/26 roll (A1 120 · A2 45 · B1 30 · '
           'B2 75 · B3 45 · C1 30 · S1 15 = 360) to remove mix bias from month-to-month comparisons.'),
     ('T', 'Concessions are reported as frequency (share of leases with any concession) and depth (average '
           'discount among only those leases), never as a blended average.'),
-    ('T', 'Corporate leases excluded from rent statistics: Coleman Environmental Engineering (B307) and '
-          'Murata Machinery Inc, which holds EIGHT units — B106 in place (move-in 8/2/26) plus A103, A303, '
-          'F106, F108, H203, I203 and J108 committed for August 2026. That is 2.2% of the property to one '
-          'user, landing right at the measurement date: the seven future leases are excluded here but will '
-          'inflate Aug/Sep 2026 absorption in any later cut. Treat recent leasing velocity accordingly.'),
+    ('T', 'Corporate leases excluded from rent statistics — 16 units across four users (4.4% of the '
+          'property): Murata Machinery holds EIGHT (A103, B106, F108, I203 in place; A303, F106, J108, H111 '
+          'future — H203 was dropped for H111 between the 8/4 and 8/18 rolls). Paragon Corporate Housing '
+          'holds SEVEN (B105, B112, D311, E106, E111, F202, I204), six signed in July 2026 at +2% to +23% '
+          'trade-outs — arm’s-length pricing these are not. Wolff (H111) and Coleman (B307) both '
+          'vacate 9/30/2026. Corporate demand is propping up Jul-Aug 2026 absorption; treat recent velocity '
+          'and trade-outs accordingly.'),
     ('H', 'Validation performed'),
     ('T', '✓ All 23 renewals in the 5/10–7/9/2026 report are present, and prior/new gross and effective rents '
           'tie to the report\'s portfolio totals to the cent ($1,762.91 → $1,793.26 gross; $1,639.44 → '
@@ -584,7 +605,7 @@ notes = [
     ('T', '✓ Ledger renewal count (64) matches the independent burn-off count of residents whose lease start '
           'post-dates their move-in.'),
     ('T', '✓ Net leasing in the actual window (139 new leases − 105 move-outs = +34) reconciles to the observed '
-          'occupancy change (314 → 346 = +32); the residual is leases signed for Aug/Sep move-ins.'),
+          'occupancy change (314 → 350 = +36); the residual is leases signed for Aug/Sep move-ins.'),
     ('T', '✓ Exactly one first-generation lease per unit, and all 360 units resolve — the ledger accounts for '
           'every unit in the property.'),
     ('H', 'Known limits'),

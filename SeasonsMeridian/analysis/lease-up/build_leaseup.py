@@ -35,18 +35,20 @@ from collections import defaultdict
 
 DOCS = '../../documents'
 RENEWAL_GAP_DAYS = 45              # lease start > move-in + gap => renewal
-CORPORATE = {'Coleman Environmental Engineering', 'Murata Machinery Inc'}
+CORPORATE = {'Coleman Environmental Engineering', 'Murata Machinery Inc',
+             'Paragon Corporate Housing', 'Wolff Corporate Housing Inc'}
 HD_TO_MOVEIN_LAG = 15              # median days: off-market -> move-in (validated in DATA_NOTES)
 MIN_TENANCY_DAYS = 120             # shortest lease term seen in the burn-off is 4 months;
                                    # closer listing episodes are one lease-up, not a turn
 ACTUAL_START = date(2026, 1, 1)    # Yardi-actual window begins at the 1/1/26 roll
-CUTOFF = date(2026, 8, 4)          # measurement date = latest rent roll
+CUTOFF = date(2026, 8, 18)         # measurement date = latest rent roll
 TOTAL_UNITS = 360
 
 ROLLS = [('2026-01-01', 'rent-rolls/RentRoll_AsOf_2026-01-01_BACKDATED-see-notes.xlsx'),
          ('2026-07-07', 'rent-rolls/RentRoll_AsOf_2026-07-07.xlsx'),
          ('2026-07-19', 'rent-rolls/RentRoll_AsOf_2026-07-19.xlsx'),
-         ('2026-08-04', 'rent-rolls/RentRoll_AsOf_2026-08-04.xlsx')]
+         ('2026-08-04', 'rent-rolls/RentRoll_AsOf_2026-08-04.xlsx'),
+         ('2026-08-18', 'rent-rolls/RentRoll_AsOf_2026-08-18.xlsx')]
 
 
 # ---------------------------------------------------------------- parsing
@@ -244,19 +246,26 @@ def main():
     res = {}
     for tag, _ in ROLLS:
         for r in rolls[tag]:
-            m = res.setdefault(r['res'], {'res': r['res'], 'unit': r['unit'], 'type': r['type'],
-                                          'sf': r['sf'], 'name': r['name'], 'movein': r['movein'],
-                                          'seen': [], 'rent': {}, 'exp': {}, 'moveout': None,
-                                          'future': False})
+            # Keyed by (resident, unit): Yardi reuses a resident id when a tenant
+            # TRANSFERS units (t0033902 moved J108 -> G103 on the 8/18 roll), and a
+            # master keyed by id alone would collapse the two tenancies into one
+            # scrambled record.
+            m = res.setdefault((r['res'], r['unit']),
+                               {'res': r['res'], 'unit': r['unit'], 'type': r['type'],
+                                'sf': r['sf'], 'name': r['name'], 'movein': r['movein'],
+                                'seen': [], 'rent': {}, 'exp': {}, 'moveout': None,
+                                'future': False})
             m['seen'].append(tag)
-            m['unit'] = r['unit']
             if r['actual']:
                 m['rent'][tag] = r['actual']
             if r['leaseexp']:
                 m['exp'][tag] = r['leaseexp']
             if r['moveout']:
                 m['moveout'] = r['moveout']
-            if r['movein'] and (m['movein'] is None or r['movein'] < m['movein']):
+            # LATEST roll wins on move-in: a Future-section date is a scheduled
+            # move-in that slips (Murata A103 was 8/03 on the 7/07 roll, 8/10 in
+            # fact); keeping the minimum would count tenants before they arrive.
+            if r['movein']:
                 m['movein'] = r['movein']
             if r['section'] and 'Future' in r['section']:
                 m['future'] = True
@@ -266,7 +275,8 @@ def main():
     # burn-off supplies the only lease-start dates in the dataset
     for src in (bo_jun, bo_jul):
         for rid, b in src.items():
-            m = res.setdefault(rid, {'res': rid, 'unit': b['unit'], 'type': None, 'sf': None,
+            m = res.setdefault((rid, b['unit']),
+                               {'res': rid, 'unit': b['unit'], 'type': None, 'sf': None,
                                      'name': b['name'], 'movein': b['movein'], 'seen': [],
                                      'rent': {}, 'exp': {}, 'moveout': None, 'future': False})
             m.setdefault('bo', {})
@@ -394,9 +404,22 @@ def main():
 
     # Episodes with no surviving resident: the tenant moved in AND out before any rent
     # roll was cut, so only the listing remains. Move-in is estimated from off-market.
+    def covered_by_roll_tenancy(u, e):
+        """An episode inside a KNOWN continuing tenancy is a listing that never
+        turned (I303 was listed in Nov-2025 while its 10/2024 tenant stayed put);
+        counting it would invent a lease the rolls prove never happened."""
+        on = e['on'] or e['off']
+        for m in res.values():
+            if m['unit'] == u and m['movein'] and m['movein'] < on \
+                    and (m['moveout'] is None or m['moveout'] > e['off']):
+                return True
+        return False
+
     for u, eps in hd_by_unit.items():
         for e in eps:
             if e['off'] >= ACTUAL_START or (u, e['off']) in matched_eps:
+                continue
+            if covered_by_roll_tenancy(u, e):
                 continue
             mi_est = e['off'] + timedelta(days=HD_TO_MOVEIN_LAG)
             if mi_est >= ACTUAL_START:
@@ -671,12 +694,26 @@ def main():
             if sp[1] is None and i + 1 < len(lst):
                 sp[1] = lst[i + 1][0]
 
+    # One tenancy can sit under two resident ids (Yardi id churn: J108, E307, I201,
+    # A112). The id absent from the newest roll gets an INFERRED end at that roll
+    # date while the surviving id carries the true one — so same-start spans merge
+    # to the LATER end, and occupancy counts DISTINCT UNITS, never spans.
+    for u, lst in spans.items():
+        best = {}
+        for sp in lst:
+            k = sp[0]
+            if k not in best or (sp[1] is None) or \
+                    (best[k][1] is not None and sp[1] is not None and sp[1] > best[k][1]):
+                best[k] = sp
+        spans[u] = sorted(best.values(), key=lambda x: x[0])
+
     def occupied_on(d):
-        return sum(1 for lst in spans.values() for s in lst
-                   if s[0] <= d and (s[1] is None or s[1] > d))
+        return sum(1 for lst in spans.values()
+                   if any(s[0] <= d and (s[1] is None or s[1] > d) for s in lst))
 
     ANCHORS = {date(2026, 1, 1): 314, date(2026, 7, 7): 341,
-               date(2026, 7, 19): 338, date(2026, 8, 4): 346}
+               date(2026, 7, 19): 338, date(2026, 8, 4): 346,
+               date(2026, 8, 18): 350}
     print('\noccupancy check vs rent rolls (derived / actual):')
     for d, actual in sorted(ANCHORS.items()):
         got = occupied_on(d)

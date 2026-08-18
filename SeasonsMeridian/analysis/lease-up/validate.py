@@ -83,21 +83,41 @@ import t12 as t12mod
 T = t12mod.load()
 m = pd.read_csv('monthly.csv')
 
-# The two statements overlap; overlapping months must agree or the later file is
-# silently overwriting real differences.
 import openpyxl
 from datetime import datetime
+
 def one(fn):
     wb = openpyxl.load_workbook(f'../../documents/t12/{fn}', read_only=True, data_only=True)
     rs = list(wb['Report1'].iter_rows(values_only=True)); wb.close()
     hdr = [datetime.strptime(str(c), '%b %Y').strftime('%Y-%m') for c in rs[4][2:14]]
-    return {h: r[2 + i] for r in rs if str(r[0] or '').startswith('4499')
-            for i, h in enumerate(hdr)}
-a, b = one('T12_Jun2025-May2026.xlsx'), one('T12_Jul2025-Jun2026.xlsx')
-ov = set(a) & set(b)
-bad = [k for k in ov if abs((a[k] or 0) - (b[k] or 0)) > 1]
-print(f'   {ok(not bad)}  the two T12s agree on all {len(ov)} overlapping months'
-      + (f' -- disagree: {bad}' if bad else ''))
+    out = {}
+    for r in rs:
+        k = str(r[0] or '')[:9]
+        if k in ('4410-0000', '4419-0000', '4450-0000', '4460-0000', '4499-0000'):
+            for i, h in enumerate(hdr):
+                out.setdefault(h, {})[k] = round(r[2 + i] or 0, 2)
+    return out
+
+# Every pair of statements must agree on every overlapping month and line item.
+# One seller restatement is known and accepted: Apr-2026 concessions were re-
+# booked -818 in the Aug-Jul statement (flowing to net residential rent). That
+# is whitelisted BY NAME — any other difference is a failure, not a footnote.
+KNOWN_RESTATEMENTS = {('2026-04', '4460-0000'), ('2026-04', '4499-0000')}
+t12s = [one(f) for f in ['T12_Jun2025-May2026.xlsx', 'T12_Jul2025-Jun2026.xlsx',
+                         'T12_Aug2025-Jul2026.xlsx']]
+bad, restated, ov = [], [], set()
+for i in range(len(t12s)):
+    for j in range(i + 1, len(t12s)):
+        for mo in set(t12s[i]) & set(t12s[j]):
+            ov.add(mo)
+            for k in t12s[i][mo]:
+                d = abs(t12s[i][mo][k] - t12s[j][mo].get(k, 0))
+                if d > 1:
+                    (restated if (mo, k) in KNOWN_RESTATEMENTS else bad).append((mo, k, d))
+print(f'   {ok(not bad)}  all 3 T12s agree on {len(ov)} overlapping months'
+      + (f' -- UNDOCUMENTED diffs: {bad}' if bad else ''))
+print(f'   note: known seller restatement honored ({len(restated)} line-months): '
+      f'Apr-2026 concessions -818, latest statement wins')
 
 # Physical occupancy from the GL vs from the rent rolls: two unrelated derivations.
 j = m.dropna(subset=['t12_physical_occupancy_avg', 'physical_occupancy_eom'])

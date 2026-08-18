@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """T12 operating-statement parser for Seasons at Meridian.
 
-Two statements are supplied and they overlap (Jun 2025-May 2026 and Jul 2025-Jun
-2026); together they cover Jun 2025 - Jun 2026. Overlapping months agree exactly,
-so the later file simply wins.
+Three statements are supplied and they overlap; together they cover Jun 2025 -
+Jul 2026. Overlapping months agree exactly except one seller restatement (Apr
+2026 concessions, -818), so the latest file wins.
 
 The T12 is the only source that carries OCCUPANCY for 2025. Vacancy Loss is
 charged at market rent for the days a unit stands empty, so 1 - VacancyLoss /
@@ -15,7 +15,9 @@ import openpyxl
 from datetime import datetime
 
 DOCS = '../../documents'
-FILES = ['T12_Jun2025-May2026.xlsx', 'T12_Jul2025-Jun2026.xlsx']
+FILES = ['T12_Jun2025-May2026.xlsx', 'T12_Jul2025-Jun2026.xlsx',
+         'T12_Aug2025-Jul2026.xlsx']    # later files win; Apr-26 concessions were
+                                        # restated -818 in the Aug-Jul statement
 
 # GL accounts that make up the residential rent bridge
 ACCT = {

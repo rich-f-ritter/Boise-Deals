@@ -16,7 +16,7 @@ new-lease trade-out — each on both a **gross** and an **effective** basis.
 | Rent roll w/ lease charges 7/09/2026 | charge-code detail | 2,666 charge rows | No |
 | Concession Burn Off 6/21 & 7/30/2026 | **current residents only** (347) | Move In + *current* Lease Start + term + concessions | Partially — move-ins reach 8/21/2024, but only 16 residents remain from 2024 |
 | Renewal Trade-Outs (3ps) | **5/10/2026 – 7/9/2026 only** | 23 renewals, exact prior/new gross + concession + effective | No |
-| T12 (Jun25–May26, Jul25–Jun26) | **Jun 2025 → Jun 2026** | monthly GL | No — first 10 months of lease-up missing |
+| T12 (Jun25–May26, Jul25–Jun26, Aug25–Jul26) | **Jun 2025 → Jul 2026** | monthly GL | No — first 10 months of lease-up missing |
 
 First move-in on record: **8/21/2024**. First HelloData listing: **6/1/2024**.
 
