@@ -618,6 +618,49 @@ def main():
     print(f'collapsed {n_dupes} duplicate new-lease row(s) '
           f'(same unit within {MIN_TENANCY_DAYS}d = one lease)')
 
+    # The same id churn duplicates EXPIRATION and MOVE OUT events (J108 carried
+    # two resident ids for one tenancy). Two leases cannot expire in the same
+    # unit in the same month, so (event, unit, month) is a safe identity.
+    seen_k, dedup2, n2 = set(), [], 0
+    for e in events:
+        if e['event'] in ('Lease Expiration', 'Move Out'):
+            k = (e['event'], e['unit'], e['month'])
+            if k in seen_k:
+                n2 += 1
+                continue
+            seen_k.add(k)
+        dedup2.append(e)
+    events = dedup2
+    print(f'collapsed {n2} duplicate expiration/move-out row(s)')
+
+    # INTERNAL TRANSFERS: the same tenant moving out of one unit and signing in
+    # another within 60 days never left the property. 18 of them in 2026 — incl.
+    # tenants relocated so their units could go to the Murata/Paragon blocks.
+    # The move-out keeps its unit-level meaning (the unit turned); the new lease
+    # is flagged and EXCLUDED from rent statistics (a negotiated unit swap is not
+    # an arm's-length lease — Ediae's G103 books \$2,140 on a \$1,718 unit), and
+    # the expiration is marked so retention can be read tenant-basis.
+    from datetime import timedelta as _td
+    mo_ev = [e for e in events if e['event'] == 'Move Out' and e['month'] and e['month'] >= '2026-01']
+    nl_ev = [e for e in events if e['event'] == 'New Lease' and e['month'] and e['month'] >= '2026-01']
+    n_tr = 0
+    for me in mo_ev:
+        nm = (me.get('name') or '').strip()
+        if not nm:
+            continue
+        for ne in nl_ev:
+            if (ne.get('name') or '').strip() == nm and ne['unit'] != me['unit'] \
+                    and abs((ne['signed'] - me['signed']).days) <= 60:
+                me['transfer'] = f"to {ne['unit']}"
+                ne['transfer'] = f"from {me['unit']}"
+                n_tr += 1
+                for xe in events:
+                    if xe['event'] == 'Lease Expiration' and xe['unit'] == me['unit'] \
+                            and (xe.get('name') or '').strip() == nm:
+                        xe['transfer'] = f"to {ne['unit']}"
+                break
+    print(f'flagged {n_tr} internal transfers (tenant retained, unit turned)')
+
     # ==================================================================
     # MONTHLY ROLL-UP
     # ==================================================================
@@ -726,7 +769,8 @@ def main():
     monthly = []
     for mo in months:
         ev = [e for e in events if e['month'] == mo]
-        rent_ev = [e for e in ev if not e.get('corporate')]     # corporate excluded from $ stats
+        rent_ev = [e for e in ev if not e.get('corporate') and not e.get('transfer')]
+        # corporate AND internal transfers excluded from $ statistics
 
         new = [e for e in ev if e['event'] == 'New Lease']
         new_r = [e for e in rent_ev if e['event'] == 'New Lease']
@@ -813,7 +857,10 @@ def main():
             # is a floor on renewals that month, not a count.
             'renewals_survivor_floor': len(ren) if mo < '2026-01' else None,
             'move_outs': len(out),
+            '  of which internal transfers': sum(1 for e in out if e.get('transfer')) or None,
             'retention_pct': exp_ren / denom if denom else None,
+            'retention_tenant_pct': (exp_ren + sum(1 for e in exp if e.get('transfer')))
+                                    / denom if denom else None,
             'scheduled_expirations_ahead': len(sched),
             'notices_scheduled_moveout': len(notice),
             'renewal_n': rs['n'],

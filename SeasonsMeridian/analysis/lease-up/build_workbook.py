@@ -68,8 +68,8 @@ prox = mo[mo.month < ACTUAL_FROM]
 # statistics and exclude corporate leases, matching the Monthly tab convention
 e_new_all = ev[ev.event == 'New Lease']
 e_rel_all = e_new_all[e_new_all.generation == 'Re-lease']
-e_ren = ev[(ev.event == 'Renewal') & ev.corporate.isna()]
-e_new = e_new_all[e_new_all.corporate.isna()]
+e_ren = ev[(ev.event == 'Renewal') & ev.corporate.isna() & ev.transfer.isna()]
+e_new = e_new_all[e_new_all.corporate.isna() & e_new_all.transfer.isna()]
 e_rel = e_new[e_new.generation == 'Re-lease']
 e_rel_a = e_rel[e_rel.month >= ACTUAL_FROM]
 
@@ -103,7 +103,7 @@ block('LEASE-UP VELOCITY', [
     ('  first-generation (initial lease-up)', int(e_new_all[e_new_all.generation == 'First lease-up lease'].shape[0]), '#,##0',
      'Exactly one per unit — all 360 units resolve to a first lease-up lease'),
     ('  re-leases of a turned unit', int(len(e_rel_all)), '#,##0',
-     'Rent statistics below exclude the 12 corporate re-leases; counts here include them'),
+     'Rent statistics below exclude 12 corporate re-leases and 16 internal transfers; counts include them'),
     ('Months to lease all 360 units', 21, '#,##0',
      'Jul 2024 first move-in → 4/24/2026 last first-generation lease'),
     ('Occupancy 1/1/2026 → 8/18/2026', '314 → 350 of 360', '@', '87% → 97%'),
@@ -125,7 +125,13 @@ block('THE FIRST TURN (Yardi actuals, Jan – Aug 2026)', [
     ('  renewed', tot_ren, '#,##0', ''),
     ('  moved out', tot_out, '#,##0', ''),
     ('  month-to-month holdover', tot_mtm, '#,##0', 'Expired, still in place, no new lease signed'),
-    ('RETENTION', tot_ren / max(tot_exp, 1), '0.0%', 'Renewals ÷ leases that came due'),
+    ('RETENTION (unit basis)', tot_ren / max(tot_exp, 1), '0.0%', 'Renewals ÷ leases that came due'),
+    ('RETENTION (tenant basis)',
+     (tot_ren + int(ev[(ev.event == 'Lease Expiration') & (ev.month >= ACTUAL_FROM)
+                       & ev.transfer.notna()].shape[0])) / max(tot_exp, 1), '0.0%',
+     'Adds expiring tenants who TRANSFERRED to another unit rather than leaving — several were '
+     'relocated so their units could go to the Murata/Paragon corporate blocks. They left a unit, '
+     'not the property. (18 transfers in 2026 in total; only expiring-cohort ones count here.)'),
 ], )
 
 block('RENEWAL TRADE-OUT (n = 64 renewals)', [
@@ -240,8 +246,7 @@ RRA_START = {'S1_Seas': 1495.8, 'A1_Seas': 1679.0, 'A2_Seas': 1766.4, 'B1_Seas':
              'B2_Seas': 2074.0, 'B3a_Seas': 2012.4, 'B3b_Seas': 2066.2,
              'C1a_Seas': 2497.8, 'C1b_Seas': 2266.4}
 _l5 = ev[(ev.event == 'New Lease') & ev.basis.str.startswith('ACTUAL')
-         & ev.corporate.isna() & ev.new_gross.notna()
-         & ~((ev.unit == 'G103') & (ev.month == '2026-08'))].copy()   # transfer, not a lease
+         & ev.corporate.isna() & ev.transfer.isna() & ev.new_gross.notna()].copy()
 l5_rows, _n, _d = [], 0, 0
 for _fp, _u in MIXU.items():
     _g = _l5[_l5.unit_type == _fp].sort_values('signed', ascending=False).head(5)
@@ -258,10 +263,9 @@ block('L5 NEW LEASE AVERAGE — 5 most recent leases per plan, mix-weighted', [
      f'vs model starting market rent $1,884.7 (the prior L5): {_l5w/1884.7-1:+.1%} — '
      f'starting rents remain current'),
 ] + l5_rows + [
-    ('Excluded: corporate + one transfer', 13, '#,##0',
-     'The 12 corporate leases would lift this to $1,933. G103 ($2,140 on a $1,718-market A1) '
-     'is the Ediae unit TRANSFER, not an arm\'s-length lease — with it, L5 reads $1,923. '
-     'Confirm G103\'s actual charge with the seller.'),
+    ('Excluded: corporate + internal transfers', 28, '#,##0',
+     '12 corporate leases + 16 internal unit transfers (negotiated swaps, not arm\'s-length '
+     'pricing — e.g. G103 books $2,140 on a $1,718-market A1). With them in, L5 reads $1,923-1,933.'),
 ], )
 
 block('THE CONCESSION STORY', [
@@ -317,7 +321,8 @@ COLS = [
     ('  expired -> renewed', 'exp →\nrenewed', 9, '#,##0'),
     ('  expired -> moved out', 'exp →\nmoved out', 9, '#,##0'),
     ('  expired -> MTM holdover', 'exp →\nMTM', 8, '#,##0'),
-    ('retention_pct', 'RETENTION\n%', 10, '0.0%'),
+    ('retention_pct', 'RETENTION\nunit basis %', 11, '0.0%'),
+    ('retention_tenant_pct', 'RETENTION\ntenant basis %', 11, '0.0%'),
     ('renewals_survivor_floor', 'Renewals obs.\n(survivors, ≥)', 12, '#,##0'),
     ('renewal_n', 'RENEWALS\n(n)', 10, '#,##0'),
     ('renewal_prior_gross', 'Renewal\nprior gross $', 12, '#,##0'),
@@ -336,6 +341,7 @@ COLS = [
     ('new_conc_freq', 'Conc.\nfreq %', 9, '0%'),
     ('new_conc_depth', 'Conc.\ndepth %', 9, '0.0%'),
     ('move_outs', 'Move-\nouts', 8, '#,##0'),
+    ('  of which internal transfers', 'of which\ntransfers', 9, '#,##0'),
 ]
 ws['A1'] = 'Monthly Lease Activity — Seasons at Meridian'
 ws['A1'].font = Font(bold=True, size=13, color=NAVY)
