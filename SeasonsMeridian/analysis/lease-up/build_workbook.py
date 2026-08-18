@@ -233,6 +233,37 @@ c_init = conc_stats(e_new[e_new.generation == 'First lease-up lease'])
 c_2026 = conc_stats(e_rel_a)
 c_ren = conc_stats(e_ren)
 
+# ---- L5: five most recent new-lease contract rents per plan, mix-weighted ----
+MIXU = {'S1_Seas': 15, 'A1_Seas': 120, 'A2_Seas': 45, 'B1_Seas': 30, 'B2_Seas': 75,
+        'B3a_Seas': 15, 'B3b_Seas': 30, 'C1a_Seas': 10, 'C1b_Seas': 20}
+RRA_START = {'S1_Seas': 1495.8, 'A1_Seas': 1679.0, 'A2_Seas': 1766.4, 'B1_Seas': 1901.8,
+             'B2_Seas': 2074.0, 'B3a_Seas': 2012.4, 'B3b_Seas': 2066.2,
+             'C1a_Seas': 2497.8, 'C1b_Seas': 2266.4}
+_l5 = ev[(ev.event == 'New Lease') & ev.basis.str.startswith('ACTUAL')
+         & ev.corporate.isna() & ev.new_gross.notna()
+         & ~((ev.unit == 'G103') & (ev.month == '2026-08'))].copy()   # transfer, not a lease
+l5_rows, _n, _d = [], 0, 0
+for _fp, _u in MIXU.items():
+    _g = _l5[_l5.unit_type == _fp].sort_values('signed', ascending=False).head(5)
+    if not len(_g):
+        continue
+    _avg = _g.new_gross.mean()
+    _n += _avg * _u; _d += _u
+    l5_rows.append((f'  {_fp}', _avg, '#,##0',
+                    f'n={len(_g)} · newest move-in {_g.signed.max()[:10]} · '
+                    f'RRA start ${RRA_START[_fp]:,.0f} ({_avg/RRA_START[_fp]-1:+.1%})'))
+_l5w = _n / _d
+block('L5 NEW LEASE AVERAGE — 5 most recent leases per plan, mix-weighted', [
+    ('L5 MIX-WEIGHTED (gross contract rent)', _l5w, '$#,##0',
+     f'vs model starting market rent $1,884.7 (the prior L5): {_l5w/1884.7-1:+.1%} — '
+     f'starting rents remain current'),
+] + l5_rows + [
+    ('Excluded: corporate + one transfer', 13, '#,##0',
+     'The 12 corporate leases would lift this to $1,933. G103 ($2,140 on a $1,718-market A1) '
+     'is the Ediae unit TRANSFER, not an arm\'s-length lease — with it, L5 reads $1,923. '
+     'Confirm G103\'s actual charge with the seller.'),
+], )
+
 block('THE CONCESSION STORY', [
     ('Renewal gross vs effective spread', ren_e - ren_g, '+0.0%;-0.0%',
      'Nearly all renewal economics come from concession burn-off, not rate'),
