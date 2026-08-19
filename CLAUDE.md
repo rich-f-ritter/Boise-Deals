@@ -30,6 +30,12 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
   assessed-value ramp lags construction by ~$212k across lease-up. Costs doubled 2014-2021 then
   plateaued (~+1.7%/yr); the financing break is **65%->55% LTC = equity/unit +38%**
   ($99.6k -> $137.0k). Ring construction lending ~zero since 2023.
+- `SeasonsMeridian/financing/` — CBRE Preliminary Loan Analysis 8/18/2026 (PDF) + analysis memo.
+  Headline: Freddie 5-yr full-IO w/ 46bp buydown prices at **5.31%** (inside the model's 5.40%)
+  but sizes to **$73.31M vs the model's $76.74M** — CBRE cut its own DSF NCF $6,157,303 (8/5)
+  -> $5,766,584 (8/18), −6.3%. Est. LIRR impact ≈ −65-70bp (~10.5%). CBRE's tax line has NO
+  sale step-up ($440k vs our $519k) = a further ~$1.0M proceeds risk. Quote sized at the $125M
+  whisper but DSCR-bound, so proceeds are price-invariant.
 - `SeasonsMeridian/Seasons at Meridian - Development Feasibility.docx` (5 pp, built by
   `research/audit_2026-08/build_feasibility_memo.py` off `development_feasibility.py`/`.json`,
   which read the LIVE TMG model rather than hard-coded figures). Three layered lenses —
