@@ -111,9 +111,10 @@
       ]
     },
     "vacant_buckets": [
-      "Vacant Land"
+      "Vacant Land",
+      "Agricultural / Rural"
     ],
-    "vacant_note": "Ada County PROPCODE 'L' = Land (vacant lots incl. HOA/condo common-area land, many at $0 value). Treated as undeveloped 'vacant' for the developable-land screen; HOA commons, floodplain, foothills-preservation and airport land are then reasoned out per parcel. PROPCODE: R=Residential, C=Commercial, F=Farm, L=Land, M=Manufactured.",
+    "vacant_note": "Ada County PROPCODE 'L' = Land (vacant lots incl. HOA/condo common-area land, many at $0 value) AND PROPCODE 'F' = Farm (ag-exempt acreage) are BOTH treated as undeveloped 'vacant' for the developable-land screen. F was added after the July 2026 blind-spot audit: the subject's own 351-unit Phase II site (2600 E Overland, S1117438630) is assessor-coded F and was invisible to the L-only screen. Ag-exempt farms are the canonical sell-and-develop land pipeline (Syringa Crossing, Graycliff, Brighton master plans all started as F parcels). HOA commons, floodplain, working-farm-with-no-signals and airport land are then reasoned out per parcel. PROPCODE: R=Residential, C=Commercial, F=Farm, L=Land, M=Manufactured.",
     "default_bucket": "Other / Unclassified",
     "public_owner_regex": null
   },

@@ -1,0 +1,21 @@
+{
+ "seasons": {
+  "purchase_price": 118000000,
+  "price_per_unit": 327778,
+  "assessed_presale": 92993300,
+  "assessed_postsale": 115640000,
+  "tax_stepup_annual": 126510,
+  "tax_stepup_pct": 0.3292,
+  "value_impact_at_y1_cap": 2526511,
+  "bp_of_going_in_yield": 11
+ },
+ "emblem": {
+  "stated_exit": 102500000,
+  "buyer_adjusted_exit": 101693890,
+  "overstatement": 806110,
+  "overstatement_per_unit": 3149,
+  "margin_stated": 0.3148,
+  "margin_adjusted": 0.3044,
+  "extra_rent_needed_2026": 14.11
+ }
+}

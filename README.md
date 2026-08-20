@@ -1,5 +1,8 @@
 # Boise Deals — Developable-Land Analysis: Canyon Ridge vs Seasons at Meridian
 
+> **Aug 14, 2026 revision:** all Seasons at Meridian deliverables were rebuilt after a blind-spot audit (the subject's denied Phase II next door, farm-coded parcels, legacy-name entitlements). See `research/audit_2026-08/AUDIT_SUMMARY.md` and `CLAUDE.md` for the standing rules that came out of it.
+
+
 A granular, parcel-level land-use and **developable-land availability** comparison of the areas around
 two Treasure Valley apartment communities, built to answer: *who owns the developable land nearby, since
 when, who they are, and what they are going to do with it.*

@@ -47,6 +47,31 @@ For each plausible candidate ask:
   keys on the leading word.
 - Prefer `match.account` (exact) when you can; otherwise `owner_prefix` + `location_prefix`.
 
+## Blind spots the mechanical vacant screen WILL have (sweep these by hand)
+
+Case study (Seasons at Meridian, ID, 2026): the subject's own **351-unit Phase II** sat on the
+parcel immediately next door and was missed by every layer of the analysis — the parcel was
+assessor-coded **F (ag-exempt farm, $29.9k assessed on 18 ac)** so it never entered the
+PROPCODE-L vacant screen; it was zoned C-G (MF only by CUP) so even in the screen it would have
+ranked Medium; and its entitlement (a 2022 DA-mod + CUP) was filed as **"Overland and Wells II"**
+— the subdivision name, not the "Seasons" brand — so name searches found nothing. Three
+independent screens, three blind spots, one 500-ft miss.
+
+Standing rules derived from it:
+1. **Ag-exempt / farm-coded parcels are vacant-land-in-waiting.** In any growth corridor they
+   are the primary land pipeline (locally: Syringa Crossing, Graycliff, and the Brighton master
+   plans all began as this class). Enumerate every one within ~1.5 mi of the subject and reason
+   over each individually — owner, zoning, FLU, listing/entitlement history.
+2. **The touching parcels get individual dossiers, always** — every parcel adjacent to the
+   subject, whatever its code, gets owner/zoning/entitlement checked (Phase A.5).
+3. **The subject's own phasing is checked first** — if the subject is any phase of a larger
+   plan, later phases are threat candidate #1 (Phase A.5).
+4. **Entitlement search is alias-aware** — query by address, parcel/account number, owner
+   entity, developer, and subdivision/plat name. A hit under any alias beats a miss under the
+   marketed name.
+5. **Large-lot homesteads (one house on development-scale acreage)** near the subject get the
+   same treatment as farms.
+
 ## Always write the decisions log
 Write `Tables/decisions_log.md` capturing every judgment call: subject point/override,
 analysis-area choice, data sources used + rejected + coverage gaps, land-use source &

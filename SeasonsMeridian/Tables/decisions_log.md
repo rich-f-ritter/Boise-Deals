@@ -97,3 +97,61 @@ analysis is auditable and reproducible.
 - Parcels/zoning/FLU: AdaCountyGIS ArcGIS Online, pulled 2026-07-14. Assessor values are the current roll.
 - Ordinances: Boise Modern Zoning Code (2023), Meridian UDC, Ada County Title 8 (2024).
 - Ownership/intent reporting is dated per source in the Ownership & Intent sheet (mostly 2019-2026).
+
+---
+
+# AUGUST 2026 RE-RUN — BLIND-SPOT AUDIT & CORRECTED METHODOLOGY
+
+Re-run date: 2026-08-14. Trigger: the July run missed the subject's own marketed Phase II
+("Seasons at Meridian II" / Overland & Wells II, H-2022-0030) on the touching parcel at
+2600 E Overland — assessor-coded F (ag-exempt farm), so it never entered the PROPCODE-L
+vacant screen, and filed under the subdivision name, so brand-name searches missed it.
+
+## A. Phase A.5 — Subject master-plan & adjacency sweep (new mandatory gate)
+1. **Phased-plan check:** The subject IS Phase 1 of a two-phase Morgan Stonehill plan inside
+   the WinCo Wells subdivision (DA Inst. #2016-060157). Phase II = 351 units (345 at hearing)
+   on 11.65 of the 18 ac at 2600 E Overland — **DENIED by City Council 10/25/2022** (Findings
+   of Denial adopted 11/9/2022: employment-land loss, failing Overland/Eagle intersections,
+   MF over-concentration next to Phase 1). No CUP ever issued; no re-application through
+   Aug 2026. Owner of record was and remains **WinCo Foods, LLC** (Morgan Stonehill never took
+   title); WinCo lot-split the parcel Feb 2025 along the future Cinema Dr extension and has
+   marketed it since Jan 2024 (Colliers) as big-box/pad retail ground leases. Verdict:
+   documented DEAD MF site, ~5% de-novo revival, earliest plausible delivery ~2030.
+   Full paper trail: research/audit_2026-08/seasons_II_overland_wells_II_status.md.
+2. **Same-developer sweep:** Morgan Stonehill's 69-project index lists no other Treasure
+   Valley project; architect NG+P's "Seasons at Meridian II — Concept Design/Entitlements"
+   page is stale pre-denial marketing (fails the recency lens).
+3. **Touching-parcel inventory** (research/audit_2026-08/touching_parcels.json): S1117438630
+   (the WinCo parcel, above) + five ~1-ac county-R1 homes on S Loder Pl (un-annexed enclave;
+   assemblage-watch only). Across-the-ROW neighbors: Bonito Sub commercial (E), Gramercy (S),
+   Magic View/Freeway Dr (N).
+
+## B. Vacant-screen correction
+- `vacant_buckets` widened from PROPCODE L only to **L + F (ag-exempt farm)** — farms are the
+  canonical sell-and-develop pipeline (Syringa, Graycliff, Brighton plans all began as F).
+  Result: 552 candidate clusters (vs 481 L-only); the 2600 E Overland parcel is now the #1
+  nearest candidate, as it should have been in July.
+- Large-lot homesteads (R/M ≥5 ac, 443 in ring) were swept by reasoning (not auto-candidates):
+  closest are the Magic View RUT 5-ac lots (0.3-0.6 mi) — now the Latitude Forty Three
+  79-home for-sale application (H-2024-0059, council pending) — and Victory Rd RUT acreage
+  (county rural-residential; benign).
+
+## C. Ring-wide entitlement re-audit (research/audit_2026-08/ring_sweep_findings.md)
+- **Missed and now added:** Pine 43 expansion H-2024-0071 (approved 10/21/2025 — 270-unit MF
+  CUP entitled now + up to ~604 vertically-integrated units; legacy-name filing); Outer Banks
+  516u (groundbreaking expected 2026); District at Ten Mile ~1,800-unit master plan (broke
+  ground May 2026, retail-led coverage); Modern Craftsman Franklin 122 BTR (2023 filing,
+  status unverified).
+- **Corrections:** Cole Denton now 224u (May 2026 refile); Syringa now 302u CUP (remanded;
+  re-heard 8/6/2026, outcome unpublished); Emblem formal plans filed June 2026 (250u).
+- **Confirmed dead:** Newkirk 216u→for-sale homes; Village at Meridian 549u expansion
+  scrapped; The Hummingbird expired; Overland & Wells II denied (above).
+- Root causes across all misses: (1) modifications filed under legacy master-plan names,
+  (2) plat-style names with no apartment brand, (3) approval swaps on parcels with a dead
+  prior deal, (4) assessor farm coding. All four are now standing checks in the skill.
+
+## D. Ranking (Aug 2026)
+Reasoned ranking rewritten (in/reasoned_ranking.json): Pine 43, Outer Banks, Emblem, Records
+(dormant-entitled), Tanner Creek, Graycliff R-40, Ten Mile/District node lead; 2600 E Overland
+carried as Low-Watch (dead, documented); Latitude 43 Low (for-sale SF); Kleiner Trust 72 ac
+Low-Watch (inert). Unverifiable items are labeled as data gaps, never guessed.
