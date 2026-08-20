@@ -1,12 +1,24 @@
 # Seasons at Meridian — Replication-Cost Reconstruction (~$328K/u, quality-of-product basis)
 
-**Status: RECONSTRUCTION, 2026-08-16 — not the original analysis.** Prior work landed near **~$328K/unit
-to replicate Seasons specifically**, with the delta vs. the generic Meridian benchmark attributed to
-**quality of product** (per RR recollection, 2026-08-16 session). The original is not in this repo — it
-predates the CLAUDE.md knowledge-capture protocol. This file rebuilds the arithmetic from captured
-components so the figure has a defensible basis until the original is recovered.
-(An earlier draft of this file guessed the delta was land — superseded same day by the quality-of-product
-attribution. Note also the numeric proximity to the $118M bid per unit, $327.8K — coincidental.)
+> **ORIGINAL RECOVERED (2026-08-20).** The prior work was NOT lost — it lives in
+> `research/audit_2026-08/replacement_cost_analysis.md` (v3) + `replacement_cost_model.py` +
+> `emblem_normalization.py`, merged into this branch via the audit branch (PR #9's content).
+> **Canonical figure: Seasons-specific replication ≈ $322,530/unit (~$116.1M)** — above the generic
+> ~$306K/u ($110M) Seasons-scale replacement, with the premium attributed to **the subject's amenity
+> package AND superior land** (so RR's quality recollection and this file's earlier land guess were each
+> half of the original attribution). Canonical required rent for new supply: **$2,224/u/mo normalized
+> (+16.1% vs the $1,915 Y1 UW market rent)**, on Emblem ancillary income normalized $350.59 →
+> $215.50/u/mo and observed cost escalation of +1.7%/yr. **Use the recovered figures, not this file's
+> ~$328K, wherever one number is quoted.** This reconstruction is retained below as a convergence check —
+> it landed within 1.7% of the original ($328K vs $322.5K) from independent components.
+
+**Status: RECONSTRUCTION, 2026-08-16 — superseded by the recovered original above.** Prior work landed
+near **~$328K/unit to replicate Seasons specifically**, with the delta vs. the generic Meridian benchmark
+attributed to **quality of product** (per RR recollection, 2026-08-16 session). This file rebuilt the
+arithmetic from captured components while the original was believed lost.
+(An earlier draft of this file guessed the delta was land — the recovered original attributes the premium
+to amenity package *and* land. Note also the numeric proximity to the $118M bid per unit, $327.8K —
+coincidental.)
 
 ## The arithmetic
 

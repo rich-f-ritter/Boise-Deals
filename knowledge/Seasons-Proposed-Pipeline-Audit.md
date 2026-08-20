@@ -79,6 +79,19 @@ longer draft below):**
   sits 0.5–7% below the merchant pencil (~$2,240–$2,390) and 6–12% below like-quality replication
   (~$2,380–$2,540) — development does not pencil at any point during the hold
 
+> **RECONCILIATION ADVISORY (2026-08-20, post-merge of the audit branch).** The original replacement-cost
+> work was recovered (`research/audit_2026-08/replacement_cost_analysis.md` v3). Canonical figures differ
+> slightly from the bullets below, which were drafted off the 8/16 reconstruction: Seasons-specific
+> replication **$322,530/u (~$116.1M)**, not ~$328K; canonical single-number pencil **$2,224/u/mo
+> (+16.1% vs $1,915)** on normalized ancillary income at +1.7%/yr observed cost escalation (feasibility
+> gap −15.3% FY27 → −7.9% at 2031 exit; never closes at observed escalation). Recommended slide edits:
+> quality bullet "~$328K/unit" → "~$322.5K/unit" (price/replication ≈ 1.05x on the ~$339K/u basis);
+> supply bullet's like-quality tier → cite $2,224 / +16.1% where one number is wanted. The audit also
+> upgrades **Outer Banks (516u) to UNDER CONSTRUCTION** (permits 6/17/26, 3 of ~50 buildings) — outside
+> the 15-project proposed roster below, so "none of the proposed units are under construction" remains
+> accurate, but a nearby "zero construction" claim should carve out Outer Banks. RR to confirm before the
+> deck finalizes.
+
 **Exec summary slide — companion quality-of-product bullet (final on slide, 2026-08-16):**
 
 - Newest-vintage, top-of-market product acquired at approximately its replication cost: Seasons is a
