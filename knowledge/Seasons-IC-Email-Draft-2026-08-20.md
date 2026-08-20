@@ -4,7 +4,55 @@ Drafted this session for RR. Support: `Seasons-v3-to-v6-Model-Diff-2026-08-20.md
 `Seasons-Broker-Guidance-Naumann-2026-08-19.md`, `Seasons-CBRE-Debt-PLA-Extraction-2026-08-18.md`,
 `Seasons-KEAndrews-Tax-Projection-Extraction-2026-08.md`.
 
+**2026-08-20 supersession note: RR asked for ~1/3 length. The SHORT version below is the live
+draft; the original long version is kept underneath for the record (same facts, fuller
+explanations).**
+
 ---
+
+## LIVE DRAFT (short version)
+
+**Subject: Seasons — post-IC updates / broker guidance / submitting at $119M**
+
+Team —
+
+Quick update since Monday. We've tightened the UW in five places, got real guidance from the broker
+yesterday, and we plan to submit at $119M.
+
+**Model:** Monday's deck was 8.7% UIRR / 11.9% LIRR at $122M; same price through the current model
+is 8.6% / 11.3%. At $119M, back of the envelope ~9.3% / ~13% and a 5.07% Y1 cap (re-cutting now),
+basis ~$331K/u — still ~2.5% above our replacement cost work. The changes, net Y1 NOI +$139K:
+
+- **Taxes** — KEAndrews guidance in: 2027 reassessment $120.6M → $533K. Where we already were, but
+  now third-party supported. They anchored to the $125M guidance, so conservative at our price.
+- **Insurance** — $525/u → $500/u per Karen. Still ~1.5x what the seller carries.
+- **Debt** — CBRE soft quotes (Wagley): Freddie 5-yr fixed w/ max buydown, **5.31% all-in, $73.3M,
+  full-term IO**. Cheaper than the 5.40% we carried but ~$3.4M less proceeds — that's most of the
+  levered give-back since Monday.
+- **Y1 mkt rent** — $1,915 → $1,885 (−1.6%) w/ asset mgmt for seasonality — the Prelude lesson. Y1
+  now equals today's executed leases with T90 already at $1,940; the cut carries through the path
+  and costs us most of the UIRR at exit. Cheap insurance.
+- **CapEx** — rebuilt bottoms-up w/ Justin: −$485K vs the budget we carried into Monday.
+
+**New July T12 / 8.18 rent roll:** lease-up is done — **97.8% occupied**, July concessions
+basically zero, ~10% loss-to-lease in place, and 64 move-ins since June averaging $1,920 (August:
+$1,947) — already above our new Y1 number.
+
+**Broker (Naumann, yesterday):** 18 credible groups, only one formal offer in — **top offer $115M**
+(and the rumored off-market $115 never existed). Carlyle is a motivated seller, his words. Feedback
+Friday, then ONE best & final, which we expect due next Friday, awarded end of next week. Surety of
+close is the differentiator — we'll start DD off an access agreement pre-PSA like we did on
+Prelude. No re-tour needed.
+
+$119M is $4M clear of the top bid, −4.8% to guidance, and clears our thresholds on the tightened
+book. Will report back after Friday's feedback — happy to walk anyone through the deltas before
+then.
+
+R
+
+---
+
+## SUPERSEDED — original long version (8/20, pre-trim)
 
 **Subject: Seasons at Meridian — post-IC updates, broker guidance, submitting at $119M**
 
