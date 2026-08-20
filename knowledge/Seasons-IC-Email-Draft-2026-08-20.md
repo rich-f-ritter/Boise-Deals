@@ -10,7 +10,49 @@ explanations).**
 
 ---
 
-## LIVE DRAFT (short version)
+## LIVE DRAFT (v3 — polished from RR's own draft, 2026-08-20)
+
+RR wrote his own version and asked for a polish that stays close to it. New facts from RR's draft
+captured here: submitting TODAY (8/20) at $119M; 25 groups toured / 18 considered real; broker
+expects 4-5 groups in B&F; broker has no execution concerns about Milestone (team was at the asset
+during the Prelude buy) and says vetting will focus on groups that don't yet own in Boise.
+"L5" = RR's shorthand for the trailing executed-lease level ($1,885).
+
+---
+
+Subject: Seasons at Meridian — UW update / broker feedback / submitting today at $119M
+
+Quick update on Seasons at Meridian since Monday. We've continued to refine the UW, got guidance
+from the broker yesterday, and plan to submit today at $119M.
+
+- Taxes: incorporated KEAndrews guidance — supports what we carried (no change)
+- Insurance: $525/U -> $500/U per Karen
+- Debt: CBRE preliminary sizing from Jay Wagley — slightly better than our UW on rate (5.31%
+  all-in, Freddie 5-yr fixed, full-term IO), but ~$3.4M less proceeds
+- Y1 mkt rent: refined w/ asset management to more accurately account for seasonality ($1,915/mo
+  -> $1,885/mo; -1.6%). Y1 market rents now equal the L5 ($1,885)
+- CapEx: refined w/ Justin — reduced ~$485K vs what we carried Monday
+
+Net effect: Y1 NOI +~$139K, Y1 cap 4.76% -> 4.87% at $122M — 5.07% at our $119M submit. Updated
+July T12 / 8.18 RR back it up: 97.8% occupied, concessions effectively gone in July, new leases
+since June averaging $1,920 — already above our new Y1 number.
+
+We spoke with the broker yesterday (Matt Naumann). 25 groups toured the asset; he considers 18
+real. As of yesterday he had one offer in hand ($115M) — everyone still feeling it out. He expects
+the process to move quickly/cleanly: call with Carlyle Friday, then 4-5 groups into B&F, due next
+Friday.
+
+While we haven't formally toured w/ CBRE, they know we had our entire team at the asset last year
+when we bought Prelude. He has no concerns about our ability to execute — said the vetting will be
+focused on groups that don't own in Boise yet. When I asked what sets us apart aside from price:
+surety of execution, specifically starting DD on an access agreement — which we'll build into our
+offer.
+
+Happy to walk anyone through the model deltas before B&F.
+
+---
+
+## SUPERSEDED — v2 short draft (pre-RR rewrite)
 
 **Subject: Seasons — post-IC updates / broker guidance / submitting at $119M**
 
