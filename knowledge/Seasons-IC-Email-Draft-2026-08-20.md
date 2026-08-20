@@ -10,7 +10,46 @@ explanations).**
 
 ---
 
-## FOLLOW-UP EMAIL #2 — Canyon Ridge intel from Travis Presnell (live draft, added 8/20 PM)
+## FOLLOW-UP EMAIL #3 — Canyon Ridge color + LOI SUBMITTED at $117M (LIVE, polished from RR's
+## draft, added 8/20 evening — supersedes #2 below and the $119M figure everywhere above)
+
+New facts from RR's draft + the submitted LOI (`Seasons-LOI-Extraction-2026-08-20.md`,
+PDF in `in/`): **submitted at $117M (not $119M)** after team discussion; RR attributes Canyon's
+$112M goalpost move to a Hawkins option/right to buy at ~$110M; RR expects ~2 other competitive
+discretionary groups on Seasons; Acquisitions & AM tour Monday 8/24.
+
+---
+
+Subject: Seasons — Canyon Ridge color / submitted at $117M
+
+I spoke with Travis Presnell, the broker on Canyon Ridge (the other deal by Micron that was just
+marketed — the Hawkins / Carlyle JV), and got more color on that process. Canyon Ridge has not
+been awarded. Original guidance was $110M and they got to $110M in the B&F process, but after
+that the goal post was moved to $112M. Travis thinks that's due to Hawkins having some sort of
+option / right mechanism to buy it from Carlyle at $110M.
+
+They had 28 offers on Canyon Ridge. Half were sub-$100M, and it thinned out quickly approaching
+$110M. Of the top ~6 groups that made B&F, half were fully discretionary; the other half would
+need a partner. Groups like Principal, JPM, and Clarion were watching but not participating.
+
+So to answer your question — I'd expect the real bidder pool on Seasons to be small but
+competitive. My guess is ~2 other groups that are both competitive and have discretionary capital.
+
+With that in mind, and after further discussion with the rest of the team, we submitted our LOI
+this afternoon at $117M. Key terms:
+
+- $117M, free and clear. $10M total earnest money — $5M at PSA signing (goes hard at the end of
+  DD), another $5M when DD expires
+- DD starts off an access agreement ahead of the PSA — the surety-of-close structure the broker
+  flagged, starts the clock ~2 weeks early. 30-day inspection period; close 30 days later (+15
+  business day extension right)
+- 30-day standstill once countersigned; offer expires 8/27
+
+Acquisitions & AM will be in the market touring the asset on Monday.
+
+---
+
+## SUPERSEDED — follow-up email #2 draft (pre-LOI, still said $119M; kept for the record)
 
 Source + full extraction: `Seasons-Broker-Intel-Presnell-CanyonRidge-2026-08-20.md` (speaker
 attribution caveats noted there).

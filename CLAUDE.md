@@ -111,9 +111,12 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
 
 ## LIVE TMG MODEL ANCHORS (v3 re-uploaded 8/15/2026 — supersedes all earlier figures)
 **[SUPERSEDED 2026-08-20 by model v6 (`in/TMG_Acquisitions_Seasons_at_Meridian_v6_July_T12.xlsm`).**
-Live v6 anchors: model price input $122M (submit $119M), 4-yr hold exiting ~2030, Y1 mkt rent
-**$1,885** (was $1,915), Y1 cap 4.87%, UIRR 8.55% / LIRR 11.30% at $122M — **at the $119M submit:
-UIRR 9.3% / LIRR 13.1% (RR-confirmed 8/20, re-cut model)**, Freddie 5-yr fixed 5.31%
+Live v6 anchors: model price input $122M — **LOI SUBMITTED 8/20 PM at $117.0M** ($10M EM, DD off
+pre-PSA access agreement, 30-day DD + 30-day close, expires 8/27; `knowledge/
+Seasons-LOI-Extraction-2026-08-20.md`; supersedes the earlier $119M submit plan) — 4-yr hold
+exiting ~2030, Y1 mkt rent **$1,885** (was $1,915), Y1 cap 4.87% at $122M (5.16% at $117M),
+UIRR 8.55% / LIRR 11.30% at $122M — at $119M: UIRR 9.3% / LIRR 13.1% (RR-confirmed 8/20, re-cut
+model; $117M returns not yet re-cut, will be higher), Freddie 5-yr fixed 5.31%
 $73.3M full-term IO (CBRE PLA 8/18), KEAndrews 2027 reassessment $120.625M / $532,861,
 insurance $500/u, Justin capex $1.226M incl. reserves. Full diff + provenance:
 `knowledge/Seasons-v3-to-v6-Model-Diff-2026-08-20.md`. The $1,915 Y1 rent and 5-yr-hold figures

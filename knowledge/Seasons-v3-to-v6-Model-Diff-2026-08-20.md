@@ -127,6 +127,11 @@ rent > 0 = occupied):
 
 ## At the $119M submit price
 
+**[SUPERSEDED 2026-08-20 PM: actual LOI submitted at $117.0M** (Milestone Investments LLC → CBRE,
+signed Ascenzo; `Seasons-LOI-Extraction-2026-08-20.md`, PDF in `in/`). At $117M: Y1 cap 5.16%,
+$325,000/u = +0.8% to replacement cost, $2M over the $115M top offer. Returns at $117M not yet
+re-cut — will exceed the $119M set below.]**
+
 **CONFIRMED BY RR 2026-08-20 (from the re-cut model): at $119M, UIRR 9.3% / LIRR 13.1%; at $122M
 post-changes, ~8.6% / ~11.3%.** These are the quotable figures. The back-of-envelope below
 (9.3% / ~13.0%) was computed this session before the re-cut and is kept as the convergence check —
