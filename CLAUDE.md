@@ -43,7 +43,12 @@ disappear. Anything not committed here is lost.
 Two sessions worked in parallel; this merge unifies them. Known contradictions to resolve — do not
 silently prefer either side:
 
-1. **TWO "v3" MODEL SAVES WITH DIFFERENT DEALS.** The audit's anchors below (from
+1. **[RESOLVED 2026-08-20]** The Monday 8/17/26 IC deck ties to the `7.26 - v3` save ($122M / 4-yr
+   hold / 8.75% UIRR / 11.91% LIRR) — confirmed against the deck PDF and the model file
+   (`knowledge/Seasons-v3-to-v6-Model-Diff-2026-08-20.md`). That lineage is live; the $120M/5-yr
+   audit anchors are from an older save. **Current live model = v6 (July T12)**, in `in/`;
+   intended first-round submit $119M (8/20). Original note kept below for the record:
+   **TWO "v3" MODEL SAVES WITH DIFFERENT DEALS.** The audit's anchors below (from
    `in/TMG_Seasons_at_Meridian_v3.xlsm`, re-uploaded 8/15): bid $120.0M, basis $122.1M, Y1 cap 4.89%,
    exit 10/31/2031 @ 5.25% = $396,692/u, ULIRR 8.20% / LIRR 11.21%. The 8/16-uploaded
    `TMG_Acquisitions_model_7.26 - Seasons_at_Meridian_v3.xlsm` (extracted in
@@ -105,6 +110,14 @@ versioned in `land-use-analysis/` at the repo root — that copy is authoritativ
   market feasibility, the buy-side moat, build-vs-buy — plus the two IC risk questions.
 
 ## LIVE TMG MODEL ANCHORS (v3 re-uploaded 8/15/2026 — supersedes all earlier figures)
+**[SUPERSEDED 2026-08-20 by model v6 (`in/TMG_Acquisitions_Seasons_at_Meridian_v6_July_T12.xlsm`).**
+Live v6 anchors: model price input $122M (submit $119M), 4-yr hold exiting ~2030, Y1 mkt rent
+**$1,885** (was $1,915), Y1 cap 4.87%, UIRR 8.55% / LIRR 11.30% at $122M, Freddie 5-yr fixed 5.31%
+$73.3M full-term IO (CBRE PLA 8/18), KEAndrews 2027 reassessment $120.625M / $532,861,
+insurance $500/u, Justin capex $1.226M incl. reserves. Full diff + provenance:
+`knowledge/Seasons-v3-to-v6-Model-Diff-2026-08-20.md`. The $1,915 Y1 rent and 5-yr-hold figures
+below are STALE for deal-status purposes; the section is kept for the supply-economics analyses
+that cite it.]
 Read these from `in/TMG_Seasons_at_Meridian_v3.xlsm`; do NOT reuse older numbers.
 - Recommended bid **$120.0M = $333,333/u** (whisper $125M); total basis **$122.1M = $339,175/u**.
   (An earlier version of the model carried $118.0M/$327,778/u — that is stale.)
