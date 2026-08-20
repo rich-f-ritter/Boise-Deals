@@ -33,9 +33,11 @@ from the broker yesterday, and plan to submit today at $119M.
   -> $1,885/mo; -1.6%). Y1 market rents now equal the L5 ($1,885)
 - CapEx: refined w/ Justin — reduced ~$485K vs what we carried Monday
 
-Net effect: Y1 NOI +~$139K, Y1 cap 4.76% -> 4.87% at $122M — 5.07% at our $119M submit. Updated
-July T12 / 8.18 RR back it up: 97.8% occupied, concessions effectively gone in July, new leases
-since June averaging $1,920 — already above our new Y1 number.
+Net effect: Y1 NOI +~$139K, Y1 cap 4.76% -> 4.87% at $122M — 5.07% at our $119M submit. At $122M,
+these changes bring our UIRR to ~8.6% and LIRR to ~11.3% (vs the 8.7% & 11.9% shown Monday). At
+$119M, it is a 9.3% UIRR & 13.1% LIRR. Updated July T12 / 8.18 RR back it up: 97.8% occupied,
+concessions effectively gone in July, new leases since June averaging $1,920 — already above our
+new Y1 number.
 
 We spoke with the broker yesterday (Matt Naumann). 25 groups toured the asset; he considers 18
 real. As of yesterday he had one offer in hand ($115M) — everyone still feeling it out. He expects

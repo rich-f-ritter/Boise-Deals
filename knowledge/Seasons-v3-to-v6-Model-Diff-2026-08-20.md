@@ -125,7 +125,15 @@ rent > 0 = occupied):
 - Debt: rate −9bp (interest −$257K/yr) but proceeds −$3.46M / equity +$3.3M → levered drag.
 - Net: UIRR 8.75% → 8.55% (−19bp), LIRR 11.91% → 11.30% (−61bp).
 
-## At the $119M submit price (back-of-envelope, computed this session)
+## At the $119M submit price
+
+**CONFIRMED BY RR 2026-08-20 (from the re-cut model): at $119M, UIRR 9.3% / LIRR 13.1%; at $122M
+post-changes, ~8.6% / ~11.3%.** These are the quotable figures. The back-of-envelope below
+(9.3% / ~13.0%) was computed this session before the re-cut and is kept as the convergence check —
+the ~10bp LIRR difference is consistent with the un-modeled items it lists (tax scaling, debt
+re-size at the lower price).
+
+### Back-of-envelope (computed this session, pre-re-cut)
 - Y1 cap **5.07%**; basis ~$330.6K/u = **+2.5% to the $322.5K/u replacement-cost work** (canonical
   `research/audit_2026-08/replacement_cost_analysis.md` v3).
 - Holding v6 ops and debt dollars constant, shifting Yr0 by +$3.003M (price −$3M, title −0.1%):
