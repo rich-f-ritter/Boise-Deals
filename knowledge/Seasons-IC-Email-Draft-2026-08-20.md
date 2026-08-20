@@ -10,6 +10,48 @@ explanations).**
 
 ---
 
+## FOLLOW-UP EMAIL #2 — Canyon Ridge intel from Travis Presnell (live draft, added 8/20 PM)
+
+Source + full extraction: `Seasons-Broker-Intel-Presnell-CanyonRidge-2026-08-20.md` (speaker
+attribution caveats noted there).
+
+---
+
+Subject: Seasons — follow-up: Canyon Ridge intel (Travis Presnell)
+
+One more data point, from my call this morning with Travis Presnell (ran the Canyon Ridge process
+for Carlyle — same seller). Worth reading before B&F.
+
+Canyon Ridge was NOT awarded. After best & final, Carlyle came back with "$112M or we hold and
+re-market." They got close, but no deal as of now — and the $112 was never mentioned until B&F was
+done. Goalposts moved late.
+
+What that process looked like:
+
+- 28 offers, but the bulk were sub-$100M; thinned out fast approaching $110M. Of the top ~6,
+  roughly half discretionary / half need an LP. True institutional capital was watching, not
+  bidding.
+- Deal size alone thins the field — several groups told him "at $60M we'd be all over it." At
+  $120M+ it gets thinner still, and we're likely competing with the same names on Seasons.
+
+Read-through to Seasons:
+
+- He's hearing $120-130M ($330-350/door) expectations on Seasons — consistent with the $125M
+  whisper.
+- Carlyle priorities per Travis: price first, then how fast you go non-refundable. No timing
+  pressure (Canyon was already on a bridge refi) — they will hold if they don't like the number.
+- Key difference: Canyon's sponsor (Hawkins) negotiated an option to stay in via a refi, which is
+  probably why Carlyle can afford the hard line there. Seasons is Morgan Stonehill — merchant
+  developer, "they sell." Better odds this one actually trades.
+- Sanity check: on annualized July T3 income w/ real expenses, Canyon at ~$110-112 screens ~a
+  5 cap — Seasons at $122 screens about the same, and our $119 is inside that.
+
+Net: reinforces the plan. $119M should be at/near the top of the real field, surety of close is
+the other lever (access agreement / fast non-refundable will be in our LOI), and we should be
+prepared for a possible late goalpost move from Carlyle like Canyon's $112.
+
+---
+
 ## LIVE DRAFT (v3 — polished from RR's own draft, 2026-08-20)
 
 RR wrote his own version and asked for a polish that stays close to it. New facts from RR's draft
