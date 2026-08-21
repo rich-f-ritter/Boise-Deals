@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Seasons at Meridian — Lease-Up Analysis: monthly lease-event series.
+Seasons at Meridian — Lease-Up Analysis: monthly lease-event series (v5).
 
 Builds a month-by-month series from the start of lease-up (Jun 2024) through
 Aug 2026 covering, for each month:
@@ -11,22 +11,28 @@ Aug 2026 covering, for each month:
 
 Two data bases, kept visibly separate (never blended in one number):
   ACTUAL  Jan 2026 - Aug 2026 : Yardi rent rolls + concession burn-off +
-                                renewal trade-out report
+                                renewal + new-lease trade-out reports
   PROXY   Jun 2024 - Dec 2025 : HelloData listing episodes only. No Yardi
                                 roster, lease-start, renewal or financial
                                 data exists for this window.
 
 Conventions (per RFR 2026-08-14):
-  - New leases counted on lease-start date; move-in used as fallback, and
-    HelloData off-market date stands in for the proxy window.
+  - New leases counted on MOVE-IN date; HelloData off-market date + 15d stands
+    in for tenants who left before any rent roll existed.
   - New-lease trade-out baseline = prior tenant's LAST contract rent, same unit.
+    Where the 3ps New Lease Tradeouts report covers the lease (6/19-8/19/2026),
+    the report's exact prior/new detail is authoritative.
   - Effective rent = gross - (total concession / lease term months), the Yardi
-    convention used by the 3ps renewal trade-out report, so figures tie out.
-  - Corporate leases excluded from all rent statistics.
+    convention used by both 3ps trade-out reports, so figures tie out.
+  - CORPORATE leases and INTERNAL TRANSFERS are excluded from every rent
+    statistic (trade-outs, L5, mix-weighted levels, concession splits).
+    Counts include them; the flags are per-row on the events tab.
 
-Output: events.csv, monthly.csv + a validation report to stdout.
+Output: events.csv, monthly.csv, stats.json + a validation report to stdout.
 """
 import csv
+import json
+import re
 import openpyxl
 import t12 as t12mod
 import pandas as pd
@@ -35,18 +41,47 @@ from collections import defaultdict
 
 DOCS = '../../documents'
 RENEWAL_GAP_DAYS = 45              # lease start > move-in + gap => renewal
-CORPORATE = {'Coleman Environmental Engineering', 'Murata Machinery Inc'}
 HD_TO_MOVEIN_LAG = 15              # median days: off-market -> move-in (validated in DATA_NOTES)
 MIN_TENANCY_DAYS = 120             # shortest lease term seen in the burn-off is 4 months;
                                    # closer listing episodes are one lease-up, not a turn
+TRANSFER_WINDOW_DAYS = 60          # same resident out of one unit / into another within this
 ACTUAL_START = date(2026, 1, 1)    # Yardi-actual window begins at the 1/1/26 roll
-CUTOFF = date(2026, 8, 4)          # measurement date = latest rent roll
+CUTOFF = date(2026, 8, 18)         # measurement date = latest rent roll
 TOTAL_UNITS = 360
 
 ROLLS = [('2026-01-01', 'rent-rolls/RentRoll_AsOf_2026-01-01_BACKDATED-see-notes.xlsx'),
          ('2026-07-07', 'rent-rolls/RentRoll_AsOf_2026-07-07.xlsx'),
          ('2026-07-19', 'rent-rolls/RentRoll_AsOf_2026-07-19.xlsx'),
-         ('2026-08-04', 'rent-rolls/RentRoll_AsOf_2026-08-04.xlsx')]
+         ('2026-08-04', 'rent-rolls/RentRoll_AsOf_2026-08-04.xlsx'),
+         ('2026-08-18', 'rent-rolls/RentRoll_AsOf_2026-08-18.xlsx')]
+
+BURNOFFS = ['concession-burnoff/ConcessionBurnOff_AsOf_2026-06-21.xlsx',
+            'concession-burnoff/ConcessionBurnOff_AsOf_2026-07-30.xlsx',
+            'concession-burnoff/ConcessionBurnOff_AsOf_2026-08-19.xlsx']
+
+RENEWAL_REPORTS = ['renewal-reports/RenewalTradeouts_2026-05-10_to_2026-07-09.xlsx',
+                   'renewal-reports/RenewalTradeouts_2026-06-19_to_2026-08-19.xlsx']
+
+NEWLEASE_REPORT = 'tradeout-reports/NewLeaseTradeouts_2026-06-19_to_2026-08-19.xlsx'
+HD_FILE = 'hellodata/HelloData_UnitDetails_2026-08-21.csv'
+
+# Known corporate users on the roll, plus a pattern that flags anything
+# company-shaped so a NEW corporate user cannot slip in unnoticed.
+CORPORATE = {'Coleman Environmental Engineering', 'Murata Machinery Inc',
+             'Paragon Corporate Housing', 'Wolff Corporate Housing Inc'}
+CORP_PAT = re.compile(r'\b(Inc|LLC|L\.L\.C|Corp|Corporation|Corporate|Housing|'
+                      r'Engineering|Machinery|Company|Enterprises|Holdings)\b\.?', re.I)
+
+
+def is_corporate(name):
+    return bool(name) and (name in CORPORATE or bool(CORP_PAT.search(name)))
+
+
+# Starting market rents by plan from the live TMG model RRA (v3, 8/15/2026) —
+# the "prior L5" the model carries; wtd avg $1,884.69.
+RRA_START = {'S1_Seas': 1496, 'A1_Seas': 1679, 'A2_Seas': 1766, 'B1_Seas': 1902,
+             'B2_Seas': 2074, 'B3a_Seas': 2012, 'B3b_Seas': 2066,
+             'C1a_Seas': 2498, 'C1b_Seas': 2266}
 
 
 # ---------------------------------------------------------------- parsing
@@ -93,7 +128,9 @@ def parse_rent_roll(fname):
 
 
 def parse_burnoff(fname):
-    """Section 1 only; section 2 ('Projection by Unit') is a different layout."""
+    """Section 1 only; section 2 ('Projection by Unit') is a different layout.
+    Columns: 6 total concessions, 7 current-lease concessions, 8 concessions
+    REMAINING (the unburned balance), 9 concession end date."""
     wb = openpyxl.load_workbook(fname, read_only=True, data_only=True)
     ws = wb['Report1']
     rows = list(ws.iter_rows(values_only=True))
@@ -106,8 +143,8 @@ def parse_burnoff(fname):
             continue
         recs[str(r[2]).strip()] = {
             'unit': str(r[0]).strip(), 'name': r[3], 'movein': d(r[4]), 'leasestart': d(r[5]),
-            'tot_conc': fnum(r[6]), 'cur_conc': fnum(r[7]), 'term': fnum(r[10]),
-            'mkt': fnum(r[11]), 'leaserent': fnum(r[12])}
+            'tot_conc': fnum(r[6]), 'cur_conc': fnum(r[7]), 'conc_remaining': fnum(r[8]),
+            'conc_end': d(r[9]), 'term': fnum(r[10]), 'mkt': fnum(r[11]), 'leaserent': fnum(r[12])}
     return recs
 
 
@@ -124,6 +161,27 @@ def parse_renewal_report(fname):
             'prior_conc': fnum(row[11]), 'prior_eff': fnum(row[13]),
             'new_term': fnum(row[14]), 'new_gross': fnum(row[15]),
             'new_conc': fnum(row[16]), 'new_eff': fnum(row[18])}
+    wb.close()
+    return recs
+
+
+def parse_newlease_report(fname):
+    """3ps New Lease Tradeouts (6/19-8/19/2026): exact prior/new gross AND
+    effective per re-lease, keyed by apply date. Includes leases signed for
+    FUTURE move-ins, and includes corporate leases (flagged downstream)."""
+    wb = openpyxl.load_workbook(fname, data_only=True)
+    ws = wb['(3pseason) Seasons at Meridian']
+    recs = []
+    for r in ws.iter_rows(min_row=9, values_only=True):
+        if r[4] is None or str(r[4]).strip() == '':
+            continue
+        recs.append({
+            'unit': str(r[4]).strip(), 'fp': r[3], 'sf': fnum(r[5]), 'name': r[6],
+            'apply': d(r[7]), 'sign': d(r[8]), 'movein': d(r[9]),
+            'prior_movein': d(r[10]), 'days_vacant': fnum(r[11]),
+            'new_term': fnum(r[12]), 'new_gross': fnum(r[13]), 'new_conc': fnum(r[14]),
+            'new_eff': fnum(r[16]), 'prior_term': fnum(r[17]), 'prior_gross': fnum(r[18]),
+            'prior_conc': fnum(r[19]), 'prior_eff': fnum(r[21])})
     wb.close()
     return recs
 
@@ -148,15 +206,6 @@ def mkey(dt):
     return f'{dt.year:04d}-{dt.month:02d}' if dt else None
 
 
-def add_months(dt, n):
-    if dt is None or n is None:
-        return None
-    y, m = divmod((dt.year * 12 + dt.month - 1) + int(round(n)), 12)
-    day = min(dt.day, [31, 29 if y % 4 == 0 and (y % 100 or y % 400 == 0) else 28,
-                       31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m])
-    return date(y, m + 1, day)
-
-
 def month_end(mo):
     y, m = int(mo[:4]), int(mo[5:7])
     return date(y + (m == 12), 1 if m == 12 else m + 1, 1) - timedelta(days=1)
@@ -179,16 +228,16 @@ def concession_split(rows):
     signed at full price and a few were deeply discounted."""
     have = [r for r in rows if r.get('new_gross') and r.get('new_eff') is not None]
     if not have:
-        return dict(n=0, freq=None, depth=None, avg_conc=None)
+        return dict(n=0, k=0, freq=None, depth=None, avg_conc=None, term=None)
     conc = [r for r in have if r['new_eff'] < r['new_gross'] - 0.01]
     depth = [1 - r['new_eff'] / r['new_gross'] for r in conc]
     amts = [r['new_conc_total'] for r in conc if r.get('new_conc_total')]
-    return dict(n=len(have), freq=len(conc) / len(have),
+    terms = [r['term_mo'] for r in conc if r.get('term_mo')]
+    return dict(n=len(have), k=len(conc), freq=len(conc) / len(have),
                 depth=sum(depth) / len(depth) if depth else None,
-                avg_conc=sum(amts) / len(amts) if amts else None)
+                avg_conc=sum(amts) / len(amts) if amts else None,
+                term=sum(terms) / len(terms) if terms else None)
 
-
-import re
 
 # HelloData labels floor plans "S1" / "Studio | S1"; the rent roll calls the same
 # plan "S1_Seas". Both collapse to a canonical plan code so mix-weighting binds
@@ -235,21 +284,31 @@ def agg(pairs):
 # ---------------------------------------------------------------- build
 def main():
     rolls = {tag: parse_rent_roll(f'{DOCS}/{p}') for tag, p in ROLLS}
-    bo_jun = parse_burnoff(f'{DOCS}/concession-burnoff/ConcessionBurnOff_AsOf_2026-06-21.xlsx')
-    bo_jul = parse_burnoff(f'{DOCS}/concession-burnoff/ConcessionBurnOff_AsOf_2026-07-30.xlsx')
-    renew = parse_renewal_report(f'{DOCS}/renewal-reports/RenewalTradeouts_2026-05-10_to_2026-07-09.xlsx')
-    hd = parse_hellodata(f'{DOCS}/hellodata/HelloData_UnitDetails_2026-08-14.csv')
+    burnoffs = [parse_burnoff(f'{DOCS}/{p}') for p in BURNOFFS]
+    renew = {}
+    for p in RENEWAL_REPORTS:                     # later window wins on overlap
+        renew.update(parse_renewal_report(f'{DOCS}/{p}'))
+    nlt = parse_newlease_report(f'{DOCS}/{NEWLEASE_REPORT}')
+    hd = parse_hellodata(f'{DOCS}/{HD_FILE}')
+    print(f'renewal reports merged: {len(renew)} distinct units with exact detail')
+    print(f'new-lease trade-out report: {len(nlt)} rows '
+          f'({sum(1 for r in nlt if r["movein"] and r["movein"] > CUTOFF)} future move-ins)')
 
-    # ---- resident master: union of every resident seen on any roll --------
+    # ---- resident master: union of every TENANCY seen on any roll ---------
+    # Keyed by (resident id, unit), NOT resident id alone: Yardi carries a
+    # resident id across an internal transfer (Ediae kept t0033902 moving
+    # J108 -> G103), and an id-keyed master would then fuse two tenancies —
+    # losing the transfer lease and double-counting the original one.
     res = {}
     for tag, _ in ROLLS:
         for r in rolls[tag]:
-            m = res.setdefault(r['res'], {'res': r['res'], 'unit': r['unit'], 'type': r['type'],
-                                          'sf': r['sf'], 'name': r['name'], 'movein': r['movein'],
-                                          'seen': [], 'rent': {}, 'exp': {}, 'moveout': None,
-                                          'future': False})
+            key = (r['res'], r['unit'])
+            m = res.setdefault(key, {'res': r['res'], 'unit': r['unit'], 'type': r['type'],
+                                     'sf': r['sf'], 'name': r['name'], 'movein': r['movein'],
+                                     'seen': [], 'rent': {}, 'exp': {}, 'moveout': None,
+                                     'future': False})
             m['seen'].append(tag)
-            m['unit'] = r['unit']
+            m['type'] = r['type'] or m['type']
             if r['actual']:
                 m['rent'][tag] = r['actual']
             if r['leaseexp']:
@@ -264,18 +323,24 @@ def main():
                 m['future'] = False
 
     # burn-off supplies the only lease-start dates in the dataset
-    for src in (bo_jun, bo_jul):
+    for src in burnoffs:
         for rid, b in src.items():
-            m = res.setdefault(rid, {'res': rid, 'unit': b['unit'], 'type': None, 'sf': None,
+            key = (rid, b['unit'])
+            m = res.setdefault(key, {'res': rid, 'unit': b['unit'], 'type': None, 'sf': None,
                                      'name': b['name'], 'movein': b['movein'], 'seen': [],
                                      'rent': {}, 'exp': {}, 'moveout': None, 'future': False})
-            m.setdefault('bo', {})
-            m['bo'] = b            # 7/30 overwrites 6/21 — the later view wins
+            m['bo'] = b            # each later burn-off overwrites — the latest view wins
             if m['movein'] is None:
                 m['movein'] = b['movein']
 
+    corp_hits = sorted({m['name'] for m in res.values() if is_corporate(m['name'])})
+    unknown_corp = [n for n in corp_hits if n not in CORPORATE]
+    print(f'corporate residents on the rolls: {corp_hits}')
+    if unknown_corp:
+        print(f'  ** NEW corporate-pattern names not in known list: {unknown_corp}')
+
     for m in res.values():
-        m['corporate'] = m['name'] in CORPORATE
+        m['corporate'] = is_corporate(m['name'])
         b = m.get('bo')
         m['leasestart'] = b['leasestart'] if b else None
         m['term'] = b['term'] if b else None
@@ -286,6 +351,39 @@ def main():
         m['last_rent'] = next((m['rent'][t] for t, _ in reversed(ROLLS) if t in m['rent']), None)
         m['first_rent'] = next((m['rent'][t] for t, _ in ROLLS if t in m['rent']), None)
         m['last_exp'] = next((m['exp'][t] for t, _ in reversed(ROLLS) if t in m['exp']), None)
+
+    # ---- internal transfers: same resident name out of one unit, into another.
+    # A transfer's "new lease" is a negotiated swap, not arm's-length pricing
+    # (G103 books $2,140 on a ~$1,718-market A1), so transfers are flagged and
+    # excluded from rent statistics on both sides.
+    by_name = defaultdict(list)
+    for m in res.values():
+        if m['name'] and not m['corporate']:
+            by_name[m['name'].strip().lower()].append(m)
+    n_transfers = 0
+    for lst in by_name.values():
+        if len(lst) < 2:
+            continue
+        for a in lst:
+            if not a['moveout']:
+                continue
+            best = None
+            for b in lst:
+                if b is a or b['unit'] == a['unit'] or not b['movein']:
+                    continue
+                gap = abs((b['movein'] - a['moveout']).days)
+                if gap <= TRANSFER_WINDOW_DAYS and b['movein'] > a['movein'] and \
+                        (best is None or gap < best[0]):
+                    best = (gap, b)
+            if best:
+                b = best[1]
+                a['transfer_to'], b['transfer_from'] = b['unit'], a['unit']
+    # count MOVES, not flags: an id reassigned across a transfer leaves the same
+    # departure on two tenancy records, which must not read as two transfers
+    n_transfers = len({(m['name'].strip().lower(), m['unit'])
+                       for m in res.values() if m.get('transfer_from')})
+    print(f'internal transfers detected: {n_transfers} '
+          f'(same name, out of one unit / into another within {TRANSFER_WINDOW_DAYS}d)')
 
     # ---- HelloData episodes, chained per unit ----------------------------
     hd_by_unit = defaultdict(list)
@@ -336,6 +434,27 @@ def main():
         conc = (e['ask'] - e['eff']) * term if term else None
         return e['eff'], (abs(conc) if conc else None)
 
+    # exact new-lease trade-out rows indexed by unit for event enrichment
+    nlt_by_unit = defaultdict(list)
+    for rec in nlt:
+        nlt_by_unit[rec['unit']].append(rec)
+
+    def nlt_match(unit, movein, name=None, tol=14):
+        """Name is the robust key: the report's Movein can differ from the roll's
+        move-in by weeks (F312 shows 6/13 on the roll, 7/25 on the report), but
+        unit + resident name identifies the lease exactly."""
+        cands = nlt_by_unit.get(unit, [])
+        if name:
+            named = [r for r in cands
+                     if r['name'] and str(r['name']).strip().lower() == name.strip().lower()]
+            if named:
+                return min(named, key=lambda r: abs((movein - r['movein']).days)
+                           if movein and r['movein'] else 999)
+        for rec in cands:
+            if movein and rec['movein'] and abs((movein - rec['movein']).days) <= tol:
+                return rec
+        return None
+
     # ==================================================================
     # EVENT LEDGER
     # ==================================================================
@@ -376,6 +495,7 @@ def main():
                'event': 'New Lease', 'unit': m['unit'], 'unit_type': m['type'], 'sf': m['sf'],
                'resident_id': m['res'], 'name': m['name'],
                'corporate': 'Y' if m['corporate'] else '',
+               'transfer': f"from {m['transfer_from']}" if m.get('transfer_from') else '',
                'signed': mi, 'movein_est': mi,
                'generation': 'Re-lease' if hd_prev else 'First lease-up lease',
                'term_mo': term, 'new_gross': ig,
@@ -419,7 +539,8 @@ def main():
             events.append(row)
 
     # ---------- ACTUAL window: Jan 2026 - Aug 2026 (Yardi) ---------------
-    # (a) new leases: lease start ~= move-in, starting in the actual window
+    # (a) new leases: counted on move-in date, inside the actual window
+    n_exact_nlt = 0
     for m in res.values():
         if m['future']:
             continue
@@ -429,7 +550,8 @@ def main():
         # find the outgoing tenant of this unit for the trade-out baseline
         prior = None
         for o in res.values():
-            if o['unit'] != m['unit'] or o['res'] == m['res'] or o['future']:
+            if o['unit'] != m['unit'] or (o['res'] == m['res'] and o['unit'] == m['unit']) \
+                    or o['future']:
                 continue
             if o['moveout'] and o['moveout'] <= start + timedelta(days=5):
                 if prior is None or (o['moveout'] > prior['moveout']):
@@ -445,6 +567,7 @@ def main():
         row = {'basis': 'ACTUAL (Yardi)', 'month': mkey(start), 'event': 'New Lease',
                'unit': m['unit'], 'unit_type': m['type'], 'sf': m['sf'],
                'resident_id': m['res'], 'name': m['name'], 'corporate': 'Y' if m['corporate'] else '',
+               'transfer': f"from {m['transfer_from']}" if m.get('transfer_from') else '',
                'signed': start, 'movein_est': m['movein'],
                'generation': 'Re-lease' if (prior or hd_prev) else 'First lease-up lease',
                'term_mo': term, 'new_gross': m['last_rent'],
@@ -478,9 +601,26 @@ def main():
                         'prior_basis': 'PROXY — prior listing asking rent (tenant left before 1/1/26)'})
             # HelloData's Days Vacant is not turn downtime (it runs to 511 days on units
             # that were never occupied in between), so no vacancy figure on this path.
+        # The 3ps New Lease Tradeouts report is the authoritative record where it
+        # covers the lease: exact prior/new gross AND effective, term, concession
+        # and days vacant, straight from Yardi.
+        rec = nlt_match(m['unit'], m['movein'], m['name'])
+        if rec and rec['prior_gross']:
+            n_exact_nlt += 1
+            row.update({'prior_gross': rec['prior_gross'], 'prior_eff': rec['prior_eff'],
+                        'prior_term_mo': rec['prior_term'],
+                        'prior_conc_total': abs(rec['prior_conc']) if rec['prior_conc'] else None,
+                        'term_mo': rec['new_term'], 'new_gross': rec['new_gross'],
+                        'new_conc_total': abs(rec['new_conc']) if rec['new_conc'] else None,
+                        'new_eff': rec['new_eff'],
+                        'days_vacant': rec['days_vacant'],
+                        'generation': 'Re-lease',
+                        'prior_basis': 'Prior tenant contract rent (trade-out report exact)',
+                        'source': 'New-lease trade-out report (exact)'})
         row['to_gross_pct'] = pct(row.get('prior_gross'), row.get('new_gross'))
         row['to_eff_pct'] = pct(row.get('prior_eff'), row.get('new_eff'))
         events.append(row)
+    print(f'2026 new-lease rows carrying exact trade-out report detail: {n_exact_nlt}')
 
     # (b) renewals
     for m in res.values():
@@ -523,6 +663,7 @@ def main():
                     'month': mkey(rd), 'event': 'Renewal', 'unit': m['unit'],
                     'unit_type': m['type'], 'sf': m['sf'], 'resident_id': m['res'],
                     'name': m['name'], 'corporate': 'Y' if m['corporate'] else '',
+                    'transfer': '',
                     'signed': rd, 'movein_est': m['movein'], 'generation': 'Renewal',
                     'to_gross_pct': pct(row['prior_gross'], row['new_gross']),
                     'to_eff_pct': pct(row['prior_eff'], row['new_eff'])})
@@ -538,22 +679,26 @@ def main():
                            'unit': m['unit'], 'unit_type': m['type'],
                            'resident_id': m['res'], 'name': m['name'],
                            'corporate': 'Y' if m['corporate'] else '',
+                           'transfer': f"to {m['transfer_to']}" if m.get('transfer_to') else '',
                            'signed': m['moveout'], 'movein_est': m['movein'],
                            'prior_gross': m['last_rent'],
                            'source': 'Rent roll move-out date' if not future
-                                     else 'Rent roll notice — move-out scheduled after 8/4/26'})
+                                     else f'Rent roll notice — move-out scheduled after {CUTOFF:%m/%d/%y}'})
         # The lease that actually came due, and what the tenant did about it.
         if m['renewed'] and m['leasestart']:
             exp, src = m['leasestart'] - timedelta(days=1), 'Renewal lease start - 1d'
         else:
             exp, src = m['last_exp'], 'Rent roll lease expiration'
         if exp and exp <= CUTOFF:
+            outcome = ('Renewed' if m['renewed'] else
+                       ('Transferred' if m.get('transfer_to') else
+                        ('Moved Out' if m['moveout'] else 'MTM holdover')))
             events.append({'basis': 'ACTUAL (Yardi)', 'month': mkey(exp), 'event': 'Lease Expiration',
                            'unit': m['unit'], 'unit_type': m['type'], 'resident_id': m['res'],
                            'name': m['name'], 'corporate': 'Y' if m['corporate'] else '',
+                           'transfer': f"to {m['transfer_to']}" if m.get('transfer_to') else '',
                            'signed': exp, 'movein_est': m['movein'],
-                           'outcome': 'Renewed' if m['renewed'] else
-                                      ('Moved Out' if m['moveout'] else 'MTM holdover'),
+                           'outcome': outcome,
                            'source': src})
         # Forward book: the expiration each in-place resident is currently scheduled to hit.
         if m['last_exp'] and m['last_exp'] > CUTOFF and not m['moveout']:
@@ -564,6 +709,67 @@ def main():
                            'signed': m['last_exp'], 'movein_est': m['movein'],
                            'outcome': 'Not yet due',
                            'source': 'Rent roll lease expiration (current lease)'})
+
+    # (d) leases already SIGNED for future move-ins — the forward absorption book.
+    # One row per UNIT (Yardi lists each co-resident separately — C112 carries
+    # two future rows for one lease). The roll's Future section is the roster of
+    # record; the trade-out report adds exact economics where the names agree.
+    future_recs = {}                                # report rows not yet claimed
+    for rec in nlt:
+        future_recs[rec['unit']] = dict(rec)
+    fut_res_by_unit = defaultdict(list)
+    for m in res.values():
+        # a Future-section record must be on the LATEST roll to be a live signing:
+        # Murata's H203 lease appears as future on the 7/07-8/04 rolls, was dropped
+        # (H111 substituted), and is gone from the 8/18 roll — a phantom otherwise
+        if m['future'] and m['movein'] and ROLLS[-1][0] in m['seen']:
+            fut_res_by_unit[m['unit']].append(m)
+    for u, cands in sorted(fut_res_by_unit.items()):
+        rec = future_recs.get(u)
+        # among co-residents, prefer the one the report names (the leaseholder)
+        m = next((c for c in cands if rec and rec['name'] and
+                  str(rec['name']).strip().lower() == c['name'].strip().lower()), cands[0])
+        src = 'Rent roll Future section'
+        if len(cands) > 1:
+            src += f' (+{len(cands) - 1} co-resident row)'
+        row = {'basis': 'ACTUAL (Yardi)', 'month': mkey(m['movein']),
+               'event': 'Lease Signed (future move-in)', 'unit': u,
+               'unit_type': m['type'], 'sf': m['sf'], 'resident_id': m['res'],
+               'name': m['name'], 'corporate': 'Y' if m['corporate'] else '',
+               'signed': m['movein'], 'movein_est': m['movein'],
+               'new_gross': m['last_rent'], 'outcome': 'Signed — not yet moved in'}
+        if rec and rec['name'] and str(rec['name']).strip().lower() == m['name'].strip().lower():
+            row.update({'prior_gross': rec['prior_gross'], 'prior_eff': rec['prior_eff'],
+                        'prior_term_mo': rec['prior_term'], 'term_mo': rec['new_term'],
+                        'new_gross': rec['new_gross'],
+                        'new_conc_total': abs(rec['new_conc']) if rec['new_conc'] else None,
+                        'new_eff': rec['new_eff'],
+                        'to_gross_pct': pct(rec['prior_gross'], rec['new_gross']),
+                        'to_eff_pct': pct(rec['prior_eff'], rec['new_eff'])})
+            src += ' + trade-out report (exact)'
+            future_recs.pop(u)
+        elif rec:
+            src += f' (trade-out report shows a DIFFERENT signer for this unit: {rec["name"]})'
+            future_recs.pop(u)
+        row['source'] = src
+        events.append(row)
+    # report-only future signings: rows whose move-in is after the cutoff and
+    # which no roll Future resident claimed
+    future_by_unit = {u: r for u, r in future_recs.items()
+                      if r['movein'] and r['movein'] > CUTOFF}
+    for u, rec in sorted(future_by_unit.items()):
+        events.append({'basis': 'ACTUAL (Yardi)', 'month': mkey(rec['movein']),
+                       'event': 'Lease Signed (future move-in)', 'unit': u,
+                       'unit_type': rec['fp'], 'sf': rec['sf'], 'name': rec['name'],
+                       'corporate': 'Y' if is_corporate(rec['name']) else '',
+                       'signed': rec['movein'], 'movein_est': rec['movein'],
+                       'prior_gross': rec['prior_gross'], 'prior_eff': rec['prior_eff'],
+                       'term_mo': rec['new_term'], 'new_gross': rec['new_gross'],
+                       'new_eff': rec['new_eff'],
+                       'to_gross_pct': pct(rec['prior_gross'], rec['new_gross']),
+                       'to_eff_pct': pct(rec['prior_eff'], rec['new_eff']),
+                       'outcome': 'Signed — not yet moved in',
+                       'source': 'New-lease trade-out report (not yet on a roll)'})
 
     # One tenancy can appear under two resident ids (Yardi reassigned the id on J108),
     # which would otherwise count the same lease twice.
@@ -595,15 +801,27 @@ def main():
     print(f'collapsed {n_dupes} duplicate new-lease row(s) '
           f'(same unit within {MIN_TENANCY_DAYS}d = one lease)')
 
+    # The same id-reassignment can put one departure on the books twice (Ediae's
+    # J108 exit exists under both t0033902 and t0043258). One person cannot leave
+    # one unit twice on the same date: collapse exact (event, unit, name, date)
+    # duplicates for departures/expirations.
+    seen_dep, deduped, n_dep = set(), [], 0
+    for e in events:
+        if e['event'] in ('Move Out', 'Lease Expiration', 'Notice (scheduled move-out)',
+                          'Scheduled Expiration'):
+            k = (e['event'], e['unit'], (e.get('name') or '').lower(), e['signed'])
+            if k in seen_dep:
+                n_dep += 1
+                continue
+            seen_dep.add(k)
+        deduped.append(e)
+    events = deduped
+    print(f'collapsed {n_dep} duplicate departure/expiration row(s) (resident id reassigned)')
+
     # ==================================================================
-    # MONTHLY ROLL-UP
+    # UNIT MIX (latest roll) — canonical plan codes AND full sub-plan codes
     # ==================================================================
-    # actual unit mix from the latest rent roll, for mix-weighting the rent levels
-    # Every unit in the Current section, occupied or not — vacant units carry no
-    # resident id and so are filtered out of the parsed roll, but they are still
-    # part of the mix.
-    wb = openpyxl.load_workbook(f'{DOCS}/rent-rolls/RentRoll_AsOf_2026-08-04.xlsx',
-                                read_only=True, data_only=True)
+    wb = openpyxl.load_workbook(f'{DOCS}/{ROLLS[-1][1]}', read_only=True, data_only=True)
     sec, all_units = None, {}
     for r in wb['Report1'].iter_rows(values_only=True):
         c0 = r[0]
@@ -614,13 +832,59 @@ def main():
             continue
         all_units.setdefault(str(c0).strip(), str(r[1]).strip())
     wb.close()
-    unit_mix = defaultdict(int)
+    unit_mix, sub_mix = defaultdict(int), defaultdict(int)
     for t in all_units.values():
         pc = plan_code(t)
         if pc:
             unit_mix[pc] += 1
-    unit_mix = dict(unit_mix)
-    print(f'unit mix (canonical plan codes, 8/4/26 roll): {unit_mix} = {sum(unit_mix.values())} units')
+        sub_mix[t] += 1
+    unit_mix, sub_mix = dict(unit_mix), dict(sub_mix)
+    print(f'unit mix (canonical, {ROLLS[-1][0]} roll): {unit_mix} = {sum(unit_mix.values())} units')
+    print(f'unit mix (sub-plans): {sub_mix}')
+
+    # ==================================================================
+    # L5 NEW-LEASE AVERAGE — the 5 most recent arm's-length new leases per
+    # plan, vs the model RRA starting rents. Corporate leases and internal
+    # transfers are EXCLUDED (they are not arm's-length pricing).
+    # ==================================================================
+    def l5(pool, label):
+        out = {}
+        for plan in RRA_START:
+            rows = sorted((e for e in pool if e.get('unit_type') == plan and e.get('new_gross')),
+                          key=lambda e: e['signed'], reverse=True)[:5]
+            if not rows:
+                continue
+            out[plan] = {'n': len(rows), 'avg': sum(e['new_gross'] for e in rows) / len(rows),
+                         'newest': max(e['signed'] for e in rows).isoformat(),
+                         'rra': RRA_START[plan],
+                         'units': [(e['unit'], e['signed'].isoformat(), e['new_gross'])
+                                   for e in rows]}
+        num = sum(v['avg'] * sub_mix.get(p, 0) for p, v in out.items())
+        den = sum(sub_mix.get(p, 0) for p in out)
+        rra_num = sum(RRA_START[p] * sub_mix.get(p, 0) for p in RRA_START)
+        rra_den = sum(sub_mix.get(p, 0) for p in RRA_START)
+        return {'label': label, 'plans': out,
+                'mixwtd': num / den if den else None,
+                'rra_mixwtd': rra_num / rra_den if rra_den else None}
+
+    arms_length = [e for e in events if e['event'] == 'New Lease'
+                   and not e.get('corporate') and not e.get('transfer')]
+    signed_pool = arms_length + [e for e in events
+                                 if e['event'] == 'Lease Signed (future move-in)'
+                                 and not e.get('corporate') and not e.get('transfer')
+                                 and e.get('new_gross')]
+    excluded_pool = [e for e in events if e['event'] == 'New Lease'
+                     and (e.get('corporate') or e.get('transfer'))]
+    L5_movein = l5(arms_length, 'Move-ins through cutoff (arm\'s-length only)')
+    L5_signed = l5(signed_pool, 'Including signed leases with future move-ins')
+    L5_with_excluded = l5([e for e in events if e['event'] == 'New Lease'],
+                          'WITH corporate + transfers (for reference only)')
+    print(f"L5 mix-wtd: move-in basis ${L5_movein['mixwtd']:,.0f} | signed basis "
+          f"${L5_signed['mixwtd']:,.0f} | RRA ${L5_movein['rra_mixwtd']:,.2f} | "
+          f"with corp/transfers (do NOT use) ${L5_with_excluded['mixwtd']:,.0f}")
+    print(f"L5 exclusions available to the pool: {len(excluded_pool)} "
+          f"(corporate {sum(1 for e in excluded_pool if e.get('corporate'))}, "
+          f"transfers {sum(1 for e in excluded_pool if e.get('transfer'))})")
 
     # ==================================================================
     # OCCUPANCY
@@ -672,24 +936,36 @@ def main():
                 sp[1] = lst[i + 1][0]
 
     def occupied_on(d):
-        return sum(1 for lst in spans.values() for s in lst
-                   if s[0] <= d and (s[1] is None or s[1] > d))
+        # distinct UNITS with an active tenancy — two overlapping spans in one
+        # unit (an id reassigned across a transfer, back-to-back leases) must
+        # not count twice
+        return sum(1 for lst in spans.values()
+                   if any(s[0] <= d and (s[1] is None or s[1] > d) for s in lst))
 
-    ANCHORS = {date(2026, 1, 1): 314, date(2026, 7, 7): 341,
-               date(2026, 7, 19): 338, date(2026, 8, 4): 346}
+    # anchors are COUNTED from each roll directly, not hard-coded: occupied =
+    # distinct units in the Current section carrying a resident id
+    anchors = {}
+    for (tag, _p), rd in zip(ROLLS, roll_dates):
+        anchors[rd] = len({r['unit'] for r in rolls[tag]
+                           if r['section'] and 'Current' in r['section']
+                           and (not r['moveout'] or r['moveout'] > rd)})
     print('\noccupancy check vs rent rolls (derived / actual):')
-    for d, actual in sorted(ANCHORS.items()):
-        got = occupied_on(d)
-        print(f'  {d}  derived {got:3}  actual {actual:3}  diff {got - actual:+d}')
+    for dt, actual in sorted(anchors.items()):
+        got = occupied_on(dt)
+        print(f'  {dt}  derived {got:3}  actual {actual:3}  diff {got - actual:+d}')
 
     T12 = t12mod.load()
     print(f'T12 loaded: {min(T12)} -> {max(T12)} ({len(T12)} months)')
 
+    # ==================================================================
+    # MONTHLY ROLL-UP
+    # ==================================================================
     months = sorted({e['month'] for e in events if e['month']})
     monthly = []
     for mo in months:
         ev = [e for e in events if e['month'] == mo]
-        rent_ev = [e for e in ev if not e.get('corporate')]     # corporate excluded from $ stats
+        # corporate AND internal transfers excluded from all $ statistics
+        rent_ev = [e for e in ev if not e.get('corporate') and not e.get('transfer')]
 
         new = [e for e in ev if e['event'] == 'New Lease']
         new_r = [e for e in rent_ev if e['event'] == 'New Lease']
@@ -701,6 +977,7 @@ def main():
         sched = [e for e in ev if e['event'] == 'Scheduled Expiration']
         out = [e for e in ev if e['event'] == 'Move Out']
         notice = [e for e in ev if e['event'] == 'Notice (scheduled move-out)']
+        signed_fut = [e for e in ev if e['event'] == 'Lease Signed (future move-in)']
 
         rs = agg([(e.get('prior_gross'), e.get('new_gross')) for e in ren_r])
         re_ = agg([(e.get('prior_eff'), e.get('new_eff')) for e in ren_r])
@@ -716,7 +993,8 @@ def main():
         exp_ren = sum(1 for e in exp if e.get('outcome') == 'Renewed')
         exp_out = sum(1 for e in exp if e.get('outcome') == 'Moved Out')
         exp_mtm = sum(1 for e in exp if e.get('outcome') == 'MTM holdover')
-        denom = exp_ren + exp_out + exp_mtm
+        exp_xfer = sum(1 for e in exp if e.get('outcome') == 'Transferred')
+        denom = exp_ren + exp_out + exp_mtm + exp_xfer
 
         # the final month is partial — report it at the measurement date, not month-end
         eom = min(month_end(mo), CUTOFF)
@@ -729,7 +1007,7 @@ def main():
         t = T12.get(mo, {})
         # only claim a rent roll when the reported date IS the roll date; a roll merely
         # falling somewhere inside the month does not make the month-end figure exact
-        roll_in_month = next((t for t, _ in ROLLS if t == eom.isoformat()), None)
+        roll_in_month = next((t_ for t_, _ in ROLLS if t_ == eom.isoformat()), None)
         leased_cum = sum(1 for e in events
                          if e['event'] == 'New Lease'
                          and e['generation'] == 'First lease-up lease'
@@ -759,6 +1037,8 @@ def main():
             'new_leases_signed': len(new),
             '  of which first lease-up lease': sum(1 for e in new if e['generation'] == 'First lease-up lease'),
             '  of which re-lease (turned unit)': len(rel),
+            '  of which corporate / transfer (excl. from $)': sum(
+                1 for e in new if e.get('corporate') or e.get('transfer')),
             'new_lease_avg_gross': sum(ng) / len(ng) if ng else None,
             'new_lease_avg_eff': sum(nef) / len(nef) if nef else None,
             'new_lease_mixwtd_gross': mix_weighted(new_r, 'new_gross', unit_mix),
@@ -770,15 +1050,18 @@ def main():
             'leases_expired': len(exp),
             '  expired -> renewed': exp_ren,
             '  expired -> moved out': exp_out,
+            '  expired -> transferred': exp_xfer,
             '  expired -> MTM holdover': exp_mtm,
             'renewals': len(ren),
-            # Pre-2026 the burn-off only sees residents still in place at 7/30/26, so this
+            # Pre-2026 the burn-off only sees residents still in place at 8/19/26, so this
             # is a floor on renewals that month, not a count.
             'renewals_survivor_floor': len(ren) if mo < '2026-01' else None,
             'move_outs': len(out),
             'retention_pct': exp_ren / denom if denom else None,
+            'retention_tenant_pct': (exp_ren + exp_xfer) / denom if denom else None,
             'scheduled_expirations_ahead': len(sched),
             'notices_scheduled_moveout': len(notice),
+            'leases_signed_future_movein': len(signed_fut),
             'renewal_n': rs['n'],
             'renewal_prior_gross': rs['prior'], 'renewal_new_gross': rs['new'],
             'renewal_gross_pct_avg': rs['avg'], 'renewal_gross_pct_med': rs['med'],
@@ -791,13 +1074,63 @@ def main():
             'newlease_eff_pct_avg': ne['avg'], 'newlease_eff_pct_med': ne['med'],
         })
 
+    # ==================================================================
+    # STATS for the workbook (computed once here, read by build_workbook)
+    # ==================================================================
+    bo_last = burnoffs[-1]
+    burn = [b for b in bo_last.values()
+            if b['tot_conc'] and abs(b['tot_conc']) > 0.01]
+    windows = sorted((b['conc_end'] - b['leasestart']).days / 30.44
+                     for b in burn if b['conc_end'] and b['leasestart'])
+    terms = sorted(b['term'] for b in burn if b['term'])
+    remaining = [(rid, b) for rid, b in bo_last.items()
+                 if b['conc_remaining'] and abs(b['conc_remaining']) > 0.01]
+    still_to_burn = sum(abs(b['conc_remaining']) for _, b in remaining)
+
+    # live corporate exposure: records on the LATEST roll only (a dropped future
+    # lease or a long-departed tenancy is history, not exposure)
+    corp_rows = [m for m in res.values() if m['corporate'] and ROLLS[-1][0] in m['seen']]
+    corp_units = sorted({(m['name'], m['unit'],
+                          'future' if m['future'] else
+                          ('departing ' + m['moveout'].isoformat() if m['moveout'] else 'in place'))
+                         for m in corp_rows})
+
+    stats = {
+        'cutoff': CUTOFF.isoformat(),
+        'unit_mix': unit_mix, 'sub_mix': sub_mix,
+        'anchors': {k.isoformat(): v for k, v in sorted(anchors.items())},
+        'l5_movein': L5_movein, 'l5_signed': L5_signed,
+        'l5_with_excluded_mixwtd': L5_with_excluded['mixwtd'],
+        'l5_excluded_n': len(excluded_pool),
+        'l5_excluded_corporate': sum(1 for e in excluded_pool if e.get('corporate')),
+        'l5_excluded_transfers': sum(1 for e in excluded_pool if e.get('transfer')),
+        'burnoff_asof': '2026-08-19',
+        'burn_window_median_mo': windows[len(windows) // 2] if windows else None,
+        'burn_window_max_mo': windows[-1] if windows else None,
+        'burn_window_n': len(windows),
+        'term_median_mo': terms[len(terms) // 2] if terms else None,
+        'still_to_burn': still_to_burn,
+        'still_to_burn_leases': len(remaining),
+        'transfers': n_transfers,
+        'corporate_names': corp_hits,
+        'corporate_units': [list(x) for x in corp_units],
+        'nlt_report': {
+            'window': '2026-06-19 to 2026-08-19', 'rows': len(nlt),
+            'future_moveins': sum(1 for r in nlt if r['movein'] and r['movein'] > CUTOFF),
+            'corporate_rows': sum(1 for r in nlt if is_corporate(r['name'])),
+        },
+    }
+    with open('stats.json', 'w') as f:
+        json.dump(stats, f, indent=1, default=str)
+
     # ---------------------------------------------------------------- out
     cols = sorted({k for e in events for k in e})
     order = ['basis', 'month', 'event', 'generation', 'unit', 'unit_type', 'sf', 'resident_id',
-             'name', 'corporate', 'signed', 'movein_est', 'term_mo', 'prior_term_mo',
+             'name', 'corporate', 'transfer', 'signed', 'movein_est', 'term_mo', 'prior_term_mo',
              'prior_gross', 'new_gross', 'to_gross_pct', 'prior_eff', 'new_eff', 'to_eff_pct',
              'prior_conc_total', 'new_conc_total', 'prior_expiration', 'prior_resident',
-             'prior_name', 'prior_moveout', 'outcome', 'days_vacant', 'days_on_market', 'source']
+             'prior_name', 'prior_moveout', 'outcome', 'days_vacant', 'days_on_market',
+             'date_basis', 'prior_basis', 'source']
     cols = [c for c in order if c in cols] + [c for c in cols if c not in order]
     events.sort(key=lambda e: (e['month'] or '', e['event'], e['unit']))
     with open('events.csv', 'w', newline='') as f:
@@ -806,14 +1139,26 @@ def main():
         w.writerows(events)
     pd.DataFrame(monthly).to_csv('monthly.csv', index=False)
 
+    # regenerate the model-bridge activity feed so the two deliverables agree
+    acts = {}
+    for row in monthly:
+        mo = row['month']
+        acts[mo] = {'new': row['new_leases_signed'],
+                    'ren': row['renewals'] if mo >= '2026-01' else None,
+                    'out': row['move_outs'] if mo >= '2026-01' else None,
+                    'ren_inc': row['renewal_gross_pct_avg'] if mo >= '2026-01' else None}
+    with open('monthly_activity.json', 'w') as f:
+        json.dump(acts, f, indent=1)
+
     # ---------------------------------------------------------------- validation
     print(f'events: {len(events)}   months: {months[0]} -> {months[-1]}')
     print('\nevent counts by basis:')
     for b in sorted({e['basis'] for e in events}):
         sub = [e for e in events if e['basis'] == b]
-        print(f'  {b:35} {len(sub):4}  ' +
+        print(f'  {b:38} {len(sub):4}  ' +
               ', '.join(f'{k}={sum(1 for e in sub if e["event"] == k)}'
-                        for k in ('New Lease', 'Renewal', 'Lease Expiration', 'Move Out')))
+                        for k in ('New Lease', 'Renewal', 'Lease Expiration', 'Move Out',
+                                  'Lease Signed (future move-in)')))
     print(f'\nrenewals total: {sum(1 for e in events if e["event"] == "Renewal")} '
           f'(exact from report: {sum(1 for e in events if e.get("source", "").startswith("Renewal trade-out"))})')
     missed = [u for u in renew if not any(e['unit'] == u and e['event'] == 'Renewal' for e in events)]
@@ -822,7 +1167,11 @@ def main():
     print(f'new leases signed, all periods: {tot_new}')
     print(f'  first lease-up leases: {sum(1 for e in events if e.get("generation") == "First lease-up lease")}')
     print(f'  re-leases:             {sum(1 for e in events if e.get("generation") == "Re-lease")}')
-    print('\nwrote events.csv, monthly.csv')
+    print(f'  signed, future move-in (not in count): '
+          f'{sum(1 for e in events if e["event"] == "Lease Signed (future move-in)")}')
+    print(f'still to burn at {stats["burnoff_asof"]}: ${still_to_burn:,.0f} '
+          f'across {len(remaining)} leases')
+    print('\nwrote events.csv, monthly.csv, stats.json, monthly_activity.json')
 
 
 if __name__ == '__main__':
