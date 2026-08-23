@@ -20,9 +20,10 @@ CAMPUSES = {
     "roaring":     dict(parcels=["R4239771050", "R4239770510"]),
     "district":    dict(subnm_like=["VANGUARD VILLAGE SUB%"], parcels=["S1215131410"]),
     "tmcrossing":  dict(subnm_like=["TM CROSSING SUB%", "TM CENTER EAST SUB%"]),
-    # Eagle View Landing (Ahlquist; north of Overland to I-84) + St. Luke's + Norco plats
-    "eagleview":   dict(subnm_like=["RACKHAM SUB%", "ROLLING HILL SUB%", "OXYGEN SUB%"],
-                        parcels=["S1116233803"]),
+    # Eagle View Landing (Ahlquist; north of Overland to I-84) + Norco plat
+    "eagleview":   dict(subnm_like=["RACKHAM SUB%", "ROLLING HILL SUB%", "OXYGEN SUB%"]),
+    # St. Luke's Meridian hospital campus (single parcel, north of Eagle View)
+    "stlukes":     dict(parcels=["S1116233803"]),
     # Silverstone Business Campus (Sundance; entirely south of Overland)
     "silverstonebp": dict(subnm_like=["SILVERSTONE SUB%"]),
     "eldorado":    dict(subnm_like=["BONITO SUB%", "EL DORADO SUB%"]),

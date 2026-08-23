@@ -18,13 +18,14 @@ RINGS_MI = [1, 3, 5]
 
 POIS = [
     # ---- Employment & medical ----
-    dict(cat="emp", name="Eagle View Landing / St. Luke's node", lat=43.5955, lon=-116.3480, d=0.62,
+    dict(cat="emp", name="Eagle View Landing", lat=43.5955, lon=-116.3480, d=0.62,
          pkey="eagleview", badge=[43.5936, -116.3440],
-         note="Ahlquist's master-planned campus between Overland Rd and I-84 east of Eagle, anchoring the subject's quadrant: St. Luke's hospital, ICCU Building (125K SF, 2020), the POWER Engineers building, Topgolf, Hyatt Place and Holiday Inn Express, Office Building 2 tenants (GCU, Nightforce Optics, Great West Casualty, Ardurra), Norco HQ (~350 employees). Across the combined Eagle/Overland node (with Silverstone and El Dorado): 49 tenants \u226510K SF / 2.5M SF / ~4,900 reported jobs (CoStar); 22 office buildings / 914,000 SF built since 2020 within 1.25 mi of the subject."),
+         note="Ahlquist's master-planned campus between Overland Rd and I-84 east of Eagle, anchoring the subject's quadrant: ICCU Building (125K SF, 2020), the POWER Engineers building, Topgolf, Hyatt Place and Holiday Inn Express, Office Building 2 tenants (GCU, Nightforce Optics, Great West Casualty, Ardurra), Norco HQ (~350 employees); St. Luke's campus adjoins to the north. Across the combined Eagle/Overland node (with Silverstone and El Dorado): 49 tenants \u226510K SF / 2.5M SF / ~4,900 reported jobs (CoStar); 22 office buildings / 914,000 SF built since 2020 within 1.25 mi of the subject."),
     dict(cat="emp", name="Silverstone Business Campus", lat=43.5860, lon=-116.3510, d=0.55,
          pkey="silverstonebp", badge=[43.5852, -116.3500],
          note="The Sundance Co's ~90-acre business park directly south of Overland: T-Mobile call center (77,500 SF, ~500 employees), Amazon's PillPack pharmacy (82,000 SF, ~548), UPS (98K SF), Disco Hi-Tec America (semiconductor equipment, Apr 2026 move-in), Lakestone Plaza and Onyx Center offices."),
     dict(cat="emp", name="St. Luke's Meridian", lat=43.599387, lon=-116.352281, d=0.65,
+         pkey="stlukes", badge=[43.5997, -116.3535],
          note="520 S Eagle Rd · 550,000-SF full-service hospital (Level IV trauma, Level II NICU); anchor of the Eagle Rd & I-84 medical node — and the subject's #1 resident employer (19 residents per the tenant demographics report)."),
     dict(cat="emp", name="POWER Engineers HQ bldg", lat=43.596282, lon=-116.341949, d=0.99,
          note="1032 S Silverstone Way · 150,000-SF office (2023, Eagle View Landing); POWER Engineers (global engineering firm) took 90,000 SF in Aug 2025."),
