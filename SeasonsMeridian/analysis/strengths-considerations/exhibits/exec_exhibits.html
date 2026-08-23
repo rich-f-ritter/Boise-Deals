@@ -7,7 +7,13 @@
   .exh { width:1040px; background:#fff; padding:26px 30px 30px; }
   .title { font-size:17px; font-weight:900; letter-spacing:.06em; text-transform:uppercase;
     color:#17365D; padding-bottom:8px; border-bottom:2.5px solid #B8C6DC; margin-bottom:16px; }
-  table { border-collapse:collapse; width:100%; font-size:16.5px; }
+  table { border-collapse:collapse; font-size:16.5px; table-layout:fixed; }
+  #ex2 table { width:860px; }
+  #ex2 col.c-rank { width:52px; } #ex2 col.c-zip { width:368px; } #ex2 col.c-net { width:128px; }
+  #ex2 col.c-rate { width:118px; } #ex2 col.c-prior { width:194px; }
+  #ex3 table { width:880px; }
+  #ex3 col.c-origin { width:268px; } #ex3 col.c-net { width:104px; } #ex3 col.c-prior { width:118px; }
+  #ex3 col.c-hhi { width:150px; } #ex3 col.c-trend { width:240px; }
   th { background:#EAF0F8; color:#17365D; font-weight:900; font-size:13.5px; letter-spacing:.05em;
     text-transform:uppercase; padding:10px 14px; border:1px solid #B8C6DC; }
   td { padding:11px 14px; border:1px solid #C9D4E4; color:#1F3864; }
@@ -35,9 +41,10 @@
   </div>
 </div>
 
-<div class="exh" id="ex2">
+<div class="exh" id="ex2" style="width:920px">
   <div class="title">Top In-Migration ZIPs, Treasure Valley — YE Jun-26 (Placer.ai)</div>
   <table>
+    <colgroup><col class="c-rank"><col class="c-zip"><col class="c-net"><col class="c-rate"><col class="c-prior"></colgroup>
     <thead><tr><th class="ctr">#</th><th style="text-align:left">ZIP · Area</th>
       <th class="num">Net In-Mig.</th><th class="num">Rate</th><th class="num">vs Prior Yr</th></tr></thead>
     <tbody>
@@ -50,9 +57,10 @@
   </table>
 </div>
 
-<div class="exh" id="ex3">
+<div class="exh" id="ex3" style="width:940px">
   <div class="title">Where They Come From — Top Origin Metros (Net, YE Jun-26 vs Prior Yr)</div>
   <table>
+    <colgroup><col class="c-origin"><col class="c-net"><col class="c-prior"><col class="c-hhi"><col class="c-trend"></colgroup>
     <thead><tr><th style="text-align:left">Origin</th><th class="num">Net</th><th class="num">Prior Yr</th>
       <th class="num">Origin MHHI</th><th style="text-align:left">Trend</th></tr></thead>
     <tbody>
