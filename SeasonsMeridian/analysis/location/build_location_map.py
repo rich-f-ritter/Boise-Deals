@@ -2,10 +2,16 @@
 """Build 'Seasons at Meridian - Location Map.html' — a self-contained labeled
 location/amenity map (companion to strength H45, Location).
 
+Markers are numbered badges in category colors; numbering restarts at 1 within
+each category (colour first, then number — same convention as the Supply Map).
+Large key places carry an approximate area polygon with the badge at its center.
+The side panel is the legend: every numbered place with name, distance and
+description, grouped by category, plus layer toggles.
+
 Data sources:
   - in/SaM__CoStar_5mi_AllTypes_New.xls   (CoStar: all property types, built 2020+, 5-mi)
   - in/Boise__CoStar_Tenant_MoveIns_2yrs.xlsx (CoStar: metro tenant move-ins, last 2 yrs)
-  - poi_data.py (verified POIs: employment, retail, schools, parks, roads — sourced Aug 2026)
+  - poi_data.py (verified POIs; school zoning from West Ada's own ArcGIS layers)
 Leaflet is inlined (same vendored build as the Supply Map) so the file is
 self-contained; basemap tiles stream from ArcGIS Online like the other viewers.
 """
@@ -43,6 +49,12 @@ def load_newdev():
     return out
 
 def main():
+    # assign per-category sequence numbers in POIS list order
+    seq = {}
+    for p in POIS:
+        seq[p['cat']] = seq.get(p['cat'], 0) + 1
+        p['n'] = seq[p['cat']]
+
     newdev = load_newdev()
     supply_map = (REPO / 'SeasonsMeridian' / 'Seasons at Meridian - Supply Map.html').read_text()
     i = supply_map.find('!function(t,e){"object"==typeof exports')
@@ -50,7 +62,6 @@ def main():
     leaflet_js = supply_map[i:j]
     m = re.search(r'<style[^>]*>(.*?)</style>', supply_map, re.S)
     leaflet_css = m.group(1)
-    # keep only the vendored leaflet core rules from that style block
     k = leaflet_css.find('.leaflet-')
     leaflet_css = leaflet_css[k:leaflet_css.find('/* custom */')] if '/* custom */' in leaflet_css else leaflet_css[k:]
 
@@ -66,7 +77,9 @@ def main():
     html = html.replace('__FOOTER__', FOOTER_NOTE)
     out = REPO / 'SeasonsMeridian' / 'Seasons at Meridian - Location Map.html'
     out.write_text(html)
-    print('wrote', out, f'{out.stat().st_size/1024:.0f} KB', f'({len(POIS)} POIs, {len(newdev)} new-dev pins)')
+    npoly = sum(1 for p in POIS if p.get('poly'))
+    print('wrote', out, f'{out.stat().st_size/1024:.0f} KB',
+          f'({len(POIS)} POIs, {npoly} area polygons, {len(newdev)} new-dev pins)')
 
 TEMPLATE = r'''<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,29 +93,34 @@ TEMPLATE = r'''<!doctype html>
   header .sub{font-size:12.5px;color:#B8C6DC}
   #main{flex:1;display:flex;min-height:0}
   #map{flex:1}
-  #panel{width:295px;overflow-y:auto;background:#F6F8FB;border-left:1px solid #C9D4E4;padding:12px 14px;font-size:12.5px;color:#1F3864}
+  #panel{width:342px;overflow-y:auto;background:#F6F8FB;border-left:1px solid #C9D4E4;padding:12px 14px;font-size:12.5px;color:#1F3864}
   #panel h2{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#17365D;margin:14px 0 6px;border-bottom:2px solid #B8C6DC;padding-bottom:3px}
   .cat{display:flex;align-items:center;gap:7px;margin:4px 0;cursor:pointer;user-select:none}
   .cat input{accent-color:#17365D}
   .sw{width:11px;height:11px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 2px rgba(0,0,0,.5);flex:none}
-  .poi-row{display:flex;gap:6px;margin:2.5px 0;line-height:1.35;cursor:pointer}
-  .poi-row:hover{background:#E8EEF7}
-  .poi-row b{font-weight:600}
-  .poi-row .d{color:#5A6E92;white-space:nowrap;margin-left:auto;padding-left:6px}
+  .leg-cat{font-weight:700;color:#17365D;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;margin:12px 0 4px;display:flex;align-items:center;gap:6px}
+  .leg-row{display:flex;gap:8px;margin:0 0 7px;cursor:pointer;padding:3px 4px;border-radius:4px}
+  .leg-row:hover{background:#E8EEF7}
+  .leg-num{flex:none;width:20px;height:20px;border-radius:50%;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff;box-shadow:0 0 3px rgba(0,0,0,.35);margin-top:1px}
+  .leg-body{flex:1;line-height:1.35}
+  .leg-body .nm{font-weight:700}
+  .leg-body .ds{color:#5A6E92;font-size:11.5px;margin-top:1px}
+  .leg-body .dd{color:#8592AA;font-size:11px;white-space:nowrap;float:right;font-weight:600}
   footer{background:#EAF0F8;color:#44567A;font-size:11px;padding:6px 16px;line-height:1.45;border-top:1px solid #C9D4E4}
-  .lbl{background:rgba(23,54,93,.88);color:#fff;border:none;border-radius:3px;padding:1px 6px;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.4)}
-  .lbl:before{display:none}
+  .pin{border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.55)}
   .roadlbl{background:#B02418;color:#fff;border-radius:3px;padding:2px 7px;font-size:11.5px;font-weight:700;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.5);border:none}
   .roadlbl:before{display:none}
   .subjlbl{background:#F2C230;color:#17365D;border-radius:3px;padding:2px 8px;font-size:12.5px;font-weight:800;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.5);border:none}
   .subjlbl:before{display:none}
+  .lbl{background:rgba(23,54,93,.88);color:#fff;border:none;border-radius:3px;padding:1px 6px;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .lbl:before{display:none}
 </style>
 </head><body><div id="wrap">
 <header><h1>SEASONS AT MERIDIAN — LOCATION &amp; AMENITY MAP</h1>
-<span class="sub">2700 E Overland Rd, Meridian ID · SE quadrant of Eagle Rd (SH-55) &amp; I-84 · rings at 1 / 3 / 5 mi</span></header>
+<span class="sub">2700 E Overland Rd, Meridian ID · SE quadrant of Eagle Rd (SH-55) &amp; I-84 · rings at 1 / 3 / 5 mi · numbers restart per colour — read the legend</span></header>
 <div id="main"><div id="map"></div><div id="panel">
 <h2>Layers</h2><div id="cats"></div>
-<h2>Key places</h2><div id="list"></div>
+<h2>Legend</h2><div id="list"></div>
 </div></div>
 <footer>__FOOTER__</footer>
 </div>
@@ -127,23 +145,30 @@ ROADS.forEach(r=>{
 });
 
 // subject
-L.circleMarker(SUBJ,{radius:11,color:'#fff',weight:2.5,fillColor:'#F2C230',fillOpacity:1}).addTo(map)
+L.circleMarker(SUBJ,{radius:13,color:'#B02418',weight:3,fillColor:'#F2C230',fillOpacity:1}).addTo(map)
   .bindPopup('<b>Seasons at Meridian</b><br>2700 E Overland Rd · 360 units · 2024');
-L.marker([SUBJ[0]-0.0035,SUBJ[1]],{icon:L.divIcon({className:'subjlbl',html:'SEASONS AT MERIDIAN',iconSize:null}),interactive:false}).addTo(map);
+L.marker([43.5883,-116.3536],{icon:L.divIcon({className:'subjlbl',html:'SEASONS AT MERIDIAN',iconSize:null}),interactive:false}).addTo(map);
 
-// POI layers
+// POI layers — numbered badges; area polygons for large key places
 const groups={}, catMeta={};
 CATS.forEach(c=>{groups[c.id]=L.layerGroup().addTo(map);catMeta[c.id]=c;});
 const ndGroup=L.layerGroup(); groups['newdev']=ndGroup;
+function badge(p,c,big){
+  const s=big?26:20;
+  return L.divIcon({className:'',iconSize:[s,s],iconAnchor:[s/2,s/2],
+    html:'<div class="pin" style="width:'+s+'px;height:'+s+'px;background:'+c.color+';font-size:'+(big?13:11.5)+'px">'+p.n+'</div>'});
+}
+const jumpTargets={};
 POIS.forEach(p=>{
   const c=catMeta[p.cat];
-  const mk=L.circleMarker([p.lat,p.lon],{radius:7,color:'#fff',weight:1.8,fillColor:c.color,fillOpacity:.95});
-  mk.bindPopup('<b>'+p.name+'</b><br>'+(p.note||'')+(p.d?'<br><i>'+p.d+' mi from subject</i>':''));
-  mk.addTo(groups[p.cat]);
-  if(p.lbl){
-    const off=p.loff||[-0.0028,0];
-    L.marker([p.lat+off[0],p.lon+off[1]],{icon:L.divIcon({className:'lbl',html:p.name,iconSize:null}),interactive:false}).addTo(groups[p.cat]);
+  const pop='<b>'+p.n+'. '+p.name+'</b><br>'+(p.note||'')+(p.d?'<br><i>'+p.d+' mi from subject</i>':'');
+  if(p.poly){
+    L.polygon(p.poly,{color:c.color,weight:2.5,opacity:.95,fillColor:c.color,fillOpacity:.14})
+      .bindPopup(pop).addTo(groups[p.cat]);
   }
+  const at=p.badge||[p.lat,p.lon];
+  L.marker(at,{icon:badge(p,c,!!p.poly)}).bindPopup(pop).addTo(groups[p.cat]);
+  jumpTargets[p.cat+p.n]=at;
 });
 NEWDEV.forEach(p=>{
   const col={'Office':'#3987e5','Industrial':'#9aa7b8','Retail':'#eb6834','Hospitality':'#b06fd6','Health Care':'#1baf7a','Specialty':'#9aa7b8','Flex':'#9aa7b8','Sports & Entertainment':'#b06fd6'}[p.t]||'#9aa7b8';
@@ -152,7 +177,7 @@ NEWDEV.forEach(p=>{
    .addTo(ndGroup);
 });
 
-// panel
+// panel: layer toggles
 const catsDiv=document.getElementById('cats');
 CATS.concat([{id:'newdev',name:'All new commercial 20K+ SF (CoStar, built 2020+)',color:'#9aa7b8',off:true}]).forEach(c=>{
   const row=document.createElement('label');row.className='cat';
@@ -160,13 +185,21 @@ CATS.concat([{id:'newdev',name:'All new commercial 20K+ SF (CoStar, built 2020+)
   row.querySelector('input').onchange=e=>{e.target.checked?map.addLayer(groups[c.id]):map.removeLayer(groups[c.id]);};
   catsDiv.appendChild(row);
 });
+
+// panel: legend grouped by category, numbered, with descriptions
 const list=document.getElementById('list');
-POIS.filter(p=>p.key).forEach(p=>{
-  const c=catMeta[p.cat];
-  const row=document.createElement('div');row.className='poi-row';
-  row.innerHTML='<span class="sw" style="background:'+c.color+';margin-top:3px"></span><span><b>'+p.name+'</b></span><span class="d">'+(p.d?p.d+' mi':'')+'</span>';
-  row.onclick=()=>{map.setView([p.lat,p.lon],15);};
-  list.appendChild(row);
+CATS.forEach(c=>{
+  const hd=document.createElement('div');hd.className='leg-cat';
+  hd.innerHTML='<span class="sw" style="background:'+c.color+'"></span>'+c.name;
+  list.appendChild(hd);
+  POIS.filter(p=>p.cat===c.id).forEach(p=>{
+    const row=document.createElement('div');row.className='leg-row';
+    row.innerHTML='<span class="leg-num" style="background:'+c.color+'">'+p.n+'</span>'+
+      '<span class="leg-body"><span class="dd">'+(p.d?p.d+' mi':'')+'</span><span class="nm">'+p.name+'</span>'+
+      '<div class="ds">'+(p.note||'')+'</div></span>';
+    row.onclick=()=>{map.setView(jumpTargets[c.id+p.n],14);};
+    list.appendChild(row);
+  });
 });
 </script></body></html>'''
 
