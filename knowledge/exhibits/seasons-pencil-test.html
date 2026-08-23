@@ -1,0 +1,293 @@
+<title>Seasons Pencil Test</title>
+<style>
+:root{
+  --paper:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100; --c5:#e87ba4;
+  --k1:#2a78d6; --k2:#eb6834; --k3:#1baf7a; --k4:#eda100;
+  --q1:#184f95; --q2:#3987e5; --q3:#86b6ef;
+  --wash1:rgba(42,120,214,.07); --wash2:rgba(27,175,122,.10); --wash3:rgba(235,104,52,.08);
+  --washRisk:rgba(227,73,72,.07);
+  --band:rgba(137,135,129,.16); --ghost:rgba(137,135,129,.35);
+  --tipbg:#0b0b0b; --tipink:#fcfcfb;
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    --paper:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181;
+    --k1:#3987e5; --k2:#d95926; --k3:#199e70; --k4:#c98500;
+    --q1:#184f95; --q2:#3987e5; --q3:#86b6ef;
+    --wash1:rgba(57,135,229,.10); --wash2:rgba(25,158,112,.13); --wash3:rgba(217,89,38,.12);
+    --washRisk:rgba(230,103,103,.10);
+    --band:rgba(137,135,129,.22); --ghost:rgba(137,135,129,.4);
+    --tipbg:#fcfcfb; --tipink:#0b0b0b;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181;
+  --k1:#3987e5; --k2:#d95926; --k3:#199e70; --k4:#c98500;
+  --q1:#184f95; --q2:#3987e5; --q3:#86b6ef;
+  --wash1:rgba(57,135,229,.10); --wash2:rgba(25,158,112,.13); --wash3:rgba(217,89,38,.12);
+  --washRisk:rgba(230,103,103,.10);
+  --band:rgba(137,135,129,.22); --ghost:rgba(137,135,129,.4);
+  --tipbg:#fcfcfb; --tipink:#0b0b0b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 28px 80px}
+.masthead{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:8px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:0 0 10px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,4.6vw,46px);line-height:1.08;margin:0 0 12px;text-wrap:balance}
+.dek{font-size:17px;color:var(--ink2);max-width:62ch;margin:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:26px 0 8px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.kpi .v{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.kpi .l{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px}
+.kpi .s{font-size:12.5px;color:var(--muted);margin-top:3px}
+section{margin-top:46px}
+.secno{font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:26px;margin:4px 0 8px;text-wrap:balance}
+.take{font-size:16.5px;color:var(--ink);max-width:74ch;margin:0 0 6px}
+.take b{background:linear-gradient(transparent 65%, var(--wash1) 65%)}
+.note{font-size:14px;color:var(--ink2);max-width:78ch;margin:6px 0 14px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 14px 10px;overflow-x:auto}
+.chart{width:100%;height:auto;display:block;min-width:720px}
+.src{font-size:12px;color:var(--muted);margin:8px 4px 0}
+.duo{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.duo.cols{grid-template-columns:3fr 2fr}}
+/* svg */
+text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.tick{font-size:12.5px;fill:var(--muted)}
+.axisline{stroke:var(--axis);stroke-width:1.5}
+.grid{stroke:var(--grid);stroke-width:1}
+.stem{stroke:var(--axis);stroke-width:1.5}
+.threshold{stroke:var(--ink2);stroke-width:1.6;stroke-dasharray:5 4}
+.threshlbl{font-size:12px;fill:var(--ink2);font-weight:600}
+.gapline{stroke:var(--ink);stroke-width:1.4}
+.gaplbl{font-size:15px;font-weight:700;fill:var(--ink)}
+.dot{stroke:var(--surface);stroke-width:2}
+.dot.c1{fill:var(--c1)} .dot.c2{fill:var(--c2)} .dot.c3{fill:var(--c3)} .dot.c4{fill:var(--c4)} .dot.c5{fill:var(--c5)} .dot.ink{fill:var(--ink2)}
+.dot.hollow{fill:var(--surface)}
+.dot.hollow.c1{stroke:var(--c1);stroke-width:2.5} .dot.hollow.c3{stroke:var(--c3);stroke-width:2.5} .dot.hollow.ink{stroke:var(--ink2);stroke-width:2.5}
+.bar.c1{fill:var(--c1)} .bar.c2{fill:var(--c2)} .bar.c3{fill:var(--c3)} .bar.c4{fill:var(--c4)} .bar.c5{fill:var(--c5)}
+.bar.k1{fill:var(--k1)} .bar.k2{fill:var(--k2)} .bar.k3{fill:var(--k3)} .bar.k4{fill:var(--k4)}
+.bar.q1{fill:var(--q1)} .bar.q2{fill:var(--q2)} .bar.q3{fill:var(--q3)}
+.bar.ghost{fill:var(--ghost)}
+.itemname{font-size:13px;font-weight:600;fill:var(--ink)}
+.itemname.big{font-size:14.5px;font-weight:800}
+.itemsub{font-size:11.5px;fill:var(--muted)}
+.legendlbl{font-size:12.5px;fill:var(--ink2)}
+.stacklbl{font-size:12px;fill:#fff;font-weight:600;text-anchor:middle}
+.bar.q3+text.stacklbl{fill:var(--ink)}
+.zone{fill:none}
+.zone.zone1{fill:var(--wash1)} .zone.zone2{fill:var(--wash2)} .zone.zone3{fill:var(--wash3)} .zone.zoneRisk{fill:var(--washRisk)}
+.zonelbl{font-size:11.5px;letter-spacing:.08em;fill:var(--ink2);font-weight:700;text-transform:uppercase}
+.quad{font-size:13.5px;letter-spacing:.08em;fill:var(--ink);font-weight:800}
+.quadRisk{font-size:13.5px;letter-spacing:.08em;fill:var(--ink2);font-weight:800}
+.cap{font-size:12.5px;fill:var(--muted)}
+.band{fill:var(--band)}
+.line{fill:none;stroke-width:2.5;stroke-linejoin:round}
+.line.seasons{stroke:var(--c1)}
+.line.pencil{stroke:var(--ink2);stroke-dasharray:6 5;stroke-width:2}
+.line.pencil.c2line{stroke:var(--c2)}
+.line.actual{stroke:var(--c2);stroke-width:3.5}
+.c2t{fill:var(--c2)}
+.seriesnote{font-size:12.5px;fill:var(--ink2);font-weight:600}
+.seriesval{font-size:14px;fill:var(--ink);font-weight:700}
+.c1t{fill:var(--c1)} .c3t{fill:var(--c3)}
+.dumbline{stroke:var(--axis);stroke-width:2}
+.chart.compact{min-width:340px}
+.hovercol{fill:transparent}
+.hovercol:hover{fill:var(--wash1)}
+[data-tip]{cursor:default}
+#tip{position:fixed;z-index:50;background:var(--tipbg);color:var(--tipink);font-size:13px;
+  padding:7px 11px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity .12s;max-width:340px}
+@media (prefers-reduced-motion:reduce){#tip{transition:none}}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--surface)}
+th,td{border:1px solid var(--grid);padding:7px 10px;text-align:right;font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--wash1);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:baseline}
+.footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--grid);font-size:13px;color:var(--muted)}
+.footer p{max-width:90ch}
+</style>
+<div id="tip" role="tooltip"></div>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">Milestone · Boise MSA underwriting brief · August 13, 2026</p>
+  <h1>Seasons at Meridian and the price of new supply</h1>
+  <p class="dek">Five interlocking books — our Seasons bid, our Prelude acquisition, the Canyon Ridge award,
+  and the Emblem &amp; Hawkins development equity raises — drawn as one picture. Every figure re-derived from
+  the source models (59/59 checks passed).</p>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Seasons bid</div><div class="v">$118M</div><div class="s">$327.8K/unit · $351.5/SF · 5.00% Y1 NOI cap</div></div>
+    <div class="kpi"><div class="l">vs replacement cost</div><div class="v">+7.6%</div><div class="s">above Emblem's $304.5K/unit build cost</div></div>
+    <div class="kpi"><div class="l">vs replacement value</div><div class="v">−8.4%</div><div class="s">below the ~$357.7K that induces new supply</div></div>
+    <div class="kpi"><div class="l">Rent gap to pencil</div><div class="v">−7 to −10%</div><div class="s">below the 6.5%-ROC rent, entire hold</div></div>
+    <div class="kpi"><div class="l">Exit sensitivity</div><div class="v">$400.6K @ 5.00%</div><div class="s">$382K @ 5.25% · $365K @ 5.50% — each 25bp ≈ 90bp UIRR</div></div>
+  </div>
+</header>
+
+<section>
+  <p class="secno">01 · Price</p>
+  <h2>The window between cost and replacement value</h2>
+  <p class="take"><b>$327.8K/unit is above what it costs to build — and below what it takes to get paid for building.</b></p>
+  <p class="note">"Below replacement cost" is not our story: the bid sits 7.6% above Emblem's all-in budget. The defensible claim
+  is the window — above raw cost, below the ~$357.7K/unit stabilized value a developer must believe in before starting
+  (Emblem's own untrended NOI at their own 5.5% exit cap), and well below the live Canyon Ridge award.</p>
+  <div class="panel"><svg viewBox="0 0 1000 300" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><rect x="45.0" y="114" width="261.5" height="92" class="zone zone1" rx="6"/><text x="175.7" y="198.0" class="zonelbl" text-anchor="middle">below build cost</text><rect x="306.5" y="114" width="361.3" height="92" class="zone zone2" rx="6"/><text x="487.1" y="198.0" class="zonelbl" text-anchor="middle">THE WINDOW — above cost, below what induces supply</text><rect x="667.7" y="114" width="287.3" height="92" class="zone zone3" rx="6"/><text x="811.4" y="198.0" class="zonelbl" text-anchor="middle">induces new supply</text><line x1="45" y1="160" x2="955" y2="160" class="axisline"/><line x1="140.1" y1="156" x2="140.1" y2="164" class="axisline"/><text x="140.1" y="180.0" class="tick" text-anchor="middle">$280K</text><line x1="275.9" y1="156" x2="275.9" y2="164" class="axisline"/><text x="275.9" y="180.0" class="tick" text-anchor="middle">$300K</text><line x1="411.7" y1="156" x2="411.7" y2="164" class="axisline"/><text x="411.7" y="180.0" class="tick" text-anchor="middle">$320K</text><line x1="547.5" y1="156" x2="547.5" y2="164" class="axisline"/><text x="547.5" y="180.0" class="tick" text-anchor="middle">$340K</text><line x1="683.4" y1="156" x2="683.4" y2="164" class="axisline"/><text x="683.4" y="180.0" class="tick" text-anchor="middle">$360K</text><line x1="819.2" y1="156" x2="819.2" y2="164" class="axisline"/><text x="819.2" y="180.0" class="tick" text-anchor="middle">$380K</text><line x1="955.0" y1="156" x2="955.0" y2="164" class="axisline"/><text x="955.0" y="180.0" class="tick" text-anchor="middle">$400K</text><line x1="172.7" y1="160" x2="172.7" y2="106.0" class="stem"/><circle cx="172.7" cy="160" r="7" class="dot c2" data-tip="Prelude (we own): $284.8K · 2018 build"/><text x="172.7" y="102.0" class="itemname" text-anchor="middle">Prelude (we own)</text><text x="172.7" y="117.0" class="itemsub" text-anchor="middle">$284.8K · 2018 build</text><line x1="306.5" y1="160" x2="306.5" y2="238.0" class="stem"/><circle cx="306.5" cy="160" r="7" class="dot ink" data-tip="Replacement cost: $304.5K · Emblem TDC"/><text x="306.5" y="222.0" class="itemname" text-anchor="middle">Replacement cost</text><text x="306.5" y="237.0" class="itemsub" text-anchor="middle">$304.5K · Emblem TDC</text><line x1="464.7" y1="160" x2="464.7" y2="106.0" class="stem"/><circle cx="464.7" cy="160" r="9" class="dot c1" data-tip="SEASONS BID: $327.8K · $118M"/><text x="464.7" y="102.0" class="itemname big" text-anchor="middle">SEASONS BID</text><text x="464.7" y="117.0" class="itemsub" text-anchor="middle">$327.8K · $118M</text><line x1="596.4" y1="160" x2="596.4" y2="238.0" class="stem"/><circle cx="596.4" cy="160" r="7" class="dot c1 hollow" data-tip="Whisper: $347.2K · $125M"/><text x="596.4" y="222.0" class="itemname" text-anchor="middle">Whisper</text><text x="596.4" y="237.0" class="itemsub" text-anchor="middle">$347.2K · $125M</text><line x1="667.7" y1="160" x2="667.7" y2="106.0" class="stem"/><circle cx="667.7" cy="160" r="7" class="dot ink hollow" data-tip="Replacement value: $357.7K · cost + margin"/><text x="667.7" y="102.0" class="itemname" text-anchor="middle">Replacement value</text><text x="667.7" y="117.0" class="itemsub" text-anchor="middle">$357.7K · cost + margin</text><line x1="832.1" y1="160" x2="832.1" y2="238.0" class="stem"/><circle cx="832.1" cy="160" r="7" class="dot c3" data-tip="Canyon Ridge award: $381.9K · $110M"/><text x="832.1" y="222.0" class="itemname" text-anchor="middle">Canyon Ridge award</text><text x="832.1" y="237.0" class="itemsub" text-anchor="middle">$381.9K · $110M</text></svg></div>
+  <p class="src">Sources: TMG Seasons model (Assumptions), Emblem merchant model (Summary), Canyon Ridge model at award, Prelude closing model.</p>
+</section>
+
+<section>
+  <p class="secno">02 · Rents today</p>
+  <h2>Every new build must underwrite above us</h2>
+  <p class="take"><b>Seasons' $2.02/SF market rent sits below the pencil line — and below both developers' own underwriting.</b></p>
+  <p class="note">At today's costs a new project needs ~$2.17/SF to reach a 6.5% untrended return on cost — and ~$2.30/SF if it
+  carries Seasons-like (garden, modest-fee) income instead of Emblem's garage-and-wifi program. New supply cannot undercut us;
+  it can only deliver above us. Both books confirm it: Emblem's comp table shows Seasons as the <em>lowest</em> $/SF of its five comps.</p>
+  <div class="panel"><svg viewBox="0 0 1000 310" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><line x1="45" y1="175" x2="955" y2="175" class="axisline"/><line x1="45.0" y1="171" x2="45.0" y2="179" class="axisline"/><text x="45.0" y="195.0" class="tick" text-anchor="middle">$1.60</text><line x1="236.6" y1="171" x2="236.6" y2="179" class="axisline"/><text x="236.6" y="195.0" class="tick" text-anchor="middle">$1.80</text><line x1="428.2" y1="171" x2="428.2" y2="179" class="axisline"/><text x="428.2" y="195.0" class="tick" text-anchor="middle">$2.00</text><line x1="619.7" y1="171" x2="619.7" y2="179" class="axisline"/><text x="619.7" y="195.0" class="tick" text-anchor="middle">$2.20</text><line x1="811.3" y1="171" x2="811.3" y2="179" class="axisline"/><text x="811.3" y="195.0" class="tick" text-anchor="middle">$2.40</text><line x1="591.0" y1="52" x2="591.0" y2="175" class="threshold"/><text x="591.0" y="30.0" class="threshlbl" text-anchor="middle">PENCIL @ 6.5% ROC</text><text x="591.0" y="44.0" class="threshlbl" text-anchor="middle">$2.17/SF</text><line x1="715.5" y1="52" x2="715.5" y2="175" class="threshold"/><text x="719.5" y="30.0" class="threshlbl" text-anchor="start">PENCIL, Seasons-like product</text><text x="719.5" y="44.0" class="threshlbl" text-anchor="start">$2.30/SF</text><line x1="140.8" y1="175" x2="140.8" y2="121.0" class="stem"/><circle cx="140.8" cy="175" r="7" class="dot c2" data-tip="Prelude: $1,730 · 1,016 SF"/><text x="140.8" y="117.0" class="itemname" text-anchor="middle">Prelude</text><text x="140.8" y="132.0" class="itemsub" text-anchor="middle">$1,730 · 1,016 SF</text><line x1="313.2" y1="175" x2="313.2" y2="299.0" class="stem"/><circle cx="313.2" cy="175" r="7" class="dot c1 hollow" data-tip="Seasons contract: $1,751/mo"/><text x="313.2" y="283.0" class="itemname" text-anchor="middle">Seasons contract</text><text x="313.2" y="298.0" class="itemsub" text-anchor="middle">$1,751/mo</text><line x1="399.4" y1="175" x2="399.4" y2="253.0" class="stem"/><circle cx="399.4" cy="175" r="7" class="dot c5" data-tip="The Judy UW: $1,787 · 908 SF"/><text x="399.4" y="237.0" class="itemname" text-anchor="middle">The Judy UW</text><text x="399.4" y="252.0" class="itemsub" text-anchor="middle">$1,787 · 908 SF</text><line x1="447.3" y1="175" x2="447.3" y2="121.0" class="stem"/><circle cx="447.3" cy="175" r="9" class="dot c1" data-tip="SEASONS MARKET: $1,885 · 932 SF"/><text x="447.3" y="117.0" class="itemname big" text-anchor="middle">SEASONS MARKET</text><text x="447.3" y="132.0" class="itemsub" text-anchor="middle">$1,885 · 932 SF</text><line x1="619.7" y1="175" x2="619.7" y2="253.0" class="stem"/><circle cx="619.7" cy="175" r="7" class="dot c4" data-tip="Emblem UW: $2,069 · 939 SF"/><text x="625.7" y="237.0" class="itemname" text-anchor="middle">Emblem UW</text><text x="625.7" y="252.0" class="itemsub" text-anchor="middle">$2,069 · 939 SF</text><line x1="849.6" y1="175" x2="849.6" y2="121.0" class="stem"/><circle cx="849.6" cy="175" r="7" class="dot c3" data-tip="Canyon Ridge: $2,171 · 889 SF"/><text x="849.6" y="117.0" class="itemname" text-anchor="middle">Canyon Ridge</text><text x="849.6" y="132.0" class="itemsub" text-anchor="middle">$2,171 · 889 SF</text></svg></div>
+  <p class="src">Rents from each model's own underwriting; pencil rents solved on Emblem's operating model &amp; cost basis (their 5.87% vacancy stack, opex, other income).</p>
+</section>
+
+<section>
+  <p class="secno">03 · Rents through the hold</p>
+  <h2>The gap never closes — by our own underwriting</h2>
+  <p class="take"><b>Seasons' modeled rent stays 7–10% below the 6.5% pencil rent every year of the hold, freezing at −7.4% as
+  rent growth converges to cost inflation.</b> It never even crosses the 6.0% line.</p>
+  <p class="note">Costs, opex and developer income all escalate 3%/yr (the developers' own assumption); our rent path is the model's
+  (7.6% Y1, then 4/4/3.5/3.5/3). The exit buyer in Oct-2031 still inherits a market where development doesn't pencil at our rents —
+  Emblem's own model needs $2,443/mo that year, 8% above our exit-year $2,249.</p>
+  <div class="panel"><svg viewBox="0 0 1000 430" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><line x1="80" y1="340.0" x2="845" y2="340.0" class="grid"/><text x="70.0" y="344.0" class="tick" text-anchor="end">$1,800</text><line x1="80" y1="290.0" x2="845" y2="290.0" class="grid"/><text x="70.0" y="294.0" class="tick" text-anchor="end">$1,950</text><line x1="80" y1="240.0" x2="845" y2="240.0" class="grid"/><text x="70.0" y="244.0" class="tick" text-anchor="end">$2,100</text><line x1="80" y1="190.0" x2="845" y2="190.0" class="grid"/><text x="70.0" y="194.0" class="tick" text-anchor="end">$2,250</text><line x1="80" y1="140.0" x2="845" y2="140.0" class="grid"/><text x="70.0" y="144.0" class="tick" text-anchor="end">$2,400</text><line x1="80" y1="90.0" x2="845" y2="90.0" class="grid"/><text x="70.0" y="94.0" class="tick" text-anchor="end">$2,550</text><line x1="80" y1="40.0" x2="845" y2="40.0" class="grid"/><text x="70.0" y="44.0" class="tick" text-anchor="end">$2,700</text><text x="80.0" y="362.0" class="tick" text-anchor="middle">2027</text><text x="233.0" y="362.0" class="tick" text-anchor="middle">2028</text><text x="386.0" y="362.0" class="tick" text-anchor="middle">2029</text><text x="539.0" y="362.0" class="tick" text-anchor="middle">2030</text><text x="692.0" y="362.0" class="tick" text-anchor="middle">2031</text><text x="845.0" y="362.0" class="tick" text-anchor="middle">2032</text><polygon points="80.0,286.3 233.0,266.7 386.0,246.7 539.0,225.7 692.0,204.3 845.0,182.3 845.0,77.7 692.0,103.0 539.0,127.3 386.0,151.0 233.0,174.0 80.0,196.3" class="band"/><polyline points="80.0,241.3 233.0,220.3 386.0,198.7 539.0,176.7 692.0,153.7 845.0,130.0" class="line pencil"/><polyline points="80.0,311.7 233.0,286.7 386.0,260.7 539.0,236.7 692.0,212.0 845.0,190.3" class="line seasons"/><line x1="692.0" y1="32" x2="692.0" y2="340" class="threshold"/><text x="692.0" y="24.0" class="threshlbl" text-anchor="middle">EXIT · Oct 2031</text><circle cx="845.0" cy="190.3" r="6" class="dot c1"/><circle cx="80.0" cy="311.7" r="6" class="dot c1"/><text x="857.0" y="204.3" class="seriesnote c1t" text-anchor="start">Seasons UW rent</text><text x="857.0" y="220.3" class="seriesval c1t" text-anchor="start">$2,249</text><text x="857.0" y="126.0" class="seriesnote" text-anchor="start">Pencil @ 6.5%</text><text x="857.0" y="142.0" class="seriesval" text-anchor="start">$2,430</text><text x="857.0" y="70.0" class="zonelbl" text-anchor="start">Band:</text><text x="857.0" y="85.0" class="zonelbl" text-anchor="start">6.0–7.0% ROC</text><line x1="80.0" y1="303.7" x2="80.0" y2="249.3" class="gapline"/><text x="88.0" y="280.5" class="gaplbl" text-anchor="start">−10.1%</text><line x1="692.0" y1="204.0" x2="692.0" y2="161.7" class="gapline"/><text x="684.0" y="186.8" class="gaplbl" text-anchor="end">−7.4%</text><text x="684.0" y="200.8" class="itemsub" text-anchor="end">frozen from here</text><rect x="60.0" y="40" width="96.5" height="300" class="hovercol" data-tip="2027 — Seasons $1,885 vs pencil $2,096 (gap -10.1%)"/><rect x="156.5" y="40" width="153.0" height="300" class="hovercol" data-tip="2028 — Seasons $1,960 vs pencil $2,159 (gap -9.2%)"/><rect x="309.5" y="40" width="153.0" height="300" class="hovercol" data-tip="2029 — Seasons $2,038 vs pencil $2,224 (gap -8.4%)"/><rect x="462.5" y="40" width="153.0" height="300" class="hovercol" data-tip="2030 — Seasons $2,110 vs pencil $2,290 (gap -7.9%)"/><rect x="615.5" y="40" width="153.0" height="300" class="hovercol" data-tip="2031 — Seasons $2,184 vs pencil $2,359 (gap -7.4%)"/><rect x="768.5" y="40" width="96.5" height="300" class="hovercol" data-tip="2032 — Seasons $2,249 vs pencil $2,430 (gap -7.4%)"/></svg></div>
+  <p class="src">Corrected in the 2026-08-13 verification pass (an earlier draft compared Y6 rents to a 2031 pencil, understating the exit gap as −4.3%).</p>
+</section>
+
+<section>
+  <p class="secno">04 · Exits</p>
+  <h2>Same exit price, different anatomy</h2>
+  <p class="take"><b>Our Seasons exit ($400.6K) matches Emblem's required sale ($400.5K) — but that is not a validation:
+  it means 7-year-old product selling at the same $/unit as brand-new product.</b> The match is manufactured by the cap
+  rates — our exit NOI is 8.9% <em>below</em> the new build's ($20.1K vs $22.0K/unit); the equality comes from assuming
+  aged product trades 50bp tighter (5.00%) in 2031 than the merchant assumes new product does in 2030 (5.50%).</p>
+  <p class="note">The vintage discount is real, and it lives in the NOI: our exit rents sit 8% below Emblem's own 2031 rent —
+  the same relative position as today. The exposure is the cap-rate <em>level</em>. For 5.00%: today's prints show age-flat caps
+  for young vintages (Prelude closed at 4.95% at 8 years old; CR 5.12% tax-adjusted) and merchant books pad exit caps for LP
+  optics. Against: a stabilized no-story 7-year-old argues for the wider end of any curve. Sensitivity (rebuilt from the model's
+  cash flows): 5.25% → $382K/unit, UIRR ~7.8% / LIRR ~10.0%; 5.50% (Emblem's own) → $365K, UIRR ~6.9% / LIRR ~8.0%.
+  $382K in 2031 is what 2-year-old Canyon Ridge fetches today — the most defensible aged-product anchor. Present the exit
+  as a 5.00–5.25% band.</p>
+  <div class="panel"><svg viewBox="0 0 1000 320" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><line x1="45" y1="170" x2="955" y2="170" class="axisline"/><line x1="117.8" y1="166" x2="117.8" y2="174" class="axisline"/><text x="117.8" y="190.0" class="tick" text-anchor="middle">$340K</text><line x1="263.4" y1="166" x2="263.4" y2="174" class="axisline"/><text x="263.4" y="190.0" class="tick" text-anchor="middle">$360K</text><line x1="409.0" y1="166" x2="409.0" y2="174" class="axisline"/><text x="409.0" y="190.0" class="tick" text-anchor="middle">$380K</text><line x1="554.6" y1="166" x2="554.6" y2="174" class="axisline"/><text x="554.6" y="190.0" class="tick" text-anchor="middle">$400K</text><line x1="700.2" y1="166" x2="700.2" y2="174" class="axisline"/><text x="700.2" y="190.0" class="tick" text-anchor="middle">$420K</text><line x1="845.8" y1="166" x2="845.8" y2="174" class="axisline"/><text x="845.8" y="190.0" class="tick" text-anchor="middle">$440K</text><line x1="138.2" y1="56" x2="138.2" y2="170" class="threshold"/><text x="138.2" y="34.0" class="threshlbl" text-anchor="middle">Forward replacement cost</text><text x="138.2" y="48.0" class="threshlbl" text-anchor="middle">$342.8K (3%/yr)</text><line x1="266.3" y1="170" x2="266.3" y2="116.0" class="stem"/><circle cx="266.3" cy="170" r="7" class="dot c2" data-tip="Prelude exit UW: $361.2K · Dec-30 @5.00%"/><text x="258.3" y="112.0" class="itemname" text-anchor="end">Prelude exit UW</text><text x="258.3" y="127.0" class="itemsub" text-anchor="end">$361.2K · Dec-30 @5.00%</text><line x1="280.9" y1="170" x2="280.9" y2="248.0" class="stem"/><circle cx="280.9" cy="170" r="7" class="dot c5" data-tip="Judy required exit: $361.6K · Aug-30 @5.25%"/><text x="288.9" y="232.0" class="itemname" text-anchor="start">Judy required exit</text><text x="288.9" y="247.0" class="itemsub" text-anchor="start">$361.6K · Aug-30 @5.25%</text><line x1="552.4" y1="170" x2="552.4" y2="248.0" class="stem"/><circle cx="552.4" cy="170" r="7" class="dot c4" data-tip="Emblem required exit: $400.5K · Jan-30 @5.50%"/><text x="560.4" y="232.0" class="itemname" text-anchor="start">Emblem required exit</text><text x="560.4" y="247.0" class="itemsub" text-anchor="start">$400.5K · Jan-30 @5.50%</text><line x1="565.5" y1="170" x2="565.5" y2="116.0" class="stem"/><circle cx="565.5" cy="170" r="9" class="dot c1" data-tip="SEASONS EXIT UW: $400.6K · Oct-31 @5.00%"/><text x="557.5" y="112.0" class="itemname big" text-anchor="end">SEASONS EXIT UW</text><text x="557.5" y="127.0" class="itemsub" text-anchor="end">$400.6K · Oct-31 @5.00%</text><line x1="866.2" y1="170" x2="866.2" y2="116.0" class="stem"/><circle cx="866.2" cy="170" r="7" class="dot c3" data-tip="Canyon Ridge exit UW: $442.8K · Oct-31 @4.75%"/><text x="831.2" y="112.0" class="itemname" text-anchor="middle">Canyon Ridge exit UW</text><text x="831.2" y="127.0" class="itemsub" text-anchor="middle">$442.8K · Oct-31 @4.75%</text><text x="500.0" y="288.0" class="cap" text-anchor="middle">Same price, different equations — Seasons: $20.1K NOI ÷ 5.00% · Emblem: $22.0K NOI ÷ 5.50%.</text><text x="500.0" y="305.0" class="cap" text-anchor="middle">The age discount is in the NOI; the price match comes entirely from the cap-rate assumption.</text></svg></div>
+  <p class="src">Exit values from each model. Forward replacement cost = Emblem $304.5K/unit escalated 3%/yr to 2031.</p>
+</section>
+
+<section>
+  <p class="secno">05 · Two moats</p>
+  <h2>What Canyon Ridge's price actually buys</h2>
+  <p class="take"><b>Canyon Ridge's rents already pencil — its protection is that there's no land. Seasons' land is abundant —
+  its protection is that the rents don't pencil.</b> The market just paid +$54K/unit and ~45bp for the physical version.</p>
+  <div class="panel"><svg viewBox="0 0 1000 440" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><rect x="110" y="50" width="410" height="182.9" class="zone zone2"/><rect x="520" y="50" width="410" height="182.9" class="zone zoneRisk"/><rect x="520" y="232.9" width="410" height="137.1" class="zone zone1"/><line x1="110" y1="232.9" x2="930" y2="232.9" class="threshold"/><text x="118.0" y="224.9" class="threshlbl" text-anchor="start">development pencils above this line (rents ≥ 6.5% ROC rent)</text><line x1="237.6" y1="50" x2="237.6" y2="370" class="grid"/><text x="237.6" y="392.0" class="tick" text-anchor="middle">100 ac</text><line x1="511.9" y1="50" x2="511.9" y2="370" class="grid"/><text x="511.9" y="392.0" class="tick" text-anchor="middle">300 ac</text><line x1="812.6" y1="50" x2="812.6" y2="370" class="grid"/><text x="812.6" y="392.0" class="tick" text-anchor="middle">1,000 ac</text><text x="520.0" y="414.0" class="cap" text-anchor="middle">Apartment-ready land within 5 miles (log scale) — from this repo's parcel analysis</text><text x="26" y="210.0" class="cap" text-anchor="middle" transform="rotate(-90 26 210.0)">Market rent vs 6.5% pencil rent</text><text x="126.0" y="76.0" class="quad" text-anchor="start">PHYSICAL MOAT</text><text x="126.0" y="94.0" class="itemsub" text-anchor="start">rents pencil, but no land</text><text x="914.0" y="76.0" class="quadRisk" text-anchor="end">SUPPLY INCOMING</text><text x="914.0" y="94.0" class="itemsub" text-anchor="end">rents pencil + land available</text><text x="914.0" y="340.0" class="quad" text-anchor="end">ECONOMIC MOAT</text><text x="914.0" y="358.0" class="itemsub" text-anchor="end">land abundant, rents don't pencil</text><circle cx="326.9" cy="91.1" r="11" class="dot c3" data-tip="Canyon Ridge: 143 apartment-ready acres · rents +12.4% above pencil · awarded $381.9K/u @ 4.57% Y1"/><text x="326.9" y="55.1" class="itemname big" text-anchor="middle">Canyon Ridge</text><text x="326.9" y="70.1" class="itemsub" text-anchor="middle">$381.9K/u · 4.57% Y1</text><circle cx="843.1" cy="311.7" r="13" class="dot c1" data-tip="Seasons: 1,130 apartment-ready acres · rents −6.9% below pencil · bid $327.8K/u @ 5.00% Y1"/><text x="819.1" y="309.7" class="itemname big" text-anchor="end">Seasons</text><text x="819.1" y="325.7" class="itemsub" text-anchor="end">$327.8K/u · 5.00% Y1</text></svg></div>
+  <p class="src">Land inventory from this repo's parcel-level analysis (5-mi radii; MF-zoned or comp-plan multifamily, ≥1 ac, developable).</p>
+</section>
+
+<section>
+  <p class="secno">06 · Taxes</p>
+  <h2>Same product, $2,100/unit apart on taxes</h2>
+  <p class="take"><b>Meridian's verified ~0.45% levy vs Boise's ~0.91% is worth ≈ $42K/unit of value for identical product —
+  and it lives in price per unit, not in cap rates.</b> Taxes sit inside NOI, so cap rates compare directly across the two cities;
+  price per unit does not. Canyon Ridge's $381.9K/unit Boise award is ~$428K/unit Meridian-equivalent at its own 4.57% cap —
+  putting Seasons ~23% below its jurisdiction-adjusted 2024-vintage comp.</p>
+  <div class="duo cols">
+    <div class="panel"><svg viewBox="0 0 1000 360" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="30" width="380" height="300" class="zone zone2" rx="8"/><rect x="560" y="30" width="310" height="300" class="zone zone3" rx="8"/><text x="260.0" y="48.0" class="zonelbl" text-anchor="middle">MERIDIAN — levy ≈ 0.45%</text><text x="715.0" y="48.0" class="zonelbl" text-anchor="middle">BOISE — levy ≈ 0.92%</text><line x1="70" y1="290" x2="930" y2="290" class="axisline"/><rect x="120" y="215.3" width="62" height="74.7" class="bar c2" rx="4" data-tip="Prelude: $1,169/unit/yr — actual 0.4507%"/><text x="151.0" y="207.3" class="itemname" text-anchor="middle">$1,169</text><text x="151.0" y="310.0" class="itemname" text-anchor="middle">Prelude</text><text x="151.0" y="325.0" class="itemsub" text-anchor="middle">actual 0.4507%</text><rect x="250" y="204.4" width="62" height="85.6" class="bar c1" rx="4" data-tip="Seasons: $1,340/unit/yr — UW Y1"/><text x="281.0" y="196.4" class="itemname" text-anchor="middle">$1,340</text><text x="281.0" y="310.0" class="itemname" text-anchor="middle">Seasons</text><text x="281.0" y="325.0" class="itemsub" text-anchor="middle">UW Y1</text><rect x="380" y="194.1" width="62" height="95.9" class="bar c4" rx="4" data-tip="Emblem: $1,501/unit/yr — UW stabilized"/><text x="411.0" y="186.1" class="itemname" text-anchor="middle">$1,501</text><text x="411.0" y="310.0" class="itemname" text-anchor="middle">Emblem</text><text x="411.0" y="325.0" class="itemsub" text-anchor="middle">UW stabilized</text><rect x="610" y="88.0" width="62" height="61.2" class="bar ghost" rx="4" data-tip="Corrected at Boise levy: $3,161/unit"/><text x="641.0" y="64.0" class="itemsub" text-anchor="middle">corrected</text><text x="641.0" y="78.0" class="itemsub" text-anchor="middle">$3,161</text><rect x="610" y="149.3" width="62" height="140.7" class="bar c5" rx="4" data-tip="The Judy: $2,203/unit/yr — as marketed"/><text x="641.0" y="141.3" class="itemname" text-anchor="middle">$2,203</text><text x="641.0" y="310.0" class="itemname" text-anchor="middle">The Judy</text><text x="641.0" y="325.0" class="itemsub" text-anchor="middle">as marketed</text><rect x="740" y="71.0" width="62" height="219.0" class="bar c3" rx="4" data-tip="Canyon Ridge: $3,428/unit/yr — UW Y1 on $110M"/><text x="771.0" y="63.0" class="itemname" text-anchor="middle">$3,428</text><text x="771.0" y="310.0" class="itemname" text-anchor="middle">Canyon Ridge</text><text x="771.0" y="325.0" class="itemsub" text-anchor="middle">UW Y1 on $110M</text><text x="500.0" y="345.0" class="cap" text-anchor="middle">Real estate taxes underwritten, $/unit/yr — same-vintage product, ~$2,100/unit apart on jurisdiction alone</text></svg></div>
+    <div class="panel"><svg viewBox="0 0 440 185" class="chart compact" role="img" xmlns="http://www.w3.org/2000/svg"><line x1="49" y1="30" x2="49" y2="140" class="grid"/><text x="49.0" y="158.0" class="tick" text-anchor="middle">$320K</text><line x1="165" y1="30" x2="165" y2="140" class="grid"/><text x="164.9" y="158.0" class="tick" text-anchor="middle">$360K</text><line x1="281" y1="30" x2="281" y2="140" class="grid"/><text x="280.9" y="158.0" class="tick" text-anchor="middle">$400K</text><line x1="397" y1="30" x2="397" y2="140" class="grid"/><text x="396.8" y="158.0" class="tick" text-anchor="middle">$440K</text><text x="20.0" y="22.0" class="itemsub" text-anchor="start">CANYON RIDGE — same building, two tax bills</text><line x1="228" y1="58" x2="361" y2="58" class="dumbline"/><circle cx="228" cy="58" r="7" class="dot c3 hollow" data-tip="CR award: $381.9K/unit in Boise (0.91% levy)"/><circle cx="361" cy="58" r="7" class="dot c3" data-tip="Same building with Meridian taxes at the same 4.57% cap: ~$427.6K/unit"/><text x="228.4" y="80.0" class="itemname" text-anchor="middle">$381.9K</text><text x="228.4" y="93.0" class="itemsub" text-anchor="middle">Boise</text><text x="360.9" y="44.0" class="itemname" text-anchor="end">$427.6K Meridian-equiv.</text><text x="20.0" y="108.0" class="itemsub" text-anchor="start">SEASONS BID</text><circle cx="72" cy="126" r="7" class="dot c1" data-tip="Seasons bid $327.8K/unit — ~23% below the jurisdiction-adjusted CR comp"/><text x="83.6" y="130.0" class="itemname" text-anchor="start">$327.8K — 23% below adj. comp</text></svg><p class="note" style="margin:0 8px 8px">Levies verified vs Ada County 2024 certified rates —
+    the driver is the school district (Boise SD 0.280% vs West Ada 0.033%) plus the city levy (0.405% vs 0.203%).
+    The Judy's marketed ROC rests on a Boise tax line ~$750/unit light. <em>(Corrects an earlier version of this
+    page that presented a "tax-normalized cap rate" — caps compare directly; $/unit requires the adjustment.)</em></p></div>
+  </div>
+  <p class="src">Tax lines from each model's Y1/stabilized pro forma; levies implied by actuals (Seasons &amp; Prelude 0.4507%; Canyon Ridge 0.92%).</p>
+</section>
+
+<section>
+  <p class="secno">07 · Other income</p>
+  <h2>Other income is a product choice — and a quiet stretch</h2>
+  <p class="take"><b>Developers underwrite $3.6–4.2K/unit of non-rent income; stabilized assets in this market actually collect
+  $2.7–3.0K.</b> The delta is garages and mandatory wifi — product that also raises their build cost — plus recovery-rate optimism.</p>
+  <p class="note">Correcting other income toward market pushes true pencil rents even higher (a wider moat), and Prelude's $759/unit of
+  garage income against Seasons' $360 flags a possible revenue-capture opportunity at Seasons worth a diligence look.</p>
+  <div class="panel"><svg viewBox="0 0 1000 400" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><line x1="70" y1="310" x2="930" y2="310" class="axisline"/><line x1="70" y1="310.0" x2="930" y2="310.0" class="grid"/><text x="60.0" y="314.0" class="tick" text-anchor="end">$0</text><line x1="70" y1="252.2" x2="930" y2="252.2" class="grid"/><text x="60.0" y="256.2" class="tick" text-anchor="end">$1,000</text><line x1="70" y1="194.4" x2="930" y2="194.4" class="grid"/><text x="60.0" y="198.4" class="tick" text-anchor="end">$2,000</text><line x1="70" y1="136.7" x2="930" y2="136.7" class="grid"/><text x="60.0" y="140.7" class="tick" text-anchor="end">$3,000</text><line x1="70" y1="78.9" x2="930" y2="78.9" class="grid"/><text x="60.0" y="82.9" class="tick" text-anchor="end">$4,000</text><rect x="120" y="275.3" width="90" height="32.7" class="bar k1" data-tip="Seasons — Misc / fees: $601/unit/yr"/><rect x="120" y="234.9" width="90" height="38.3" class="bar k2" data-tip="Seasons — RUBS / billback: $698/unit/yr"/><rect x="120" y="214.1" width="90" height="18.8" class="bar k3" data-tip="Seasons — Parking / garages: $360/unit/yr"/><rect x="120" y="151.9" width="90" height="60.2" class="bar k4" data-tip="Seasons — Wifi / rev share: $1,077/unit/yr"/><text x="165.0" y="143.9" class="itemname" text-anchor="middle">$2,736</text><text x="165.0" y="330.0" class="itemname" text-anchor="middle">Seasons</text><text x="165.0" y="345.0" class="itemsub" text-anchor="middle">actual Y1</text><rect x="290" y="236.0" width="90" height="72.0" class="bar k1" data-tip="Prelude — Misc / fees: $1,281/unit/yr"/><rect x="290" y="191.9" width="90" height="42.1" class="bar k2" data-tip="Prelude — RUBS / billback: $763/unit/yr"/><rect x="290" y="148.0" width="90" height="41.9" class="bar k3" data-tip="Prelude — Parking / garages: $759/unit/yr"/><text x="335.0" y="140.0" class="itemname" text-anchor="middle">$2,803</text><text x="335.0" y="330.0" class="itemname" text-anchor="middle">Prelude</text><text x="335.0" y="345.0" class="itemsub" text-anchor="middle">our UW Y1</text><rect x="460" y="200.4" width="90" height="107.6" class="bar k1" data-tip="Canyon Ridge — Misc / fees: $1,897/unit/yr"/><rect x="460" y="166.8" width="90" height="31.6" class="bar k2" data-tip="Canyon Ridge — RUBS / billback: $581/unit/yr"/><rect x="460" y="136.8" width="90" height="28.0" class="bar k3" data-tip="Canyon Ridge — Parking / garages: $520/unit/yr"/><rect x="460" y="136.6" width="90" height="1.0" class="bar k4" data-tip="Canyon Ridge — Wifi / rev share: $3/unit/yr"/><text x="505.0" y="128.6" class="itemname" text-anchor="middle">$3,001</text><text x="505.0" y="330.0" class="itemname" text-anchor="middle">Canyon Ridge</text><text x="505.0" y="345.0" class="itemsub" text-anchor="middle">UW Y1</text><rect x="630" y="103.8" width="90" height="206.2" class="bar ghost" rx="4" data-tip="The Judy: $3,568/unit total — components not itemized in OM"/><text x="675.0" y="95.8" class="itemname" text-anchor="middle">$3,568</text><text x="675.0" y="330.0" class="itemname" text-anchor="middle">The Judy</text><text x="675.0" y="345.0" class="itemsub" text-anchor="middle">UW Y3 (not itemized)</text><rect x="800" y="268.3" width="90" height="39.7" class="bar k1" data-tip="Emblem — Misc / fees: $721/unit/yr"/><rect x="800" y="202.0" width="90" height="64.4" class="bar k2" data-tip="Emblem — RUBS / billback: $1,149/unit/yr"/><rect x="800" y="141.8" width="90" height="58.1" class="bar k3" data-tip="Emblem — Parking / garages: $1,041/unit/yr"/><rect x="800" y="66.9" width="90" height="72.9" class="bar k4" data-tip="Emblem — Wifi / rev share: $1,296/unit/yr"/><text x="845.0" y="58.9" class="itemname" text-anchor="middle">$4,207</text><text x="845.0" y="330.0" class="itemname" text-anchor="middle">Emblem</text><text x="845.0" y="345.0" class="itemsub" text-anchor="middle">developer UW</text><line x1="70" y1="145.5" x2="930" y2="145.5" class="threshold"/><text x="925.0" y="137.5" class="threshlbl" text-anchor="end">stabilized actuals ≈ $2,850</text><rect x="110" y="372" width="14" height="14" class="bar k1" rx="3"/><text x="130.0" y="383.0" class="legendlbl" text-anchor="start">Misc / fees</text><rect x="259.2" y="372" width="14" height="14" class="bar k2" rx="3"/><text x="279.2" y="383.0" class="legendlbl" text-anchor="start">RUBS / billback</text><rect x="437.2" y="372" width="14" height="14" class="bar k3" rx="3"/><text x="457.2" y="383.0" class="legendlbl" text-anchor="start">Parking / garages</text><rect x="629.6" y="372" width="14" height="14" class="bar k4" rx="3"/><text x="649.6" y="383.0" class="legendlbl" text-anchor="start">Wifi / rev share</text></svg></div>
+  <p class="src">Per-unit per-year. Seasons/CR from TMG Y1; Prelude from our closing UW; Emblem from Operating Inputs (garage $41/space on 536 spaces, wifi $108/mo, 100% W/S billback); Judy total from Y3 pro forma.</p>
+</section>
+
+<section>
+  <p class="secno">08 · Cost anatomy</p>
+  <h2>What a unit costs to build — and where prices sit against it</h2>
+  <p class="take"><b>Two independent GCs land on the same hard cost (~$214–216/SF). The differences are land basis, fees, and soft
+  costs</b> — which is why Hawkins' $257K is a floor that doesn't generalize, and Emblem's $305K is the institutional benchmark.</p>
+  <div class="panel"><svg viewBox="0 0 1000 430" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><line x1="90" y1="360.0" x2="760" y2="360.0" class="grid"/><text x="80.0" y="364.0" class="tick" text-anchor="end">$0K</text><line x1="90" y1="280.0" x2="760" y2="280.0" class="grid"/><text x="80.0" y="284.0" class="tick" text-anchor="end">$100K</text><line x1="90" y1="200.0" x2="760" y2="200.0" class="grid"/><text x="80.0" y="204.0" class="tick" text-anchor="end">$200K</text><line x1="90" y1="120.0" x2="760" y2="120.0" class="grid"/><text x="80.0" y="124.0" class="tick" text-anchor="end">$300K</text><line x1="90" y1="40.0" x2="760" y2="40.0" class="grid"/><text x="80.0" y="44.0" class="tick" text-anchor="end">$400K</text><line x1="90" y1="360" x2="760" y2="360" class="axisline"/><rect x="170" y="332.3" width="150" height="25.7" class="bar q1" data-tip="Emblem Meridian — Land $34.6K/unit"/><text x="245.0" y="350.2" class="stacklbl" text-anchor="middle">Land $34.6K</text><rect x="170" y="161.8" width="150" height="168.6" class="bar q2" data-tip="Emblem Meridian — Hard $213.2K/unit"/><text x="245.0" y="251.0" class="stacklbl" text-anchor="middle">Hard $213.2K</text><rect x="170" y="116.4" width="150" height="43.4" class="bar q3" data-tip="Emblem Meridian — Soft/fees $56.7K/unit"/><text x="245.0" y="143.1" class="stacklbl" text-anchor="middle">Soft/fees $56.7K</text><text x="245.0" y="106.4" class="itemname" text-anchor="middle">$304.5K/unit</text><text x="245.0" y="380.0" class="itemname" text-anchor="middle">Emblem Meridian</text><text x="245.0" y="395.0" class="itemsub" text-anchor="middle">Lennar GC · Oct-27 GMP</text><rect x="470" y="347.9" width="150" height="10.1" class="bar q1" data-tip="The Judy (Hawkins) — Land $15.1K/unit"/><rect x="470" y="192.6" width="150" height="153.3" class="bar q2" data-tip="The Judy (Hawkins) — Hard $194.1K/unit"/><text x="545.0" y="274.3" class="stacklbl" text-anchor="middle">Hard $194.1K</text><rect x="470" y="154.1" width="150" height="36.6" class="bar q3" data-tip="The Judy (Hawkins) — Soft/fin $48.2K/unit"/><text x="545.0" y="177.4" class="stacklbl" text-anchor="middle">Soft/fin $48.2K</text><text x="545.0" y="144.1" class="itemname" text-anchor="middle">$257.4K/unit</text><text x="545.0" y="380.0" class="itemname" text-anchor="middle">The Judy (Hawkins)</text><text x="545.0" y="395.0" class="itemsub" text-anchor="middle">land at 2024 basis</text><line x1="90" y1="97.8" x2="760" y2="97.8" class="threshold"/><text x="770.0" y="101.8" class="threshlbl c1t" text-anchor="start">Seasons bid $327.8K</text><line x1="90" y1="73.8" x2="760" y2="73.8" class="threshold"/><text x="770.0" y="77.8" class="threshlbl " text-anchor="start">Replacement value $357.7K</text><line x1="90" y1="54.5" x2="760" y2="54.5" class="threshold"/><text x="770.0" y="58.5" class="threshlbl c3t" text-anchor="start">Canyon Ridge award $381.9K</text></svg></div>
+  <p class="src">Emblem: Summary tab budget at Oct-27 GMP. Hawkins: S&amp;U (land at Oct-2024 purchase basis, no mark-to-market). Lines: Seasons bid; replacement value; Canyon Ridge award.</p>
+</section>
+
+<section>
+  <p class="secno">09 · Prelude cross-check</p>
+  <h2>Our rents: Prelude actual vs. plan, and where Seasons enters</h2>
+  <p class="take"><b>Prelude is signing new leases at its underwritten market rent to the dollar ($1,731 vs $1,730 UW), and
+  Seasons' $1,885 entry rent is likewise already-executed, not projected.</b> The two books are one story: same market,
+  ~9%/unit (+19%/SF) apart on product quality, both anchored to rents that exist today.</p>
+  <p class="note">Prelude actuals (7 months post-close): in-place $1,680 vs UW Y1 $1,668 (+0.7% ahead); winter signings were weak
+  ($1,575) but the May-Aug cohort recovered to plan — within-floor-plan cohort gains of +4% to +12%. Seasons' Y1 assumes ZERO
+  further asking growth (the +7.6% headline is the executed $1,885 annualizing against the trailing-year average); concession
+  burn-off is a separate, effective-rent lever. Caution transfers: Prelude concessions still run 5.7% of potential rent (2.2x UW).</p>
+  <div class="panel"><svg viewBox="0 0 1000 470" class="chart " role="img" xmlns="http://www.w3.org/2000/svg"><line x1="80" y1="380.0" x2="845" y2="380.0" class="grid"/><text x="70.0" y="384.0" class="tick" text-anchor="end">$1,500</text><line x1="80" y1="320.0" x2="845" y2="320.0" class="grid"/><text x="70.0" y="324.0" class="tick" text-anchor="end">$1,650</text><line x1="80" y1="260.0" x2="845" y2="260.0" class="grid"/><text x="70.0" y="264.0" class="tick" text-anchor="end">$1,800</text><line x1="80" y1="200.0" x2="845" y2="200.0" class="grid"/><text x="70.0" y="204.0" class="tick" text-anchor="end">$1,950</text><line x1="80" y1="140.0" x2="845" y2="140.0" class="grid"/><text x="70.0" y="144.0" class="tick" text-anchor="end">$2,100</text><line x1="80" y1="80.0" x2="845" y2="80.0" class="grid"/><text x="70.0" y="84.0" class="tick" text-anchor="end">$2,250</text><text x="153.4" y="402.0" class="tick" text-anchor="middle">2026</text><line x1="92.2" y1="380" x2="92.2" y2="385" class="axisline"/><text x="275.8" y="402.0" class="tick" text-anchor="middle">2027</text><line x1="214.6" y1="380" x2="214.6" y2="385" class="axisline"/><text x="398.2" y="402.0" class="tick" text-anchor="middle">2028</text><line x1="337.0" y1="380" x2="337.0" y2="385" class="axisline"/><text x="520.6" y="402.0" class="tick" text-anchor="middle">2029</text><line x1="459.4" y1="380" x2="459.4" y2="385" class="axisline"/><text x="643.0" y="402.0" class="tick" text-anchor="middle">2030</text><line x1="581.8" y1="380" x2="581.8" y2="385" class="axisline"/><text x="765.4" y="402.0" class="tick" text-anchor="middle">2031</text><line x1="704.2" y1="380" x2="704.2" y2="385" class="axisline"/><text x="887.8" y="402.0" class="tick" text-anchor="middle">2032</text><line x1="826.6" y1="380" x2="826.6" y2="385" class="axisline"/><line x1="80" y1="380" x2="845" y2="380" class="axisline"/><polyline points="168.1,226.0 316.2,226.0 316.2,196.0 438.6,196.0 438.6,164.8 561.0,164.8 561.0,136.0 683.4,136.0 683.4,106.4 805.8,106.4 805.8,80.4 845.0,80.4" class="line seasons"/><circle cx="168.1" cy="226.0" r="6" class="dot c1" data-tip="Seasons starting market rent $1,885 = L5 executed new leases (8/4/26 RR) — held flat through Y1"/><text x="282.0" y="214.0" class="itemsub" text-anchor="middle">$1,885 — already executed, flat through Y1</text><circle cx="168.1" cy="279.6" r="6" class="dot c1 hollow" data-tip="Seasons in-place contract rent $1,751 (8/4/26 RR)"/><text x="180.1" y="269.6" class="itemsub" text-anchor="start">contract $1,751</text><polyline points="153.4,312.8 275.8,282.0 398.2,256.8 520.6,226.8 643.0,199.2" class="line pencil c2line"/><circle cx="153.4" cy="312.8" r="4" class="dot c2 hollow" data-tip="Prelude UW rent/occupied 2026: $1,668"/><circle cx="275.8" cy="282.0" r="4" class="dot c2 hollow" data-tip="Prelude UW rent/occupied 2027: $1,745"/><circle cx="398.2" cy="256.8" r="4" class="dot c2 hollow" data-tip="Prelude UW rent/occupied 2028: $1,808"/><circle cx="520.6" cy="226.8" r="4" class="dot c2 hollow" data-tip="Prelude UW rent/occupied 2029: $1,883"/><circle cx="643.0" cy="199.2" r="4" class="dot c2 hollow" data-tip="Prelude UW rent/occupied 2030: $1,952"/><text x="606.3" y="235.2" class="seriesnote c2t" text-anchor="end">Prelude UW</text><text x="606.3" y="251.2" class="seriesval c2t" text-anchor="end">$1,952 by 2030</text><polyline points="97.3,312.8 107.5,312.0 117.7,311.2 127.9,310.0 138.1,310.0 148.3,307.2 158.5,306.4" class="line actual"/><circle cx="168.1" cy="308.0" r="6" class="dot c2" data-tip="Prelude actual in-place base rent $1,680 (RR 8/13/26, 271 units) — vs UW Y1 $1,668: +0.7% ahead"/><text x="178.1" y="332.0" class="itemsub" text-anchor="start">actual in-place $1,680</text><circle cx="117.9" cy="350.0" r="7" class="dot c2 hollow" data-tip="Prelude new leases Jan-Apr 2026 (n=28): $1,575 — winter lease-up signed weak"/><text x="129.9" y="354.0" class="itemsub" text-anchor="start">Jan-Apr signings $1,575 (n=28)</text><circle cx="158.3" cy="287.6" r="7" class="dot c2" data-tip="Prelude new leases May-Aug 2026 (n=56): $1,731 — exactly the UW Y1 market rent ($1,730)"/><text x="168.3" y="305.6" class="itemname" text-anchor="start">May-Aug signings $1,731</text><text x="168.3" y="318.6" class="itemsub" text-anchor="start">= UW market rent to the dollar</text><line x1="257.5" y1="278.0" x2="257.5" y2="230.0" class="gapline"/><text x="265.5" y="238.0" class="gaplbl" text-anchor="start">+9%/unit · +19%/SF</text><text x="265.5" y="254.0" class="itemsub" text-anchor="start">the 2024-vs-2018 quality spread</text><line x1="692.0" y1="195.2" x2="692.0" y2="140.0" class="gapline"/><text x="700.0" y="171.6" class="gaplbl" text-anchor="start">+8%</text><text x="850.0" y="76.4" class="seriesnote c1t" text-anchor="start">Seasons UW asking</text><text x="850.0" y="92.4" class="seriesval c1t" text-anchor="start">$2,249 in 2032</text><line x1="80" y1="456" x2="106" y2="456" class="line seasons"/><text x="112.0" y="460.0" class="legendlbl" text-anchor="start">Seasons UW asking rent (steps = annual growth)</text><line x1="448" y1="456" x2="474" y2="456" class="line pencil c2line"/><text x="480.0" y="460.0" class="legendlbl" text-anchor="start">Prelude UW rent/occupied</text><line x1="668" y1="456" x2="694" y2="456" class="line actual"/><text x="700.0" y="460.0" class="legendlbl" text-anchor="start">Prelude actuals 2026</text></svg></div>
+  <p class="src">Sources: Prelude accrual statement Aug-25 to Jul-26 + rent roll w/ lease charges 8/13/26; Prelude acquisition model (Unleveraged); Seasons TMG model (Assumptions, S&amp;A). Per-SF: Prelude 1,016 SF avg, Seasons 932 SF.</p>
+</section>
+
+<section>
+  <p class="secno">Appendix</p>
+  <h2>The five books, one table</h2>
+  <div class="panel" style="padding:0;overflow-x:auto">
+  <table>
+    <thead><tr><th>Deal</th><th>Role</th><th>Units</th><th>$/unit</th><th>$/SF</th><th>Rent /mo</th><th>Rent /SF</th><th>Yield</th><th>Exit $/unit</th><th>Exit cap</th><th>Taxes /u</th><th>Other inc /u</th></tr></thead>
+    <tbody>
+      <tr><td><span class="swatch" style="background:var(--c1)"></span>Seasons at Meridian (bid)</td><td>Target · 2024</td><td>360</td><td>$327.8K</td><td>$351.5</td><td>$1,885</td><td>$2.02</td><td>5.00% Y1</td><td>$400.6K</td><td>5.00%</td><td>$1,340</td><td>$2,736</td></tr>
+      <tr><td><span class="swatch" style="background:var(--c2)"></span>Prelude at Paramount (own)</td><td>Owned · 2018</td><td>280</td><td>$284.8K</td><td>$280.2</td><td>$1,730</td><td>$1.70</td><td>4.95% Y1</td><td>$361.2K</td><td>5.00%</td><td>$1,169</td><td>$2,803</td></tr>
+      <tr><td><span class="swatch" style="background:var(--c3)"></span>Canyon Ridge (award)</td><td>Comp · 2024</td><td>288</td><td>$381.9K</td><td>$429.7</td><td>$2,171</td><td>$2.44</td><td>4.57% Y1</td><td>$442.8K</td><td>4.75%</td><td>$3,428</td><td>$3,002</td></tr>
+      <tr><td><span class="swatch" style="background:var(--c4)"></span>Emblem Meridian (Quarterra)</td><td>Dev · 2028–29</td><td>256</td><td>$304.5K cost</td><td>$324.3</td><td>$2,069</td><td>$2.20</td><td>6.65% ROC</td><td>$400.5K</td><td>5.50%</td><td>$1,501</td><td>$4,207</td></tr>
+      <tr><td><span class="swatch" style="background:var(--c5)"></span>The Judy / MGO (Hawkins)</td><td>Dev · 2027–28</td><td>162</td><td>$257.4K cost</td><td>$283.5</td><td>$1,787</td><td>$1.97</td><td>6.52% ROC*</td><td>$361.6K</td><td>5.25%</td><td>$2,203*</td><td>$3,568</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="src">*As marketed; ~6.15% ROC and ~$3,161/unit at the Boise levy on 95% of their own exit value.
+  Yields: TMG deals = Y1 NOI ÷ price; developments = untrended return on cost (sponsor convention).</p>
+</section>
+
+<div class="footer">
+  <p><strong>Method.</strong> All model figures re-extracted programmatically from the five source workbooks and re-verified 2026-08-13
+  (59/59 checks). Pencil rents solve Emblem's operating pro forma for the base rent required at a target untrended return on cost,
+  holding their vacancy stack, opex, and other income; all components escalate 3%/yr. Land inventory from this repo's
+  parcel-level land-use pipeline. Companion knowledge base: <em>knowledge/Seasons-Meridian-Replacement-Cost-and-Supply-Economics.md</em>
+  and <em>knowledge/deal_metrics.json</em>.</p>
+  <p>Confidential — internal underwriting work product. Not for distribution.</p>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove',function(e){
+      tip.textContent=el.getAttribute('data-tip');
+      tip.style.opacity=1;
+      var x=Math.min(e.clientX+14, window.innerWidth-tip.offsetWidth-10);
+      var y=e.clientY+16; if(y+tip.offsetHeight>window.innerHeight-8) y=e.clientY-tip.offsetHeight-10;
+      tip.style.left=x+'px'; tip.style.top=y+'px';
+    });
+    el.addEventListener('mouseleave',function(){tip.style.opacity=0;});
+  });
+})();
+</script>
+

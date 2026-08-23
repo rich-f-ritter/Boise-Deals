@@ -1,3 +1,72 @@
+# Working Rules for This Repo
+
+This repo is the **system of record** for deal analysis. Chat is ephemeral; sessions end; uploaded files
+disappear. Anything not committed here is lost.
+
+## Knowledge-capture protocol (non-negotiable)
+
+1. **Every analysis lands in the repo the moment it exists.** Any extraction, audit, computed table,
+   agent-research finding, or derived conclusion produced during a session MUST be written to a dated file
+   under `knowledge/` and committed+pushed in the same turn it is produced — before or immediately after
+   reporting it in chat. Chat is for reporting results; the repo is where they live.
+2. **The end-of-turn check:** before ending any turn, ask "does the repo now contain everything learned
+   this turn?" If no — capture it first. A summary bullet in an existing doc does NOT count as capturing
+   the underlying analysis (tables, cell references, methodology, exclusions).
+3. **Uploaded source files that drive conclusions:** copy deliverable-grade workbooks/exhibits into
+   `knowledge/exhibits/`. For large or raw source documents (models, rent rolls, sellers' reports), commit
+   the *extraction* as a knowledge file with provenance (filename, vintage, tab/cell refs) so the analysis
+   is reproducible without the source.
+4. **Supersession, never silent revision.** When a number changes (bid, hold, rent path), add a dated
+   supersession note to the affected doc(s) pointing to the new source. Stale figures must be findable and
+   labeled, not overwritten.
+5. **Provenance on every figure.** Knowledge files cite source file + tab/cell (models), report + vintage
+   (third-party data), or method + n + exclusions (computed analyses).
+
+## Repo map
+
+- `knowledge/` — deal knowledge base (the product). Master doc: `Seasons-Meridian-Replacement-Cost-and-Supply-Economics.md`.
+- `knowledge/exhibits/` — workbooks, charts, build scripts for exhibits.
+- `SeasonsMeridian/`, `CanyonRidge/`, `comparison/`, `summary/`, `research/` — parcel-level land-use /
+  supply-threat analysis (see each dir's methodology.md / decisions_log.md).
+
+## Conventions
+
+- Commit and push (`git push -u origin <branch>`) every time knowledge files change — do not batch at
+  session end.
+- Dated analyses: include "as of" dates in file headers; deal-status snapshots get a date in the filename
+  or header.
+- When starting work in a new deal repo, copy this CLAUDE.md into it first.
+---
+
+# RECONCILIATION NOTE (2026-08-20, merge of key-takeaways branch with audit branch)
+
+Two sessions worked in parallel; this merge unifies them. Known contradictions to resolve — do not
+silently prefer either side:
+
+1. **TWO "v3" MODEL SAVES WITH DIFFERENT DEALS.** The audit's anchors below (from
+   `in/TMG_Seasons_at_Meridian_v3.xlsm`, re-uploaded 8/15): bid $120.0M, basis $122.1M, Y1 cap 4.89%,
+   exit 10/31/2031 @ 5.25% = $396,692/u, ULIRR 8.20% / LIRR 11.21%. The 8/16-uploaded
+   `TMG_Acquisitions_model_7.26 - Seasons_at_Meridian_v3.xlsm` (extracted in
+   `knowledge/Seasons-Model-v3-Extraction.md`): bid $122.0M, Y1 cap 4.76%, 4-yr hold, exit
+   10/31/2030 @ 5.00% = $401,881/u, UIRR 8.75% / LIRR 11.91%. **CONFIRM WITH RR which save is live**
+   before quoting price, hold, exit, or returns. First-round bids were due 8/19/26.
+2. **Replacement cost:** the audit's `research/audit_2026-08/replacement_cost_analysis.md` v3
+   (**$322.5K/u, ~$116.1M**) is the ORIGINAL, evidence-based work and is canonical.
+   `knowledge/Seasons-Replication-Cost-Reconstruction.md` (~$328K/u) was a same-conclusion
+   reconstruction built 8/16 when the original was believed lost — now superseded; kept for the
+   convergence check.
+3. **Pencil-rent conventions:** audit canonical figure = **$2,224/u/mo required (+16.1% vs $1,915 Y1)**
+   on normalized ancillary income (Emblem carries +83% vs subject actuals) at observed +1.7%/yr cost
+   escalation (gap −15.3% FY27 → −7.9% at 2031 exit; never closes). The knowledge/ files' two-tier
+   framing (merchant $1,991–$2,122; like-quality $2,116–$2,257 at 3%/yr escalation) brackets the same
+   conclusion; when one number is needed, use $2,224 / +16.1%.
+4. **Supply rosters:** the IC-slide 15-project proposed roster (3,978u; `knowledge/
+   Seasons-Proposed-Pipeline-Audit.md`) and the audit's probability-weighted pipeline (4,494u → 1,221
+   wtd; Outer Banks upgraded to UNDER CONSTRUCTION 6/17/26, carried OUTSIDE the proposed bucket) are
+   complementary — reconcile denominators before quoting either.
+
+---
+
 # Boise-Deals — Project Knowledge Base
 
 Land-use / supply-threat analyses for Treasure Valley multifamily deals
