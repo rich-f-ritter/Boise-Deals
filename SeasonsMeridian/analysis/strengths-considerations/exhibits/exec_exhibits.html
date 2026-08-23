@@ -99,4 +99,77 @@ YEARS.forEach((row,gi)=>{
 });
 document.getElementById('bars').innerHTML=s;
 </script>
+
+<div class="exh" id="ex4" style="width:1080px">
+  <div class="title">Boise MSA — Historical Rent, Employment &amp; Migration Growth by Lookback (to Mid-2026)</div>
+  <table style="width:1020px">
+    <colgroup><col style="width:330px"><col style="width:105px"><col style="width:105px"><col style="width:105px"><col style="width:110px"><col style="width:110px"><col style="width:110px"></colgroup>
+    <thead><tr><th style="text-align:left">Metric</th><th class="num">1-Yr</th><th class="num">3-Yr</th><th class="num">5-Yr</th><th class="num">10-Yr</th><th class="num">15-Yr</th><th class="num">20-Yr</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>Rent CAGR — best estimate</td><td class="num">+5.9%</td><td class="num">+2.6%</td><td class="num">+2.2%</td><td class="num">+6.5%</td><td class="num">+6.2%</td><td class="num">+5.0%</td></tr>
+      <tr><td style="padding-left:28px">RealPage (asking / effective avg)</td><td class="num">+5.4%</td><td class="num">+2.7%</td><td class="num">+2.4%</td><td class="num">+6.5%</td><td class="num">+6.2%</td><td class="num">+5.0%</td></tr>
+      <tr><td style="padding-left:28px">CoStar (asking / effective avg)</td><td class="num">+6.5%</td><td class="num">+2.4%</td><td class="num">+2.0%</td><td class="num">+3.6%*</td><td class="num">+3.2%*</td><td class="num">+2.5%*</td></tr>
+      <tr><td>Employment CAGR — BLS nonfarm (Jul-to-Jul)</td><td class="num">+0.6%</td><td class="num">+2.1%</td><td class="num">+2.5%</td><td class="num">+3.1%</td><td class="num">+3.3%</td><td class="num">+2.1%</td></tr>
+      <tr><td>Net in-migration — avg persons/yr</td><td class="num">15,855</td><td class="num">11,802</td><td class="num">11,867</td><td class="num">15,121</td><td class="num">12,961</td><td class="num">11,210&#8224;</td></tr>
+    </tbody>
+  </table>
+  <table style="width:1020px; margin-top:14px">
+    <colgroup><col style="width:250px"><col style="width:770px"></colgroup>
+    <thead><tr><th style="text-align:left" colspan="2">Peak Rents</th></tr></thead>
+    <tbody>
+      <tr><td class="bold">Current = all-time high</td><td>Every source at/above record: RealPage effective $1,727 (2026 Q3; $1,739 in Q2), CoStar asking $1,702 (2026 Q3)</td></tr>
+      <tr><td class="bold">Prior peak</td><td>2022 Q2–Q3 — RealPage $1,699 · CoStar $1,615; regained mid-2025 (CoStar) to H1-2026 (RealPage)</td></tr>
+      <tr><td class="bold">Correction</td><td>Trough 2023 Q4 – 2024 Q1: −9.5% (RealPage effective) to −2.5% (CoStar asking); 5-mi same-store −6.6% effective</td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:12.5px; color:#44567A; margin-top:12px; line-height:1.5">
+    *CoStar's backcast overstates pre-2018 rent levels (2016: $1,198 vs RealPage $929 / Yardi survey $941), understating long-run growth — best estimate leans RealPage for 10-yr+, averages all sources for 1–5-yr.&nbsp;&nbsp;
+    &#8224;2010 interpolated. Migration: Placer.ai device panel YE Jun-22–26; Census Bureau county components (Ada·Canyon·Boise·Gem·Owyhee) YE Jul-2007–21. Employment: BLS CES, Boise MSA total nonfarm, NSA July levels.
+  </div>
+</div>
+
+<div class="exh" id="ex5" style="width:1080px">
+  <div class="title">Boise MSA Rents, 2006 – 2026 — The Correction Is Round-Tripped</div>
+  <svg id="linechart" viewBox="0 0 1020 380" width="1020" height="380"></svg>
+  <div class="legend">
+    <span><i style="background:#1F3864"></i>RealPage effective rent</span>
+    <span><i style="background:#7F9DC4"></i>CoStar asking rent</span>
+  </div>
+</div>
+
+<script>
+const RS = {"q": ["2006 Q3", "2006 Q4", "2007 Q1", "2007 Q2", "2007 Q3", "2007 Q4", "2008 Q1", "2008 Q2", "2008 Q3", "2008 Q4", "2009 Q1", "2009 Q2", "2009 Q3", "2009 Q4", "2010 Q1", "2010 Q2", "2010 Q3", "2010 Q4", "2011 Q1", "2011 Q2", "2011 Q3", "2011 Q4", "2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4", "2013 Q1", "2013 Q2", "2013 Q3", "2013 Q4", "2014 Q1", "2014 Q2", "2014 Q3", "2014 Q4", "2015 Q1", "2015 Q2", "2015 Q3", "2015 Q4", "2016 Q1", "2016 Q2", "2016 Q3", "2016 Q4", "2017 Q1", "2017 Q2", "2017 Q3", "2017 Q4", "2018 Q1", "2018 Q2", "2018 Q3", "2018 Q4", "2019 Q1", "2019 Q2", "2019 Q3", "2019 Q4", "2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4", "2021 Q1", "2021 Q2", "2021 Q3", "2021 Q4", "2022 Q1", "2022 Q2", "2022 Q3", "2022 Q4", "2023 Q1", "2023 Q2", "2023 Q3", "2023 Q4", "2024 Q1", "2024 Q2", "2024 Q3", "2024 Q4", "2025 Q1", "2025 Q2", "2025 Q3", "2025 Q4", "2026 Q1", "2026 Q2", "2026 Q3"], "rp": [658.0, 658.0, 658.0, 654.0, 680.0, 680.0, 680.0, 666.0, 688.0, 624.0, 627.0, 664.0, 687.0, 679.0, 626.0, 633.0, 612.0, 676.0, 697.0, 705.0, 693.0, 715.0, 719.0, 724.0, 741.0, 752.0, 754.0, 756.0, 774.0, 779.0, 780.0, 792.0, 811.0, 814.0, 827.0, 839.0, 866.0, 869.0, 882.0, 912.0, 928.0, 945.0, 930.0, 950.0, 969.0, 964.0, 977.0, 1000.0, 1035.0, 1060.0, 1067.0, 1096.0, 1143.0, 1144.0, 1160.0, 1181.0, 1220.0, 1256.0, 1306.0, 1413.0, 1547.0, 1563.0, 1576.0, 1663.0, 1699.0, 1617.0, 1608.0, 1609.0, 1591.0, 1538.0, 1538.0, 1589.0, 1602.0, 1568.0, 1587.0, 1632.0, 1653.0, 1618.0, 1645.0, 1739.0, 1727.0], "cs": [1036.0, 1049.0, 1063.0, 1079.0, 1092.0, 1099.0, 1108.0, 1115.0, 1119.0, 1110.0, 1091.0, 1069.0, 1055.0, 1040.0, 1034.0, 1039.0, 1046.0, 1046.0, 1049.0, 1052.0, 1055.0, 1058.0, 1063.0, 1066.0, 1075.0, 1081.0, 1087.0, 1095.0, 1103.0, 1108.0, 1113.0, 1117.0, 1127.0, 1132.0, 1140.0, 1149.0, 1157.0, 1165.0, 1175.0, 1189.0, 1198.0, 1205.0, 1215.0, 1230.0, 1244.0, 1255.0, 1266.0, 1284.0, 1294.0, 1305.0, 1318.0, 1338.0, 1344.0, 1348.0, 1360.0, 1376.0, 1396.0, 1418.0, 1460.0, 1524.0, 1537.0, 1554.0, 1582.0, 1615.0, 1610.0, 1598.0, 1606.0, 1611.0, 1591.0, 1575.0, 1598.0, 1601.0, 1599.0, 1590.0, 1597.0, 1622.0, 1609.0, 1600.0, 1631.0, 1681.0, 1702.0]};
+(function(){
+  const W=1020,H=380,PL=64,PR=170,PT=30,PB=40;
+  const qs=RS.q, n=qs.length;
+  const vals=[...RS.rp.filter(v=>v),...RS.cs.filter(v=>v)];
+  const vmin=600, vmax=1850;
+  const x=i=>PL+(W-PL-PR)*i/(n-1);
+  const y=v=>PT+(H-PT-PB)*(1-(v-vmin)/(vmax-vmin));
+  let s='';
+  // gridlines + y labels
+  for(let v=600; v<=1800; v+=300){
+    s+=`<line x1="${PL}" y1="${y(v)}" x2="${W-PR}" y2="${y(v)}" stroke="#DCE3EE" stroke-width="1"/>`;
+    s+=`<text x="${PL-8}" y="${y(v)+4}" text-anchor="end" font-size="12" fill="#44567A">$${v.toLocaleString()}</text>`;
+  }
+  // x labels every 4 years
+  qs.forEach((q,i)=>{ if(q.endsWith('Q3') && parseInt(q)%4===2){
+    s+=`<text x="${x(i)}" y="${H-14}" text-anchor="middle" font-size="12" fill="#44567A">${q.slice(0,4)}</text>`;}});
+  function path(arr){ let p=''; arr.forEach((v,i)=>{ if(v!=null){ p+=(p?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1);}}); return p; }
+  s+=`<path d="${path(RS.cs)}" fill="none" stroke="#7F9DC4" stroke-width="2.5"/>`;
+  s+=`<path d="${path(RS.rp)}" fill="none" stroke="#1F3864" stroke-width="2.5"/>`;
+  // annotations on RealPage line
+  function dot(q,v,label,dy,color,bold){
+    const i=qs.indexOf(q);
+    s+=`<circle cx="${x(i)}" cy="${y(v)}" r="5" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+    label.split('|').forEach((ln,k)=>{
+      s+=`<text x="${x(i)+8}" y="${y(v)+dy+k*15}" font-size="12.5" font-weight="${bold?900:700}" fill="${color}">${ln}</text>`;});
+  }
+  dot('2022 Q3',1699,'Prior peak|$1,699 · 2022 Q3',-28,'#1F3864',false);
+  dot('2023 Q4',1538,'Trough $1,538|2023 Q4 · −9.5%',30,'#9A4A2E',false);
+  dot('2026 Q3',1727,'New high|$1,727|+12.3% off trough',-30,'#3A7D44',true);
+  document.getElementById('linechart').innerHTML=s;
+})();
+</script>
+
 </body></html>
