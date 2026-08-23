@@ -20,15 +20,22 @@ CAMPUSES = {
     "roaring":     dict(parcels=["R4239771050", "R4239770510"]),
     "district":    dict(subnm_like=["VANGUARD VILLAGE SUB%"], parcels=["S1215131410"]),
     "tmcrossing":  dict(subnm_like=["TM CROSSING SUB%", "TM CENTER EAST SUB%"]),
-    "silverstone": dict(subnm_like=["RACKHAM SUB%", "ROLLING HILL SUB%", "SILVERSTONE SUB%"],
-                        parcels=["S1116233803"]),   # + St. Luke's campus parcel
+    # Eagle View Landing (Ahlquist; north of Overland to I-84) + St. Luke's + Norco plats
+    "eagleview":   dict(subnm_like=["RACKHAM SUB%", "ROLLING HILL SUB%", "OXYGEN SUB%"],
+                        parcels=["S1116233803"]),
+    # Silverstone Business Campus (Sundance; entirely south of Overland)
+    "silverstonebp": dict(subnm_like=["SILVERSTONE SUB%"]),
     "eldorado":    dict(subnm_like=["BONITO SUB%", "EL DORADO SUB%"]),
     "scentsy":     dict(subnm_like=["SCENTSY COMMONS SUB%"]),
     "wincowells2": dict(parcels=["S1117438630"]),  # adjacent 18-ac WinCo retail site (plat not yet in GIS layer)
     "touchmark":   dict(parcels=["S1116120662", "S1116131260"]),  # Touchmark Meadow Lake Village campus + undeveloped land
     # Franklin-Lanark employment belt: every commercial/industrial parcel between
     # Franklin Rd and the rail corridor, Locust Grove to Nola (PROPCODE C in envelope)
-    "beltFL":      dict(envelope=[-116.3765, 43.6048, -116.3390, 43.6165], propcode="C", min_component_ac=20.0),
+    # Franklin-Pine employment corridor: commercial/industrial parcels from Franklin Rd
+    # to Pine Ave / the UPRR line; Scentsy, Blue Cross (Gemtone) and the Lewis & Clark
+    # school parcel are excluded — they are mapped separately
+    "beltFP":      dict(envelope=[-116.3765, 43.6048, -116.3390, 43.6165], propcode="C", min_component_ac=20.0,
+                        exclude="SUBNM NOT LIKE 'SCENTSY%' AND SUBNM NOT LIKE 'GEMTONE%' AND PARCEL <> 'S1109427812'"),
 }
 
 def query(where):
@@ -44,13 +51,14 @@ def query(where):
             return feats
         offset += 200
 
-def query_envelope(env, propcode):
+def query_envelope(env, propcode, exclude=None):
+    where = f"PROPCODE = '{propcode}'" + (f' AND {exclude}' if exclude else '')
     feats, offset = [], 0
     while True:
         params = {'f': 'json', 'geometry': json.dumps({"xmin": env[0], "ymin": env[1], "xmax": env[2],
                   "ymax": env[3], "spatialReference": {"wkid": 4326}}),
                   'geometryType': 'esriGeometryEnvelope', 'inSR': '4326',
-                  'spatialRel': 'esriSpatialRelIntersects', 'where': f"PROPCODE = '{propcode}'",
+                  'spatialRel': 'esriSpatialRelIntersects', 'where': where,
                   'outFields': 'PARCEL,ACRES,SUBNM', 'returnGeometry': 'true', 'outSR': '4326',
                   'resultOffset': offset, 'resultRecordCount': 200}
         d = json.load(urllib.request.urlopen(BASE + urllib.parse.urlencode(params), timeout=60))
@@ -62,7 +70,7 @@ def query_envelope(env, propcode):
 
 def outline(spec):
     if spec.get('envelope'):
-        feats = query_envelope(spec['envelope'], spec.get('propcode', 'C'))
+        feats = query_envelope(spec['envelope'], spec.get('propcode', 'C'), spec.get('exclude'))
         return dissolve(feats, min_component_ac=spec.get('min_component_ac', 0))
     clauses = []
     for s in spec.get('subnm_like', []):
