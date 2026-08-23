@@ -152,7 +152,7 @@ ROADS.forEach(r=>{
 // subject
 L.circleMarker(SUBJ,{radius:13,color:'#B02418',weight:3,fillColor:'#F2C230',fillOpacity:1}).addTo(map)
   .bindPopup('<b>Seasons at Meridian</b><br>2700 E Overland Rd · 360 units · 2024');
-L.marker([43.5883,-116.3536],{icon:L.divIcon({className:'subjlbl',html:'SEASONS AT MERIDIAN',iconSize:null}),interactive:false}).addTo(map);
+L.marker([43.5957,-116.3608],{icon:L.divIcon({className:'subjlbl',html:'SEASONS AT MERIDIAN',iconSize:null}),interactive:false}).addTo(map);
 
 // POI layers — numbered badges; area polygons for large key places
 const groups={}, catMeta={};
