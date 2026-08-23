@@ -221,7 +221,8 @@ def main():
                    "Apartment Threat", "What the threat means"])
     torder = {"High": 0, "Medium": 1, "Unknown": 2, "Low": 3}
     rows_z.sort(key=lambda r: (torder.get(r["MF Threat (if vacant)"], 9), r["Category"], r["Base Zone"]))
-    zr = [[r["Jurisdiction"], r["Base Zone"], zplain.get(r["Base Zone"], r["Base Zone"]),
+    zr = [[r["Jurisdiction"], r["Base Zone"],
+           zplain.get(f'{r["Jurisdiction"]}:{r["Base Zone"]}', zplain.get(r["Base Zone"], r["Base Zone"])),
            r["Category"], r["MF Threat (if vacant)"],
            P.THREAT_DEF.get(threat_word(r["MF Threat (if vacant)"]), "")] for r in rows_z]
     body(ws, 5, zr, [22, 12, 28, 30, 14, 52], wrapcols=(2, 3, 5), threatcol=4)

@@ -114,7 +114,10 @@ def main():
         else:
             juris = "(no public zoning)"
 
-        zp = zplain.get((zcode or "").strip(), zcode or "—")
+        zc = (zcode or "").strip()
+        # jurisdiction-qualified plain label ("City of Eagle:R-15") wins over the flat key,
+        # so a code shared across cities can't borrow another city's description
+        zp = zplain.get(f"{juris}:{zc}", zplain.get(zc, zc or "—"))
         # gov/airport-owned land: nominal residential zoning is meaningless for MF supply
         if bucket == "Public / Airport / Institutional":
             category, threat, zp = "Public / Airport / Institutional", "Low", "Public / exempt"

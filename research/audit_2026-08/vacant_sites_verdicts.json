@@ -6566,5 +6566,33 @@
   "verdict": "None",
   "note": "Fast triage: 1.04-ac City of Boise R-1C large-lot single-family parcel \u2014 cannot host MF, too small regardless.",
   "sources": []
+ },
+ {
+  "location": "12408 W AMITY RD",
+  "account": "S1128449083",
+  "dist_mi": 2.32,
+  "acres": 11.38,
+  "zoning": "Ada County:RSW",
+  "status": "newly vacant-coded (appeared in the Aug 23, 2026 refresh pull)",
+  "verdict": "Low",
+  "units_potential": null,
+  "note": "11.38-ac 2-parcel cluster newly carried as vacant land in the county roll since the July pull. Ada County RSW (residential subdivision) zoning - a single-family plat trajectory; multifamily is not permitted by the base zone and the parcel sits in the county (annexation + rezone required before any MF basis). Consistent with a rural subdivision being platted out. Low.",
+  "sources": [
+   "Ada County Assessor parcel roll 2026-08-23 (PROPCODE L, ZONING RSW)"
+  ]
+ },
+ {
+  "location": "TBD (R9311720100/R9311720200, W Meridian ~4.5 mi NW)",
+  "account": "R9311720100",
+  "dist_mi": 4.46,
+  "acres": 3.12,
+  "zoning": "City of Meridian:R-4",
+  "status": "newly vacant-coded plat lots (appeared in the Aug 23, 2026 refresh pull)",
+  "verdict": "Low",
+  "units_potential": null,
+  "note": "3.12-ac 2-parcel cluster of fresh plat lots with no situs address yet, zoned Meridian R-4 (medium-low density, 4 du/ac - no multifamily). Ordinary single-family subdivision inventory at the ring's NW edge. Low.",
+  "sources": [
+   "Ada County Assessor parcel roll 2026-08-23 (PROPCODE L, ZONING R-4)"
+  ]
  }
 ]

@@ -155,3 +155,25 @@ Reasoned ranking rewritten (in/reasoned_ranking.json): Pine 43, Outer Banks, Emb
 (dormant-entitled), Tanner Creek, Graycliff R-40, Ten Mile/District node lead; 2600 E Overland
 carried as Low-Watch (dead, documented); Latitude 43 Low (for-sale SF); Kleiner Trust 72 ac
 Low-Watch (inert). Unverifiable items are labeled as data gaps, never guessed.
+
+## Refresh — August 23, 2026 (full re-pull + recheck)
+- Trigger: user-flagged "discrepancies" (1999 S Gedalio Ln, 2015 E Victory Rd) — both verified
+  correct against the live roll (see `research/audit_2026-08/landuse_zoning_spotcheck_2026-08-23.md`);
+  a full data refresh was then run to bring every layer current.
+- Re-pulled everything: 92,792 parcels (July: 92,790), 1,545 zoning polys (7 jurisdictions),
+  112,605 attribute rows, FLU (Boise 149 / Meridian 582 / Ada 25 polys). Zero unmapped zone or
+  land-use codes. Bucket shifts vs July are noise-level: Vacant Land 10,810 → 10,800 (lots built
+  out), SFR +13, Commercial +1, Ag −1.
+- Developable-vacant clusters: 552 → 554. Two clusters changed composition via replats
+  (S Linder Rd 391-ac cluster: one parcel renumbered R6961010010→R6961010011; S Meridian Rd
+  cluster: 69.4→70.2 ac with two renumbered Kuna parcels incl. a C-1 sliver). Two genuinely new
+  clusters, both reasoned Low: 12408 W AMITY RD (11.38 ac, Ada RSW, 2.32 mi — SF plat trajectory)
+  and an unaddressed 3.12-ac Meridian R-4 pair at the NW edge (4.46 mi). All 552 prior verdicts
+  re-join the fresh cluster set with no orphans; the 19-site reasoned ranking re-joins unchanged.
+- Entitlement recheck (web, 8/23): Syringa Crossing (H-2025-0007) was re-heard by P&Z 8/6/2026
+  after Council remanded the April denial recommendation — outcome NOT yet published; noted in
+  ranking #6. Rolling Hill (Assemble) confirmed APPROVED by Council 5/19/2026 at 200u + 19.5k sf
+  commercial (already carried as pipeline in the supply chart; its site is not vacant-coded land).
+  Emblem (2820 S Eagle) June 2026 early plans already reflected in ranking #3. Hawkins' new
+  252-unit Ustick/McDermott filing (BoiseDev 8/6/2026) is OUTSIDE the 5-mi ring — noted, excluded.
+  Centrepoint 213u + Delano 84u verified already tracked in the supply roster (no gap).
