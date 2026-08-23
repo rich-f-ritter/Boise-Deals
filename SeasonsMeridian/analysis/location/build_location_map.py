@@ -54,6 +54,11 @@ def main():
     for p in POIS:
         seq[p['cat']] = seq.get(p['cat'], 0) + 1
         p['n'] = seq[p['cat']]
+    # attach true parcel outlines (list of rings) fetched by fetch_parcel_outlines.py
+    outlines = json.loads((HERE / 'parcel_outlines.json').read_text())
+    for p in POIS:
+        if p.get('pkey'):
+            p['poly'] = outlines[p['pkey']]
 
     newdev = load_newdev()
     supply_map = (REPO / 'SeasonsMeridian' / 'Seasons at Meridian - Supply Map.html').read_text()
@@ -163,8 +168,10 @@ POIS.forEach(p=>{
   const c=catMeta[p.cat];
   const pop='<b>'+p.n+'. '+p.name+'</b><br>'+(p.note||'')+(p.d?'<br><i>'+p.d+' mi from subject</i>':'');
   if(p.poly){
-    L.polygon(p.poly,{color:c.color,weight:2.5,opacity:.95,fillColor:c.color,fillOpacity:.14})
-      .bindPopup(pop).addTo(groups[p.cat]);
+    p.poly.forEach(ring=>{
+      L.polygon(ring,{color:c.color,weight:2.5,opacity:.95,fillColor:c.color,fillOpacity:.14})
+        .bindPopup(pop).addTo(groups[p.cat]);
+    });
   }
   const at=p.badge||[p.lat,p.lon];
   L.marker(at,{icon:badge(p,c,!!p.poly)}).bindPopup(pop).addTo(groups[p.cat]);
