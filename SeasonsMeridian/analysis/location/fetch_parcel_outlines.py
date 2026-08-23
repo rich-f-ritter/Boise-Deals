@@ -26,6 +26,9 @@ CAMPUSES = {
     "scentsy":     dict(subnm_like=["SCENTSY COMMONS SUB%"]),
     "wincowells2": dict(parcels=["S1117438630"]),  # adjacent 18-ac WinCo retail site (plat not yet in GIS layer)
     "touchmark":   dict(parcels=["S1116120662", "S1116131260"]),  # Touchmark Meadow Lake Village campus + undeveloped land
+    # Franklin-Lanark employment belt: every commercial/industrial parcel between
+    # Franklin Rd and the rail corridor, Locust Grove to Nola (PROPCODE C in envelope)
+    "beltFL":      dict(envelope=[-116.3765, 43.6048, -116.3390, 43.6165], propcode="C", min_component_ac=20.0),
 }
 
 def query(where):
@@ -41,13 +44,35 @@ def query(where):
             return feats
         offset += 200
 
+def query_envelope(env, propcode):
+    feats, offset = [], 0
+    while True:
+        params = {'f': 'json', 'geometry': json.dumps({"xmin": env[0], "ymin": env[1], "xmax": env[2],
+                  "ymax": env[3], "spatialReference": {"wkid": 4326}}),
+                  'geometryType': 'esriGeometryEnvelope', 'inSR': '4326',
+                  'spatialRel': 'esriSpatialRelIntersects', 'where': f"PROPCODE = '{propcode}'",
+                  'outFields': 'PARCEL,ACRES,SUBNM', 'returnGeometry': 'true', 'outSR': '4326',
+                  'resultOffset': offset, 'resultRecordCount': 200}
+        d = json.load(urllib.request.urlopen(BASE + urllib.parse.urlencode(params), timeout=60))
+        f = d.get('features', [])
+        feats += f
+        if len(f) < 200:
+            return feats
+        offset += 200
+
 def outline(spec):
+    if spec.get('envelope'):
+        feats = query_envelope(spec['envelope'], spec.get('propcode', 'C'))
+        return dissolve(feats, min_component_ac=spec.get('min_component_ac', 0))
     clauses = []
     for s in spec.get('subnm_like', []):
         clauses.append(f"SUBNM LIKE '{s}'")
     for p in spec.get('parcels', []):
         clauses.append(f"PARCEL = '{p}'")
     feats = query(' OR '.join(clauses))
+    return dissolve(feats)
+
+def dissolve(feats, min_component_ac=0):
     polys = []
     for f in feats:
         for ring in f.get('geometry', {}).get('rings', []):
@@ -56,11 +81,13 @@ def outline(spec):
     if not polys:
         return None, 0, 0
     # small buffer closes slivers between adjacent parcels (roads/ROW stay holes if wide)
-    u = unary_union([p.buffer(3e-5) for p in polys]).buffer(-3e-5).simplify(1.5e-5)
+    grow = 2.4e-4 if min_component_ac else 3e-5   # corridors: bridge road gaps between parcels
+    u = unary_union([p.buffer(grow) for p in polys]).buffer(-grow).simplify(1.5e-5)
     acres = sum(f['attributes']['ACRES'] or 0 for f in feats)
     geoms = list(u.geoms) if isinstance(u, MultiPolygon) else [u]
     # drop crumbs, keep exterior rings only (holes are parcel-data slivers at this scale)
-    geoms = [g for g in geoms if g.area > 2e-7]
+    min_area = max(2e-7, min_component_ac * 4.0e-7 / 0.988)  # ~acres to deg^2 at this latitude
+    geoms = [g for g in geoms if g.area > min_area]
     rings = [[[round(y, 6), round(x, 6)] for x, y in g.exterior.coords] for g in geoms]
     return rings, len(feats), round(acres, 1)
 

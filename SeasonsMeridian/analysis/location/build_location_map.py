@@ -150,7 +150,7 @@ ROADS.forEach(r=>{
 });
 
 // subject
-L.circleMarker(SUBJ,{radius:13,color:'#B02418',weight:3,fillColor:'#F2C230',fillOpacity:1}).addTo(map)
+L.circleMarker(SUBJ,{radius:14,color:'#B02418',weight:3.5,fillColor:'#F2C230',fillOpacity:1}).addTo(map)
   .bindPopup('<b>Seasons at Meridian</b><br>2700 E Overland Rd · 360 units · 2024');
 L.marker([43.5957,-116.3608],{icon:L.divIcon({className:'subjlbl',html:'SEASONS AT MERIDIAN',iconSize:null}),interactive:false}).addTo(map);
 
@@ -159,9 +159,9 @@ const groups={}, catMeta={};
 CATS.forEach(c=>{groups[c.id]=L.layerGroup().addTo(map);catMeta[c.id]=c;});
 const ndGroup=L.layerGroup(); groups['newdev']=ndGroup;
 function badge(p,c,big){
-  const s=big?26:20;
+  const s=big?30:22;
   return L.divIcon({className:'',iconSize:[s,s],iconAnchor:[s/2,s/2],
-    html:'<div class="pin" style="width:'+s+'px;height:'+s+'px;background:'+c.color+';font-size:'+(big?13:11.5)+'px">'+p.n+'</div>'});
+    html:'<div class="pin" style="width:'+s+'px;height:'+s+'px;background:'+c.color+';font-size:'+(big?14.5:12.5)+'px">'+p.n+'</div>'});
 }
 const jumpTargets={};
 POIS.forEach(p=>{
@@ -169,7 +169,7 @@ POIS.forEach(p=>{
   const pop='<b>'+p.n+'. '+p.name+'</b><br>'+(p.note||'')+(p.d?'<br><i>'+p.d+' mi from subject</i>':'');
   if(p.poly){
     p.poly.forEach(ring=>{
-      L.polygon(ring,{color:c.color,weight:2.5,opacity:.95,fillColor:c.color,fillOpacity:.14})
+      L.polygon(ring,{color:c.color,weight:3,opacity:.97,fillColor:c.color,fillOpacity:.13})
         .bindPopup(pop).addTo(groups[p.cat]);
     });
   }

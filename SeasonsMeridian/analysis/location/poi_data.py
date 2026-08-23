@@ -20,13 +20,11 @@ POIS = [
     # ---- Employment & medical ----
     dict(cat="emp", name="Silverstone / Eagle View Landing campus", lat=43.5936, lon=-116.3474, d=0.62,
          pkey="silverstone", badge=[43.5889, -116.3504],
-         note="Twin master-planned employment campus east of Eagle Rd: St. Luke's, ICCU Building (125K SF, 2020), POWER Engineers building, Topgolf, Hyatt Place. With El Dorado across Eagle it absorbed 28 tenant move-ins / ~399,000 SF in the last 2 years (GCU, Disco Hi-Tec America, Nightforce Optics, Great West Casualty, Ardurra...); 22 office buildings / 914,000 SF built since 2020 within 1.25 mi of the subject; CoStar's tenant roster counts 49 tenants ≥10K SF / 2.5M SF / ~4,900 reported jobs across the combined node."),
+         note="Twin master-planned employment campus east of Eagle Rd: St. Luke's, ICCU Building (125K SF, 2020), POWER Engineers building, Amazon's PillPack pharmacy (82,000 SF, ~548 employees), Topgolf, Hyatt Place. With El Dorado across Eagle it absorbed 28 tenant move-ins / ~399,000 SF in the last 2 years (GCU, Disco Hi-Tec America, Nightforce Optics, Great West Casualty, Ardurra...); 22 office buildings / 914,000 SF built since 2020 within 1.25 mi of the subject; CoStar's tenant roster counts 49 tenants ≥10K SF / 2.5M SF / ~4,900 reported jobs across the combined node."),
     dict(cat="emp", name="St. Luke's Meridian", lat=43.599387, lon=-116.352281, d=0.65,
          note="520 S Eagle Rd · 550,000-SF full-service hospital (Level IV trauma, Level II NICU); anchor of the Eagle Rd & I-84 medical node."),
     dict(cat="emp", name="POWER Engineers HQ bldg", lat=43.596282, lon=-116.341949, d=0.99,
          note="1032 S Silverstone Way · 150,000-SF office (2023, Eagle View Landing); POWER Engineers (global engineering firm) took 90,000 SF in Aug 2025."),
-    dict(cat="emp", name="PillPack by Amazon Pharmacy", lat=43.58803, lon=-116.350551, d=0.58,
-         note="1820 S Silverstone Way · 82,000 SF, ~548 employees (CoStar) — Amazon's mail-order pharmacy operation in the Silverstone campus."),
     dict(cat="emp", name="El Dorado Business Campus", lat=43.5872, lon=-116.3583, d=0.38,
          pkey="eldorado", badge=[43.5862, -116.3573],
          note="85-acre office/medical campus at the SW corner of Eagle & Overland, directly across from the subject: Cottonwood Creek Behavioral Hospital (59,500 SF, Mar 2025), Veranda Plaza & Catalina Place medical, ICOM admin offices, Northpoint Recovery."),
@@ -44,7 +42,8 @@ POIS = [
     dict(cat="emp", name="Blue Cross of Idaho HQ", lat=43.613854, lon=-116.357163, d=1.52,
          note="3000 E Pine Ave · 238,000-SF HQ; ~600 employees per CoStar (earlier corporate figures cite 850+)."),
     dict(cat="emp", name="Franklin–Lanark employment belt", lat=43.6068, lon=-116.3560, d=1.05,
-         note="The industrial/flex corridor between Franklin and Pine, Eagle Rd east: 68 tenants ≥10K SF / 2.8M SF / ~5,400 reported jobs (CoStar) — Scentsy, Blue Cross, Albertsons' 253K-SF distribution center, Shamrock Foods (125K), RC Willey (159K), Coca-Cola bottling, Francini (580 jobs), JST, Bastian Solutions, Idaho DOC offices, Idaho Foodbank."),
+         pkey="beltFL", badge=[43.6068, -116.3560],
+         note="The industrial/flex corridor between Franklin and Pine, Eagle Rd east: 68 tenants ≥10K SF / 2.8M SF / ~5,400 reported jobs (CoStar) — Scentsy, Blue Cross, Albertsons' 253K-SF distribution center, Shamrock Foods (125K), RC Willey (159K), Coca-Cola bottling, Francini (580 jobs), JST, Bastian Solutions, Idaho DOC offices, Idaho Foodbank. Outline = every commercial/industrial parcel in the corridor, dissolved."),
     dict(cat="emp", name="Micron — Meridian facility", lat=43.609288, lon=-116.350818, d=1.29,
          note="3475 E Commercial Ct · 61,000 SF, ~300 employees (CoStar) — Micron operations inside the ring, separate from the Federal Way fab campus."),
     dict(cat="emp", name="Touchmark / Meadow Lake Village (master-plan refresh)", lat=43.6030, lon=-116.3440, d=0.99,
@@ -65,8 +64,6 @@ POIS = [
          note="Eagle & Fairview · ~1M-SF open-air lifestyle center (CenterCal): Village Cinema luxury theater, summer concert series. Phase II (80,000 SF, 6 buildings — Williams Sonoma, Pottery Barn, The Capital Grille, Culinary Dropout, Vuori, Alo...) opens Sept 2026 – Feb 2027."),
     dict(cat="retail", name="Scheels (2024)", lat=43.598333, lon=-116.426505, d=3.31,
          note="700 S Wayfinder Ave (Ten Mile Crossing) · 240,000-SF flagship opened Apr 2024 — Idaho's largest sporting-goods store; 56-ft indoor Ferris wheel; ~500 employees."),
-    dict(cat="retail", name="Costco #2 — Meridian & Lake Hazel (UC)", lat=43.5465, lon=-116.3935, d=3.53,
-         note="S Meridian Rd & W Lake Hazel Rd · ~200,000-SF Costco (one of the chain's largest) + 16-pump fuel station, under construction, opening late 2026 — makes Meridian the only Idaho city with two Costcos. Location approximate."),
     dict(cat="retail", name="In-N-Out (Idaho's first)", lat=43.619991, lon=-116.351393, d=1.98,
          note="3520 E Fairview Ave (at the Village) · opened Dec 2023 as Idaho's first In-N-Out."),
     dict(cat="retail", name="WinCo Foods (24-hr)", lat=43.596211, lon=-116.389733, d=1.47,
@@ -118,8 +115,6 @@ POIS = [
          note="2400 S Stoddard Rd · 19-acre neighborhood park."),
     dict(cat="park", name="Storey Park & Bark Park", lat=43.60258, lon=-116.388273, d=1.55,
          note="Downtown Meridian · 14-acre park + 2.25-acre dog park."),
-    dict(cat="park", name="Discovery Park", lat=43.543371, lon=-116.366942, d=3.37,
-         note="2121 E Lake Hazel Rd · 64-acre regional park (Phase II 2023)."),
 
     # ---- Metro anchors beyond the ring ----
     dict(cat="far", name="Downtown Boise", lat=43.61512, lon=-116.201382, d=8.14,
@@ -148,4 +143,4 @@ FOOTER_NOTE = ("Companion to strength H45 (Location) in 'Seasons at Meridian - S
                "POIs verified Aug 23, 2026 (ITD/ACHD/COMPASS traffic data; city, district and press sources; CoStar). "
                "School assignments verified point-in-polygon against West Ada's own ArcGIS attendance layers (current zones and the adopted 2026-27 redraw agree: Pepper Ridge ES / Lewis &amp; Clark MS / Mountain View HS). "
                "Area outlines are TRUE parcel lines from the Ada County parcels layer (dissolved per campus; fetch_parcel_outlines.py). Gray dots = every non-multifamily commercial building &ge;20,000 SF built or under construction since 2020 within 5 mi (CoStar) — toggle on in Layers. "
-               "Distances are straight-line from the subject. The Costco (Lake Hazel), District at Ten Mile and Meta Kuna positions are approximate site centroids.")
+               "Distances are straight-line from the subject. The District at Ten Mile and Meta Kuna positions are approximate site centroids.")
