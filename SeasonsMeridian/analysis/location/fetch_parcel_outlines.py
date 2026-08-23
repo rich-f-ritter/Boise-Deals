@@ -25,6 +25,7 @@ CAMPUSES = {
     "eldorado":    dict(subnm_like=["BONITO SUB%", "EL DORADO SUB%"]),
     "scentsy":     dict(subnm_like=["SCENTSY COMMONS SUB%"]),
     "wincowells2": dict(parcels=["S1117438630"]),  # adjacent 18-ac WinCo retail site (plat not yet in GIS layer)
+    "touchmark":   dict(parcels=["S1116120662", "S1116131260"]),  # Touchmark Meadow Lake Village campus + undeveloped land
 }
 
 def query(where):
