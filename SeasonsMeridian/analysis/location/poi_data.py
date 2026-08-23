@@ -102,8 +102,6 @@ POIS = [
          note="2009 S Wells Ave · Idaho's first Goddard School franchise — premium preschool/daycare, a 2-minute drive from the subject."),
     dict(cat="edu", name="Primrose School of South Meridian", lat=43.576978, lon=-116.353816, d=1.07,
          note="3060 S Eagle Rd · new Primrose location (12,700 SF, opened late 2025 per CoStar) — second national early-education brand at the node."),
-    dict(cat="edu", name="Everbrook Academy", lat=43.560468, lon=-116.350828, d=2.22,
-         note="4845 S Tavistock Ave · new early-education academy (11,300 SF, 2025 per CoStar), south Meridian."),
     dict(cat="edu", name="Cole Valley Christian (private)", lat=43.614176, lon=-116.39017, d=2.30,
          note="200 E Carlton Ave · private K-12 option."),
 

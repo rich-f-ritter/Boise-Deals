@@ -33,9 +33,10 @@ CAMPUSES = {
     # Franklin-Lanark employment belt: every commercial/industrial parcel between
     # Franklin Rd and the rail corridor, Locust Grove to Nola (PROPCODE C in envelope)
     # Franklin-Pine employment corridor: commercial/industrial parcels from Franklin Rd
-    # to Pine Ave / the UPRR line; Scentsy, Blue Cross (Gemtone) and the Lewis & Clark
-    # school parcel are excluded — they are mapped separately
-    "beltFP":      dict(envelope=[-116.3765, 43.6048, -116.3390, 43.6165], propcode="C", min_component_ac=20.0,
+    # to Pine Ave / the UPRR line, Eagle Rd to Nola; Scentsy, Blue Cross (Gemtone) and the
+    # Lewis & Clark school parcel are excluded, and the east edge stops short of the
+    # Cloverdale/Executive Dr pocket (a separate Fairview-oriented office park)
+    "beltFP":      dict(envelope=[-116.3765, 43.6048, -116.3430, 43.6165], propcode="C", min_component_ac=20.0,
                         exclude="SUBNM NOT LIKE 'SCENTSY%' AND SUBNM NOT LIKE 'GEMTONE%' AND PARCEL <> 'S1109427812'"),
 }
 
