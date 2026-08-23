@@ -30,3 +30,15 @@
    - Direction of flow: land-use analysis = latent capacity (could be built);
      supply chart = tracked pipeline (is being built / formally proposed). The
      crosswalk is the bridge that prevents double-counting between the two.
+
+## How to read LAND USE vs ZONING (added Aug 23, 2026)
+
+The two layers answer different questions and are supposed to disagree in places:
+LAND USE = what is physically on the parcel today (assessor PROPCODE); ZONING = what the
+ordinance legally allows. The difference IS the analytic signal — vacant/farm use inside a
+high-density zone is latent apartment supply; a built-out R-15 subdivision (e.g. Movado, off
+S Gedalio Ln) is consumed land and no threat despite its multifamily-capable zoning; a
+homestead on RUT acreage (e.g. 2015 E Victory Rd, ~60 ac) is a rural holding pattern that
+needs annexation + rezone before it can matter, tracked in the ranchette overlay. Spot-check
+verifying both examples against the live county roll:
+`research/audit_2026-08/landuse_zoning_spotcheck_2026-08-23.md`.
