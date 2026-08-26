@@ -1,0 +1,57 @@
+{
+ "impact_tiers": [
+  [
+   "\u2264 1,200 SF",
+   1200,
+   190,
+   470,
+   1946
+  ],
+  [
+   "1,201 \u2013 1,700 SF",
+   1700,
+   294,
+   726,
+   3006
+  ],
+  [
+   "1,701 \u2013 2,500 SF",
+   2500,
+   402,
+   995,
+   4119
+  ],
+  [
+   "2,501 \u2013 3,200 SF",
+   3200,
+   482,
+   1192,
+   4935
+  ],
+  [
+   "\u2265 3,201 SF",
+   99999,
+   542,
+   1339,
+   5544
+  ]
+ ],
+ "water_assessment": 1696,
+ "sewer_assessment": 5807,
+ "jail_mf": 357,
+ "achd": {
+  "FY23 MF low-rise (Ord. 246A, superseded)": 1895,
+  "FY23 MF mid-rise (Ord. 246A, superseded)": 1449,
+  "Ord. 254 adopted MF rate (as reported)": 2371,
+  "Quarterra assumption (Emblem model)": 2968.91,
+  "Ord. 254 Single Family Attached (proxy)": 3182,
+  "Ord. 254 Single Family": 5803
+ },
+ "permit_formula": "$50 + $5.50 per $1,000 project value",
+ "subject_units": 360,
+ "stack_total": 6320267.91,
+ "stack_per_unit": 17556.299750000002,
+ "emblem_total": 4459158.99,
+ "emblem_per_unit": 17418.5898046875,
+ "emblem_pct_of_budget": 0.05719831294405132
+}

@@ -113,6 +113,36 @@ so the question is whether it outlasts the hold. It does, on both bookends:
 - The two risks are **compatible**: our UW does not generate enough rent growth to restore
   feasibility before we sell. They conflict only in a high-growth world.
 
+## MERIDIAN DEVELOPMENT FEE STACK (verified vs. primary sources 8/26/2026)
+Deliverable: `SeasonsMeridian/Meridian Development Fees.xlsx` (built by
+`research/audit_2026-08/build_meridian_fee_workbook.py`); source PDFs/XLSX cached in
+`research/audit_2026-08/fees/`. **~$17,400-17,600/unit = ~5.7% of all-in development cost.**
+- **Meridian city impact fees are tiered by AVERAGE UNIT SIZE** (climate-controlled SF / units,
+  NOT net rentable). Garden MF lands in the lowest tier: **parks $1,946 + fire $470 +
+  police $190 = $2,606/unit**. Tiers: <=1,200 / 1,701-2,500 / 2,501-3,200 / >=3,201 SF ->
+  city totals $2,606 / $4,026 / $5,516 / $6,609 / $7,425.
+- **Building permit = $50 + $5.50 per $1,000 of project value**; building plan review = **65%**
+  of the permit fee, fire plan review = **30%** (so review is 95% of permit — nearly double it).
+- **Water assessment $1,696/u and sewer assessment $5,807/u** (flat, per unit), effective
+  **6/1/2026** — up from $1,514 / $5,411 = **+$578/unit**. Sewer alone is a third of the stack.
+- **Ada County jail impact fee = $357/unit MF** ($516 SF), collected by the cities. An Ada
+  County **EMS impact fee** is moving alongside it — NOT yet in any budget we have. Watch it.
+- **ACHD transportation is the live uncertainty.** Ordinance 254 (eff. **3/1/2026**) DELETED the
+  published Multifamily Low-Rise/Mid-Rise categories; Meridian's own builder notice reads
+  *"Multi-Family/Commercial Permits: Contact ACHD Impact Fee Team for Assessment."* Anchors:
+  old FY23 MF low-rise **$1,895**; adopted MF rate reported at **$2,371**; SF Attached (nearest
+  published proxy) **$3,182**; SF **$5,803**. Quarterra carried **$2,969**. Range = $1,287/unit
+  of swing (~$463k on 360 units, ~1.7% of development cost). **Never quote an ACHD MF number
+  without saying it is an assessment, not a published rate.**
+- **Quarterra's Emblem fee build ties EXACTLY to Meridian's published 3/1/2026 calculator** on
+  every city-controlled line (permit, 65/30 review, $190/$470/$1,946 impact, $1,514 water,
+  $5,411 sewer). Their build is sound; only ACHD is an estimate, and it is ~$598/u high — which
+  roughly offsets their pre-6/1 water/sewer rates being ~$578/u low.
+- meridiancity.org main pages are Cloudflare-challenged and achdidaho.org is Akamai-blocked from
+  this container, but **`meridiancity.org/media/<slug>/<file>` downloads fine**, and
+  `r.jina.ai/<url>` renders the page so you can harvest those slugs. adacounty.id.gov,
+  more.achdidaho.org, engage.achdidaho.org and staridaho.org are all reachable directly.
+
 ## Ada County data facts (hard-won)
 - Parcels: `services2.arcgis.com/dgGjZc6xAH5m5JyP/.../Parcels/FeatureServer/5`
   (PARCEL, ADDRESS, PROPCODE R/C/F/L/M, ZONING, ACRES, TOTALVALUE, SUBNM).
